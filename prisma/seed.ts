@@ -1,34 +1,18 @@
-import { prisma } from '../src/generated/prisma-client'
+import { prisma } from "../src/generated/prisma-client";
 
 async function main() {
   await prisma.createAccount({
-    email: 'alice@prisma.io',
-    name: 'Alice',
-    posts: {
-      create: {
-        title: 'Join us for Prisma Day 2019 in Berlin',
-        content: 'https://www.prisma.io/day/',
-        published: true,
-      },
-    },
-  })
+    username: "User",
+    email: "user@example.com",
+    // "secret42"
+    password: "$2b$10$dqyYw5XovLjpmkYNiRDEWuwKaRAvLaG45fnXE5b3KTccKZcRPka2m"
+  });
   await prisma.createAccount({
-    email: 'bob@prisma.io',
-    name: 'Bob',
-    posts: {
-      create: [
-        {
-          title: 'Subscribe to GraphQL Weekly for community news',
-          content: 'https://graphqlweekly.com/',
-          published: true,
-        },
-        {
-          title: 'Follow Prisma on Twitter',
-          content: 'https://twitter.com/prisma',
-        },
-      ],
-    },
-  })
+    username: "Admin",
+    email: "admin@example.com",
+    // "secret42"
+    password: "$2b$10$dqyYw5XovLjpmkYNiRDEWuwKaRAvLaG45fnXE5b3KTccKZcRPka2m"
+  });
 }
 
-main().catch(e => console.error(e))
+main().catch(e => console.error(e));

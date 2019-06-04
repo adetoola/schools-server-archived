@@ -3,9 +3,6 @@ import { GraphQLServer } from "graphql-yoga";
 import { makePrismaSchema, prismaObjectType } from "nexus-prisma";
 import { prisma } from "./generated/prisma-client";
 import datamodelInfo from "./generated/nexus-prisma";
-import { config } from "dotenv";
-
-config();
 
 const Query = prismaObjectType({
   name: "Query",
