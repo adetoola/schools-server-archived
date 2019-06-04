@@ -138,13 +138,21 @@ export interface QueryFieldDetails {
 type AccountObject =
   | AccountFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'password', args?: [] | false, alias?: string  } 
+  | { name: 'lastLogin', args?: [] | false, alias?: string  } 
 
 type AccountFields =
   | 'id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'username'
   | 'email'
-  | 'name'
+  | 'password'
+  | 'lastLogin'
 
 
 
@@ -159,6 +167,30 @@ export interface AccountFieldDetails {
     nullable: false
     resolve: undefined
   }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  username: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
   email: {
     type: 'String'
     args: {}
@@ -167,8 +199,16 @@ export interface AccountFieldDetails {
     nullable: false
     resolve: undefined
   }
-  name: {
+  password: {
     type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  lastLogin: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -609,13 +649,21 @@ export interface AccountSubscriptionPayloadFieldDetails {
 type AccountPreviousValuesObject =
   | AccountPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'password', args?: [] | false, alias?: string  } 
+  | { name: 'lastLogin', args?: [] | false, alias?: string  } 
 
 type AccountPreviousValuesFields =
   | 'id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'username'
   | 'email'
-  | 'name'
+  | 'password'
+  | 'lastLogin'
 
 
 
@@ -630,6 +678,30 @@ export interface AccountPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  username: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
   email: {
     type: 'String'
     args: {}
@@ -638,8 +710,16 @@ export interface AccountPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  name: {
+  password: {
     type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  lastLogin: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -652,11 +732,13 @@ export interface AccountPreviousValuesFieldDetails {
 
 export interface AccountWhereUniqueInput {
   id?: string | null
+  username?: string | null
   email?: string | null
 }
 export type AccountWhereUniqueInputInputObject =
   | Extract<keyof AccountWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'username', alias?: string  } 
   | { name: 'email', alias?: string  } 
   
 export interface AccountWhereInput {
@@ -674,6 +756,36 @@ export interface AccountWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  username?: string | null
+  username_not?: string | null
+  username_in?: string[]
+  username_not_in?: string[]
+  username_lt?: string | null
+  username_lte?: string | null
+  username_gt?: string | null
+  username_gte?: string | null
+  username_contains?: string | null
+  username_not_contains?: string | null
+  username_starts_with?: string | null
+  username_not_starts_with?: string | null
+  username_ends_with?: string | null
+  username_not_ends_with?: string | null
   email?: string | null
   email_not?: string | null
   email_in?: string[]
@@ -688,20 +800,28 @@ export interface AccountWhereInput {
   email_not_starts_with?: string | null
   email_ends_with?: string | null
   email_not_ends_with?: string | null
-  name?: string | null
-  name_not?: string | null
-  name_in?: string[]
-  name_not_in?: string[]
-  name_lt?: string | null
-  name_lte?: string | null
-  name_gt?: string | null
-  name_gte?: string | null
-  name_contains?: string | null
-  name_not_contains?: string | null
-  name_starts_with?: string | null
-  name_not_starts_with?: string | null
-  name_ends_with?: string | null
-  name_not_ends_with?: string | null
+  password?: string | null
+  password_not?: string | null
+  password_in?: string[]
+  password_not_in?: string[]
+  password_lt?: string | null
+  password_lte?: string | null
+  password_gt?: string | null
+  password_gte?: string | null
+  password_contains?: string | null
+  password_not_contains?: string | null
+  password_starts_with?: string | null
+  password_not_starts_with?: string | null
+  password_ends_with?: string | null
+  password_not_ends_with?: string | null
+  lastLogin?: string | null
+  lastLogin_not?: string | null
+  lastLogin_in?: string[]
+  lastLogin_not_in?: string[]
+  lastLogin_lt?: string | null
+  lastLogin_lte?: string | null
+  lastLogin_gt?: string | null
+  lastLogin_gte?: string | null
   AND?: AccountWhereInput[]
   OR?: AccountWhereInput[]
   NOT?: AccountWhereInput[]
@@ -722,6 +842,36 @@ export type AccountWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'username', alias?: string  } 
+  | { name: 'username_not', alias?: string  } 
+  | { name: 'username_in', alias?: string  } 
+  | { name: 'username_not_in', alias?: string  } 
+  | { name: 'username_lt', alias?: string  } 
+  | { name: 'username_lte', alias?: string  } 
+  | { name: 'username_gt', alias?: string  } 
+  | { name: 'username_gte', alias?: string  } 
+  | { name: 'username_contains', alias?: string  } 
+  | { name: 'username_not_contains', alias?: string  } 
+  | { name: 'username_starts_with', alias?: string  } 
+  | { name: 'username_not_starts_with', alias?: string  } 
+  | { name: 'username_ends_with', alias?: string  } 
+  | { name: 'username_not_ends_with', alias?: string  } 
   | { name: 'email', alias?: string  } 
   | { name: 'email_not', alias?: string  } 
   | { name: 'email_in', alias?: string  } 
@@ -736,52 +886,72 @@ export type AccountWhereInputInputObject =
   | { name: 'email_not_starts_with', alias?: string  } 
   | { name: 'email_ends_with', alias?: string  } 
   | { name: 'email_not_ends_with', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  | { name: 'name_not', alias?: string  } 
-  | { name: 'name_in', alias?: string  } 
-  | { name: 'name_not_in', alias?: string  } 
-  | { name: 'name_lt', alias?: string  } 
-  | { name: 'name_lte', alias?: string  } 
-  | { name: 'name_gt', alias?: string  } 
-  | { name: 'name_gte', alias?: string  } 
-  | { name: 'name_contains', alias?: string  } 
-  | { name: 'name_not_contains', alias?: string  } 
-  | { name: 'name_starts_with', alias?: string  } 
-  | { name: 'name_not_starts_with', alias?: string  } 
-  | { name: 'name_ends_with', alias?: string  } 
-  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'password_not', alias?: string  } 
+  | { name: 'password_in', alias?: string  } 
+  | { name: 'password_not_in', alias?: string  } 
+  | { name: 'password_lt', alias?: string  } 
+  | { name: 'password_lte', alias?: string  } 
+  | { name: 'password_gt', alias?: string  } 
+  | { name: 'password_gte', alias?: string  } 
+  | { name: 'password_contains', alias?: string  } 
+  | { name: 'password_not_contains', alias?: string  } 
+  | { name: 'password_starts_with', alias?: string  } 
+  | { name: 'password_not_starts_with', alias?: string  } 
+  | { name: 'password_ends_with', alias?: string  } 
+  | { name: 'password_not_ends_with', alias?: string  } 
+  | { name: 'lastLogin', alias?: string  } 
+  | { name: 'lastLogin_not', alias?: string  } 
+  | { name: 'lastLogin_in', alias?: string  } 
+  | { name: 'lastLogin_not_in', alias?: string  } 
+  | { name: 'lastLogin_lt', alias?: string  } 
+  | { name: 'lastLogin_lte', alias?: string  } 
+  | { name: 'lastLogin_gt', alias?: string  } 
+  | { name: 'lastLogin_gte', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
 export interface AccountCreateInput {
   id?: string | null
+  username?: string
   email?: string
-  name?: string | null
+  password?: string
+  lastLogin?: string | null
 }
 export type AccountCreateInputInputObject =
   | Extract<keyof AccountCreateInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'username', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'lastLogin', alias?: string  } 
   
 export interface AccountUpdateInput {
+  username?: string | null
   email?: string | null
-  name?: string | null
+  password?: string | null
+  lastLogin?: string | null
 }
 export type AccountUpdateInputInputObject =
   | Extract<keyof AccountUpdateInput, string>
+  | { name: 'username', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'lastLogin', alias?: string  } 
   
 export interface AccountUpdateManyMutationInput {
+  username?: string | null
   email?: string | null
-  name?: string | null
+  password?: string | null
+  lastLogin?: string | null
 }
 export type AccountUpdateManyMutationInputInputObject =
   | Extract<keyof AccountUpdateManyMutationInput, string>
+  | { name: 'username', alias?: string  } 
   | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'lastLogin', alias?: string  } 
   
 export interface AccountSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
@@ -808,14 +978,18 @@ export type AccountSubscriptionWhereInputInputObject =
 export type AccountOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'email_ASC'
-  | 'email_DESC'
-  | 'name_ASC'
-  | 'name_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
+  | 'username_ASC'
+  | 'username_DESC'
+  | 'email_ASC'
+  | 'email_DESC'
+  | 'password_ASC'
+  | 'password_DESC'
+  | 'lastLogin_ASC'
+  | 'lastLogin_DESC'
   
 export type MutationTypeValues =
   | 'CREATED'

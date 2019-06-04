@@ -104,15 +104,24 @@ export interface ClientConstructor<T> {
 export type AccountOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "username_ASC"
+  | "username_DESC"
   | "email_ASC"
   | "email_DESC"
-  | "name_ASC"
-  | "name_DESC";
+  | "password_ASC"
+  | "password_DESC"
+  | "lastLogin_ASC"
+  | "lastLogin_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export type AccountWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
+  username?: Maybe<String>;
   email?: Maybe<String>;
 }>;
 
@@ -131,6 +140,36 @@ export interface AccountWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  username?: Maybe<String>;
+  username_not?: Maybe<String>;
+  username_in?: Maybe<String[] | String>;
+  username_not_in?: Maybe<String[] | String>;
+  username_lt?: Maybe<String>;
+  username_lte?: Maybe<String>;
+  username_gt?: Maybe<String>;
+  username_gte?: Maybe<String>;
+  username_contains?: Maybe<String>;
+  username_not_contains?: Maybe<String>;
+  username_starts_with?: Maybe<String>;
+  username_not_starts_with?: Maybe<String>;
+  username_ends_with?: Maybe<String>;
+  username_not_ends_with?: Maybe<String>;
   email?: Maybe<String>;
   email_not?: Maybe<String>;
   email_in?: Maybe<String[] | String>;
@@ -145,20 +184,28 @@ export interface AccountWhereInput {
   email_not_starts_with?: Maybe<String>;
   email_ends_with?: Maybe<String>;
   email_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
+  password?: Maybe<String>;
+  password_not?: Maybe<String>;
+  password_in?: Maybe<String[] | String>;
+  password_not_in?: Maybe<String[] | String>;
+  password_lt?: Maybe<String>;
+  password_lte?: Maybe<String>;
+  password_gt?: Maybe<String>;
+  password_gte?: Maybe<String>;
+  password_contains?: Maybe<String>;
+  password_not_contains?: Maybe<String>;
+  password_starts_with?: Maybe<String>;
+  password_not_starts_with?: Maybe<String>;
+  password_ends_with?: Maybe<String>;
+  password_not_ends_with?: Maybe<String>;
+  lastLogin?: Maybe<DateTimeInput>;
+  lastLogin_not?: Maybe<DateTimeInput>;
+  lastLogin_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  lastLogin_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  lastLogin_lt?: Maybe<DateTimeInput>;
+  lastLogin_lte?: Maybe<DateTimeInput>;
+  lastLogin_gt?: Maybe<DateTimeInput>;
+  lastLogin_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<AccountWhereInput[] | AccountWhereInput>;
   OR?: Maybe<AccountWhereInput[] | AccountWhereInput>;
   NOT?: Maybe<AccountWhereInput[] | AccountWhereInput>;
@@ -166,18 +213,24 @@ export interface AccountWhereInput {
 
 export interface AccountCreateInput {
   id?: Maybe<ID_Input>;
+  username: String;
   email: String;
-  name?: Maybe<String>;
+  password: String;
+  lastLogin?: Maybe<DateTimeInput>;
 }
 
 export interface AccountUpdateInput {
+  username?: Maybe<String>;
   email?: Maybe<String>;
-  name?: Maybe<String>;
+  password?: Maybe<String>;
+  lastLogin?: Maybe<DateTimeInput>;
 }
 
 export interface AccountUpdateManyMutationInput {
+  username?: Maybe<String>;
   email?: Maybe<String>;
-  name?: Maybe<String>;
+  password?: Maybe<String>;
+  lastLogin?: Maybe<DateTimeInput>;
 }
 
 export interface AccountSubscriptionWhereInput {
@@ -197,30 +250,46 @@ export interface NodeNode {
 
 export interface Account {
   id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  username: String;
   email: String;
-  name?: String;
+  password: String;
+  lastLogin?: DateTimeOutput;
 }
 
 export interface AccountPromise extends Promise<Account>, Fragmentable {
   id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  username: () => Promise<String>;
   email: () => Promise<String>;
-  name: () => Promise<String>;
+  password: () => Promise<String>;
+  lastLogin: () => Promise<DateTimeOutput>;
 }
 
 export interface AccountSubscription
   extends Promise<AsyncIterator<Account>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  username: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  lastLogin: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface AccountNullablePromise
   extends Promise<Account | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  username: () => Promise<String>;
   email: () => Promise<String>;
-  name: () => Promise<String>;
+  password: () => Promise<String>;
+  lastLogin: () => Promise<DateTimeOutput>;
 }
 
 export interface AccountConnection {
@@ -343,24 +412,36 @@ export interface AccountSubscriptionPayloadSubscription
 
 export interface AccountPreviousValues {
   id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+  username: String;
   email: String;
-  name?: String;
+  password: String;
+  lastLogin?: DateTimeOutput;
 }
 
 export interface AccountPreviousValuesPromise
   extends Promise<AccountPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  username: () => Promise<String>;
   email: () => Promise<String>;
-  name: () => Promise<String>;
+  password: () => Promise<String>;
+  lastLogin: () => Promise<DateTimeOutput>;
 }
 
 export interface AccountPreviousValuesSubscription
   extends Promise<AsyncIterator<AccountPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  username: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  lastLogin: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 /*
@@ -373,6 +454,16 @@ export type ID_Output = string;
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 */
 export type String = string;
+
+/*
+DateTime scalar input type, allowing Date
+*/
+export type DateTimeInput = Date | string;
+
+/*
+DateTime scalar output type, which is always a string
+*/
+export type DateTimeOutput = string;
 
 /*
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. 

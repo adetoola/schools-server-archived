@@ -14,18 +14,32 @@ export interface NexusGenInputs {
   AccountCreateInput: { // input type
     email: string; // String!
     id?: string | null; // ID
-    name?: string | null; // String
+    lastLogin?: any | null; // DateTime
+    password: string; // String!
+    username: string; // String!
   }
   AccountUpdateInput: { // input type
     email?: string | null; // String
-    name?: string | null; // String
+    lastLogin?: any | null; // DateTime
+    password?: string | null; // String
+    username?: string | null; // String
   }
   AccountUpdateManyMutationInput: { // input type
     email?: string | null; // String
-    name?: string | null; // String
+    lastLogin?: any | null; // DateTime
+    password?: string | null; // String
+    username?: string | null; // String
   }
   AccountWhereInput: { // input type
     AND?: NexusGenInputs['AccountWhereInput'][] | null; // [AccountWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     email?: string | null; // String
     email_contains?: string | null; // String
     email_ends_with?: string | null; // String
@@ -54,38 +68,73 @@ export interface NexusGenInputs {
     id_not_in?: string[] | null; // [ID!]
     id_not_starts_with?: string | null; // ID
     id_starts_with?: string | null; // ID
-    name?: string | null; // String
-    name_contains?: string | null; // String
-    name_ends_with?: string | null; // String
-    name_gt?: string | null; // String
-    name_gte?: string | null; // String
-    name_in?: string[] | null; // [String!]
-    name_lt?: string | null; // String
-    name_lte?: string | null; // String
-    name_not?: string | null; // String
-    name_not_contains?: string | null; // String
-    name_not_ends_with?: string | null; // String
-    name_not_in?: string[] | null; // [String!]
-    name_not_starts_with?: string | null; // String
-    name_starts_with?: string | null; // String
+    lastLogin?: any | null; // DateTime
+    lastLogin_gt?: any | null; // DateTime
+    lastLogin_gte?: any | null; // DateTime
+    lastLogin_in?: any[] | null; // [DateTime!]
+    lastLogin_lt?: any | null; // DateTime
+    lastLogin_lte?: any | null; // DateTime
+    lastLogin_not?: any | null; // DateTime
+    lastLogin_not_in?: any[] | null; // [DateTime!]
     NOT?: NexusGenInputs['AccountWhereInput'][] | null; // [AccountWhereInput!]
     OR?: NexusGenInputs['AccountWhereInput'][] | null; // [AccountWhereInput!]
+    password?: string | null; // String
+    password_contains?: string | null; // String
+    password_ends_with?: string | null; // String
+    password_gt?: string | null; // String
+    password_gte?: string | null; // String
+    password_in?: string[] | null; // [String!]
+    password_lt?: string | null; // String
+    password_lte?: string | null; // String
+    password_not?: string | null; // String
+    password_not_contains?: string | null; // String
+    password_not_ends_with?: string | null; // String
+    password_not_in?: string[] | null; // [String!]
+    password_not_starts_with?: string | null; // String
+    password_starts_with?: string | null; // String
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
+    username?: string | null; // String
+    username_contains?: string | null; // String
+    username_ends_with?: string | null; // String
+    username_gt?: string | null; // String
+    username_gte?: string | null; // String
+    username_in?: string[] | null; // [String!]
+    username_lt?: string | null; // String
+    username_lte?: string | null; // String
+    username_not?: string | null; // String
+    username_not_contains?: string | null; // String
+    username_not_ends_with?: string | null; // String
+    username_not_in?: string[] | null; // [String!]
+    username_not_starts_with?: string | null; // String
+    username_starts_with?: string | null; // String
   }
   AccountWhereUniqueInput: { // input type
     email?: string | null; // String
     id?: string | null; // ID
+    username?: string | null; // String
   }
 }
 
 export interface NexusGenEnums {
-  AccountOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  AccountOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "lastLogin_ASC" | "lastLogin_DESC" | "password_ASC" | "password_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC"
 }
 
 export interface NexusGenRootTypes {
   Account: { // root type
+    createdAt: any; // DateTime!
     email: string; // String!
     id: string; // ID!
-    name?: string | null; // String
+    lastLogin?: any | null; // DateTime
+    password: string; // String!
+    updatedAt: any; // DateTime!
+    username: string; // String!
   }
   AccountConnection: { // root type
     edges: NexusGenRootTypes['AccountEdge'][]; // [AccountEdge!]!
@@ -114,6 +163,7 @@ export interface NexusGenRootTypes {
   Float: number;
   Boolean: boolean;
   ID: string;
+  DateTime: any;
   Long: any;
 }
 
@@ -128,9 +178,13 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 
 export interface NexusGenFieldTypes {
   Account: { // field return type
+    createdAt: any; // DateTime!
     email: string; // String!
     id: string; // ID!
-    name: string | null; // String
+    lastLogin: any | null; // DateTime
+    password: string; // String!
+    updatedAt: any; // DateTime!
+    username: string; // String!
   }
   AccountConnection: { // field return type
     aggregate: NexusGenRootTypes['AggregateAccount']; // AggregateAccount!
@@ -231,7 +285,7 @@ export type NexusGenEnumNames = "AccountOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 
-export type NexusGenScalarNames = "Boolean" | "Float" | "ID" | "Int" | "Long" | "String";
+export type NexusGenScalarNames = "Boolean" | "DateTime" | "Float" | "ID" | "Int" | "Long" | "String";
 
 export type NexusGenUnionNames = never;
 

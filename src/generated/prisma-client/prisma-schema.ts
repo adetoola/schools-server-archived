@@ -4,8 +4,12 @@
 
 export const typeDefs = /* GraphQL */ `type Account {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  username: String!
   email: String!
-  name: String
+  password: String!
+  lastLogin: DateTime
 }
 
 type AccountConnection {
@@ -16,8 +20,10 @@ type AccountConnection {
 
 input AccountCreateInput {
   id: ID
+  username: String!
   email: String!
-  name: String
+  password: String!
+  lastLogin: DateTime
 }
 
 type AccountEdge {
@@ -28,16 +34,28 @@ type AccountEdge {
 enum AccountOrderByInput {
   id_ASC
   id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  username_ASC
+  username_DESC
   email_ASC
   email_DESC
-  name_ASC
-  name_DESC
+  password_ASC
+  password_DESC
+  lastLogin_ASC
+  lastLogin_DESC
 }
 
 type AccountPreviousValues {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  username: String!
   email: String!
-  name: String
+  password: String!
+  lastLogin: DateTime
 }
 
 type AccountSubscriptionPayload {
@@ -59,13 +77,17 @@ input AccountSubscriptionWhereInput {
 }
 
 input AccountUpdateInput {
+  username: String
   email: String
-  name: String
+  password: String
+  lastLogin: DateTime
 }
 
 input AccountUpdateManyMutationInput {
+  username: String
   email: String
-  name: String
+  password: String
+  lastLogin: DateTime
 }
 
 input AccountWhereInput {
@@ -83,6 +105,36 @@ input AccountWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  username: String
+  username_not: String
+  username_in: [String!]
+  username_not_in: [String!]
+  username_lt: String
+  username_lte: String
+  username_gt: String
+  username_gte: String
+  username_contains: String
+  username_not_contains: String
+  username_starts_with: String
+  username_not_starts_with: String
+  username_ends_with: String
+  username_not_ends_with: String
   email: String
   email_not: String
   email_in: [String!]
@@ -97,20 +149,28 @@ input AccountWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  lastLogin: DateTime
+  lastLogin_not: DateTime
+  lastLogin_in: [DateTime!]
+  lastLogin_not_in: [DateTime!]
+  lastLogin_lt: DateTime
+  lastLogin_lte: DateTime
+  lastLogin_gt: DateTime
+  lastLogin_gte: DateTime
   AND: [AccountWhereInput!]
   OR: [AccountWhereInput!]
   NOT: [AccountWhereInput!]
@@ -118,6 +178,7 @@ input AccountWhereInput {
 
 input AccountWhereUniqueInput {
   id: ID
+  username: String
   email: String
 }
 
@@ -128,6 +189,8 @@ type AggregateAccount {
 type BatchPayload {
   count: Long!
 }
+
+scalar DateTime
 
 scalar Long
 
