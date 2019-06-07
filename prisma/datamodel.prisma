@@ -3,7 +3,15 @@ type Account {
   username: String @unique
   email: String! @unique
   password: String!
+  isVerified: Boolean! @default(value: false)
   lastLogin: DateTime
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+}
+
+type Verification {
+  id: ID! @id
+  accountId: String!
+  token: String!
+  createdAt: DateTime! @createdAt
 }

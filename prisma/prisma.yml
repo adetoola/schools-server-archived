@@ -1,5 +1,6 @@
 # Specifies the HTTP endpoint of your Prisma API.
 # endpoint: ${env:PRISMA_ENDPOINT}
+endpoint: https://eu1.prisma.sh/adetola-onasanya-5a4cc0/olodumare/dev
 
 # Defines your models, each model is mapped to the database as a table.
 datamodel: datamodel.prisma
@@ -17,5 +18,3 @@ hooks:
 # Seeds initial data into the database by running a script.
 seed:
   run: yarn ts-node ./prisma/seed.ts
-
-endpoint: https://eu1.prisma.sh/adetola-onasanya-5a4cc0/oollaa/dev

@@ -17,6 +17,7 @@ export type Maybe<T> = T | undefined | null;
 
 export interface Exists {
   account: (where?: AccountWhereInput) => Promise<boolean>;
+  verification: (where?: VerificationWhereInput) => Promise<boolean>;
 }
 
 export interface Node {}
@@ -57,6 +58,27 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => AccountConnectionPromise;
+  verification: (
+    where: VerificationWhereUniqueInput
+  ) => VerificationNullablePromise;
+  verifications: (args?: {
+    where?: VerificationWhereInput;
+    orderBy?: VerificationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Verification>;
+  verificationsConnection: (args?: {
+    where?: VerificationWhereInput;
+    orderBy?: VerificationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => VerificationConnectionPromise;
   node: (args: { id: ID_Output }) => Node;
 
   /**
@@ -79,6 +101,26 @@ export interface Prisma {
   }) => AccountPromise;
   deleteAccount: (where: AccountWhereUniqueInput) => AccountPromise;
   deleteManyAccounts: (where?: AccountWhereInput) => BatchPayloadPromise;
+  createVerification: (data: VerificationCreateInput) => VerificationPromise;
+  updateVerification: (args: {
+    data: VerificationUpdateInput;
+    where: VerificationWhereUniqueInput;
+  }) => VerificationPromise;
+  updateManyVerifications: (args: {
+    data: VerificationUpdateManyMutationInput;
+    where?: VerificationWhereInput;
+  }) => BatchPayloadPromise;
+  upsertVerification: (args: {
+    where: VerificationWhereUniqueInput;
+    create: VerificationCreateInput;
+    update: VerificationUpdateInput;
+  }) => VerificationPromise;
+  deleteVerification: (
+    where: VerificationWhereUniqueInput
+  ) => VerificationPromise;
+  deleteManyVerifications: (
+    where?: VerificationWhereInput
+  ) => BatchPayloadPromise;
 
   /**
    * Subscriptions
@@ -91,6 +133,9 @@ export interface Subscription {
   account: (
     where?: AccountSubscriptionWhereInput
   ) => AccountSubscriptionPayloadSubscription;
+  verification: (
+    where?: VerificationSubscriptionWhereInput
+  ) => VerificationSubscriptionPayloadSubscription;
 }
 
 export interface ClientConstructor<T> {
@@ -110,12 +155,24 @@ export type AccountOrderByInput =
   | "email_DESC"
   | "password_ASC"
   | "password_DESC"
+  | "isVerified_ASC"
+  | "isVerified_DESC"
   | "lastLogin_ASC"
   | "lastLogin_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
   | "updatedAt_DESC";
+
+export type VerificationOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "accountId_ASC"
+  | "accountId_DESC"
+  | "token_ASC"
+  | "token_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -182,6 +239,8 @@ export interface AccountWhereInput {
   password_not_starts_with?: Maybe<String>;
   password_ends_with?: Maybe<String>;
   password_not_ends_with?: Maybe<String>;
+  isVerified?: Maybe<Boolean>;
+  isVerified_not?: Maybe<Boolean>;
   lastLogin?: Maybe<DateTimeInput>;
   lastLogin_not?: Maybe<DateTimeInput>;
   lastLogin_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -211,11 +270,72 @@ export interface AccountWhereInput {
   NOT?: Maybe<AccountWhereInput[] | AccountWhereInput>;
 }
 
+export type VerificationWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface VerificationWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  accountId?: Maybe<String>;
+  accountId_not?: Maybe<String>;
+  accountId_in?: Maybe<String[] | String>;
+  accountId_not_in?: Maybe<String[] | String>;
+  accountId_lt?: Maybe<String>;
+  accountId_lte?: Maybe<String>;
+  accountId_gt?: Maybe<String>;
+  accountId_gte?: Maybe<String>;
+  accountId_contains?: Maybe<String>;
+  accountId_not_contains?: Maybe<String>;
+  accountId_starts_with?: Maybe<String>;
+  accountId_not_starts_with?: Maybe<String>;
+  accountId_ends_with?: Maybe<String>;
+  accountId_not_ends_with?: Maybe<String>;
+  token?: Maybe<String>;
+  token_not?: Maybe<String>;
+  token_in?: Maybe<String[] | String>;
+  token_not_in?: Maybe<String[] | String>;
+  token_lt?: Maybe<String>;
+  token_lte?: Maybe<String>;
+  token_gt?: Maybe<String>;
+  token_gte?: Maybe<String>;
+  token_contains?: Maybe<String>;
+  token_not_contains?: Maybe<String>;
+  token_starts_with?: Maybe<String>;
+  token_not_starts_with?: Maybe<String>;
+  token_ends_with?: Maybe<String>;
+  token_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<VerificationWhereInput[] | VerificationWhereInput>;
+  OR?: Maybe<VerificationWhereInput[] | VerificationWhereInput>;
+  NOT?: Maybe<VerificationWhereInput[] | VerificationWhereInput>;
+}
+
 export interface AccountCreateInput {
   id?: Maybe<ID_Input>;
   username?: Maybe<String>;
   email: String;
   password: String;
+  isVerified?: Maybe<Boolean>;
   lastLogin?: Maybe<DateTimeInput>;
 }
 
@@ -223,6 +343,7 @@ export interface AccountUpdateInput {
   username?: Maybe<String>;
   email?: Maybe<String>;
   password?: Maybe<String>;
+  isVerified?: Maybe<Boolean>;
   lastLogin?: Maybe<DateTimeInput>;
 }
 
@@ -230,7 +351,24 @@ export interface AccountUpdateManyMutationInput {
   username?: Maybe<String>;
   email?: Maybe<String>;
   password?: Maybe<String>;
+  isVerified?: Maybe<Boolean>;
   lastLogin?: Maybe<DateTimeInput>;
+}
+
+export interface VerificationCreateInput {
+  id?: Maybe<ID_Input>;
+  accountId: String;
+  token: String;
+}
+
+export interface VerificationUpdateInput {
+  accountId?: Maybe<String>;
+  token?: Maybe<String>;
+}
+
+export interface VerificationUpdateManyMutationInput {
+  accountId?: Maybe<String>;
+  token?: Maybe<String>;
 }
 
 export interface AccountSubscriptionWhereInput {
@@ -244,6 +382,23 @@ export interface AccountSubscriptionWhereInput {
   NOT?: Maybe<AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput>;
 }
 
+export interface VerificationSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<VerificationWhereInput>;
+  AND?: Maybe<
+    VerificationSubscriptionWhereInput[] | VerificationSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    VerificationSubscriptionWhereInput[] | VerificationSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    VerificationSubscriptionWhereInput[] | VerificationSubscriptionWhereInput
+  >;
+}
+
 export interface NodeNode {
   id: ID_Output;
 }
@@ -253,6 +408,7 @@ export interface Account {
   username?: String;
   email: String;
   password: String;
+  isVerified: Boolean;
   lastLogin?: DateTimeOutput;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -263,6 +419,7 @@ export interface AccountPromise extends Promise<Account>, Fragmentable {
   username: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
+  isVerified: () => Promise<Boolean>;
   lastLogin: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -275,6 +432,7 @@ export interface AccountSubscription
   username: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
+  isVerified: () => Promise<AsyncIterator<Boolean>>;
   lastLogin: () => Promise<AsyncIterator<DateTimeOutput>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -287,6 +445,7 @@ export interface AccountNullablePromise
   username: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
+  isVerified: () => Promise<Boolean>;
   lastLogin: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -369,6 +528,96 @@ export interface AggregateAccountSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface Verification {
+  id: ID_Output;
+  accountId: String;
+  token: String;
+  createdAt: DateTimeOutput;
+}
+
+export interface VerificationPromise
+  extends Promise<Verification>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  accountId: () => Promise<String>;
+  token: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+}
+
+export interface VerificationSubscription
+  extends Promise<AsyncIterator<Verification>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  accountId: () => Promise<AsyncIterator<String>>;
+  token: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface VerificationNullablePromise
+  extends Promise<Verification | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  accountId: () => Promise<String>;
+  token: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+}
+
+export interface VerificationConnection {
+  pageInfo: PageInfo;
+  edges: VerificationEdge[];
+}
+
+export interface VerificationConnectionPromise
+  extends Promise<VerificationConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<VerificationEdge>>() => T;
+  aggregate: <T = AggregateVerificationPromise>() => T;
+}
+
+export interface VerificationConnectionSubscription
+  extends Promise<AsyncIterator<VerificationConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<VerificationEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateVerificationSubscription>() => T;
+}
+
+export interface VerificationEdge {
+  node: Verification;
+  cursor: String;
+}
+
+export interface VerificationEdgePromise
+  extends Promise<VerificationEdge>,
+    Fragmentable {
+  node: <T = VerificationPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface VerificationEdgeSubscription
+  extends Promise<AsyncIterator<VerificationEdge>>,
+    Fragmentable {
+  node: <T = VerificationSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateVerification {
+  count: Int;
+}
+
+export interface AggregateVerificationPromise
+  extends Promise<AggregateVerification>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateVerificationSubscription
+  extends Promise<AsyncIterator<AggregateVerification>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface BatchPayload {
   count: Long;
 }
@@ -415,6 +664,7 @@ export interface AccountPreviousValues {
   username?: String;
   email: String;
   password: String;
+  isVerified: Boolean;
   lastLogin?: DateTimeOutput;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -427,6 +677,7 @@ export interface AccountPreviousValuesPromise
   username: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
+  isVerified: () => Promise<Boolean>;
   lastLogin: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -439,9 +690,60 @@ export interface AccountPreviousValuesSubscription
   username: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
+  isVerified: () => Promise<AsyncIterator<Boolean>>;
   lastLogin: () => Promise<AsyncIterator<DateTimeOutput>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface VerificationSubscriptionPayload {
+  mutation: MutationType;
+  node: Verification;
+  updatedFields: String[];
+  previousValues: VerificationPreviousValues;
+}
+
+export interface VerificationSubscriptionPayloadPromise
+  extends Promise<VerificationSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = VerificationPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = VerificationPreviousValuesPromise>() => T;
+}
+
+export interface VerificationSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<VerificationSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = VerificationSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = VerificationPreviousValuesSubscription>() => T;
+}
+
+export interface VerificationPreviousValues {
+  id: ID_Output;
+  accountId: String;
+  token: String;
+  createdAt: DateTimeOutput;
+}
+
+export interface VerificationPreviousValuesPromise
+  extends Promise<VerificationPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  accountId: () => Promise<String>;
+  token: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+}
+
+export interface VerificationPreviousValuesSubscription
+  extends Promise<AsyncIterator<VerificationPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  accountId: () => Promise<AsyncIterator<String>>;
+  token: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 /*
@@ -454,6 +756,11 @@ export type ID_Output = string;
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 */
 export type String = string;
+
+/*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean;
 
 /*
 DateTime scalar input type, allowing Date
@@ -470,11 +777,6 @@ The `Int` scalar type represents non-fractional signed whole numeric values. Int
 */
 export type Int = number;
 
-/*
-The `Boolean` scalar type represents `true` or `false`.
-*/
-export type Boolean = boolean;
-
 export type Long = string;
 
 /**
@@ -484,6 +786,10 @@ export type Long = string;
 export const models: Model[] = [
   {
     name: "Account",
+    embedded: false
+  },
+  {
+    name: "Verification",
     embedded: false
   }
 ];
@@ -495,6 +801,6 @@ export const models: Model[] = [
 export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
   typeDefs,
   models,
-  endpoint: `https://eu1.prisma.sh/adetola-onasanya-5a4cc0/oollaa/dev`
+  endpoint: `https://eu1.prisma.sh/adetola-onasanya-5a4cc0/olodumare/dev`
 });
 export const prisma = new Prisma();

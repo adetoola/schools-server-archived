@@ -3,10 +3,15 @@
 
 
 type Account {
+  createdAt: DateTime!
   email: String!
   id: ID!
+  lastLogin: DateTime
+  updatedAt: DateTime!
   username: String
 }
+
+scalar DateTime
 
 type Mutation {
   login(email: String, password: String): Account

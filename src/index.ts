@@ -11,6 +11,8 @@ import * as allTypes from "./resolvers";
 // Make sure dotenv works across the project
 config();
 
+console.log('First one: process.env["PRISMA_ENDPOINT"]', process.env["PRISMA_ENDPOINT"]);
+
 const schema = makePrismaSchema({
   // Provide all the GraphQL types we've implemented
   types: allTypes,

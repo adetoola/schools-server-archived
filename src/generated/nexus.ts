@@ -18,8 +18,11 @@ export interface NexusGenEnums {
 
 export interface NexusGenRootTypes {
   Account: { // root type
+    createdAt: any; // DateTime!
     email: string; // String!
     id: string; // ID!
+    lastLogin?: any | null; // DateTime
+    updatedAt: any; // DateTime!
     username?: string | null; // String
   }
   Mutation: {};
@@ -29,6 +32,7 @@ export interface NexusGenRootTypes {
   Float: number;
   Boolean: boolean;
   ID: string;
+  DateTime: any;
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
@@ -36,8 +40,11 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 
 export interface NexusGenFieldTypes {
   Account: { // field return type
+    createdAt: any; // DateTime!
     email: string; // String!
     id: string; // ID!
+    lastLogin: any | null; // DateTime
+    updatedAt: any; // DateTime!
     username: string | null; // String
   }
   Mutation: { // field return type
@@ -77,7 +84,7 @@ export type NexusGenEnumNames = never;
 
 export type NexusGenInterfaceNames = never;
 
-export type NexusGenScalarNames = "Boolean" | "Float" | "ID" | "Int" | "String";
+export type NexusGenScalarNames = "Boolean" | "DateTime" | "Float" | "ID" | "Int" | "String";
 
 export type NexusGenUnionNames = never;
 

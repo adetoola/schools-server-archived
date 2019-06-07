@@ -7,6 +7,7 @@ export const typeDefs = /* GraphQL */ `type Account {
   username: String
   email: String!
   password: String!
+  isVerified: Boolean!
   lastLogin: DateTime
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -23,6 +24,7 @@ input AccountCreateInput {
   username: String
   email: String!
   password: String!
+  isVerified: Boolean
   lastLogin: DateTime
 }
 
@@ -40,6 +42,8 @@ enum AccountOrderByInput {
   email_DESC
   password_ASC
   password_DESC
+  isVerified_ASC
+  isVerified_DESC
   lastLogin_ASC
   lastLogin_DESC
   createdAt_ASC
@@ -53,6 +57,7 @@ type AccountPreviousValues {
   username: String
   email: String!
   password: String!
+  isVerified: Boolean!
   lastLogin: DateTime
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -80,6 +85,7 @@ input AccountUpdateInput {
   username: String
   email: String
   password: String
+  isVerified: Boolean
   lastLogin: DateTime
 }
 
@@ -87,6 +93,7 @@ input AccountUpdateManyMutationInput {
   username: String
   email: String
   password: String
+  isVerified: Boolean
   lastLogin: DateTime
 }
 
@@ -147,6 +154,8 @@ input AccountWhereInput {
   password_not_starts_with: String
   password_ends_with: String
   password_not_ends_with: String
+  isVerified: Boolean
+  isVerified_not: Boolean
   lastLogin: DateTime
   lastLogin_not: DateTime
   lastLogin_in: [DateTime!]
@@ -186,6 +195,10 @@ type AggregateAccount {
   count: Int!
 }
 
+type AggregateVerification {
+  count: Int!
+}
+
 type BatchPayload {
   count: Long!
 }
@@ -201,6 +214,12 @@ type Mutation {
   upsertAccount(where: AccountWhereUniqueInput!, create: AccountCreateInput!, update: AccountUpdateInput!): Account!
   deleteAccount(where: AccountWhereUniqueInput!): Account
   deleteManyAccounts(where: AccountWhereInput): BatchPayload!
+  createVerification(data: VerificationCreateInput!): Verification!
+  updateVerification(data: VerificationUpdateInput!, where: VerificationWhereUniqueInput!): Verification
+  updateManyVerifications(data: VerificationUpdateManyMutationInput!, where: VerificationWhereInput): BatchPayload!
+  upsertVerification(where: VerificationWhereUniqueInput!, create: VerificationCreateInput!, update: VerificationUpdateInput!): Verification!
+  deleteVerification(where: VerificationWhereUniqueInput!): Verification
+  deleteManyVerifications(where: VerificationWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -224,10 +243,144 @@ type Query {
   account(where: AccountWhereUniqueInput!): Account
   accounts(where: AccountWhereInput, orderBy: AccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Account]!
   accountsConnection(where: AccountWhereInput, orderBy: AccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AccountConnection!
+  verification(where: VerificationWhereUniqueInput!): Verification
+  verifications(where: VerificationWhereInput, orderBy: VerificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Verification]!
+  verificationsConnection(where: VerificationWhereInput, orderBy: VerificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VerificationConnection!
   node(id: ID!): Node
 }
 
 type Subscription {
   account(where: AccountSubscriptionWhereInput): AccountSubscriptionPayload
+  verification(where: VerificationSubscriptionWhereInput): VerificationSubscriptionPayload
+}
+
+type Verification {
+  id: ID!
+  accountId: String!
+  token: String!
+  createdAt: DateTime!
+}
+
+type VerificationConnection {
+  pageInfo: PageInfo!
+  edges: [VerificationEdge]!
+  aggregate: AggregateVerification!
+}
+
+input VerificationCreateInput {
+  id: ID
+  accountId: String!
+  token: String!
+}
+
+type VerificationEdge {
+  node: Verification!
+  cursor: String!
+}
+
+enum VerificationOrderByInput {
+  id_ASC
+  id_DESC
+  accountId_ASC
+  accountId_DESC
+  token_ASC
+  token_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type VerificationPreviousValues {
+  id: ID!
+  accountId: String!
+  token: String!
+  createdAt: DateTime!
+}
+
+type VerificationSubscriptionPayload {
+  mutation: MutationType!
+  node: Verification
+  updatedFields: [String!]
+  previousValues: VerificationPreviousValues
+}
+
+input VerificationSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: VerificationWhereInput
+  AND: [VerificationSubscriptionWhereInput!]
+  OR: [VerificationSubscriptionWhereInput!]
+  NOT: [VerificationSubscriptionWhereInput!]
+}
+
+input VerificationUpdateInput {
+  accountId: String
+  token: String
+}
+
+input VerificationUpdateManyMutationInput {
+  accountId: String
+  token: String
+}
+
+input VerificationWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  accountId: String
+  accountId_not: String
+  accountId_in: [String!]
+  accountId_not_in: [String!]
+  accountId_lt: String
+  accountId_lte: String
+  accountId_gt: String
+  accountId_gte: String
+  accountId_contains: String
+  accountId_not_contains: String
+  accountId_starts_with: String
+  accountId_not_starts_with: String
+  accountId_ends_with: String
+  accountId_not_ends_with: String
+  token: String
+  token_not: String
+  token_in: [String!]
+  token_not_in: [String!]
+  token_lt: String
+  token_lte: String
+  token_gt: String
+  token_gte: String
+  token_contains: String
+  token_not_contains: String
+  token_starts_with: String
+  token_not_starts_with: String
+  token_ends_with: String
+  token_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  AND: [VerificationWhereInput!]
+  OR: [VerificationWhereInput!]
+  NOT: [VerificationWhereInput!]
+}
+
+input VerificationWhereUniqueInput {
+  id: ID
 }
 `
