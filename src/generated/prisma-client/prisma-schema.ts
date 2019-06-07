@@ -4,12 +4,12 @@
 
 export const typeDefs = /* GraphQL */ `type Account {
   id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  username: String!
+  username: String
   email: String!
   password: String!
   lastLogin: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type AccountConnection {
@@ -20,7 +20,7 @@ type AccountConnection {
 
 input AccountCreateInput {
   id: ID
-  username: String!
+  username: String
   email: String!
   password: String!
   lastLogin: DateTime
@@ -34,10 +34,6 @@ type AccountEdge {
 enum AccountOrderByInput {
   id_ASC
   id_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
   username_ASC
   username_DESC
   email_ASC
@@ -46,16 +42,20 @@ enum AccountOrderByInput {
   password_DESC
   lastLogin_ASC
   lastLogin_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type AccountPreviousValues {
   id: ID!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  username: String!
+  username: String
   email: String!
   password: String!
   lastLogin: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
 }
 
 type AccountSubscriptionPayload {
@@ -105,22 +105,6 @@ input AccountWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
   username: String
   username_not: String
   username_in: [String!]
@@ -171,6 +155,22 @@ input AccountWhereInput {
   lastLogin_lte: DateTime
   lastLogin_gt: DateTime
   lastLogin_gte: DateTime
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [AccountWhereInput!]
   OR: [AccountWhereInput!]
   NOT: [AccountWhereInput!]

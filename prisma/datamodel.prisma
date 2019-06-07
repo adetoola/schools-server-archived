@@ -1,9 +1,9 @@
 type Account {
   id: ID! @id
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-  username: String! @unique
+  username: String @unique
   email: String! @unique
   password: String!
   lastLogin: DateTime
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }
