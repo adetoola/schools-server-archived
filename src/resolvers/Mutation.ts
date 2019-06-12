@@ -4,7 +4,7 @@ import { sign } from "jsonwebtoken";
 import { promisify } from "util";
 import { randomBytes } from "crypto";
 import sendEmail from "../services/email";
-import { signedCookie } from "cookie-parser";
+import { isTokenValid } from "../utils";
 
 export const Mutation = mutationType({
   definition(t) {
@@ -32,8 +32,7 @@ export const Mutation = mutationType({
         });
 
         // Embed in mail and send email
-        const link = `${process.env.FRONTEND_URL}/confirm_email?t=${token}/`;
-        console.log("link", link);
+        const link = `${process.env.FRONTEND_URL}/verify-email/${token}/`;
         sendEmail(email, "Verify your email address", link).catch(console.log);
         return account;
       },
@@ -47,13 +46,12 @@ export const Mutation = mutationType({
       },
       resolve: async (parent, { email, password }, ctx) => {
         const account = await ctx.prisma.account({ email });
-        if (!account) {
-          throw new Error(`No account found for email: ${email}`);
-        }
+        if (!account) throw new Error(`No account found for email: ${email}`);
+
         const passwordValid = await compare(password, account.password);
-        if (!passwordValid) {
-          throw new Error("Invalid password");
-        }
+
+        if (!passwordValid) throw new Error("Invalid password");
+        if (!account.isVerified) throw new Error("Please verify your account");
 
         const token = sign({ accountId: account.id }, process.env.APP_SECRET);
 
@@ -73,6 +71,33 @@ export const Mutation = mutationType({
       resolve: (parent, args, ctx) => {
         ctx.response.clearCookie("token");
         return { message: "User Successfully logged out!" };
+      },
+    });
+
+    t.field("verify", {
+      type: "Verification",
+      args: {
+        token: stringArg(),
+      },
+      resolve: async (parent, { token }, ctx) => {
+        const verification = await ctx.prisma.verification({ token });
+
+        // Errors Invalid or Expired
+        if (!verification) throw new Error("Token is invalid");
+        if (!isTokenValid(verification.createdAt, parseInt(process.env.VERIFICATION_TOKEN_DURATION, 10)))
+          throw new Error("Token has expired");
+
+        // else updated user to verified
+        const { email } = await ctx.prisma.updateAccount({
+          data: { isVerified: true },
+          where: { id: verification.accountId },
+        });
+
+        // Send welcome mail here
+        const link = `${process.env.FRONTEND_URL}/login/`;
+        sendEmail(email, "Welcome!!! Your account is verified", link).catch(console.log);
+
+        return verification;
       },
     });
   },

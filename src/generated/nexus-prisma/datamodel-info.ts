@@ -6,7 +6,7 @@
 export default {
   uniqueFieldsByModel: {
     Account: ['id', 'username', 'email'],
-    Verification: ['id']
+    Verification: ['id', 'token']
   },
   embeddedTypes: [],
   clientPath: 'src\\generated\\prisma-client',
@@ -2008,6 +2008,16 @@ export default {
             "type": {
               "kind": "SCALAR",
               "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "token",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null

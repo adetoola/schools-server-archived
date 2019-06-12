@@ -27,6 +27,10 @@ export interface NexusGenRootTypes {
   }
   Mutation: {};
   Query: {};
+  Verification: { // root type
+    id: string; // ID!
+    token: string; // String!
+  }
   String: string;
   Int: number;
   Float: number;
@@ -51,9 +55,14 @@ export interface NexusGenFieldTypes {
     login: NexusGenRootTypes['Account'] | null; // Account
     signout: NexusGenRootTypes['Account'] | null; // Account
     signup: NexusGenRootTypes['Account'] | null; // Account
+    verify: NexusGenRootTypes['Verification'] | null; // Verification
   }
   Query: { // field return type
     me: NexusGenRootTypes['Account'] | null; // Account
+  }
+  Verification: { // field return type
+    id: string; // ID!
+    token: string; // String!
   }
 }
 
@@ -68,6 +77,9 @@ export interface NexusGenArgTypes {
       password?: string | null; // String
       username?: string | null; // String
     }
+    verify: { // args
+      token?: string | null; // String
+    }
   }
 }
 
@@ -76,7 +88,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Account" | "Mutation" | "Query";
+export type NexusGenObjectNames = "Account" | "Mutation" | "Query" | "Verification";
 
 export type NexusGenInputNames = never;
 

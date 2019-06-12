@@ -12,6 +12,6 @@ type Account {
 type Verification {
   id: ID! @id
   accountId: String!
-  token: String!
+  token: String! @unique
   createdAt: DateTime! @createdAt
 }

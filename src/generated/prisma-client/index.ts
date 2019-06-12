@@ -272,6 +272,7 @@ export interface AccountWhereInput {
 
 export type VerificationWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
+  token?: Maybe<String>;
 }>;
 
 export interface VerificationWhereInput {

@@ -382,5 +382,6 @@ input VerificationWhereInput {
 
 input VerificationWhereUniqueInput {
   id: ID
+  token: String
 }
 `

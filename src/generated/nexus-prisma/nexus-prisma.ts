@@ -1448,10 +1448,12 @@ export type AccountWhereInputInputObject =
   
 export interface VerificationWhereUniqueInput {
   id?: string | null
+  token?: string | null
 }
 export type VerificationWhereUniqueInputInputObject =
   | Extract<keyof VerificationWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'token', alias?: string  } 
   
 export interface VerificationWhereInput {
   id?: string | null

@@ -17,8 +17,14 @@ type Mutation {
   login(email: String, password: String): Account
   signout: Account
   signup(email: String, password: String, username: String): Account
+  verify(token: String): Verification
 }
 
 type Query {
   me: Account
+}
+
+type Verification {
+  id: ID!
+  token: String!
 }
