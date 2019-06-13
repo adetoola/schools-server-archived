@@ -15,16 +15,23 @@ scalar DateTime
 
 type Mutation {
   login(email: String, password: String): Account
-  signout: Account
+  passwordReset(password: String, token: String): TriggerAction
+  requestPasswordReset(email: String): TriggerAction
+  requestVerificationMail(email: String): TriggerAction
+  signout: TriggerAction
   signup(email: String, password: String, username: String): Account
-  verify(token: String): Verification
+  verify(token: String): TriggerAction
 }
 
 type Query {
   me: Account
 }
 
-type Verification {
+type Token {
   id: ID!
   token: String!
+}
+
+type TriggerAction {
+  ok: Boolean
 }

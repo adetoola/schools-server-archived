@@ -6,7 +6,8 @@
 export default {
   uniqueFieldsByModel: {
     Account: ['id', 'username', 'email'],
-    Verification: ['id', 'token']
+    Token: ['id', 'token'],
+    TokenType: []
   },
   embeddedTypes: [],
   clientPath: 'src\\generated\\prisma-client',
@@ -233,7 +234,7 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "verification",
+            "name": "token",
             "description": null,
             "args": [
               {
@@ -244,7 +245,7 @@ export default {
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "VerificationWhereUniqueInput",
+                    "name": "TokenWhereUniqueInput",
                     "ofType": null
                   }
                 },
@@ -253,14 +254,14 @@ export default {
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "Verification",
+              "name": "Token",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "verifications",
+            "name": "tokens",
             "description": null,
             "args": [
               {
@@ -268,7 +269,7 @@ export default {
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "VerificationWhereInput",
+                  "name": "TokenWhereInput",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -278,7 +279,7 @@ export default {
                 "description": null,
                 "type": {
                   "kind": "ENUM",
-                  "name": "VerificationOrderByInput",
+                  "name": "TokenOrderByInput",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -342,7 +343,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "Verification",
+                  "name": "Token",
                   "ofType": null
                 }
               }
@@ -351,7 +352,7 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "verificationsConnection",
+            "name": "tokensConnection",
             "description": null,
             "args": [
               {
@@ -359,7 +360,7 @@ export default {
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "VerificationWhereInput",
+                  "name": "TokenWhereInput",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -369,7 +370,7 @@ export default {
                 "description": null,
                 "type": {
                   "kind": "ENUM",
-                  "name": "VerificationOrderByInput",
+                  "name": "TokenOrderByInput",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -430,7 +431,7 @@ export default {
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "VerificationConnection",
+                "name": "TokenConnection",
                 "ofType": null
               }
             },
@@ -1998,7 +1999,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "VerificationWhereUniqueInput",
+        "name": "TokenWhereUniqueInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -2029,7 +2030,7 @@ export default {
       },
       {
         "kind": "OBJECT",
-        "name": "Verification",
+        "name": "Token",
         "description": null,
         "fields": [
           {
@@ -2081,6 +2082,18 @@ export default {
             "deprecationReason": null
           },
           {
+            "name": "type",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "TokenType",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createdAt",
             "description": null,
             "args": [],
@@ -2103,8 +2116,31 @@ export default {
         "possibleTypes": null
       },
       {
+        "kind": "ENUM",
+        "name": "TokenType",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "PASSWORD",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "EMAIL",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "possibleTypes": null
+      },
+      {
         "kind": "INPUT_OBJECT",
-        "name": "VerificationWhereInput",
+        "name": "TokenWhereInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -2577,6 +2613,62 @@ export default {
             "defaultValue": null
           },
           {
+            "name": "type",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "TokenType",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "type_not",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "TokenType",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "type_in",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "TokenType",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "type_not_in",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "TokenType",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null
+          },
+          {
             "name": "createdAt",
             "description": null,
             "type": {
@@ -2683,7 +2775,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "VerificationWhereInput",
+                  "name": "TokenWhereInput",
                   "ofType": null
                 }
               }
@@ -2701,7 +2793,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "VerificationWhereInput",
+                  "name": "TokenWhereInput",
                   "ofType": null
                 }
               }
@@ -2719,7 +2811,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "VerificationWhereInput",
+                  "name": "TokenWhereInput",
                   "ofType": null
                 }
               }
@@ -2733,7 +2825,7 @@ export default {
       },
       {
         "kind": "ENUM",
-        "name": "VerificationOrderByInput",
+        "name": "TokenOrderByInput",
         "description": null,
         "fields": null,
         "inputFields": null,
@@ -2776,6 +2868,18 @@ export default {
             "deprecationReason": null
           },
           {
+            "name": "type_ASC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "type_DESC",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "createdAt_ASC",
             "description": null,
             "isDeprecated": false,
@@ -2804,7 +2908,7 @@ export default {
       },
       {
         "kind": "OBJECT",
-        "name": "VerificationConnection",
+        "name": "TokenConnection",
         "description": null,
         "fields": [
           {
@@ -2835,7 +2939,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "VerificationEdge",
+                  "name": "TokenEdge",
                   "ofType": null
                 }
               }
@@ -2852,7 +2956,7 @@ export default {
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "AggregateVerification",
+                "name": "AggregateToken",
                 "ofType": null
               }
             },
@@ -2867,7 +2971,7 @@ export default {
       },
       {
         "kind": "OBJECT",
-        "name": "VerificationEdge",
+        "name": "TokenEdge",
         "description": null,
         "fields": [
           {
@@ -2879,7 +2983,7 @@ export default {
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "Verification",
+                "name": "Token",
                 "ofType": null
               }
             },
@@ -2910,7 +3014,7 @@ export default {
       },
       {
         "kind": "OBJECT",
-        "name": "AggregateVerification",
+        "name": "AggregateToken",
         "description": null,
         "fields": [
           {
@@ -3194,7 +3298,7 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "createVerification",
+            "name": "createToken",
             "description": null,
             "args": [
               {
@@ -3205,7 +3309,7 @@ export default {
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "VerificationCreateInput",
+                    "name": "TokenCreateInput",
                     "ofType": null
                   }
                 },
@@ -3217,7 +3321,7 @@ export default {
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "Verification",
+                "name": "Token",
                 "ofType": null
               }
             },
@@ -3225,7 +3329,7 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "updateVerification",
+            "name": "updateToken",
             "description": null,
             "args": [
               {
@@ -3236,7 +3340,7 @@ export default {
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "VerificationUpdateInput",
+                    "name": "TokenUpdateInput",
                     "ofType": null
                   }
                 },
@@ -3250,7 +3354,7 @@ export default {
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "VerificationWhereUniqueInput",
+                    "name": "TokenWhereUniqueInput",
                     "ofType": null
                   }
                 },
@@ -3259,14 +3363,14 @@ export default {
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "Verification",
+              "name": "Token",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "updateManyVerifications",
+            "name": "updateManyTokens",
             "description": null,
             "args": [
               {
@@ -3277,7 +3381,7 @@ export default {
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "VerificationUpdateManyMutationInput",
+                    "name": "TokenUpdateManyMutationInput",
                     "ofType": null
                   }
                 },
@@ -3288,7 +3392,7 @@ export default {
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "VerificationWhereInput",
+                  "name": "TokenWhereInput",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3307,7 +3411,7 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "upsertVerification",
+            "name": "upsertToken",
             "description": null,
             "args": [
               {
@@ -3318,7 +3422,7 @@ export default {
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "VerificationWhereUniqueInput",
+                    "name": "TokenWhereUniqueInput",
                     "ofType": null
                   }
                 },
@@ -3332,7 +3436,7 @@ export default {
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "VerificationCreateInput",
+                    "name": "TokenCreateInput",
                     "ofType": null
                   }
                 },
@@ -3346,7 +3450,7 @@ export default {
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "VerificationUpdateInput",
+                    "name": "TokenUpdateInput",
                     "ofType": null
                   }
                 },
@@ -3358,7 +3462,7 @@ export default {
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "Verification",
+                "name": "Token",
                 "ofType": null
               }
             },
@@ -3366,7 +3470,7 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "deleteVerification",
+            "name": "deleteToken",
             "description": null,
             "args": [
               {
@@ -3377,7 +3481,7 @@ export default {
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "VerificationWhereUniqueInput",
+                    "name": "TokenWhereUniqueInput",
                     "ofType": null
                   }
                 },
@@ -3386,14 +3490,14 @@ export default {
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "Verification",
+              "name": "Token",
               "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "deleteManyVerifications",
+            "name": "deleteManyTokens",
             "description": null,
             "args": [
               {
@@ -3401,7 +3505,7 @@ export default {
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "VerificationWhereInput",
+                  "name": "TokenWhereInput",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3665,7 +3769,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "VerificationCreateInput",
+        "name": "TokenCreateInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -3706,6 +3810,16 @@ export default {
               }
             },
             "defaultValue": null
+          },
+          {
+            "name": "type",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "TokenType",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -3714,7 +3828,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "VerificationUpdateInput",
+        "name": "TokenUpdateInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -3737,6 +3851,16 @@ export default {
               "ofType": null
             },
             "defaultValue": null
+          },
+          {
+            "name": "type",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "TokenType",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -3745,7 +3869,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "VerificationUpdateManyMutationInput",
+        "name": "TokenUpdateManyMutationInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -3765,6 +3889,16 @@ export default {
             "type": {
               "kind": "SCALAR",
               "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "type",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "TokenType",
               "ofType": null
             },
             "defaultValue": null
@@ -3803,7 +3937,7 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "verification",
+            "name": "token",
             "description": null,
             "args": [
               {
@@ -3811,7 +3945,7 @@ export default {
                 "description": null,
                 "type": {
                   "kind": "INPUT_OBJECT",
-                  "name": "VerificationSubscriptionWhereInput",
+                  "name": "TokenSubscriptionWhereInput",
                   "ofType": null
                 },
                 "defaultValue": null
@@ -3819,7 +3953,7 @@ export default {
             ],
             "type": {
               "kind": "OBJECT",
-              "name": "VerificationSubscriptionPayload",
+              "name": "TokenSubscriptionPayload",
               "ofType": null
             },
             "isDeprecated": false,
@@ -4203,7 +4337,7 @@ export default {
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "VerificationSubscriptionWhereInput",
+        "name": "TokenSubscriptionWhereInput",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -4276,7 +4410,7 @@ export default {
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "VerificationWhereInput",
+              "name": "TokenWhereInput",
               "ofType": null
             },
             "defaultValue": null
@@ -4292,7 +4426,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "VerificationSubscriptionWhereInput",
+                  "name": "TokenSubscriptionWhereInput",
                   "ofType": null
                 }
               }
@@ -4310,7 +4444,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "VerificationSubscriptionWhereInput",
+                  "name": "TokenSubscriptionWhereInput",
                   "ofType": null
                 }
               }
@@ -4328,7 +4462,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "VerificationSubscriptionWhereInput",
+                  "name": "TokenSubscriptionWhereInput",
                   "ofType": null
                 }
               }
@@ -4342,7 +4476,7 @@ export default {
       },
       {
         "kind": "OBJECT",
-        "name": "VerificationSubscriptionPayload",
+        "name": "TokenSubscriptionPayload",
         "description": null,
         "fields": [
           {
@@ -4367,7 +4501,7 @@ export default {
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "Verification",
+              "name": "Token",
               "ofType": null
             },
             "isDeprecated": false,
@@ -4399,7 +4533,7 @@ export default {
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "VerificationPreviousValues",
+              "name": "TokenPreviousValues",
               "ofType": null
             },
             "isDeprecated": false,
@@ -4413,7 +4547,7 @@ export default {
       },
       {
         "kind": "OBJECT",
-        "name": "VerificationPreviousValues",
+        "name": "TokenPreviousValues",
         "description": null,
         "fields": [
           {
@@ -4460,6 +4594,18 @@ export default {
                 "name": "String",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "type",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "ENUM",
+              "name": "TokenType",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null

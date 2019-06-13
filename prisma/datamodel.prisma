@@ -9,9 +9,15 @@ type Account {
   updatedAt: DateTime! @updatedAt
 }
 
-type Verification {
+type Token {
   id: ID! @id
   accountId: String!
   token: String! @unique
+  type: TokenType @efault(value: EMAIL)
   createdAt: DateTime! @createdAt
+}
+
+enum TokenType {
+  PASSWORD
+  EMAIL
 }

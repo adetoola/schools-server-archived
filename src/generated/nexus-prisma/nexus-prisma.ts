@@ -20,17 +20,17 @@ export interface NexusPrismaTypes {
       PageInfo: PageInfoObject
       AccountEdge: AccountEdgeObject
       AggregateAccount: AggregateAccountObject
-      Verification: VerificationObject
-      VerificationConnection: VerificationConnectionObject
-      VerificationEdge: VerificationEdgeObject
-      AggregateVerification: AggregateVerificationObject
+      Token: TokenObject
+      TokenConnection: TokenConnectionObject
+      TokenEdge: TokenEdgeObject
+      AggregateToken: AggregateTokenObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
       AccountSubscriptionPayload: AccountSubscriptionPayloadObject
       AccountPreviousValues: AccountPreviousValuesObject
-      VerificationSubscriptionPayload: VerificationSubscriptionPayloadObject
-      VerificationPreviousValues: VerificationPreviousValuesObject
+      TokenSubscriptionPayload: TokenSubscriptionPayloadObject
+      TokenPreviousValues: TokenPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
@@ -39,38 +39,39 @@ export interface NexusPrismaTypes {
       PageInfo: PageInfoFieldDetails
       AccountEdge: AccountEdgeFieldDetails
       AggregateAccount: AggregateAccountFieldDetails
-      Verification: VerificationFieldDetails
-      VerificationConnection: VerificationConnectionFieldDetails
-      VerificationEdge: VerificationEdgeFieldDetails
-      AggregateVerification: AggregateVerificationFieldDetails
+      Token: TokenFieldDetails
+      TokenConnection: TokenConnectionFieldDetails
+      TokenEdge: TokenEdgeFieldDetails
+      AggregateToken: AggregateTokenFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
       AccountSubscriptionPayload: AccountSubscriptionPayloadFieldDetails
       AccountPreviousValues: AccountPreviousValuesFieldDetails
-      VerificationSubscriptionPayload: VerificationSubscriptionPayloadFieldDetails
-      VerificationPreviousValues: VerificationPreviousValuesFieldDetails
+      TokenSubscriptionPayload: TokenSubscriptionPayloadFieldDetails
+      TokenPreviousValues: TokenPreviousValuesFieldDetails
     }
   }
   inputTypes: {
     fields: {
       AccountWhereUniqueInput: AccountWhereUniqueInputInputObject
       AccountWhereInput: AccountWhereInputInputObject
-      VerificationWhereUniqueInput: VerificationWhereUniqueInputInputObject
-      VerificationWhereInput: VerificationWhereInputInputObject
+      TokenWhereUniqueInput: TokenWhereUniqueInputInputObject
+      TokenWhereInput: TokenWhereInputInputObject
       AccountCreateInput: AccountCreateInputInputObject
       AccountUpdateInput: AccountUpdateInputInputObject
       AccountUpdateManyMutationInput: AccountUpdateManyMutationInputInputObject
-      VerificationCreateInput: VerificationCreateInputInputObject
-      VerificationUpdateInput: VerificationUpdateInputInputObject
-      VerificationUpdateManyMutationInput: VerificationUpdateManyMutationInputInputObject
+      TokenCreateInput: TokenCreateInputInputObject
+      TokenUpdateInput: TokenUpdateInputInputObject
+      TokenUpdateManyMutationInput: TokenUpdateManyMutationInputInputObject
       AccountSubscriptionWhereInput: AccountSubscriptionWhereInputInputObject
-      VerificationSubscriptionWhereInput: VerificationSubscriptionWhereInputInputObject
+      TokenSubscriptionWhereInput: TokenSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
     AccountOrderByInput: AccountOrderByInputValues,
-    VerificationOrderByInput: VerificationOrderByInputValues,
+    TokenType: TokenTypeValues,
+    TokenOrderByInput: TokenOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -82,17 +83,17 @@ type QueryObject =
   | { name: 'account', args?: QueryAccountArgs[] | false, alias?: string  } 
   | { name: 'accounts', args?: QueryAccountsArgs[] | false, alias?: string  } 
   | { name: 'accountsConnection', args?: QueryAccountsConnectionArgs[] | false, alias?: string  } 
-  | { name: 'verification', args?: QueryVerificationArgs[] | false, alias?: string  } 
-  | { name: 'verifications', args?: QueryVerificationsArgs[] | false, alias?: string  } 
-  | { name: 'verificationsConnection', args?: QueryVerificationsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'token', args?: QueryTokenArgs[] | false, alias?: string  } 
+  | { name: 'tokens', args?: QueryTokensArgs[] | false, alias?: string  } 
+  | { name: 'tokensConnection', args?: QueryTokensConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'account'
   | 'accounts'
   | 'accountsConnection'
-  | 'verification'
-  | 'verifications'
-  | 'verificationsConnection'
+  | 'token'
+  | 'tokens'
+  | 'tokensConnection'
 
 
 type QueryAccountArgs =
@@ -113,9 +114,9 @@ type QueryAccountsConnectionArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryVerificationArgs =
+type QueryTokenArgs =
   | 'where'
-type QueryVerificationsArgs =
+type QueryTokensArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -123,7 +124,7 @@ type QueryVerificationsArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryVerificationsConnectionArgs =
+type QueryTokensConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -173,44 +174,44 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.AccountConnection> | prisma.AccountConnection
   }
-  verification: {
-    type: 'Verification'
-    args: Record<QueryVerificationArgs, core.NexusArgDef<string>>
+  token: {
+    type: 'Token'
+    args: Record<QueryTokenArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where: VerificationWhereUniqueInput }  ,
+      args: { where: TokenWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Verification | null> | prisma.Verification | null
+    ) => Promise<prisma.Token | null> | prisma.Token | null
   }
-  verifications: {
-    type: 'Verification'
-    args: Record<QueryVerificationsArgs, core.NexusArgDef<string>>
+  tokens: {
+    type: 'Token'
+    args: Record<QueryTokensArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: VerificationWhereInput | null, orderBy?: prisma.VerificationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: TokenWhereInput | null, orderBy?: prisma.TokenOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Verification[]> | prisma.Verification[]
+    ) => Promise<prisma.Token[]> | prisma.Token[]
   }
-  verificationsConnection: {
-    type: 'VerificationConnection'
-    args: Record<QueryVerificationsConnectionArgs, core.NexusArgDef<string>>
+  tokensConnection: {
+    type: 'TokenConnection'
+    args: Record<QueryTokensConnectionArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: VerificationWhereInput | null, orderBy?: prisma.VerificationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: TokenWhereInput | null, orderBy?: prisma.TokenOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.VerificationConnection> | prisma.VerificationConnection
+    ) => Promise<prisma.TokenConnection> | prisma.TokenConnection
   }
 }
   
@@ -490,26 +491,28 @@ export interface AggregateAccountFieldDetails {
 }
   
 
-// Types for Verification
+// Types for Token
 
-type VerificationObject =
-  | VerificationFields
+type TokenObject =
+  | TokenFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'accountId', args?: [] | false, alias?: string  } 
   | { name: 'token', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
 
-type VerificationFields =
+type TokenFields =
   | 'id'
   | 'accountId'
   | 'token'
+  | 'type'
   | 'createdAt'
 
 
 
   
 
-export interface VerificationFieldDetails {
+export interface TokenFieldDetails {
   id: {
     type: 'ID'
     args: {}
@@ -534,6 +537,19 @@ export interface VerificationFieldDetails {
     nullable: false
     resolve: undefined
   }
+  type: {
+    type: 'TokenType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Token">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.TokenType | null> | prisma.TokenType | null
+  }
   createdAt: {
     type: 'DateTime'
     args: {}
@@ -545,15 +561,15 @@ export interface VerificationFieldDetails {
 }
   
 
-// Types for VerificationConnection
+// Types for TokenConnection
 
-type VerificationConnectionObject =
-  | VerificationConnectionFields
+type TokenConnectionObject =
+  | TokenConnectionFields
   | { name: 'pageInfo', args?: [] | false, alias?: string  } 
   | { name: 'edges', args?: [] | false, alias?: string  } 
   | { name: 'aggregate', args?: [] | false, alias?: string  } 
 
-type VerificationConnectionFields =
+type TokenConnectionFields =
   | 'pageInfo'
   | 'edges'
   | 'aggregate'
@@ -562,7 +578,7 @@ type VerificationConnectionFields =
 
   
 
-export interface VerificationConnectionFieldDetails {
+export interface TokenConnectionFieldDetails {
   pageInfo: {
     type: 'PageInfo'
     args: {}
@@ -570,49 +586,49 @@ export interface VerificationConnectionFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"VerificationConnection">,
+      root: core.RootValue<"TokenConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PageInfo> | prisma.PageInfo
   }
   edges: {
-    type: 'VerificationEdge'
+    type: 'TokenEdge'
     args: {}
     description: string
     list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"VerificationConnection">,
+      root: core.RootValue<"TokenConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.VerificationEdge[]> | prisma.VerificationEdge[]
+    ) => Promise<prisma.TokenEdge[]> | prisma.TokenEdge[]
   }
   aggregate: {
-    type: 'AggregateVerification'
+    type: 'AggregateToken'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"VerificationConnection">,
+      root: core.RootValue<"TokenConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateVerification> | prisma.AggregateVerification
+    ) => Promise<prisma.AggregateToken> | prisma.AggregateToken
   }
 }
   
 
-// Types for VerificationEdge
+// Types for TokenEdge
 
-type VerificationEdgeObject =
-  | VerificationEdgeFields
+type TokenEdgeObject =
+  | TokenEdgeFields
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'cursor', args?: [] | false, alias?: string  } 
 
-type VerificationEdgeFields =
+type TokenEdgeFields =
   | 'node'
   | 'cursor'
 
@@ -620,19 +636,19 @@ type VerificationEdgeFields =
 
   
 
-export interface VerificationEdgeFieldDetails {
+export interface TokenEdgeFieldDetails {
   node: {
-    type: 'Verification'
+    type: 'Token'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"VerificationEdge">,
+      root: core.RootValue<"TokenEdge">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Verification> | prisma.Verification
+    ) => Promise<prisma.Token> | prisma.Token
   }
   cursor: {
     type: 'String'
@@ -645,20 +661,20 @@ export interface VerificationEdgeFieldDetails {
 }
   
 
-// Types for AggregateVerification
+// Types for AggregateToken
 
-type AggregateVerificationObject =
-  | AggregateVerificationFields
+type AggregateTokenObject =
+  | AggregateTokenFields
   | { name: 'count', args?: [] | false, alias?: string  } 
 
-type AggregateVerificationFields =
+type AggregateTokenFields =
   | 'count'
 
 
 
   
 
-export interface AggregateVerificationFieldDetails {
+export interface AggregateTokenFieldDetails {
   count: {
     type: 'Int'
     args: {}
@@ -680,12 +696,12 @@ type MutationObject =
   | { name: 'upsertAccount', args?: MutationUpsertAccountArgs[] | false, alias?: string  } 
   | { name: 'deleteAccount', args?: MutationDeleteAccountArgs[] | false, alias?: string  } 
   | { name: 'deleteManyAccounts', args?: MutationDeleteManyAccountsArgs[] | false, alias?: string  } 
-  | { name: 'createVerification', args?: MutationCreateVerificationArgs[] | false, alias?: string  } 
-  | { name: 'updateVerification', args?: MutationUpdateVerificationArgs[] | false, alias?: string  } 
-  | { name: 'updateManyVerifications', args?: MutationUpdateManyVerificationsArgs[] | false, alias?: string  } 
-  | { name: 'upsertVerification', args?: MutationUpsertVerificationArgs[] | false, alias?: string  } 
-  | { name: 'deleteVerification', args?: MutationDeleteVerificationArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyVerifications', args?: MutationDeleteManyVerificationsArgs[] | false, alias?: string  } 
+  | { name: 'createToken', args?: MutationCreateTokenArgs[] | false, alias?: string  } 
+  | { name: 'updateToken', args?: MutationUpdateTokenArgs[] | false, alias?: string  } 
+  | { name: 'updateManyTokens', args?: MutationUpdateManyTokensArgs[] | false, alias?: string  } 
+  | { name: 'upsertToken', args?: MutationUpsertTokenArgs[] | false, alias?: string  } 
+  | { name: 'deleteToken', args?: MutationDeleteTokenArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyTokens', args?: MutationDeleteManyTokensArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createAccount'
@@ -694,12 +710,12 @@ type MutationFields =
   | 'upsertAccount'
   | 'deleteAccount'
   | 'deleteManyAccounts'
-  | 'createVerification'
-  | 'updateVerification'
-  | 'updateManyVerifications'
-  | 'upsertVerification'
-  | 'deleteVerification'
-  | 'deleteManyVerifications'
+  | 'createToken'
+  | 'updateToken'
+  | 'updateManyTokens'
+  | 'upsertToken'
+  | 'deleteToken'
+  | 'deleteManyTokens'
 
 
 type MutationCreateAccountArgs =
@@ -718,21 +734,21 @@ type MutationDeleteAccountArgs =
   | 'where'
 type MutationDeleteManyAccountsArgs =
   | 'where'
-type MutationCreateVerificationArgs =
+type MutationCreateTokenArgs =
   | 'data'
-type MutationUpdateVerificationArgs =
-  | 'data'
-  | 'where'
-type MutationUpdateManyVerificationsArgs =
+type MutationUpdateTokenArgs =
   | 'data'
   | 'where'
-type MutationUpsertVerificationArgs =
+type MutationUpdateManyTokensArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertTokenArgs =
   | 'where'
   | 'create'
   | 'update'
-type MutationDeleteVerificationArgs =
+type MutationDeleteTokenArgs =
   | 'where'
-type MutationDeleteManyVerificationsArgs =
+type MutationDeleteManyTokensArgs =
   | 'where'
   
 
@@ -815,80 +831,80 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  createVerification: {
-    type: 'Verification'
-    args: Record<MutationCreateVerificationArgs, core.NexusArgDef<string>>
+  createToken: {
+    type: 'Token'
+    args: Record<MutationCreateTokenArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: VerificationCreateInput }  ,
+      args: { data: TokenCreateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Verification> | prisma.Verification
+    ) => Promise<prisma.Token> | prisma.Token
   }
-  updateVerification: {
-    type: 'Verification'
-    args: Record<MutationUpdateVerificationArgs, core.NexusArgDef<string>>
+  updateToken: {
+    type: 'Token'
+    args: Record<MutationUpdateTokenArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: VerificationUpdateInput, where: VerificationWhereUniqueInput }  ,
+      args: { data: TokenUpdateInput, where: TokenWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Verification | null> | prisma.Verification | null
+    ) => Promise<prisma.Token | null> | prisma.Token | null
   }
-  updateManyVerifications: {
+  updateManyTokens: {
     type: 'BatchPayload'
-    args: Record<MutationUpdateManyVerificationsArgs, core.NexusArgDef<string>>
+    args: Record<MutationUpdateManyTokensArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: VerificationUpdateManyMutationInput, where?: VerificationWhereInput | null }  ,
+      args: { data: TokenUpdateManyMutationInput, where?: TokenWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  upsertVerification: {
-    type: 'Verification'
-    args: Record<MutationUpsertVerificationArgs, core.NexusArgDef<string>>
+  upsertToken: {
+    type: 'Token'
+    args: Record<MutationUpsertTokenArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: VerificationWhereUniqueInput, create: VerificationCreateInput, update: VerificationUpdateInput }  ,
+      args: { where: TokenWhereUniqueInput, create: TokenCreateInput, update: TokenUpdateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Verification> | prisma.Verification
+    ) => Promise<prisma.Token> | prisma.Token
   }
-  deleteVerification: {
-    type: 'Verification'
-    args: Record<MutationDeleteVerificationArgs, core.NexusArgDef<string>>
+  deleteToken: {
+    type: 'Token'
+    args: Record<MutationDeleteTokenArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: VerificationWhereUniqueInput }  ,
+      args: { where: TokenWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Verification | null> | prisma.Verification | null
+    ) => Promise<prisma.Token | null> | prisma.Token | null
   }
-  deleteManyVerifications: {
+  deleteManyTokens: {
     type: 'BatchPayload'
-    args: Record<MutationDeleteManyVerificationsArgs, core.NexusArgDef<string>>
+    args: Record<MutationDeleteManyTokensArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where?: VerificationWhereInput | null }  ,
+      args: { where?: TokenWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -926,16 +942,16 @@ export interface BatchPayloadFieldDetails {
 type SubscriptionObject =
   | SubscriptionFields
   | { name: 'account', args?: SubscriptionAccountArgs[] | false, alias?: string  } 
-  | { name: 'verification', args?: SubscriptionVerificationArgs[] | false, alias?: string  } 
+  | { name: 'token', args?: SubscriptionTokenArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'account'
-  | 'verification'
+  | 'token'
 
 
 type SubscriptionAccountArgs =
   | 'where'
-type SubscriptionVerificationArgs =
+type SubscriptionTokenArgs =
   | 'where'
   
 
@@ -953,18 +969,18 @@ export interface SubscriptionFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.AccountSubscriptionPayload | null> | prisma.AccountSubscriptionPayload | null
   }
-  verification: {
-    type: 'VerificationSubscriptionPayload'
-    args: Record<SubscriptionVerificationArgs, core.NexusArgDef<string>>
+  token: {
+    type: 'TokenSubscriptionPayload'
+    args: Record<SubscriptionTokenArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Subscription">,
-      args: { where?: VerificationSubscriptionWhereInput | null }  ,
+      args: { where?: TokenSubscriptionWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.VerificationSubscriptionPayload | null> | prisma.VerificationSubscriptionPayload | null
+    ) => Promise<prisma.TokenSubscriptionPayload | null> | prisma.TokenSubscriptionPayload | null
   }
 }
   
@@ -1134,16 +1150,16 @@ export interface AccountPreviousValuesFieldDetails {
 }
   
 
-// Types for VerificationSubscriptionPayload
+// Types for TokenSubscriptionPayload
 
-type VerificationSubscriptionPayloadObject =
-  | VerificationSubscriptionPayloadFields
+type TokenSubscriptionPayloadObject =
+  | TokenSubscriptionPayloadFields
   | { name: 'mutation', args?: [] | false, alias?: string  } 
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'updatedFields', args?: [] | false, alias?: string  } 
   | { name: 'previousValues', args?: [] | false, alias?: string  } 
 
-type VerificationSubscriptionPayloadFields =
+type TokenSubscriptionPayloadFields =
   | 'mutation'
   | 'node'
   | 'updatedFields'
@@ -1153,7 +1169,7 @@ type VerificationSubscriptionPayloadFields =
 
   
 
-export interface VerificationSubscriptionPayloadFieldDetails {
+export interface TokenSubscriptionPayloadFieldDetails {
   mutation: {
     type: 'MutationType'
     args: {}
@@ -1161,24 +1177,24 @@ export interface VerificationSubscriptionPayloadFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"VerificationSubscriptionPayload">,
+      root: core.RootValue<"TokenSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.MutationType> | prisma.MutationType
   }
   node: {
-    type: 'Verification'
+    type: 'Token'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"VerificationSubscriptionPayload">,
+      root: core.RootValue<"TokenSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Verification | null> | prisma.Verification | null
+    ) => Promise<prisma.Token | null> | prisma.Token | null
   }
   updatedFields: {
     type: 'String'
@@ -1189,41 +1205,43 @@ export interface VerificationSubscriptionPayloadFieldDetails {
     resolve: undefined
   }
   previousValues: {
-    type: 'VerificationPreviousValues'
+    type: 'TokenPreviousValues'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"VerificationSubscriptionPayload">,
+      root: core.RootValue<"TokenSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.VerificationPreviousValues | null> | prisma.VerificationPreviousValues | null
+    ) => Promise<prisma.TokenPreviousValues | null> | prisma.TokenPreviousValues | null
   }
 }
   
 
-// Types for VerificationPreviousValues
+// Types for TokenPreviousValues
 
-type VerificationPreviousValuesObject =
-  | VerificationPreviousValuesFields
+type TokenPreviousValuesObject =
+  | TokenPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'accountId', args?: [] | false, alias?: string  } 
   | { name: 'token', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
 
-type VerificationPreviousValuesFields =
+type TokenPreviousValuesFields =
   | 'id'
   | 'accountId'
   | 'token'
+  | 'type'
   | 'createdAt'
 
 
 
   
 
-export interface VerificationPreviousValuesFieldDetails {
+export interface TokenPreviousValuesFieldDetails {
   id: {
     type: 'ID'
     args: {}
@@ -1247,6 +1265,19 @@ export interface VerificationPreviousValuesFieldDetails {
     list: undefined
     nullable: false
     resolve: undefined
+  }
+  type: {
+    type: 'TokenType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"TokenPreviousValues">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.TokenType | null> | prisma.TokenType | null
   }
   createdAt: {
     type: 'DateTime'
@@ -1446,16 +1477,16 @@ export type AccountWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface VerificationWhereUniqueInput {
+export interface TokenWhereUniqueInput {
   id?: string | null
   token?: string | null
 }
-export type VerificationWhereUniqueInputInputObject =
-  | Extract<keyof VerificationWhereUniqueInput, string>
+export type TokenWhereUniqueInputInputObject =
+  | Extract<keyof TokenWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'token', alias?: string  } 
   
-export interface VerificationWhereInput {
+export interface TokenWhereInput {
   id?: string | null
   id_not?: string | null
   id_in?: string[]
@@ -1498,6 +1529,10 @@ export interface VerificationWhereInput {
   token_not_starts_with?: string | null
   token_ends_with?: string | null
   token_not_ends_with?: string | null
+  type?: prisma.TokenType | null
+  type_not?: prisma.TokenType | null
+  type_in?: prisma.TokenType[]
+  type_not_in?: prisma.TokenType[]
   createdAt?: string | null
   createdAt_not?: string | null
   createdAt_in?: string[]
@@ -1506,12 +1541,12 @@ export interface VerificationWhereInput {
   createdAt_lte?: string | null
   createdAt_gt?: string | null
   createdAt_gte?: string | null
-  AND?: VerificationWhereInput[]
-  OR?: VerificationWhereInput[]
-  NOT?: VerificationWhereInput[]
+  AND?: TokenWhereInput[]
+  OR?: TokenWhereInput[]
+  NOT?: TokenWhereInput[]
 }
-export type VerificationWhereInputInputObject =
-  | Extract<keyof VerificationWhereInput, string>
+export type TokenWhereInputInputObject =
+  | Extract<keyof TokenWhereInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'id_not', alias?: string  } 
   | { name: 'id_in', alias?: string  } 
@@ -1554,6 +1589,10 @@ export type VerificationWhereInputInputObject =
   | { name: 'token_not_starts_with', alias?: string  } 
   | { name: 'token_ends_with', alias?: string  } 
   | { name: 'token_not_ends_with', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'type_not', alias?: string  } 
+  | { name: 'type_in', alias?: string  } 
+  | { name: 'type_not_in', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -1613,34 +1652,40 @@ export type AccountUpdateManyMutationInputInputObject =
   | { name: 'isVerified', alias?: string  } 
   | { name: 'lastLogin', alias?: string  } 
   
-export interface VerificationCreateInput {
+export interface TokenCreateInput {
   id?: string | null
   accountId?: string
   token?: string
+  type?: prisma.TokenType | null
 }
-export type VerificationCreateInputInputObject =
-  | Extract<keyof VerificationCreateInput, string>
+export type TokenCreateInputInputObject =
+  | Extract<keyof TokenCreateInput, string>
   | { name: 'id', alias?: string  } 
   | { name: 'accountId', alias?: string  } 
   | { name: 'token', alias?: string  } 
+  | { name: 'type', alias?: string  } 
   
-export interface VerificationUpdateInput {
+export interface TokenUpdateInput {
   accountId?: string | null
   token?: string | null
+  type?: prisma.TokenType | null
 }
-export type VerificationUpdateInputInputObject =
-  | Extract<keyof VerificationUpdateInput, string>
+export type TokenUpdateInputInputObject =
+  | Extract<keyof TokenUpdateInput, string>
   | { name: 'accountId', alias?: string  } 
   | { name: 'token', alias?: string  } 
+  | { name: 'type', alias?: string  } 
   
-export interface VerificationUpdateManyMutationInput {
+export interface TokenUpdateManyMutationInput {
   accountId?: string | null
   token?: string | null
+  type?: prisma.TokenType | null
 }
-export type VerificationUpdateManyMutationInputInputObject =
-  | Extract<keyof VerificationUpdateManyMutationInput, string>
+export type TokenUpdateManyMutationInputInputObject =
+  | Extract<keyof TokenUpdateManyMutationInput, string>
   | { name: 'accountId', alias?: string  } 
   | { name: 'token', alias?: string  } 
+  | { name: 'type', alias?: string  } 
   
 export interface AccountSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
@@ -1663,18 +1708,18 @@ export type AccountSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface VerificationSubscriptionWhereInput {
+export interface TokenSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
   updatedFields_contains_every?: string[]
   updatedFields_contains_some?: string[]
-  node?: VerificationWhereInput | null
-  AND?: VerificationSubscriptionWhereInput[]
-  OR?: VerificationSubscriptionWhereInput[]
-  NOT?: VerificationSubscriptionWhereInput[]
+  node?: TokenWhereInput | null
+  AND?: TokenSubscriptionWhereInput[]
+  OR?: TokenSubscriptionWhereInput[]
+  NOT?: TokenSubscriptionWhereInput[]
 }
-export type VerificationSubscriptionWhereInputInputObject =
-  | Extract<keyof VerificationSubscriptionWhereInput, string>
+export type TokenSubscriptionWhereInputInputObject =
+  | Extract<keyof TokenSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -1703,13 +1748,19 @@ export type AccountOrderByInputValues =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
-export type VerificationOrderByInputValues =
+export type TokenTypeValues =
+  | 'PASSWORD'
+  | 'EMAIL'
+  
+export type TokenOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
   | 'accountId_ASC'
   | 'accountId_DESC'
   | 'token_ASC'
   | 'token_DESC'
+  | 'type_ASC'
+  | 'type_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

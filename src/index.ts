@@ -1,11 +1,11 @@
-import * as path from "path";
-import { GraphQLServer } from "graphql-yoga";
-import { config } from "dotenv";
-import { makePrismaSchema } from "nexus-prisma";
 import * as cookieParser from "cookie-parser";
+import { config } from "dotenv";
+import { GraphQLServer } from "graphql-yoga";
+import { makePrismaSchema } from "nexus-prisma";
+import * as path from "path";
+
 import { prisma } from "./generated/prisma-client";
 import datamodelInfo from "./generated/nexus-prisma";
-
 import * as allTypes from "./resolvers";
 
 // Make sure dotenv works across the project
@@ -58,12 +58,15 @@ const server = new GraphQLServer({
 // Initialize all middleware here
 server.express.use(cookieParser());
 
+const { FRONTEND_URL, APP_PORT } = process.env;
+
 server.start(
   {
     cors: {
       credentials: true,
-      origin: process.env.FRONTEND_URL,
+      origin: FRONTEND_URL,
     },
+    port: parseInt(APP_PORT, 10),
   },
-  () => console.log(`🚀 Server is running on http://localhost:4000`)
+  details => console.log(`🚀 Server is running on http://localhost:${details.port}`)
 );

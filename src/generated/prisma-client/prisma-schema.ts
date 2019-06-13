@@ -195,7 +195,7 @@ type AggregateAccount {
   count: Int!
 }
 
-type AggregateVerification {
+type AggregateToken {
   count: Int!
 }
 
@@ -214,12 +214,12 @@ type Mutation {
   upsertAccount(where: AccountWhereUniqueInput!, create: AccountCreateInput!, update: AccountUpdateInput!): Account!
   deleteAccount(where: AccountWhereUniqueInput!): Account
   deleteManyAccounts(where: AccountWhereInput): BatchPayload!
-  createVerification(data: VerificationCreateInput!): Verification!
-  updateVerification(data: VerificationUpdateInput!, where: VerificationWhereUniqueInput!): Verification
-  updateManyVerifications(data: VerificationUpdateManyMutationInput!, where: VerificationWhereInput): BatchPayload!
-  upsertVerification(where: VerificationWhereUniqueInput!, create: VerificationCreateInput!, update: VerificationUpdateInput!): Verification!
-  deleteVerification(where: VerificationWhereUniqueInput!): Verification
-  deleteManyVerifications(where: VerificationWhereInput): BatchPayload!
+  createToken(data: TokenCreateInput!): Token!
+  updateToken(data: TokenUpdateInput!, where: TokenWhereUniqueInput!): Token
+  updateManyTokens(data: TokenUpdateManyMutationInput!, where: TokenWhereInput): BatchPayload!
+  upsertToken(where: TokenWhereUniqueInput!, create: TokenCreateInput!, update: TokenUpdateInput!): Token!
+  deleteToken(where: TokenWhereUniqueInput!): Token
+  deleteManyTokens(where: TokenWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -243,88 +243,100 @@ type Query {
   account(where: AccountWhereUniqueInput!): Account
   accounts(where: AccountWhereInput, orderBy: AccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Account]!
   accountsConnection(where: AccountWhereInput, orderBy: AccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AccountConnection!
-  verification(where: VerificationWhereUniqueInput!): Verification
-  verifications(where: VerificationWhereInput, orderBy: VerificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Verification]!
-  verificationsConnection(where: VerificationWhereInput, orderBy: VerificationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): VerificationConnection!
+  token(where: TokenWhereUniqueInput!): Token
+  tokens(where: TokenWhereInput, orderBy: TokenOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Token]!
+  tokensConnection(where: TokenWhereInput, orderBy: TokenOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TokenConnection!
   node(id: ID!): Node
 }
 
 type Subscription {
   account(where: AccountSubscriptionWhereInput): AccountSubscriptionPayload
-  verification(where: VerificationSubscriptionWhereInput): VerificationSubscriptionPayload
+  token(where: TokenSubscriptionWhereInput): TokenSubscriptionPayload
 }
 
-type Verification {
+type Token {
   id: ID!
   accountId: String!
   token: String!
+  type: TokenType
   createdAt: DateTime!
 }
 
-type VerificationConnection {
+type TokenConnection {
   pageInfo: PageInfo!
-  edges: [VerificationEdge]!
-  aggregate: AggregateVerification!
+  edges: [TokenEdge]!
+  aggregate: AggregateToken!
 }
 
-input VerificationCreateInput {
+input TokenCreateInput {
   id: ID
   accountId: String!
   token: String!
+  type: TokenType
 }
 
-type VerificationEdge {
-  node: Verification!
+type TokenEdge {
+  node: Token!
   cursor: String!
 }
 
-enum VerificationOrderByInput {
+enum TokenOrderByInput {
   id_ASC
   id_DESC
   accountId_ASC
   accountId_DESC
   token_ASC
   token_DESC
+  type_ASC
+  type_DESC
   createdAt_ASC
   createdAt_DESC
 }
 
-type VerificationPreviousValues {
+type TokenPreviousValues {
   id: ID!
   accountId: String!
   token: String!
+  type: TokenType
   createdAt: DateTime!
 }
 
-type VerificationSubscriptionPayload {
+type TokenSubscriptionPayload {
   mutation: MutationType!
-  node: Verification
+  node: Token
   updatedFields: [String!]
-  previousValues: VerificationPreviousValues
+  previousValues: TokenPreviousValues
 }
 
-input VerificationSubscriptionWhereInput {
+input TokenSubscriptionWhereInput {
   mutation_in: [MutationType!]
   updatedFields_contains: String
   updatedFields_contains_every: [String!]
   updatedFields_contains_some: [String!]
-  node: VerificationWhereInput
-  AND: [VerificationSubscriptionWhereInput!]
-  OR: [VerificationSubscriptionWhereInput!]
-  NOT: [VerificationSubscriptionWhereInput!]
+  node: TokenWhereInput
+  AND: [TokenSubscriptionWhereInput!]
+  OR: [TokenSubscriptionWhereInput!]
+  NOT: [TokenSubscriptionWhereInput!]
 }
 
-input VerificationUpdateInput {
+enum TokenType {
+  PASSWORD
+  EMAIL
+}
+
+input TokenUpdateInput {
   accountId: String
   token: String
+  type: TokenType
 }
 
-input VerificationUpdateManyMutationInput {
+input TokenUpdateManyMutationInput {
   accountId: String
   token: String
+  type: TokenType
 }
 
-input VerificationWhereInput {
+input TokenWhereInput {
   id: ID
   id_not: ID
   id_in: [ID!]
@@ -367,6 +379,10 @@ input VerificationWhereInput {
   token_not_starts_with: String
   token_ends_with: String
   token_not_ends_with: String
+  type: TokenType
+  type_not: TokenType
+  type_in: [TokenType!]
+  type_not_in: [TokenType!]
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -375,12 +391,12 @@ input VerificationWhereInput {
   createdAt_lte: DateTime
   createdAt_gt: DateTime
   createdAt_gte: DateTime
-  AND: [VerificationWhereInput!]
-  OR: [VerificationWhereInput!]
-  NOT: [VerificationWhereInput!]
+  AND: [TokenWhereInput!]
+  OR: [TokenWhereInput!]
+  NOT: [TokenWhereInput!]
 }
 
-input VerificationWhereUniqueInput {
+input TokenWhereUniqueInput {
   id: ID
   token: String
 }

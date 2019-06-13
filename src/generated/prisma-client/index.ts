@@ -17,7 +17,7 @@ export type Maybe<T> = T | undefined | null;
 
 export interface Exists {
   account: (where?: AccountWhereInput) => Promise<boolean>;
-  verification: (where?: VerificationWhereInput) => Promise<boolean>;
+  token: (where?: TokenWhereInput) => Promise<boolean>;
 }
 
 export interface Node {}
@@ -58,27 +58,25 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => AccountConnectionPromise;
-  verification: (
-    where: VerificationWhereUniqueInput
-  ) => VerificationNullablePromise;
-  verifications: (args?: {
-    where?: VerificationWhereInput;
-    orderBy?: VerificationOrderByInput;
+  token: (where: TokenWhereUniqueInput) => TokenNullablePromise;
+  tokens: (args?: {
+    where?: TokenWhereInput;
+    orderBy?: TokenOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
-  }) => FragmentableArray<Verification>;
-  verificationsConnection: (args?: {
-    where?: VerificationWhereInput;
-    orderBy?: VerificationOrderByInput;
+  }) => FragmentableArray<Token>;
+  tokensConnection: (args?: {
+    where?: TokenWhereInput;
+    orderBy?: TokenOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
-  }) => VerificationConnectionPromise;
+  }) => TokenConnectionPromise;
   node: (args: { id: ID_Output }) => Node;
 
   /**
@@ -101,26 +99,22 @@ export interface Prisma {
   }) => AccountPromise;
   deleteAccount: (where: AccountWhereUniqueInput) => AccountPromise;
   deleteManyAccounts: (where?: AccountWhereInput) => BatchPayloadPromise;
-  createVerification: (data: VerificationCreateInput) => VerificationPromise;
-  updateVerification: (args: {
-    data: VerificationUpdateInput;
-    where: VerificationWhereUniqueInput;
-  }) => VerificationPromise;
-  updateManyVerifications: (args: {
-    data: VerificationUpdateManyMutationInput;
-    where?: VerificationWhereInput;
+  createToken: (data: TokenCreateInput) => TokenPromise;
+  updateToken: (args: {
+    data: TokenUpdateInput;
+    where: TokenWhereUniqueInput;
+  }) => TokenPromise;
+  updateManyTokens: (args: {
+    data: TokenUpdateManyMutationInput;
+    where?: TokenWhereInput;
   }) => BatchPayloadPromise;
-  upsertVerification: (args: {
-    where: VerificationWhereUniqueInput;
-    create: VerificationCreateInput;
-    update: VerificationUpdateInput;
-  }) => VerificationPromise;
-  deleteVerification: (
-    where: VerificationWhereUniqueInput
-  ) => VerificationPromise;
-  deleteManyVerifications: (
-    where?: VerificationWhereInput
-  ) => BatchPayloadPromise;
+  upsertToken: (args: {
+    where: TokenWhereUniqueInput;
+    create: TokenCreateInput;
+    update: TokenUpdateInput;
+  }) => TokenPromise;
+  deleteToken: (where: TokenWhereUniqueInput) => TokenPromise;
+  deleteManyTokens: (where?: TokenWhereInput) => BatchPayloadPromise;
 
   /**
    * Subscriptions
@@ -133,9 +127,9 @@ export interface Subscription {
   account: (
     where?: AccountSubscriptionWhereInput
   ) => AccountSubscriptionPayloadSubscription;
-  verification: (
-    where?: VerificationSubscriptionWhereInput
-  ) => VerificationSubscriptionPayloadSubscription;
+  token: (
+    where?: TokenSubscriptionWhereInput
+  ) => TokenSubscriptionPayloadSubscription;
 }
 
 export interface ClientConstructor<T> {
@@ -164,13 +158,17 @@ export type AccountOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type VerificationOrderByInput =
+export type TokenType = "PASSWORD" | "EMAIL";
+
+export type TokenOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "accountId_ASC"
   | "accountId_DESC"
   | "token_ASC"
   | "token_DESC"
+  | "type_ASC"
+  | "type_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC";
 
@@ -270,12 +268,12 @@ export interface AccountWhereInput {
   NOT?: Maybe<AccountWhereInput[] | AccountWhereInput>;
 }
 
-export type VerificationWhereUniqueInput = AtLeastOne<{
+export type TokenWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
   token?: Maybe<String>;
 }>;
 
-export interface VerificationWhereInput {
+export interface TokenWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -318,6 +316,10 @@ export interface VerificationWhereInput {
   token_not_starts_with?: Maybe<String>;
   token_ends_with?: Maybe<String>;
   token_not_ends_with?: Maybe<String>;
+  type?: Maybe<TokenType>;
+  type_not?: Maybe<TokenType>;
+  type_in?: Maybe<TokenType[] | TokenType>;
+  type_not_in?: Maybe<TokenType[] | TokenType>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -326,9 +328,9 @@ export interface VerificationWhereInput {
   createdAt_lte?: Maybe<DateTimeInput>;
   createdAt_gt?: Maybe<DateTimeInput>;
   createdAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<VerificationWhereInput[] | VerificationWhereInput>;
-  OR?: Maybe<VerificationWhereInput[] | VerificationWhereInput>;
-  NOT?: Maybe<VerificationWhereInput[] | VerificationWhereInput>;
+  AND?: Maybe<TokenWhereInput[] | TokenWhereInput>;
+  OR?: Maybe<TokenWhereInput[] | TokenWhereInput>;
+  NOT?: Maybe<TokenWhereInput[] | TokenWhereInput>;
 }
 
 export interface AccountCreateInput {
@@ -356,20 +358,23 @@ export interface AccountUpdateManyMutationInput {
   lastLogin?: Maybe<DateTimeInput>;
 }
 
-export interface VerificationCreateInput {
+export interface TokenCreateInput {
   id?: Maybe<ID_Input>;
   accountId: String;
   token: String;
+  type?: Maybe<TokenType>;
 }
 
-export interface VerificationUpdateInput {
+export interface TokenUpdateInput {
   accountId?: Maybe<String>;
   token?: Maybe<String>;
+  type?: Maybe<TokenType>;
 }
 
-export interface VerificationUpdateManyMutationInput {
+export interface TokenUpdateManyMutationInput {
   accountId?: Maybe<String>;
   token?: Maybe<String>;
+  type?: Maybe<TokenType>;
 }
 
 export interface AccountSubscriptionWhereInput {
@@ -383,21 +388,15 @@ export interface AccountSubscriptionWhereInput {
   NOT?: Maybe<AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput>;
 }
 
-export interface VerificationSubscriptionWhereInput {
+export interface TokenSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<VerificationWhereInput>;
-  AND?: Maybe<
-    VerificationSubscriptionWhereInput[] | VerificationSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    VerificationSubscriptionWhereInput[] | VerificationSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    VerificationSubscriptionWhereInput[] | VerificationSubscriptionWhereInput
-  >;
+  node?: Maybe<TokenWhereInput>;
+  AND?: Maybe<TokenSubscriptionWhereInput[] | TokenSubscriptionWhereInput>;
+  OR?: Maybe<TokenSubscriptionWhereInput[] | TokenSubscriptionWhereInput>;
+  NOT?: Maybe<TokenSubscriptionWhereInput[] | TokenSubscriptionWhereInput>;
 }
 
 export interface NodeNode {
@@ -529,92 +528,92 @@ export interface AggregateAccountSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface Verification {
+export interface Token {
   id: ID_Output;
   accountId: String;
   token: String;
+  type?: TokenType;
   createdAt: DateTimeOutput;
 }
 
-export interface VerificationPromise
-  extends Promise<Verification>,
-    Fragmentable {
+export interface TokenPromise extends Promise<Token>, Fragmentable {
   id: () => Promise<ID_Output>;
   accountId: () => Promise<String>;
   token: () => Promise<String>;
+  type: () => Promise<TokenType>;
   createdAt: () => Promise<DateTimeOutput>;
 }
 
-export interface VerificationSubscription
-  extends Promise<AsyncIterator<Verification>>,
+export interface TokenSubscription
+  extends Promise<AsyncIterator<Token>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   accountId: () => Promise<AsyncIterator<String>>;
   token: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<TokenType>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface VerificationNullablePromise
-  extends Promise<Verification | null>,
+export interface TokenNullablePromise
+  extends Promise<Token | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   accountId: () => Promise<String>;
   token: () => Promise<String>;
+  type: () => Promise<TokenType>;
   createdAt: () => Promise<DateTimeOutput>;
 }
 
-export interface VerificationConnection {
+export interface TokenConnection {
   pageInfo: PageInfo;
-  edges: VerificationEdge[];
+  edges: TokenEdge[];
 }
 
-export interface VerificationConnectionPromise
-  extends Promise<VerificationConnection>,
+export interface TokenConnectionPromise
+  extends Promise<TokenConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<VerificationEdge>>() => T;
-  aggregate: <T = AggregateVerificationPromise>() => T;
+  edges: <T = FragmentableArray<TokenEdge>>() => T;
+  aggregate: <T = AggregateTokenPromise>() => T;
 }
 
-export interface VerificationConnectionSubscription
-  extends Promise<AsyncIterator<VerificationConnection>>,
+export interface TokenConnectionSubscription
+  extends Promise<AsyncIterator<TokenConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<VerificationEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateVerificationSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<TokenEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateTokenSubscription>() => T;
 }
 
-export interface VerificationEdge {
-  node: Verification;
+export interface TokenEdge {
+  node: Token;
   cursor: String;
 }
 
-export interface VerificationEdgePromise
-  extends Promise<VerificationEdge>,
-    Fragmentable {
-  node: <T = VerificationPromise>() => T;
+export interface TokenEdgePromise extends Promise<TokenEdge>, Fragmentable {
+  node: <T = TokenPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface VerificationEdgeSubscription
-  extends Promise<AsyncIterator<VerificationEdge>>,
+export interface TokenEdgeSubscription
+  extends Promise<AsyncIterator<TokenEdge>>,
     Fragmentable {
-  node: <T = VerificationSubscription>() => T;
+  node: <T = TokenSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateVerification {
+export interface AggregateToken {
   count: Int;
 }
 
-export interface AggregateVerificationPromise
-  extends Promise<AggregateVerification>,
+export interface AggregateTokenPromise
+  extends Promise<AggregateToken>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateVerificationSubscription
-  extends Promise<AsyncIterator<AggregateVerification>>,
+export interface AggregateTokenSubscription
+  extends Promise<AsyncIterator<AggregateToken>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -697,53 +696,56 @@ export interface AccountPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface VerificationSubscriptionPayload {
+export interface TokenSubscriptionPayload {
   mutation: MutationType;
-  node: Verification;
+  node: Token;
   updatedFields: String[];
-  previousValues: VerificationPreviousValues;
+  previousValues: TokenPreviousValues;
 }
 
-export interface VerificationSubscriptionPayloadPromise
-  extends Promise<VerificationSubscriptionPayload>,
+export interface TokenSubscriptionPayloadPromise
+  extends Promise<TokenSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = VerificationPromise>() => T;
+  node: <T = TokenPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = VerificationPreviousValuesPromise>() => T;
+  previousValues: <T = TokenPreviousValuesPromise>() => T;
 }
 
-export interface VerificationSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<VerificationSubscriptionPayload>>,
+export interface TokenSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<TokenSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = VerificationSubscription>() => T;
+  node: <T = TokenSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = VerificationPreviousValuesSubscription>() => T;
+  previousValues: <T = TokenPreviousValuesSubscription>() => T;
 }
 
-export interface VerificationPreviousValues {
+export interface TokenPreviousValues {
   id: ID_Output;
   accountId: String;
   token: String;
+  type?: TokenType;
   createdAt: DateTimeOutput;
 }
 
-export interface VerificationPreviousValuesPromise
-  extends Promise<VerificationPreviousValues>,
+export interface TokenPreviousValuesPromise
+  extends Promise<TokenPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   accountId: () => Promise<String>;
   token: () => Promise<String>;
+  type: () => Promise<TokenType>;
   createdAt: () => Promise<DateTimeOutput>;
 }
 
-export interface VerificationPreviousValuesSubscription
-  extends Promise<AsyncIterator<VerificationPreviousValues>>,
+export interface TokenPreviousValuesSubscription
+  extends Promise<AsyncIterator<TokenPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   accountId: () => Promise<AsyncIterator<String>>;
   token: () => Promise<AsyncIterator<String>>;
+  type: () => Promise<AsyncIterator<TokenType>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
@@ -790,7 +792,11 @@ export const models: Model[] = [
     embedded: false
   },
   {
-    name: "Verification",
+    name: "Token",
+    embedded: false
+  },
+  {
+    name: "TokenType",
     embedded: false
   }
 ];

@@ -27,9 +27,12 @@ export interface NexusGenRootTypes {
   }
   Mutation: {};
   Query: {};
-  Verification: { // root type
+  Token: { // root type
     id: string; // ID!
     token: string; // String!
+  }
+  TriggerAction: { // root type
+    ok?: boolean | null; // Boolean
   }
   String: string;
   Int: number;
@@ -53,16 +56,22 @@ export interface NexusGenFieldTypes {
   }
   Mutation: { // field return type
     login: NexusGenRootTypes['Account'] | null; // Account
-    signout: NexusGenRootTypes['Account'] | null; // Account
+    passwordReset: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
+    requestPasswordReset: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
+    requestVerificationMail: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
+    signout: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
     signup: NexusGenRootTypes['Account'] | null; // Account
-    verify: NexusGenRootTypes['Verification'] | null; // Verification
+    verify: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
   }
   Query: { // field return type
     me: NexusGenRootTypes['Account'] | null; // Account
   }
-  Verification: { // field return type
+  Token: { // field return type
     id: string; // ID!
     token: string; // String!
+  }
+  TriggerAction: { // field return type
+    ok: boolean | null; // Boolean
   }
 }
 
@@ -71,6 +80,16 @@ export interface NexusGenArgTypes {
     login: { // args
       email?: string | null; // String
       password?: string | null; // String
+    }
+    passwordReset: { // args
+      password?: string | null; // String
+      token?: string | null; // String
+    }
+    requestPasswordReset: { // args
+      email?: string | null; // String
+    }
+    requestVerificationMail: { // args
+      email?: string | null; // String
     }
     signup: { // args
       email?: string | null; // String
@@ -88,7 +107,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Account" | "Mutation" | "Query" | "Verification";
+export type NexusGenObjectNames = "Account" | "Mutation" | "Query" | "Token" | "TriggerAction";
 
 export type NexusGenInputNames = never;
 
