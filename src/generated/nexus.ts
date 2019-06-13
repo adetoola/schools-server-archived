@@ -51,6 +51,7 @@ export interface NexusGenFieldTypes {
     email: string; // String!
     id: string; // ID!
     lastLogin: any | null; // DateTime
+    lastSeen: string | null; // String
     updatedAt: any; // DateTime!
     username: string | null; // String
   }

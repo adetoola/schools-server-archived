@@ -3,6 +3,7 @@ import { randomBytes } from "crypto";
 import { sign } from "jsonwebtoken";
 import { stringArg, mutationType } from "nexus";
 import { promisify } from "util";
+import * as parse from "date-fns/parse";
 
 import sendEmail from "../../services/email";
 import { cutOffTime } from "../../utils";
@@ -16,7 +17,7 @@ export const Mutation = mutationType({
         email: stringArg(),
         password: stringArg(),
       },
-      resolve: async (parent: any, { username, email, password }, ctx) => {
+      resolve: async (parent, { username, email, password }, ctx) => {
         const hashedPassword = await hash(password, 10);
         const parsedEmail = email.toLowerCase().trim();
 
@@ -68,7 +69,15 @@ export const Mutation = mutationType({
           maxAge: 1000 * 60 * 60 * 24 * 180, // 6 months
         });
 
-        return account;
+        // update lastLogin
+        return ctx.prisma.updateAccount({
+          where: {
+            id: account.id,
+          },
+          data: {
+            lastLogin: parse(Date.now()).toISOString(),
+          },
+        });
       },
     });
 

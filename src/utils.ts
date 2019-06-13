@@ -1,5 +1,5 @@
+import * as subHours from "date-fns/sub_hours";
 import { verify } from "jsonwebtoken";
-import { subHours, isAfter } from "date-fns";
 
 import { Context } from "./types";
 
