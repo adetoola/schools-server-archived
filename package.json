@@ -4,10 +4,18 @@
     "start": "ts-node-dev --no-notify --respawn --transpileOnly ./src"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.10.2",
+    "@typescript-eslint/parser": "^1.10.2",
+    "apollo-errors": "^1.9.0",
     "bcrypt": "^3.0.6",
     "cookie-parser": "^1.4.4",
     "date-fns": "^1.30.1",
     "dotenv": "^8.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-prettier": "^3.1.0",
     "graphql": "14.3.1",
     "graphql-middleware": "^3.0.2",
     "graphql-yoga": "1.17.4",

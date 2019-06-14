@@ -1,8 +1,8 @@
-import { prismaObjectType } from "nexus-prisma";
+import { prismaObjectType } from 'nexus-prisma';
 
 export const Token = prismaObjectType({
-  name: "Token",
+  name: 'Token',
   definition(t) {
-    t.prismaFields(["id", "token"]);
+    t.prismaFields(['id', 'token']);
   },
 });

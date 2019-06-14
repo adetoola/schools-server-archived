@@ -1,7 +1,7 @@
-import * as subHours from "date-fns/sub_hours";
-import { verify } from "jsonwebtoken";
+import * as subHours from 'date-fns/sub_hours';
+import { verify } from 'jsonwebtoken';
 
-import { Context } from "./types";
+import { Context } from './types';
 
 interface Token {
   accountId: string;

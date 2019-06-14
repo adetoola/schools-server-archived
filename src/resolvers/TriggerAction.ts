@@ -1,8 +1,8 @@
-import { objectType } from "nexus";
+import { objectType } from 'nexus';
 
 export const TriggerAction = objectType({
-  name: "TriggerAction",
+  name: 'TriggerAction',
   definition(t): void {
-    t.boolean("ok");
+    t.boolean('ok');
   },
 });

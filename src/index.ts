@@ -1,12 +1,12 @@
-import * as cookieParser from "cookie-parser";
-import { config } from "dotenv";
-import { GraphQLServer } from "graphql-yoga";
-import { makePrismaSchema } from "nexus-prisma";
-import * as path from "path";
+import * as cookieParser from 'cookie-parser';
+import { config } from 'dotenv';
+import { GraphQLServer } from 'graphql-yoga';
+import { makePrismaSchema } from 'nexus-prisma';
+import * as path from 'path';
 
-import { prisma } from "./generated/prisma-client";
-import datamodelInfo from "./generated/nexus-prisma";
-import * as allTypes from "./resolvers";
+import datamodelInfo from './generated/nexus-prisma';
+import { prisma } from './generated/prisma-client';
+import * as allTypes from './resolvers';
 
 // Make sure dotenv works across the project
 config();
@@ -23,8 +23,8 @@ const schema = makePrismaSchema({
 
   // Specify where Nexus should put the generated files
   outputs: {
-    schema: path.join(__dirname, "./generated/schema.graphql"),
-    typegen: path.join(__dirname, "./generated/nexus.ts"),
+    schema: path.join(__dirname, './generated/schema.graphql'),
+    typegen: path.join(__dirname, './generated/nexus.ts'),
   },
 
   // Configure nullability of input arguments: All arguments are non-nullable by default
@@ -37,11 +37,11 @@ const schema = makePrismaSchema({
   typegenAutoConfig: {
     sources: [
       {
-        source: path.join(__dirname, "./types.ts"),
-        alias: "types",
+        source: path.join(__dirname, './types.ts'),
+        alias: 'types',
       },
     ],
-    contextType: "types.Context",
+    contextType: 'types.Context',
   },
 });
 
@@ -68,5 +68,6 @@ server.start(
     },
     port: parseInt(APP_PORT, 10),
   },
+  // eslint-disable-next-line no-console
   details => console.log(`🚀 Server is running on http://localhost:${details.port}`)
 );
