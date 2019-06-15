@@ -1,6 +1,8 @@
 import * as subHours from 'date-fns/sub_hours';
 import { verify } from 'jsonwebtoken';
 
+import * as Joi from '@hapi/joi';
+
 import { Context } from './types';
 
 interface Token {
@@ -30,4 +32,12 @@ export function getAccountId(ctx: Context): string {
 export function cutOffTime(duration: number): Date {
   const result = subHours(Date.now(), duration);
   return result;
+}
+
+export default function formatJoiErrors(error: Joi.ValidationError): string {
+  return error.details
+    .map(d => {
+      return d.message;
+    })
+    .join(' ');
 }

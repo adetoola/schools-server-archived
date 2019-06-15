@@ -5,8 +5,11 @@ import { sign } from 'jsonwebtoken';
 import { mutationType, stringArg } from 'nexus';
 import { promisify } from 'util';
 
+import * as Joi from '@hapi/joi';
+
+import { loginSchema, resetPasswordSchema, signupSchema } from '../../schemas';
 import sendEmail from '../../services/email';
-import { cutOffTime } from '../../utils';
+import formatJoiErrors, { cutOffTime } from '../../utils';
 
 export const Mutation = mutationType({
   definition(t): void {
@@ -17,17 +20,22 @@ export const Mutation = mutationType({
         email: stringArg(),
         password: stringArg(),
       },
-      resolve: async (_parent, { username, email, password }, ctx) => {
-        const hashedPassword = await hash(password, 10);
-        const parsedEmail = email.toLowerCase().trim();
+      resolve: async (_parent, args, ctx) => {
+        const {
+          error,
+          value: { username, email, password },
+        } = Joi.validate(args, signupSchema, { abortEarly: false });
 
-        const isEmailAlreadyRegistered = await ctx.prisma.account({ email });
+        if (error) throw new Error(formatJoiErrors(error));
+
+        const isEmailAlreadyRegistered = await ctx.prisma.$exists.account({ email });
 
         if (isEmailAlreadyRegistered) throw new Error(`Email already in use.`);
+        const hashedPassword = await hash(password, 10);
 
         const account = await ctx.prisma.createAccount({
           username: username ? username : null,
-          email: parsedEmail,
+          email,
           password: hashedPassword,
         });
 
@@ -54,7 +62,14 @@ export const Mutation = mutationType({
         email: stringArg(),
         password: stringArg(),
       },
-      resolve: async (_parent, { email, password }, ctx) => {
+      resolve: async (_parent, args, ctx) => {
+        const {
+          error,
+          value: { email, password },
+        } = Joi.validate(args, loginSchema, { abortEarly: false });
+
+        if (error) throw new Error(formatJoiErrors(error));
+
         const account = await ctx.prisma.account({ email });
         if (!account) throw new Error(`No account found for email: ${email}`);
 
@@ -131,8 +146,15 @@ export const Mutation = mutationType({
       args: {
         email: stringArg(),
       },
-      resolve: async (_parent, { email }, ctx) => {
-        const account = await ctx.prisma.account({ email: email.toLowerCase().trim() });
+      resolve: async (_parent, args, ctx) => {
+        const {
+          error,
+          value: { email },
+        } = Joi.validate(args, signupSchema, { abortEarly: false });
+
+        if (error) throw new Error(formatJoiErrors(error));
+
+        const account = await ctx.prisma.account({ email });
         if (!account) throw new Error('Account does not exist');
         if (account.isVerified) throw new Error('Account is already verified');
 
@@ -173,7 +195,14 @@ export const Mutation = mutationType({
       args: {
         email: stringArg(),
       },
-      resolve: async (_parent, { email }, ctx) => {
+      resolve: async (_parent, args, ctx) => {
+        const {
+          error,
+          value: { email },
+        } = Joi.validate(args, signupSchema, { abortEarly: false });
+
+        if (error) throw new Error(formatJoiErrors(error));
+
         const timeLimit = parseInt(process.env.EMAIL_LOCKOUT_DURATION, 10);
         const account = await ctx.prisma.account({ email: email.toLowerCase().trim() });
         if (!account) throw new Error('Account does not exist');
@@ -214,7 +243,14 @@ export const Mutation = mutationType({
         token: stringArg(),
         password: stringArg(),
       },
-      resolve: async (_parent, { token, password }, ctx) => {
+      resolve: async (_parent, args, ctx) => {
+        const {
+          error,
+          value: { token, password },
+        } = Joi.validate(args, resetPasswordSchema, { abortEarly: false });
+
+        if (error) throw new Error(formatJoiErrors(error));
+
         const timeLimit = parseInt(process.env.EMAIL_LOCKOUT_DURATION, 10);
         // Check if token is valid
         const [resetToken] = await ctx.prisma.tokens({
