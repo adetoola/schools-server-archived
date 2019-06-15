@@ -20,7 +20,9 @@ const password = Joi.string()
   .required();
 
 // token
-const token = Joi.string().required();
+const token = Joi.string()
+  .length(40)
+  .required();
 
 // signUp -> username, email, password
 export const signupSchema: Joi.ObjectSchema = Joi.object().keys({
@@ -38,6 +40,11 @@ export const loginSchema: Joi.ObjectSchema = Joi.object().keys({
 // email -> email
 export const emailSchema: Joi.ObjectSchema = Joi.object().keys({
   email,
+});
+
+// token -> token
+export const tokenSchema: Joi.ObjectSchema = Joi.object().keys({
+  token,
 });
 
 // reset-password -> token, pasword

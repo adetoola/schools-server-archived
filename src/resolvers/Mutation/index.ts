@@ -7,7 +7,7 @@ import { promisify } from 'util';
 
 import * as Joi from '@hapi/joi';
 
-import { loginSchema, resetPasswordSchema, signupSchema } from '../../schemas';
+import { loginSchema, resetPasswordSchema, signupSchema, tokenSchema } from '../../schemas';
 import sendEmail from '../../services/email';
 import formatJoiErrors, { cutOffTime } from '../../utils';
 
@@ -112,7 +112,14 @@ export const Mutation = mutationType({
       args: {
         token: stringArg(),
       },
-      resolve: async (_parent, { token }, ctx) => {
+      resolve: async (_parent, args, ctx) => {
+        const {
+          error,
+          value: { token },
+        } = Joi.validate(args, tokenSchema, { abortEarly: false });
+
+        if (error) throw new Error(formatJoiErrors(error));
+
         const timeLimit = parseInt(process.env.VERIFICATION_TOKEN_DURATION, 10);
         const [verficationToken] = await ctx.prisma.tokens({
           where: {
