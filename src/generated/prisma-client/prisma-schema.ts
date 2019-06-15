@@ -8,6 +8,7 @@ export const typeDefs = /* GraphQL */ `type Account {
   email: String!
   password: String!
   isVerified: Boolean!
+  role: Role!
   lastLogin: DateTime
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -25,6 +26,7 @@ input AccountCreateInput {
   email: String!
   password: String!
   isVerified: Boolean
+  role: Role
   lastLogin: DateTime
 }
 
@@ -44,6 +46,8 @@ enum AccountOrderByInput {
   password_DESC
   isVerified_ASC
   isVerified_DESC
+  role_ASC
+  role_DESC
   lastLogin_ASC
   lastLogin_DESC
   createdAt_ASC
@@ -58,6 +62,7 @@ type AccountPreviousValues {
   email: String!
   password: String!
   isVerified: Boolean!
+  role: Role!
   lastLogin: DateTime
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -86,6 +91,7 @@ input AccountUpdateInput {
   email: String
   password: String
   isVerified: Boolean
+  role: Role
   lastLogin: DateTime
 }
 
@@ -94,6 +100,7 @@ input AccountUpdateManyMutationInput {
   email: String
   password: String
   isVerified: Boolean
+  role: Role
   lastLogin: DateTime
 }
 
@@ -156,6 +163,10 @@ input AccountWhereInput {
   password_not_ends_with: String
   isVerified: Boolean
   isVerified_not: Boolean
+  role: Role
+  role_not: Role
+  role_in: [Role!]
+  role_not_in: [Role!]
   lastLogin: DateTime
   lastLogin_not: DateTime
   lastLogin_in: [DateTime!]
@@ -195,6 +206,22 @@ type AggregateAccount {
   count: Int!
 }
 
+type AggregateGeocode {
+  count: Int!
+}
+
+type AggregateLocation {
+  count: Int!
+}
+
+type AggregateOwner {
+  count: Int!
+}
+
+type AggregateSchool {
+  count: Int!
+}
+
 type AggregateToken {
   count: Int!
 }
@@ -205,6 +232,542 @@ type BatchPayload {
 
 scalar DateTime
 
+type Geocode {
+  id: ID!
+  latitude: Float!
+  longitude: Float!
+}
+
+type GeocodeConnection {
+  pageInfo: PageInfo!
+  edges: [GeocodeEdge]!
+  aggregate: AggregateGeocode!
+}
+
+input GeocodeCreateInput {
+  id: ID
+  latitude: Float!
+  longitude: Float!
+}
+
+input GeocodeCreateOneInput {
+  create: GeocodeCreateInput
+  connect: GeocodeWhereUniqueInput
+}
+
+type GeocodeEdge {
+  node: Geocode!
+  cursor: String!
+}
+
+enum GeocodeOrderByInput {
+  id_ASC
+  id_DESC
+  latitude_ASC
+  latitude_DESC
+  longitude_ASC
+  longitude_DESC
+}
+
+type GeocodePreviousValues {
+  id: ID!
+  latitude: Float!
+  longitude: Float!
+}
+
+type GeocodeSubscriptionPayload {
+  mutation: MutationType!
+  node: Geocode
+  updatedFields: [String!]
+  previousValues: GeocodePreviousValues
+}
+
+input GeocodeSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: GeocodeWhereInput
+  AND: [GeocodeSubscriptionWhereInput!]
+  OR: [GeocodeSubscriptionWhereInput!]
+  NOT: [GeocodeSubscriptionWhereInput!]
+}
+
+input GeocodeUpdateDataInput {
+  latitude: Float
+  longitude: Float
+}
+
+input GeocodeUpdateInput {
+  latitude: Float
+  longitude: Float
+}
+
+input GeocodeUpdateManyMutationInput {
+  latitude: Float
+  longitude: Float
+}
+
+input GeocodeUpdateOneInput {
+  create: GeocodeCreateInput
+  update: GeocodeUpdateDataInput
+  upsert: GeocodeUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: GeocodeWhereUniqueInput
+}
+
+input GeocodeUpsertNestedInput {
+  update: GeocodeUpdateDataInput!
+  create: GeocodeCreateInput!
+}
+
+input GeocodeWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  latitude: Float
+  latitude_not: Float
+  latitude_in: [Float!]
+  latitude_not_in: [Float!]
+  latitude_lt: Float
+  latitude_lte: Float
+  latitude_gt: Float
+  latitude_gte: Float
+  longitude: Float
+  longitude_not: Float
+  longitude_in: [Float!]
+  longitude_not_in: [Float!]
+  longitude_lt: Float
+  longitude_lte: Float
+  longitude_gt: Float
+  longitude_gte: Float
+  AND: [GeocodeWhereInput!]
+  OR: [GeocodeWhereInput!]
+  NOT: [GeocodeWhereInput!]
+}
+
+input GeocodeWhereUniqueInput {
+  id: ID
+}
+
+type Location {
+  id: ID!
+  number: Int!
+  street: String!
+  other: String
+  city: String!
+  country: String!
+  postalcode: String!
+  nearestLandmark: String
+  geocode: Geocode
+}
+
+type LocationConnection {
+  pageInfo: PageInfo!
+  edges: [LocationEdge]!
+  aggregate: AggregateLocation!
+}
+
+input LocationCreateInput {
+  id: ID
+  number: Int!
+  street: String!
+  other: String
+  city: String!
+  country: String!
+  postalcode: String!
+  nearestLandmark: String
+  geocode: GeocodeCreateOneInput
+}
+
+input LocationCreateManyInput {
+  create: [LocationCreateInput!]
+  connect: [LocationWhereUniqueInput!]
+}
+
+input LocationCreateOneInput {
+  create: LocationCreateInput
+  connect: LocationWhereUniqueInput
+}
+
+type LocationEdge {
+  node: Location!
+  cursor: String!
+}
+
+enum LocationOrderByInput {
+  id_ASC
+  id_DESC
+  number_ASC
+  number_DESC
+  street_ASC
+  street_DESC
+  other_ASC
+  other_DESC
+  city_ASC
+  city_DESC
+  country_ASC
+  country_DESC
+  postalcode_ASC
+  postalcode_DESC
+  nearestLandmark_ASC
+  nearestLandmark_DESC
+}
+
+type LocationPreviousValues {
+  id: ID!
+  number: Int!
+  street: String!
+  other: String
+  city: String!
+  country: String!
+  postalcode: String!
+  nearestLandmark: String
+}
+
+input LocationScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  number: Int
+  number_not: Int
+  number_in: [Int!]
+  number_not_in: [Int!]
+  number_lt: Int
+  number_lte: Int
+  number_gt: Int
+  number_gte: Int
+  street: String
+  street_not: String
+  street_in: [String!]
+  street_not_in: [String!]
+  street_lt: String
+  street_lte: String
+  street_gt: String
+  street_gte: String
+  street_contains: String
+  street_not_contains: String
+  street_starts_with: String
+  street_not_starts_with: String
+  street_ends_with: String
+  street_not_ends_with: String
+  other: String
+  other_not: String
+  other_in: [String!]
+  other_not_in: [String!]
+  other_lt: String
+  other_lte: String
+  other_gt: String
+  other_gte: String
+  other_contains: String
+  other_not_contains: String
+  other_starts_with: String
+  other_not_starts_with: String
+  other_ends_with: String
+  other_not_ends_with: String
+  city: String
+  city_not: String
+  city_in: [String!]
+  city_not_in: [String!]
+  city_lt: String
+  city_lte: String
+  city_gt: String
+  city_gte: String
+  city_contains: String
+  city_not_contains: String
+  city_starts_with: String
+  city_not_starts_with: String
+  city_ends_with: String
+  city_not_ends_with: String
+  country: String
+  country_not: String
+  country_in: [String!]
+  country_not_in: [String!]
+  country_lt: String
+  country_lte: String
+  country_gt: String
+  country_gte: String
+  country_contains: String
+  country_not_contains: String
+  country_starts_with: String
+  country_not_starts_with: String
+  country_ends_with: String
+  country_not_ends_with: String
+  postalcode: String
+  postalcode_not: String
+  postalcode_in: [String!]
+  postalcode_not_in: [String!]
+  postalcode_lt: String
+  postalcode_lte: String
+  postalcode_gt: String
+  postalcode_gte: String
+  postalcode_contains: String
+  postalcode_not_contains: String
+  postalcode_starts_with: String
+  postalcode_not_starts_with: String
+  postalcode_ends_with: String
+  postalcode_not_ends_with: String
+  nearestLandmark: String
+  nearestLandmark_not: String
+  nearestLandmark_in: [String!]
+  nearestLandmark_not_in: [String!]
+  nearestLandmark_lt: String
+  nearestLandmark_lte: String
+  nearestLandmark_gt: String
+  nearestLandmark_gte: String
+  nearestLandmark_contains: String
+  nearestLandmark_not_contains: String
+  nearestLandmark_starts_with: String
+  nearestLandmark_not_starts_with: String
+  nearestLandmark_ends_with: String
+  nearestLandmark_not_ends_with: String
+  AND: [LocationScalarWhereInput!]
+  OR: [LocationScalarWhereInput!]
+  NOT: [LocationScalarWhereInput!]
+}
+
+type LocationSubscriptionPayload {
+  mutation: MutationType!
+  node: Location
+  updatedFields: [String!]
+  previousValues: LocationPreviousValues
+}
+
+input LocationSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: LocationWhereInput
+  AND: [LocationSubscriptionWhereInput!]
+  OR: [LocationSubscriptionWhereInput!]
+  NOT: [LocationSubscriptionWhereInput!]
+}
+
+input LocationUpdateDataInput {
+  number: Int
+  street: String
+  other: String
+  city: String
+  country: String
+  postalcode: String
+  nearestLandmark: String
+  geocode: GeocodeUpdateOneInput
+}
+
+input LocationUpdateInput {
+  number: Int
+  street: String
+  other: String
+  city: String
+  country: String
+  postalcode: String
+  nearestLandmark: String
+  geocode: GeocodeUpdateOneInput
+}
+
+input LocationUpdateManyDataInput {
+  number: Int
+  street: String
+  other: String
+  city: String
+  country: String
+  postalcode: String
+  nearestLandmark: String
+}
+
+input LocationUpdateManyInput {
+  create: [LocationCreateInput!]
+  update: [LocationUpdateWithWhereUniqueNestedInput!]
+  upsert: [LocationUpsertWithWhereUniqueNestedInput!]
+  delete: [LocationWhereUniqueInput!]
+  connect: [LocationWhereUniqueInput!]
+  set: [LocationWhereUniqueInput!]
+  disconnect: [LocationWhereUniqueInput!]
+  deleteMany: [LocationScalarWhereInput!]
+  updateMany: [LocationUpdateManyWithWhereNestedInput!]
+}
+
+input LocationUpdateManyMutationInput {
+  number: Int
+  street: String
+  other: String
+  city: String
+  country: String
+  postalcode: String
+  nearestLandmark: String
+}
+
+input LocationUpdateManyWithWhereNestedInput {
+  where: LocationScalarWhereInput!
+  data: LocationUpdateManyDataInput!
+}
+
+input LocationUpdateOneInput {
+  create: LocationCreateInput
+  update: LocationUpdateDataInput
+  upsert: LocationUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: LocationWhereUniqueInput
+}
+
+input LocationUpdateWithWhereUniqueNestedInput {
+  where: LocationWhereUniqueInput!
+  data: LocationUpdateDataInput!
+}
+
+input LocationUpsertNestedInput {
+  update: LocationUpdateDataInput!
+  create: LocationCreateInput!
+}
+
+input LocationUpsertWithWhereUniqueNestedInput {
+  where: LocationWhereUniqueInput!
+  update: LocationUpdateDataInput!
+  create: LocationCreateInput!
+}
+
+input LocationWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  number: Int
+  number_not: Int
+  number_in: [Int!]
+  number_not_in: [Int!]
+  number_lt: Int
+  number_lte: Int
+  number_gt: Int
+  number_gte: Int
+  street: String
+  street_not: String
+  street_in: [String!]
+  street_not_in: [String!]
+  street_lt: String
+  street_lte: String
+  street_gt: String
+  street_gte: String
+  street_contains: String
+  street_not_contains: String
+  street_starts_with: String
+  street_not_starts_with: String
+  street_ends_with: String
+  street_not_ends_with: String
+  other: String
+  other_not: String
+  other_in: [String!]
+  other_not_in: [String!]
+  other_lt: String
+  other_lte: String
+  other_gt: String
+  other_gte: String
+  other_contains: String
+  other_not_contains: String
+  other_starts_with: String
+  other_not_starts_with: String
+  other_ends_with: String
+  other_not_ends_with: String
+  city: String
+  city_not: String
+  city_in: [String!]
+  city_not_in: [String!]
+  city_lt: String
+  city_lte: String
+  city_gt: String
+  city_gte: String
+  city_contains: String
+  city_not_contains: String
+  city_starts_with: String
+  city_not_starts_with: String
+  city_ends_with: String
+  city_not_ends_with: String
+  country: String
+  country_not: String
+  country_in: [String!]
+  country_not_in: [String!]
+  country_lt: String
+  country_lte: String
+  country_gt: String
+  country_gte: String
+  country_contains: String
+  country_not_contains: String
+  country_starts_with: String
+  country_not_starts_with: String
+  country_ends_with: String
+  country_not_ends_with: String
+  postalcode: String
+  postalcode_not: String
+  postalcode_in: [String!]
+  postalcode_not_in: [String!]
+  postalcode_lt: String
+  postalcode_lte: String
+  postalcode_gt: String
+  postalcode_gte: String
+  postalcode_contains: String
+  postalcode_not_contains: String
+  postalcode_starts_with: String
+  postalcode_not_starts_with: String
+  postalcode_ends_with: String
+  postalcode_not_ends_with: String
+  nearestLandmark: String
+  nearestLandmark_not: String
+  nearestLandmark_in: [String!]
+  nearestLandmark_not_in: [String!]
+  nearestLandmark_lt: String
+  nearestLandmark_lte: String
+  nearestLandmark_gt: String
+  nearestLandmark_gte: String
+  nearestLandmark_contains: String
+  nearestLandmark_not_contains: String
+  nearestLandmark_starts_with: String
+  nearestLandmark_not_starts_with: String
+  nearestLandmark_ends_with: String
+  nearestLandmark_not_ends_with: String
+  geocode: GeocodeWhereInput
+  AND: [LocationWhereInput!]
+  OR: [LocationWhereInput!]
+  NOT: [LocationWhereInput!]
+}
+
+input LocationWhereUniqueInput {
+  id: ID
+}
+
 scalar Long
 
 type Mutation {
@@ -214,6 +777,30 @@ type Mutation {
   upsertAccount(where: AccountWhereUniqueInput!, create: AccountCreateInput!, update: AccountUpdateInput!): Account!
   deleteAccount(where: AccountWhereUniqueInput!): Account
   deleteManyAccounts(where: AccountWhereInput): BatchPayload!
+  createGeocode(data: GeocodeCreateInput!): Geocode!
+  updateGeocode(data: GeocodeUpdateInput!, where: GeocodeWhereUniqueInput!): Geocode
+  updateManyGeocodes(data: GeocodeUpdateManyMutationInput!, where: GeocodeWhereInput): BatchPayload!
+  upsertGeocode(where: GeocodeWhereUniqueInput!, create: GeocodeCreateInput!, update: GeocodeUpdateInput!): Geocode!
+  deleteGeocode(where: GeocodeWhereUniqueInput!): Geocode
+  deleteManyGeocodes(where: GeocodeWhereInput): BatchPayload!
+  createLocation(data: LocationCreateInput!): Location!
+  updateLocation(data: LocationUpdateInput!, where: LocationWhereUniqueInput!): Location
+  updateManyLocations(data: LocationUpdateManyMutationInput!, where: LocationWhereInput): BatchPayload!
+  upsertLocation(where: LocationWhereUniqueInput!, create: LocationCreateInput!, update: LocationUpdateInput!): Location!
+  deleteLocation(where: LocationWhereUniqueInput!): Location
+  deleteManyLocations(where: LocationWhereInput): BatchPayload!
+  createOwner(data: OwnerCreateInput!): Owner!
+  updateOwner(data: OwnerUpdateInput!, where: OwnerWhereUniqueInput!): Owner
+  updateManyOwners(data: OwnerUpdateManyMutationInput!, where: OwnerWhereInput): BatchPayload!
+  upsertOwner(where: OwnerWhereUniqueInput!, create: OwnerCreateInput!, update: OwnerUpdateInput!): Owner!
+  deleteOwner(where: OwnerWhereUniqueInput!): Owner
+  deleteManyOwners(where: OwnerWhereInput): BatchPayload!
+  createSchool(data: SchoolCreateInput!): School!
+  updateSchool(data: SchoolUpdateInput!, where: SchoolWhereUniqueInput!): School
+  updateManySchools(data: SchoolUpdateManyMutationInput!, where: SchoolWhereInput): BatchPayload!
+  upsertSchool(where: SchoolWhereUniqueInput!, create: SchoolCreateInput!, update: SchoolUpdateInput!): School!
+  deleteSchool(where: SchoolWhereUniqueInput!): School
+  deleteManySchools(where: SchoolWhereInput): BatchPayload!
   createToken(data: TokenCreateInput!): Token!
   updateToken(data: TokenUpdateInput!, where: TokenWhereUniqueInput!): Token
   updateManyTokens(data: TokenUpdateManyMutationInput!, where: TokenWhereInput): BatchPayload!
@@ -232,6 +819,235 @@ interface Node {
   id: ID!
 }
 
+type Owner {
+  id: ID!
+  accountId: String!
+  firstName: String!
+  middleName: String
+  lastName: String!
+  schools(where: SchoolWhereInput, orderBy: SchoolOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [School!]
+  location: Location
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type OwnerConnection {
+  pageInfo: PageInfo!
+  edges: [OwnerEdge]!
+  aggregate: AggregateOwner!
+}
+
+input OwnerCreateInput {
+  id: ID
+  accountId: String!
+  firstName: String!
+  middleName: String
+  lastName: String!
+  schools: SchoolCreateManyWithoutOwnerInput
+  location: LocationCreateOneInput
+}
+
+input OwnerCreateOneWithoutSchoolsInput {
+  create: OwnerCreateWithoutSchoolsInput
+  connect: OwnerWhereUniqueInput
+}
+
+input OwnerCreateWithoutSchoolsInput {
+  id: ID
+  accountId: String!
+  firstName: String!
+  middleName: String
+  lastName: String!
+  location: LocationCreateOneInput
+}
+
+type OwnerEdge {
+  node: Owner!
+  cursor: String!
+}
+
+enum OwnerOrderByInput {
+  id_ASC
+  id_DESC
+  accountId_ASC
+  accountId_DESC
+  firstName_ASC
+  firstName_DESC
+  middleName_ASC
+  middleName_DESC
+  lastName_ASC
+  lastName_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type OwnerPreviousValues {
+  id: ID!
+  accountId: String!
+  firstName: String!
+  middleName: String
+  lastName: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type OwnerSubscriptionPayload {
+  mutation: MutationType!
+  node: Owner
+  updatedFields: [String!]
+  previousValues: OwnerPreviousValues
+}
+
+input OwnerSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: OwnerWhereInput
+  AND: [OwnerSubscriptionWhereInput!]
+  OR: [OwnerSubscriptionWhereInput!]
+  NOT: [OwnerSubscriptionWhereInput!]
+}
+
+input OwnerUpdateInput {
+  accountId: String
+  firstName: String
+  middleName: String
+  lastName: String
+  schools: SchoolUpdateManyWithoutOwnerInput
+  location: LocationUpdateOneInput
+}
+
+input OwnerUpdateManyMutationInput {
+  accountId: String
+  firstName: String
+  middleName: String
+  lastName: String
+}
+
+input OwnerUpdateOneRequiredWithoutSchoolsInput {
+  create: OwnerCreateWithoutSchoolsInput
+  update: OwnerUpdateWithoutSchoolsDataInput
+  upsert: OwnerUpsertWithoutSchoolsInput
+  connect: OwnerWhereUniqueInput
+}
+
+input OwnerUpdateWithoutSchoolsDataInput {
+  accountId: String
+  firstName: String
+  middleName: String
+  lastName: String
+  location: LocationUpdateOneInput
+}
+
+input OwnerUpsertWithoutSchoolsInput {
+  update: OwnerUpdateWithoutSchoolsDataInput!
+  create: OwnerCreateWithoutSchoolsInput!
+}
+
+input OwnerWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  accountId: String
+  accountId_not: String
+  accountId_in: [String!]
+  accountId_not_in: [String!]
+  accountId_lt: String
+  accountId_lte: String
+  accountId_gt: String
+  accountId_gte: String
+  accountId_contains: String
+  accountId_not_contains: String
+  accountId_starts_with: String
+  accountId_not_starts_with: String
+  accountId_ends_with: String
+  accountId_not_ends_with: String
+  firstName: String
+  firstName_not: String
+  firstName_in: [String!]
+  firstName_not_in: [String!]
+  firstName_lt: String
+  firstName_lte: String
+  firstName_gt: String
+  firstName_gte: String
+  firstName_contains: String
+  firstName_not_contains: String
+  firstName_starts_with: String
+  firstName_not_starts_with: String
+  firstName_ends_with: String
+  firstName_not_ends_with: String
+  middleName: String
+  middleName_not: String
+  middleName_in: [String!]
+  middleName_not_in: [String!]
+  middleName_lt: String
+  middleName_lte: String
+  middleName_gt: String
+  middleName_gte: String
+  middleName_contains: String
+  middleName_not_contains: String
+  middleName_starts_with: String
+  middleName_not_starts_with: String
+  middleName_ends_with: String
+  middleName_not_ends_with: String
+  lastName: String
+  lastName_not: String
+  lastName_in: [String!]
+  lastName_not_in: [String!]
+  lastName_lt: String
+  lastName_lte: String
+  lastName_gt: String
+  lastName_gte: String
+  lastName_contains: String
+  lastName_not_contains: String
+  lastName_starts_with: String
+  lastName_not_starts_with: String
+  lastName_ends_with: String
+  lastName_not_ends_with: String
+  schools_every: SchoolWhereInput
+  schools_some: SchoolWhereInput
+  schools_none: SchoolWhereInput
+  location: LocationWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [OwnerWhereInput!]
+  OR: [OwnerWhereInput!]
+  NOT: [OwnerWhereInput!]
+}
+
+input OwnerWhereUniqueInput {
+  id: ID
+  accountId: String
+}
+
 type PageInfo {
   hasNextPage: Boolean!
   hasPreviousPage: Boolean!
@@ -243,14 +1059,383 @@ type Query {
   account(where: AccountWhereUniqueInput!): Account
   accounts(where: AccountWhereInput, orderBy: AccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Account]!
   accountsConnection(where: AccountWhereInput, orderBy: AccountOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AccountConnection!
+  geocode(where: GeocodeWhereUniqueInput!): Geocode
+  geocodes(where: GeocodeWhereInput, orderBy: GeocodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Geocode]!
+  geocodesConnection(where: GeocodeWhereInput, orderBy: GeocodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GeocodeConnection!
+  location(where: LocationWhereUniqueInput!): Location
+  locations(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Location]!
+  locationsConnection(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LocationConnection!
+  owner(where: OwnerWhereUniqueInput!): Owner
+  owners(where: OwnerWhereInput, orderBy: OwnerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Owner]!
+  ownersConnection(where: OwnerWhereInput, orderBy: OwnerOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): OwnerConnection!
+  school(where: SchoolWhereUniqueInput!): School
+  schools(where: SchoolWhereInput, orderBy: SchoolOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [School]!
+  schoolsConnection(where: SchoolWhereInput, orderBy: SchoolOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): SchoolConnection!
   token(where: TokenWhereUniqueInput!): Token
   tokens(where: TokenWhereInput, orderBy: TokenOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Token]!
   tokensConnection(where: TokenWhereInput, orderBy: TokenOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): TokenConnection!
   node(id: ID!): Node
 }
 
+enum Role {
+  OWNER
+  ADMIN
+  PARENT
+  STUDENT
+}
+
+type School {
+  id: ID!
+  title: String!
+  phone: String!
+  uri: String!
+  email: String!
+  owner: Owner!
+  locations(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Location!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SchoolConnection {
+  pageInfo: PageInfo!
+  edges: [SchoolEdge]!
+  aggregate: AggregateSchool!
+}
+
+input SchoolCreateInput {
+  id: ID
+  title: String!
+  phone: String!
+  uri: String!
+  email: String!
+  owner: OwnerCreateOneWithoutSchoolsInput!
+  locations: LocationCreateManyInput
+}
+
+input SchoolCreateManyWithoutOwnerInput {
+  create: [SchoolCreateWithoutOwnerInput!]
+  connect: [SchoolWhereUniqueInput!]
+}
+
+input SchoolCreateWithoutOwnerInput {
+  id: ID
+  title: String!
+  phone: String!
+  uri: String!
+  email: String!
+  locations: LocationCreateManyInput
+}
+
+type SchoolEdge {
+  node: School!
+  cursor: String!
+}
+
+enum SchoolOrderByInput {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  phone_ASC
+  phone_DESC
+  uri_ASC
+  uri_DESC
+  email_ASC
+  email_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type SchoolPreviousValues {
+  id: ID!
+  title: String!
+  phone: String!
+  uri: String!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input SchoolScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  phone: String
+  phone_not: String
+  phone_in: [String!]
+  phone_not_in: [String!]
+  phone_lt: String
+  phone_lte: String
+  phone_gt: String
+  phone_gte: String
+  phone_contains: String
+  phone_not_contains: String
+  phone_starts_with: String
+  phone_not_starts_with: String
+  phone_ends_with: String
+  phone_not_ends_with: String
+  uri: String
+  uri_not: String
+  uri_in: [String!]
+  uri_not_in: [String!]
+  uri_lt: String
+  uri_lte: String
+  uri_gt: String
+  uri_gte: String
+  uri_contains: String
+  uri_not_contains: String
+  uri_starts_with: String
+  uri_not_starts_with: String
+  uri_ends_with: String
+  uri_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [SchoolScalarWhereInput!]
+  OR: [SchoolScalarWhereInput!]
+  NOT: [SchoolScalarWhereInput!]
+}
+
+type SchoolSubscriptionPayload {
+  mutation: MutationType!
+  node: School
+  updatedFields: [String!]
+  previousValues: SchoolPreviousValues
+}
+
+input SchoolSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: SchoolWhereInput
+  AND: [SchoolSubscriptionWhereInput!]
+  OR: [SchoolSubscriptionWhereInput!]
+  NOT: [SchoolSubscriptionWhereInput!]
+}
+
+input SchoolUpdateInput {
+  title: String
+  phone: String
+  uri: String
+  email: String
+  owner: OwnerUpdateOneRequiredWithoutSchoolsInput
+  locations: LocationUpdateManyInput
+}
+
+input SchoolUpdateManyDataInput {
+  title: String
+  phone: String
+  uri: String
+  email: String
+}
+
+input SchoolUpdateManyMutationInput {
+  title: String
+  phone: String
+  uri: String
+  email: String
+}
+
+input SchoolUpdateManyWithoutOwnerInput {
+  create: [SchoolCreateWithoutOwnerInput!]
+  delete: [SchoolWhereUniqueInput!]
+  connect: [SchoolWhereUniqueInput!]
+  set: [SchoolWhereUniqueInput!]
+  disconnect: [SchoolWhereUniqueInput!]
+  update: [SchoolUpdateWithWhereUniqueWithoutOwnerInput!]
+  upsert: [SchoolUpsertWithWhereUniqueWithoutOwnerInput!]
+  deleteMany: [SchoolScalarWhereInput!]
+  updateMany: [SchoolUpdateManyWithWhereNestedInput!]
+}
+
+input SchoolUpdateManyWithWhereNestedInput {
+  where: SchoolScalarWhereInput!
+  data: SchoolUpdateManyDataInput!
+}
+
+input SchoolUpdateWithoutOwnerDataInput {
+  title: String
+  phone: String
+  uri: String
+  email: String
+  locations: LocationUpdateManyInput
+}
+
+input SchoolUpdateWithWhereUniqueWithoutOwnerInput {
+  where: SchoolWhereUniqueInput!
+  data: SchoolUpdateWithoutOwnerDataInput!
+}
+
+input SchoolUpsertWithWhereUniqueWithoutOwnerInput {
+  where: SchoolWhereUniqueInput!
+  update: SchoolUpdateWithoutOwnerDataInput!
+  create: SchoolCreateWithoutOwnerInput!
+}
+
+input SchoolWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_gt: String
+  title_gte: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  phone: String
+  phone_not: String
+  phone_in: [String!]
+  phone_not_in: [String!]
+  phone_lt: String
+  phone_lte: String
+  phone_gt: String
+  phone_gte: String
+  phone_contains: String
+  phone_not_contains: String
+  phone_starts_with: String
+  phone_not_starts_with: String
+  phone_ends_with: String
+  phone_not_ends_with: String
+  uri: String
+  uri_not: String
+  uri_in: [String!]
+  uri_not_in: [String!]
+  uri_lt: String
+  uri_lte: String
+  uri_gt: String
+  uri_gte: String
+  uri_contains: String
+  uri_not_contains: String
+  uri_starts_with: String
+  uri_not_starts_with: String
+  uri_ends_with: String
+  uri_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  owner: OwnerWhereInput
+  locations_every: LocationWhereInput
+  locations_some: LocationWhereInput
+  locations_none: LocationWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [SchoolWhereInput!]
+  OR: [SchoolWhereInput!]
+  NOT: [SchoolWhereInput!]
+}
+
+input SchoolWhereUniqueInput {
+  id: ID
+  phone: String
+  uri: String
+  email: String
+}
+
 type Subscription {
   account(where: AccountSubscriptionWhereInput): AccountSubscriptionPayload
+  geocode(where: GeocodeSubscriptionWhereInput): GeocodeSubscriptionPayload
+  location(where: LocationSubscriptionWhereInput): LocationSubscriptionPayload
+  owner(where: OwnerSubscriptionWhereInput): OwnerSubscriptionPayload
+  school(where: SchoolSubscriptionWhereInput): SchoolSubscriptionPayload
   token(where: TokenSubscriptionWhereInput): TokenSubscriptionPayload
 }
 
@@ -258,7 +1443,7 @@ type Token {
   id: ID!
   accountId: String!
   token: String!
-  type: TokenType
+  type: TokenType!
   createdAt: DateTime!
 }
 
@@ -297,7 +1482,7 @@ type TokenPreviousValues {
   id: ID!
   accountId: String!
   token: String!
-  type: TokenType
+  type: TokenType!
   createdAt: DateTime!
 }
 

@@ -24,6 +24,22 @@ export interface NexusPrismaTypes {
       TokenConnection: TokenConnectionObject
       TokenEdge: TokenEdgeObject
       AggregateToken: AggregateTokenObject
+      Owner: OwnerObject
+      School: SchoolObject
+      Location: LocationObject
+      Geocode: GeocodeObject
+      OwnerConnection: OwnerConnectionObject
+      OwnerEdge: OwnerEdgeObject
+      AggregateOwner: AggregateOwnerObject
+      SchoolConnection: SchoolConnectionObject
+      SchoolEdge: SchoolEdgeObject
+      AggregateSchool: AggregateSchoolObject
+      LocationConnection: LocationConnectionObject
+      LocationEdge: LocationEdgeObject
+      AggregateLocation: AggregateLocationObject
+      GeocodeConnection: GeocodeConnectionObject
+      GeocodeEdge: GeocodeEdgeObject
+      AggregateGeocode: AggregateGeocodeObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
@@ -31,6 +47,14 @@ export interface NexusPrismaTypes {
       AccountPreviousValues: AccountPreviousValuesObject
       TokenSubscriptionPayload: TokenSubscriptionPayloadObject
       TokenPreviousValues: TokenPreviousValuesObject
+      OwnerSubscriptionPayload: OwnerSubscriptionPayloadObject
+      OwnerPreviousValues: OwnerPreviousValuesObject
+      SchoolSubscriptionPayload: SchoolSubscriptionPayloadObject
+      SchoolPreviousValues: SchoolPreviousValuesObject
+      LocationSubscriptionPayload: LocationSubscriptionPayloadObject
+      LocationPreviousValues: LocationPreviousValuesObject
+      GeocodeSubscriptionPayload: GeocodeSubscriptionPayloadObject
+      GeocodePreviousValues: GeocodePreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
@@ -43,6 +67,22 @@ export interface NexusPrismaTypes {
       TokenConnection: TokenConnectionFieldDetails
       TokenEdge: TokenEdgeFieldDetails
       AggregateToken: AggregateTokenFieldDetails
+      Owner: OwnerFieldDetails
+      School: SchoolFieldDetails
+      Location: LocationFieldDetails
+      Geocode: GeocodeFieldDetails
+      OwnerConnection: OwnerConnectionFieldDetails
+      OwnerEdge: OwnerEdgeFieldDetails
+      AggregateOwner: AggregateOwnerFieldDetails
+      SchoolConnection: SchoolConnectionFieldDetails
+      SchoolEdge: SchoolEdgeFieldDetails
+      AggregateSchool: AggregateSchoolFieldDetails
+      LocationConnection: LocationConnectionFieldDetails
+      LocationEdge: LocationEdgeFieldDetails
+      AggregateLocation: AggregateLocationFieldDetails
+      GeocodeConnection: GeocodeConnectionFieldDetails
+      GeocodeEdge: GeocodeEdgeFieldDetails
+      AggregateGeocode: AggregateGeocodeFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
@@ -50,6 +90,14 @@ export interface NexusPrismaTypes {
       AccountPreviousValues: AccountPreviousValuesFieldDetails
       TokenSubscriptionPayload: TokenSubscriptionPayloadFieldDetails
       TokenPreviousValues: TokenPreviousValuesFieldDetails
+      OwnerSubscriptionPayload: OwnerSubscriptionPayloadFieldDetails
+      OwnerPreviousValues: OwnerPreviousValuesFieldDetails
+      SchoolSubscriptionPayload: SchoolSubscriptionPayloadFieldDetails
+      SchoolPreviousValues: SchoolPreviousValuesFieldDetails
+      LocationSubscriptionPayload: LocationSubscriptionPayloadFieldDetails
+      LocationPreviousValues: LocationPreviousValuesFieldDetails
+      GeocodeSubscriptionPayload: GeocodeSubscriptionPayloadFieldDetails
+      GeocodePreviousValues: GeocodePreviousValuesFieldDetails
     }
   }
   inputTypes: {
@@ -58,20 +106,78 @@ export interface NexusPrismaTypes {
       AccountWhereInput: AccountWhereInputInputObject
       TokenWhereUniqueInput: TokenWhereUniqueInputInputObject
       TokenWhereInput: TokenWhereInputInputObject
+      OwnerWhereUniqueInput: OwnerWhereUniqueInputInputObject
+      SchoolWhereInput: SchoolWhereInputInputObject
+      OwnerWhereInput: OwnerWhereInputInputObject
+      LocationWhereInput: LocationWhereInputInputObject
+      GeocodeWhereInput: GeocodeWhereInputInputObject
+      SchoolWhereUniqueInput: SchoolWhereUniqueInputInputObject
+      LocationWhereUniqueInput: LocationWhereUniqueInputInputObject
+      GeocodeWhereUniqueInput: GeocodeWhereUniqueInputInputObject
       AccountCreateInput: AccountCreateInputInputObject
       AccountUpdateInput: AccountUpdateInputInputObject
       AccountUpdateManyMutationInput: AccountUpdateManyMutationInputInputObject
       TokenCreateInput: TokenCreateInputInputObject
       TokenUpdateInput: TokenUpdateInputInputObject
       TokenUpdateManyMutationInput: TokenUpdateManyMutationInputInputObject
+      OwnerCreateInput: OwnerCreateInputInputObject
+      SchoolCreateManyWithoutOwnerInput: SchoolCreateManyWithoutOwnerInputInputObject
+      SchoolCreateWithoutOwnerInput: SchoolCreateWithoutOwnerInputInputObject
+      LocationCreateManyInput: LocationCreateManyInputInputObject
+      LocationCreateInput: LocationCreateInputInputObject
+      GeocodeCreateOneInput: GeocodeCreateOneInputInputObject
+      GeocodeCreateInput: GeocodeCreateInputInputObject
+      LocationCreateOneInput: LocationCreateOneInputInputObject
+      OwnerUpdateInput: OwnerUpdateInputInputObject
+      SchoolUpdateManyWithoutOwnerInput: SchoolUpdateManyWithoutOwnerInputInputObject
+      SchoolUpdateWithWhereUniqueWithoutOwnerInput: SchoolUpdateWithWhereUniqueWithoutOwnerInputInputObject
+      SchoolUpdateWithoutOwnerDataInput: SchoolUpdateWithoutOwnerDataInputInputObject
+      LocationUpdateManyInput: LocationUpdateManyInputInputObject
+      LocationUpdateWithWhereUniqueNestedInput: LocationUpdateWithWhereUniqueNestedInputInputObject
+      LocationUpdateDataInput: LocationUpdateDataInputInputObject
+      GeocodeUpdateOneInput: GeocodeUpdateOneInputInputObject
+      GeocodeUpdateDataInput: GeocodeUpdateDataInputInputObject
+      GeocodeUpsertNestedInput: GeocodeUpsertNestedInputInputObject
+      LocationUpsertWithWhereUniqueNestedInput: LocationUpsertWithWhereUniqueNestedInputInputObject
+      LocationScalarWhereInput: LocationScalarWhereInputInputObject
+      LocationUpdateManyWithWhereNestedInput: LocationUpdateManyWithWhereNestedInputInputObject
+      LocationUpdateManyDataInput: LocationUpdateManyDataInputInputObject
+      SchoolUpsertWithWhereUniqueWithoutOwnerInput: SchoolUpsertWithWhereUniqueWithoutOwnerInputInputObject
+      SchoolScalarWhereInput: SchoolScalarWhereInputInputObject
+      SchoolUpdateManyWithWhereNestedInput: SchoolUpdateManyWithWhereNestedInputInputObject
+      SchoolUpdateManyDataInput: SchoolUpdateManyDataInputInputObject
+      LocationUpdateOneInput: LocationUpdateOneInputInputObject
+      LocationUpsertNestedInput: LocationUpsertNestedInputInputObject
+      OwnerUpdateManyMutationInput: OwnerUpdateManyMutationInputInputObject
+      SchoolCreateInput: SchoolCreateInputInputObject
+      OwnerCreateOneWithoutSchoolsInput: OwnerCreateOneWithoutSchoolsInputInputObject
+      OwnerCreateWithoutSchoolsInput: OwnerCreateWithoutSchoolsInputInputObject
+      SchoolUpdateInput: SchoolUpdateInputInputObject
+      OwnerUpdateOneRequiredWithoutSchoolsInput: OwnerUpdateOneRequiredWithoutSchoolsInputInputObject
+      OwnerUpdateWithoutSchoolsDataInput: OwnerUpdateWithoutSchoolsDataInputInputObject
+      OwnerUpsertWithoutSchoolsInput: OwnerUpsertWithoutSchoolsInputInputObject
+      SchoolUpdateManyMutationInput: SchoolUpdateManyMutationInputInputObject
+      LocationUpdateInput: LocationUpdateInputInputObject
+      LocationUpdateManyMutationInput: LocationUpdateManyMutationInputInputObject
+      GeocodeUpdateInput: GeocodeUpdateInputInputObject
+      GeocodeUpdateManyMutationInput: GeocodeUpdateManyMutationInputInputObject
       AccountSubscriptionWhereInput: AccountSubscriptionWhereInputInputObject
       TokenSubscriptionWhereInput: TokenSubscriptionWhereInputInputObject
+      OwnerSubscriptionWhereInput: OwnerSubscriptionWhereInputInputObject
+      SchoolSubscriptionWhereInput: SchoolSubscriptionWhereInputInputObject
+      LocationSubscriptionWhereInput: LocationSubscriptionWhereInputInputObject
+      GeocodeSubscriptionWhereInput: GeocodeSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
+    Role: RoleValues,
     AccountOrderByInput: AccountOrderByInputValues,
     TokenType: TokenTypeValues,
     TokenOrderByInput: TokenOrderByInputValues,
+    SchoolOrderByInput: SchoolOrderByInputValues,
+    LocationOrderByInput: LocationOrderByInputValues,
+    OwnerOrderByInput: OwnerOrderByInputValues,
+    GeocodeOrderByInput: GeocodeOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -86,6 +192,18 @@ type QueryObject =
   | { name: 'token', args?: QueryTokenArgs[] | false, alias?: string  } 
   | { name: 'tokens', args?: QueryTokensArgs[] | false, alias?: string  } 
   | { name: 'tokensConnection', args?: QueryTokensConnectionArgs[] | false, alias?: string  } 
+  | { name: 'owner', args?: QueryOwnerArgs[] | false, alias?: string  } 
+  | { name: 'owners', args?: QueryOwnersArgs[] | false, alias?: string  } 
+  | { name: 'ownersConnection', args?: QueryOwnersConnectionArgs[] | false, alias?: string  } 
+  | { name: 'school', args?: QuerySchoolArgs[] | false, alias?: string  } 
+  | { name: 'schools', args?: QuerySchoolsArgs[] | false, alias?: string  } 
+  | { name: 'schoolsConnection', args?: QuerySchoolsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'location', args?: QueryLocationArgs[] | false, alias?: string  } 
+  | { name: 'locations', args?: QueryLocationsArgs[] | false, alias?: string  } 
+  | { name: 'locationsConnection', args?: QueryLocationsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'geocode', args?: QueryGeocodeArgs[] | false, alias?: string  } 
+  | { name: 'geocodes', args?: QueryGeocodesArgs[] | false, alias?: string  } 
+  | { name: 'geocodesConnection', args?: QueryGeocodesConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'account'
@@ -94,6 +212,18 @@ type QueryFields =
   | 'token'
   | 'tokens'
   | 'tokensConnection'
+  | 'owner'
+  | 'owners'
+  | 'ownersConnection'
+  | 'school'
+  | 'schools'
+  | 'schoolsConnection'
+  | 'location'
+  | 'locations'
+  | 'locationsConnection'
+  | 'geocode'
+  | 'geocodes'
+  | 'geocodesConnection'
 
 
 type QueryAccountArgs =
@@ -125,6 +255,78 @@ type QueryTokensArgs =
   | 'first'
   | 'last'
 type QueryTokensConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryOwnerArgs =
+  | 'where'
+type QueryOwnersArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryOwnersConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QuerySchoolArgs =
+  | 'where'
+type QuerySchoolsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QuerySchoolsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryLocationArgs =
+  | 'where'
+type QueryLocationsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryLocationsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryGeocodeArgs =
+  | 'where'
+type QueryGeocodesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryGeocodesConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -213,6 +415,162 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.TokenConnection> | prisma.TokenConnection
   }
+  owner: {
+    type: 'Owner'
+    args: Record<QueryOwnerArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: OwnerWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Owner | null> | prisma.Owner | null
+  }
+  owners: {
+    type: 'Owner'
+    args: Record<QueryOwnersArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: OwnerWhereInput | null, orderBy?: prisma.OwnerOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Owner[]> | prisma.Owner[]
+  }
+  ownersConnection: {
+    type: 'OwnerConnection'
+    args: Record<QueryOwnersConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: OwnerWhereInput | null, orderBy?: prisma.OwnerOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.OwnerConnection> | prisma.OwnerConnection
+  }
+  school: {
+    type: 'School'
+    args: Record<QuerySchoolArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: SchoolWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.School | null> | prisma.School | null
+  }
+  schools: {
+    type: 'School'
+    args: Record<QuerySchoolsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: SchoolWhereInput | null, orderBy?: prisma.SchoolOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.School[]> | prisma.School[]
+  }
+  schoolsConnection: {
+    type: 'SchoolConnection'
+    args: Record<QuerySchoolsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: SchoolWhereInput | null, orderBy?: prisma.SchoolOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SchoolConnection> | prisma.SchoolConnection
+  }
+  location: {
+    type: 'Location'
+    args: Record<QueryLocationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: LocationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location | null> | prisma.Location | null
+  }
+  locations: {
+    type: 'Location'
+    args: Record<QueryLocationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: LocationWhereInput | null, orderBy?: prisma.LocationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location[]> | prisma.Location[]
+  }
+  locationsConnection: {
+    type: 'LocationConnection'
+    args: Record<QueryLocationsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: LocationWhereInput | null, orderBy?: prisma.LocationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LocationConnection> | prisma.LocationConnection
+  }
+  geocode: {
+    type: 'Geocode'
+    args: Record<QueryGeocodeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: GeocodeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Geocode | null> | prisma.Geocode | null
+  }
+  geocodes: {
+    type: 'Geocode'
+    args: Record<QueryGeocodesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: GeocodeWhereInput | null, orderBy?: prisma.GeocodeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Geocode[]> | prisma.Geocode[]
+  }
+  geocodesConnection: {
+    type: 'GeocodeConnection'
+    args: Record<QueryGeocodesConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: GeocodeWhereInput | null, orderBy?: prisma.GeocodeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.GeocodeConnection> | prisma.GeocodeConnection
+  }
 }
   
 
@@ -225,6 +583,7 @@ type AccountObject =
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'isVerified', args?: [] | false, alias?: string  } 
+  | { name: 'role', args?: [] | false, alias?: string  } 
   | { name: 'lastLogin', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
@@ -235,6 +594,7 @@ type AccountFields =
   | 'email'
   | 'password'
   | 'isVerified'
+  | 'role'
   | 'lastLogin'
   | 'createdAt'
   | 'updatedAt'
@@ -283,6 +643,19 @@ export interface AccountFieldDetails {
     list: undefined
     nullable: false
     resolve: undefined
+  }
+  role: {
+    type: 'Role'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Account">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Role> | prisma.Role
   }
   lastLogin: {
     type: 'DateTime'
@@ -542,13 +915,13 @@ export interface TokenFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: (
       root: core.RootValue<"Token">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.TokenType | null> | prisma.TokenType | null
+    ) => Promise<prisma.TokenType> | prisma.TokenType
   }
   createdAt: {
     type: 'DateTime'
@@ -686,6 +1059,905 @@ export interface AggregateTokenFieldDetails {
 }
   
 
+// Types for Owner
+
+type OwnerObject =
+  | OwnerFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'accountId', args?: [] | false, alias?: string  } 
+  | { name: 'firstName', args?: [] | false, alias?: string  } 
+  | { name: 'middleName', args?: [] | false, alias?: string  } 
+  | { name: 'lastName', args?: [] | false, alias?: string  } 
+  | { name: 'schools', args?: OwnerSchoolsArgs[] | false, alias?: string  } 
+  | { name: 'location', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type OwnerFields =
+  | 'id'
+  | 'accountId'
+  | 'firstName'
+  | 'middleName'
+  | 'lastName'
+  | 'schools'
+  | 'location'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+type OwnerSchoolsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface OwnerFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  accountId: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  firstName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  middleName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  lastName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  schools: {
+    type: 'School'
+    args: Record<OwnerSchoolsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Owner">,
+      args: { where?: SchoolWhereInput | null, orderBy?: prisma.SchoolOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.School[]> | prisma.School[]
+  }
+  location: {
+    type: 'Location'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Owner">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location | null> | prisma.Location | null
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for School
+
+type SchoolObject =
+  | SchoolFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'title', args?: [] | false, alias?: string  } 
+  | { name: 'phone', args?: [] | false, alias?: string  } 
+  | { name: 'uri', args?: [] | false, alias?: string  } 
+  | { name: 'email', args?: [] | false, alias?: string  } 
+  | { name: 'owner', args?: [] | false, alias?: string  } 
+  | { name: 'locations', args?: SchoolLocationsArgs[] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type SchoolFields =
+  | 'id'
+  | 'title'
+  | 'phone'
+  | 'uri'
+  | 'email'
+  | 'owner'
+  | 'locations'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+type SchoolLocationsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+  
+
+export interface SchoolFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  title: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  phone: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  uri: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  email: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  owner: {
+    type: 'Owner'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"School">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Owner> | prisma.Owner
+  }
+  locations: {
+    type: 'Location'
+    args: Record<SchoolLocationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"School">,
+      args: { where?: LocationWhereInput | null, orderBy?: prisma.LocationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location[]> | prisma.Location[]
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for Location
+
+type LocationObject =
+  | LocationFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'number', args?: [] | false, alias?: string  } 
+  | { name: 'street', args?: [] | false, alias?: string  } 
+  | { name: 'other', args?: [] | false, alias?: string  } 
+  | { name: 'city', args?: [] | false, alias?: string  } 
+  | { name: 'country', args?: [] | false, alias?: string  } 
+  | { name: 'postalcode', args?: [] | false, alias?: string  } 
+  | { name: 'nearestLandmark', args?: [] | false, alias?: string  } 
+  | { name: 'geocode', args?: [] | false, alias?: string  } 
+
+type LocationFields =
+  | 'id'
+  | 'number'
+  | 'street'
+  | 'other'
+  | 'city'
+  | 'country'
+  | 'postalcode'
+  | 'nearestLandmark'
+  | 'geocode'
+
+
+
+  
+
+export interface LocationFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  number: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  street: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  other: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  city: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  country: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  postalcode: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  nearestLandmark: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  geocode: {
+    type: 'Geocode'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Location">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Geocode | null> | prisma.Geocode | null
+  }
+}
+  
+
+// Types for Geocode
+
+type GeocodeObject =
+  | GeocodeFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'latitude', args?: [] | false, alias?: string  } 
+  | { name: 'longitude', args?: [] | false, alias?: string  } 
+
+type GeocodeFields =
+  | 'id'
+  | 'latitude'
+  | 'longitude'
+
+
+
+  
+
+export interface GeocodeFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  latitude: {
+    type: 'Float'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  longitude: {
+    type: 'Float'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for OwnerConnection
+
+type OwnerConnectionObject =
+  | OwnerConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type OwnerConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface OwnerConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OwnerConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'OwnerEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OwnerConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.OwnerEdge[]> | prisma.OwnerEdge[]
+  }
+  aggregate: {
+    type: 'AggregateOwner'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OwnerConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateOwner> | prisma.AggregateOwner
+  }
+}
+  
+
+// Types for OwnerEdge
+
+type OwnerEdgeObject =
+  | OwnerEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type OwnerEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface OwnerEdgeFieldDetails {
+  node: {
+    type: 'Owner'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OwnerEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Owner> | prisma.Owner
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateOwner
+
+type AggregateOwnerObject =
+  | AggregateOwnerFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateOwnerFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateOwnerFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for SchoolConnection
+
+type SchoolConnectionObject =
+  | SchoolConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type SchoolConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface SchoolConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SchoolConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'SchoolEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SchoolConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SchoolEdge[]> | prisma.SchoolEdge[]
+  }
+  aggregate: {
+    type: 'AggregateSchool'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SchoolConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateSchool> | prisma.AggregateSchool
+  }
+}
+  
+
+// Types for SchoolEdge
+
+type SchoolEdgeObject =
+  | SchoolEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type SchoolEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface SchoolEdgeFieldDetails {
+  node: {
+    type: 'School'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SchoolEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.School> | prisma.School
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateSchool
+
+type AggregateSchoolObject =
+  | AggregateSchoolFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateSchoolFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateSchoolFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for LocationConnection
+
+type LocationConnectionObject =
+  | LocationConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type LocationConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface LocationConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'LocationEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LocationEdge[]> | prisma.LocationEdge[]
+  }
+  aggregate: {
+    type: 'AggregateLocation'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateLocation> | prisma.AggregateLocation
+  }
+}
+  
+
+// Types for LocationEdge
+
+type LocationEdgeObject =
+  | LocationEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type LocationEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface LocationEdgeFieldDetails {
+  node: {
+    type: 'Location'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location> | prisma.Location
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateLocation
+
+type AggregateLocationObject =
+  | AggregateLocationFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateLocationFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateLocationFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for GeocodeConnection
+
+type GeocodeConnectionObject =
+  | GeocodeConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type GeocodeConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface GeocodeConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"GeocodeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'GeocodeEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"GeocodeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.GeocodeEdge[]> | prisma.GeocodeEdge[]
+  }
+  aggregate: {
+    type: 'AggregateGeocode'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"GeocodeConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateGeocode> | prisma.AggregateGeocode
+  }
+}
+  
+
+// Types for GeocodeEdge
+
+type GeocodeEdgeObject =
+  | GeocodeEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type GeocodeEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface GeocodeEdgeFieldDetails {
+  node: {
+    type: 'Geocode'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"GeocodeEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Geocode> | prisma.Geocode
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateGeocode
+
+type AggregateGeocodeObject =
+  | AggregateGeocodeFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateGeocodeFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateGeocodeFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for Mutation
 
 type MutationObject =
@@ -702,6 +1974,30 @@ type MutationObject =
   | { name: 'upsertToken', args?: MutationUpsertTokenArgs[] | false, alias?: string  } 
   | { name: 'deleteToken', args?: MutationDeleteTokenArgs[] | false, alias?: string  } 
   | { name: 'deleteManyTokens', args?: MutationDeleteManyTokensArgs[] | false, alias?: string  } 
+  | { name: 'createOwner', args?: MutationCreateOwnerArgs[] | false, alias?: string  } 
+  | { name: 'updateOwner', args?: MutationUpdateOwnerArgs[] | false, alias?: string  } 
+  | { name: 'updateManyOwners', args?: MutationUpdateManyOwnersArgs[] | false, alias?: string  } 
+  | { name: 'upsertOwner', args?: MutationUpsertOwnerArgs[] | false, alias?: string  } 
+  | { name: 'deleteOwner', args?: MutationDeleteOwnerArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyOwners', args?: MutationDeleteManyOwnersArgs[] | false, alias?: string  } 
+  | { name: 'createSchool', args?: MutationCreateSchoolArgs[] | false, alias?: string  } 
+  | { name: 'updateSchool', args?: MutationUpdateSchoolArgs[] | false, alias?: string  } 
+  | { name: 'updateManySchools', args?: MutationUpdateManySchoolsArgs[] | false, alias?: string  } 
+  | { name: 'upsertSchool', args?: MutationUpsertSchoolArgs[] | false, alias?: string  } 
+  | { name: 'deleteSchool', args?: MutationDeleteSchoolArgs[] | false, alias?: string  } 
+  | { name: 'deleteManySchools', args?: MutationDeleteManySchoolsArgs[] | false, alias?: string  } 
+  | { name: 'createLocation', args?: MutationCreateLocationArgs[] | false, alias?: string  } 
+  | { name: 'updateLocation', args?: MutationUpdateLocationArgs[] | false, alias?: string  } 
+  | { name: 'updateManyLocations', args?: MutationUpdateManyLocationsArgs[] | false, alias?: string  } 
+  | { name: 'upsertLocation', args?: MutationUpsertLocationArgs[] | false, alias?: string  } 
+  | { name: 'deleteLocation', args?: MutationDeleteLocationArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyLocations', args?: MutationDeleteManyLocationsArgs[] | false, alias?: string  } 
+  | { name: 'createGeocode', args?: MutationCreateGeocodeArgs[] | false, alias?: string  } 
+  | { name: 'updateGeocode', args?: MutationUpdateGeocodeArgs[] | false, alias?: string  } 
+  | { name: 'updateManyGeocodes', args?: MutationUpdateManyGeocodesArgs[] | false, alias?: string  } 
+  | { name: 'upsertGeocode', args?: MutationUpsertGeocodeArgs[] | false, alias?: string  } 
+  | { name: 'deleteGeocode', args?: MutationDeleteGeocodeArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyGeocodes', args?: MutationDeleteManyGeocodesArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createAccount'
@@ -716,6 +2012,30 @@ type MutationFields =
   | 'upsertToken'
   | 'deleteToken'
   | 'deleteManyTokens'
+  | 'createOwner'
+  | 'updateOwner'
+  | 'updateManyOwners'
+  | 'upsertOwner'
+  | 'deleteOwner'
+  | 'deleteManyOwners'
+  | 'createSchool'
+  | 'updateSchool'
+  | 'updateManySchools'
+  | 'upsertSchool'
+  | 'deleteSchool'
+  | 'deleteManySchools'
+  | 'createLocation'
+  | 'updateLocation'
+  | 'updateManyLocations'
+  | 'upsertLocation'
+  | 'deleteLocation'
+  | 'deleteManyLocations'
+  | 'createGeocode'
+  | 'updateGeocode'
+  | 'updateManyGeocodes'
+  | 'upsertGeocode'
+  | 'deleteGeocode'
+  | 'deleteManyGeocodes'
 
 
 type MutationCreateAccountArgs =
@@ -749,6 +2069,70 @@ type MutationUpsertTokenArgs =
 type MutationDeleteTokenArgs =
   | 'where'
 type MutationDeleteManyTokensArgs =
+  | 'where'
+type MutationCreateOwnerArgs =
+  | 'data'
+type MutationUpdateOwnerArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyOwnersArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertOwnerArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteOwnerArgs =
+  | 'where'
+type MutationDeleteManyOwnersArgs =
+  | 'where'
+type MutationCreateSchoolArgs =
+  | 'data'
+type MutationUpdateSchoolArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManySchoolsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertSchoolArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteSchoolArgs =
+  | 'where'
+type MutationDeleteManySchoolsArgs =
+  | 'where'
+type MutationCreateLocationArgs =
+  | 'data'
+type MutationUpdateLocationArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyLocationsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertLocationArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteLocationArgs =
+  | 'where'
+type MutationDeleteManyLocationsArgs =
+  | 'where'
+type MutationCreateGeocodeArgs =
+  | 'data'
+type MutationUpdateGeocodeArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyGeocodesArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertGeocodeArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteGeocodeArgs =
+  | 'where'
+type MutationDeleteManyGeocodesArgs =
   | 'where'
   
 
@@ -909,6 +2293,318 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createOwner: {
+    type: 'Owner'
+    args: Record<MutationCreateOwnerArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: OwnerCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Owner> | prisma.Owner
+  }
+  updateOwner: {
+    type: 'Owner'
+    args: Record<MutationUpdateOwnerArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: OwnerUpdateInput, where: OwnerWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Owner | null> | prisma.Owner | null
+  }
+  updateManyOwners: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyOwnersArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: OwnerUpdateManyMutationInput, where?: OwnerWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertOwner: {
+    type: 'Owner'
+    args: Record<MutationUpsertOwnerArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: OwnerWhereUniqueInput, create: OwnerCreateInput, update: OwnerUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Owner> | prisma.Owner
+  }
+  deleteOwner: {
+    type: 'Owner'
+    args: Record<MutationDeleteOwnerArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: OwnerWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Owner | null> | prisma.Owner | null
+  }
+  deleteManyOwners: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyOwnersArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: OwnerWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createSchool: {
+    type: 'School'
+    args: Record<MutationCreateSchoolArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: SchoolCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.School> | prisma.School
+  }
+  updateSchool: {
+    type: 'School'
+    args: Record<MutationUpdateSchoolArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: SchoolUpdateInput, where: SchoolWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.School | null> | prisma.School | null
+  }
+  updateManySchools: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManySchoolsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: SchoolUpdateManyMutationInput, where?: SchoolWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertSchool: {
+    type: 'School'
+    args: Record<MutationUpsertSchoolArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: SchoolWhereUniqueInput, create: SchoolCreateInput, update: SchoolUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.School> | prisma.School
+  }
+  deleteSchool: {
+    type: 'School'
+    args: Record<MutationDeleteSchoolArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: SchoolWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.School | null> | prisma.School | null
+  }
+  deleteManySchools: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManySchoolsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: SchoolWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createLocation: {
+    type: 'Location'
+    args: Record<MutationCreateLocationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: LocationCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location> | prisma.Location
+  }
+  updateLocation: {
+    type: 'Location'
+    args: Record<MutationUpdateLocationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: LocationUpdateInput, where: LocationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location | null> | prisma.Location | null
+  }
+  updateManyLocations: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyLocationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: LocationUpdateManyMutationInput, where?: LocationWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertLocation: {
+    type: 'Location'
+    args: Record<MutationUpsertLocationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: LocationWhereUniqueInput, create: LocationCreateInput, update: LocationUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location> | prisma.Location
+  }
+  deleteLocation: {
+    type: 'Location'
+    args: Record<MutationDeleteLocationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: LocationWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location | null> | prisma.Location | null
+  }
+  deleteManyLocations: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyLocationsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: LocationWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createGeocode: {
+    type: 'Geocode'
+    args: Record<MutationCreateGeocodeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: GeocodeCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Geocode> | prisma.Geocode
+  }
+  updateGeocode: {
+    type: 'Geocode'
+    args: Record<MutationUpdateGeocodeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: GeocodeUpdateInput, where: GeocodeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Geocode | null> | prisma.Geocode | null
+  }
+  updateManyGeocodes: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyGeocodesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: GeocodeUpdateManyMutationInput, where?: GeocodeWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertGeocode: {
+    type: 'Geocode'
+    args: Record<MutationUpsertGeocodeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: GeocodeWhereUniqueInput, create: GeocodeCreateInput, update: GeocodeUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Geocode> | prisma.Geocode
+  }
+  deleteGeocode: {
+    type: 'Geocode'
+    args: Record<MutationDeleteGeocodeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: GeocodeWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Geocode | null> | prisma.Geocode | null
+  }
+  deleteManyGeocodes: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyGeocodesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: GeocodeWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
 }
   
 
@@ -943,15 +2639,31 @@ type SubscriptionObject =
   | SubscriptionFields
   | { name: 'account', args?: SubscriptionAccountArgs[] | false, alias?: string  } 
   | { name: 'token', args?: SubscriptionTokenArgs[] | false, alias?: string  } 
+  | { name: 'owner', args?: SubscriptionOwnerArgs[] | false, alias?: string  } 
+  | { name: 'school', args?: SubscriptionSchoolArgs[] | false, alias?: string  } 
+  | { name: 'location', args?: SubscriptionLocationArgs[] | false, alias?: string  } 
+  | { name: 'geocode', args?: SubscriptionGeocodeArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'account'
   | 'token'
+  | 'owner'
+  | 'school'
+  | 'location'
+  | 'geocode'
 
 
 type SubscriptionAccountArgs =
   | 'where'
 type SubscriptionTokenArgs =
+  | 'where'
+type SubscriptionOwnerArgs =
+  | 'where'
+type SubscriptionSchoolArgs =
+  | 'where'
+type SubscriptionLocationArgs =
+  | 'where'
+type SubscriptionGeocodeArgs =
   | 'where'
   
 
@@ -981,6 +2693,58 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.TokenSubscriptionPayload | null> | prisma.TokenSubscriptionPayload | null
+  }
+  owner: {
+    type: 'OwnerSubscriptionPayload'
+    args: Record<SubscriptionOwnerArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: OwnerSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.OwnerSubscriptionPayload | null> | prisma.OwnerSubscriptionPayload | null
+  }
+  school: {
+    type: 'SchoolSubscriptionPayload'
+    args: Record<SubscriptionSchoolArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: SchoolSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SchoolSubscriptionPayload | null> | prisma.SchoolSubscriptionPayload | null
+  }
+  location: {
+    type: 'LocationSubscriptionPayload'
+    args: Record<SubscriptionLocationArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: LocationSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LocationSubscriptionPayload | null> | prisma.LocationSubscriptionPayload | null
+  }
+  geocode: {
+    type: 'GeocodeSubscriptionPayload'
+    args: Record<SubscriptionGeocodeArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: GeocodeSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.GeocodeSubscriptionPayload | null> | prisma.GeocodeSubscriptionPayload | null
   }
 }
   
@@ -1064,6 +2828,7 @@ type AccountPreviousValuesObject =
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'isVerified', args?: [] | false, alias?: string  } 
+  | { name: 'role', args?: [] | false, alias?: string  } 
   | { name: 'lastLogin', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
@@ -1074,6 +2839,7 @@ type AccountPreviousValuesFields =
   | 'email'
   | 'password'
   | 'isVerified'
+  | 'role'
   | 'lastLogin'
   | 'createdAt'
   | 'updatedAt'
@@ -1122,6 +2888,19 @@ export interface AccountPreviousValuesFieldDetails {
     list: undefined
     nullable: false
     resolve: undefined
+  }
+  role: {
+    type: 'Role'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AccountPreviousValues">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Role> | prisma.Role
   }
   lastLogin: {
     type: 'DateTime'
@@ -1271,16 +3050,606 @@ export interface TokenPreviousValuesFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: (
       root: core.RootValue<"TokenPreviousValues">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.TokenType | null> | prisma.TokenType | null
+    ) => Promise<prisma.TokenType> | prisma.TokenType
   }
   createdAt: {
     type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for OwnerSubscriptionPayload
+
+type OwnerSubscriptionPayloadObject =
+  | OwnerSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type OwnerSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface OwnerSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"OwnerSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Owner'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"OwnerSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Owner | null> | prisma.Owner | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'OwnerPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"OwnerSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.OwnerPreviousValues | null> | prisma.OwnerPreviousValues | null
+  }
+}
+  
+
+// Types for OwnerPreviousValues
+
+type OwnerPreviousValuesObject =
+  | OwnerPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'accountId', args?: [] | false, alias?: string  } 
+  | { name: 'firstName', args?: [] | false, alias?: string  } 
+  | { name: 'middleName', args?: [] | false, alias?: string  } 
+  | { name: 'lastName', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type OwnerPreviousValuesFields =
+  | 'id'
+  | 'accountId'
+  | 'firstName'
+  | 'middleName'
+  | 'lastName'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface OwnerPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  accountId: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  firstName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  middleName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  lastName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for SchoolSubscriptionPayload
+
+type SchoolSubscriptionPayloadObject =
+  | SchoolSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type SchoolSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface SchoolSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"SchoolSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'School'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"SchoolSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.School | null> | prisma.School | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'SchoolPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"SchoolSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.SchoolPreviousValues | null> | prisma.SchoolPreviousValues | null
+  }
+}
+  
+
+// Types for SchoolPreviousValues
+
+type SchoolPreviousValuesObject =
+  | SchoolPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'title', args?: [] | false, alias?: string  } 
+  | { name: 'phone', args?: [] | false, alias?: string  } 
+  | { name: 'uri', args?: [] | false, alias?: string  } 
+  | { name: 'email', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+
+type SchoolPreviousValuesFields =
+  | 'id'
+  | 'title'
+  | 'phone'
+  | 'uri'
+  | 'email'
+  | 'createdAt'
+  | 'updatedAt'
+
+
+
+  
+
+export interface SchoolPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  title: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  phone: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  uri: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  email: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for LocationSubscriptionPayload
+
+type LocationSubscriptionPayloadObject =
+  | LocationSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type LocationSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface LocationSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"LocationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Location'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"LocationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Location | null> | prisma.Location | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'LocationPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"LocationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.LocationPreviousValues | null> | prisma.LocationPreviousValues | null
+  }
+}
+  
+
+// Types for LocationPreviousValues
+
+type LocationPreviousValuesObject =
+  | LocationPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'number', args?: [] | false, alias?: string  } 
+  | { name: 'street', args?: [] | false, alias?: string  } 
+  | { name: 'other', args?: [] | false, alias?: string  } 
+  | { name: 'city', args?: [] | false, alias?: string  } 
+  | { name: 'country', args?: [] | false, alias?: string  } 
+  | { name: 'postalcode', args?: [] | false, alias?: string  } 
+  | { name: 'nearestLandmark', args?: [] | false, alias?: string  } 
+
+type LocationPreviousValuesFields =
+  | 'id'
+  | 'number'
+  | 'street'
+  | 'other'
+  | 'city'
+  | 'country'
+  | 'postalcode'
+  | 'nearestLandmark'
+
+
+
+  
+
+export interface LocationPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  number: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  street: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  other: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  city: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  country: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  postalcode: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  nearestLandmark: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for GeocodeSubscriptionPayload
+
+type GeocodeSubscriptionPayloadObject =
+  | GeocodeSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type GeocodeSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface GeocodeSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"GeocodeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Geocode'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"GeocodeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Geocode | null> | prisma.Geocode | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'GeocodePreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"GeocodeSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.GeocodePreviousValues | null> | prisma.GeocodePreviousValues | null
+  }
+}
+  
+
+// Types for GeocodePreviousValues
+
+type GeocodePreviousValuesObject =
+  | GeocodePreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'latitude', args?: [] | false, alias?: string  } 
+  | { name: 'longitude', args?: [] | false, alias?: string  } 
+
+type GeocodePreviousValuesFields =
+  | 'id'
+  | 'latitude'
+  | 'longitude'
+
+
+
+  
+
+export interface GeocodePreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  latitude: {
+    type: 'Float'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  longitude: {
+    type: 'Float'
     args: {}
     description: string
     list: undefined
@@ -1361,6 +3730,10 @@ export interface AccountWhereInput {
   password_not_ends_with?: string | null
   isVerified?: boolean | null
   isVerified_not?: boolean | null
+  role?: prisma.Role | null
+  role_not?: prisma.Role | null
+  role_in?: prisma.Role[]
+  role_not_in?: prisma.Role[]
   lastLogin?: string | null
   lastLogin_not?: string | null
   lastLogin_in?: string[]
@@ -1449,6 +3822,10 @@ export type AccountWhereInputInputObject =
   | { name: 'password_not_ends_with', alias?: string  } 
   | { name: 'isVerified', alias?: string  } 
   | { name: 'isVerified_not', alias?: string  } 
+  | { name: 'role', alias?: string  } 
+  | { name: 'role_not', alias?: string  } 
+  | { name: 'role_in', alias?: string  } 
+  | { name: 'role_not_in', alias?: string  } 
   | { name: 'lastLogin', alias?: string  } 
   | { name: 'lastLogin_not', alias?: string  } 
   | { name: 'lastLogin_in', alias?: string  } 
@@ -1605,12 +3982,727 @@ export type TokenWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface OwnerWhereUniqueInput {
+  id?: string | null
+  accountId?: string | null
+}
+export type OwnerWhereUniqueInputInputObject =
+  | Extract<keyof OwnerWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'accountId', alias?: string  } 
+  
+export interface SchoolWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  title?: string | null
+  title_not?: string | null
+  title_in?: string[]
+  title_not_in?: string[]
+  title_lt?: string | null
+  title_lte?: string | null
+  title_gt?: string | null
+  title_gte?: string | null
+  title_contains?: string | null
+  title_not_contains?: string | null
+  title_starts_with?: string | null
+  title_not_starts_with?: string | null
+  title_ends_with?: string | null
+  title_not_ends_with?: string | null
+  phone?: string | null
+  phone_not?: string | null
+  phone_in?: string[]
+  phone_not_in?: string[]
+  phone_lt?: string | null
+  phone_lte?: string | null
+  phone_gt?: string | null
+  phone_gte?: string | null
+  phone_contains?: string | null
+  phone_not_contains?: string | null
+  phone_starts_with?: string | null
+  phone_not_starts_with?: string | null
+  phone_ends_with?: string | null
+  phone_not_ends_with?: string | null
+  uri?: string | null
+  uri_not?: string | null
+  uri_in?: string[]
+  uri_not_in?: string[]
+  uri_lt?: string | null
+  uri_lte?: string | null
+  uri_gt?: string | null
+  uri_gte?: string | null
+  uri_contains?: string | null
+  uri_not_contains?: string | null
+  uri_starts_with?: string | null
+  uri_not_starts_with?: string | null
+  uri_ends_with?: string | null
+  uri_not_ends_with?: string | null
+  email?: string | null
+  email_not?: string | null
+  email_in?: string[]
+  email_not_in?: string[]
+  email_lt?: string | null
+  email_lte?: string | null
+  email_gt?: string | null
+  email_gte?: string | null
+  email_contains?: string | null
+  email_not_contains?: string | null
+  email_starts_with?: string | null
+  email_not_starts_with?: string | null
+  email_ends_with?: string | null
+  email_not_ends_with?: string | null
+  owner?: OwnerWhereInput | null
+  locations_every?: LocationWhereInput | null
+  locations_some?: LocationWhereInput | null
+  locations_none?: LocationWhereInput | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: SchoolWhereInput[]
+  OR?: SchoolWhereInput[]
+  NOT?: SchoolWhereInput[]
+}
+export type SchoolWhereInputInputObject =
+  | Extract<keyof SchoolWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'title_not', alias?: string  } 
+  | { name: 'title_in', alias?: string  } 
+  | { name: 'title_not_in', alias?: string  } 
+  | { name: 'title_lt', alias?: string  } 
+  | { name: 'title_lte', alias?: string  } 
+  | { name: 'title_gt', alias?: string  } 
+  | { name: 'title_gte', alias?: string  } 
+  | { name: 'title_contains', alias?: string  } 
+  | { name: 'title_not_contains', alias?: string  } 
+  | { name: 'title_starts_with', alias?: string  } 
+  | { name: 'title_not_starts_with', alias?: string  } 
+  | { name: 'title_ends_with', alias?: string  } 
+  | { name: 'title_not_ends_with', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'phone_not', alias?: string  } 
+  | { name: 'phone_in', alias?: string  } 
+  | { name: 'phone_not_in', alias?: string  } 
+  | { name: 'phone_lt', alias?: string  } 
+  | { name: 'phone_lte', alias?: string  } 
+  | { name: 'phone_gt', alias?: string  } 
+  | { name: 'phone_gte', alias?: string  } 
+  | { name: 'phone_contains', alias?: string  } 
+  | { name: 'phone_not_contains', alias?: string  } 
+  | { name: 'phone_starts_with', alias?: string  } 
+  | { name: 'phone_not_starts_with', alias?: string  } 
+  | { name: 'phone_ends_with', alias?: string  } 
+  | { name: 'phone_not_ends_with', alias?: string  } 
+  | { name: 'uri', alias?: string  } 
+  | { name: 'uri_not', alias?: string  } 
+  | { name: 'uri_in', alias?: string  } 
+  | { name: 'uri_not_in', alias?: string  } 
+  | { name: 'uri_lt', alias?: string  } 
+  | { name: 'uri_lte', alias?: string  } 
+  | { name: 'uri_gt', alias?: string  } 
+  | { name: 'uri_gte', alias?: string  } 
+  | { name: 'uri_contains', alias?: string  } 
+  | { name: 'uri_not_contains', alias?: string  } 
+  | { name: 'uri_starts_with', alias?: string  } 
+  | { name: 'uri_not_starts_with', alias?: string  } 
+  | { name: 'uri_ends_with', alias?: string  } 
+  | { name: 'uri_not_ends_with', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'email_not', alias?: string  } 
+  | { name: 'email_in', alias?: string  } 
+  | { name: 'email_not_in', alias?: string  } 
+  | { name: 'email_lt', alias?: string  } 
+  | { name: 'email_lte', alias?: string  } 
+  | { name: 'email_gt', alias?: string  } 
+  | { name: 'email_gte', alias?: string  } 
+  | { name: 'email_contains', alias?: string  } 
+  | { name: 'email_not_contains', alias?: string  } 
+  | { name: 'email_starts_with', alias?: string  } 
+  | { name: 'email_not_starts_with', alias?: string  } 
+  | { name: 'email_ends_with', alias?: string  } 
+  | { name: 'email_not_ends_with', alias?: string  } 
+  | { name: 'owner', alias?: string  } 
+  | { name: 'locations_every', alias?: string  } 
+  | { name: 'locations_some', alias?: string  } 
+  | { name: 'locations_none', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface OwnerWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  accountId?: string | null
+  accountId_not?: string | null
+  accountId_in?: string[]
+  accountId_not_in?: string[]
+  accountId_lt?: string | null
+  accountId_lte?: string | null
+  accountId_gt?: string | null
+  accountId_gte?: string | null
+  accountId_contains?: string | null
+  accountId_not_contains?: string | null
+  accountId_starts_with?: string | null
+  accountId_not_starts_with?: string | null
+  accountId_ends_with?: string | null
+  accountId_not_ends_with?: string | null
+  firstName?: string | null
+  firstName_not?: string | null
+  firstName_in?: string[]
+  firstName_not_in?: string[]
+  firstName_lt?: string | null
+  firstName_lte?: string | null
+  firstName_gt?: string | null
+  firstName_gte?: string | null
+  firstName_contains?: string | null
+  firstName_not_contains?: string | null
+  firstName_starts_with?: string | null
+  firstName_not_starts_with?: string | null
+  firstName_ends_with?: string | null
+  firstName_not_ends_with?: string | null
+  middleName?: string | null
+  middleName_not?: string | null
+  middleName_in?: string[]
+  middleName_not_in?: string[]
+  middleName_lt?: string | null
+  middleName_lte?: string | null
+  middleName_gt?: string | null
+  middleName_gte?: string | null
+  middleName_contains?: string | null
+  middleName_not_contains?: string | null
+  middleName_starts_with?: string | null
+  middleName_not_starts_with?: string | null
+  middleName_ends_with?: string | null
+  middleName_not_ends_with?: string | null
+  lastName?: string | null
+  lastName_not?: string | null
+  lastName_in?: string[]
+  lastName_not_in?: string[]
+  lastName_lt?: string | null
+  lastName_lte?: string | null
+  lastName_gt?: string | null
+  lastName_gte?: string | null
+  lastName_contains?: string | null
+  lastName_not_contains?: string | null
+  lastName_starts_with?: string | null
+  lastName_not_starts_with?: string | null
+  lastName_ends_with?: string | null
+  lastName_not_ends_with?: string | null
+  schools_every?: SchoolWhereInput | null
+  schools_some?: SchoolWhereInput | null
+  schools_none?: SchoolWhereInput | null
+  location?: LocationWhereInput | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: OwnerWhereInput[]
+  OR?: OwnerWhereInput[]
+  NOT?: OwnerWhereInput[]
+}
+export type OwnerWhereInputInputObject =
+  | Extract<keyof OwnerWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'accountId', alias?: string  } 
+  | { name: 'accountId_not', alias?: string  } 
+  | { name: 'accountId_in', alias?: string  } 
+  | { name: 'accountId_not_in', alias?: string  } 
+  | { name: 'accountId_lt', alias?: string  } 
+  | { name: 'accountId_lte', alias?: string  } 
+  | { name: 'accountId_gt', alias?: string  } 
+  | { name: 'accountId_gte', alias?: string  } 
+  | { name: 'accountId_contains', alias?: string  } 
+  | { name: 'accountId_not_contains', alias?: string  } 
+  | { name: 'accountId_starts_with', alias?: string  } 
+  | { name: 'accountId_not_starts_with', alias?: string  } 
+  | { name: 'accountId_ends_with', alias?: string  } 
+  | { name: 'accountId_not_ends_with', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'firstName_not', alias?: string  } 
+  | { name: 'firstName_in', alias?: string  } 
+  | { name: 'firstName_not_in', alias?: string  } 
+  | { name: 'firstName_lt', alias?: string  } 
+  | { name: 'firstName_lte', alias?: string  } 
+  | { name: 'firstName_gt', alias?: string  } 
+  | { name: 'firstName_gte', alias?: string  } 
+  | { name: 'firstName_contains', alias?: string  } 
+  | { name: 'firstName_not_contains', alias?: string  } 
+  | { name: 'firstName_starts_with', alias?: string  } 
+  | { name: 'firstName_not_starts_with', alias?: string  } 
+  | { name: 'firstName_ends_with', alias?: string  } 
+  | { name: 'firstName_not_ends_with', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'middleName_not', alias?: string  } 
+  | { name: 'middleName_in', alias?: string  } 
+  | { name: 'middleName_not_in', alias?: string  } 
+  | { name: 'middleName_lt', alias?: string  } 
+  | { name: 'middleName_lte', alias?: string  } 
+  | { name: 'middleName_gt', alias?: string  } 
+  | { name: 'middleName_gte', alias?: string  } 
+  | { name: 'middleName_contains', alias?: string  } 
+  | { name: 'middleName_not_contains', alias?: string  } 
+  | { name: 'middleName_starts_with', alias?: string  } 
+  | { name: 'middleName_not_starts_with', alias?: string  } 
+  | { name: 'middleName_ends_with', alias?: string  } 
+  | { name: 'middleName_not_ends_with', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'lastName_not', alias?: string  } 
+  | { name: 'lastName_in', alias?: string  } 
+  | { name: 'lastName_not_in', alias?: string  } 
+  | { name: 'lastName_lt', alias?: string  } 
+  | { name: 'lastName_lte', alias?: string  } 
+  | { name: 'lastName_gt', alias?: string  } 
+  | { name: 'lastName_gte', alias?: string  } 
+  | { name: 'lastName_contains', alias?: string  } 
+  | { name: 'lastName_not_contains', alias?: string  } 
+  | { name: 'lastName_starts_with', alias?: string  } 
+  | { name: 'lastName_not_starts_with', alias?: string  } 
+  | { name: 'lastName_ends_with', alias?: string  } 
+  | { name: 'lastName_not_ends_with', alias?: string  } 
+  | { name: 'schools_every', alias?: string  } 
+  | { name: 'schools_some', alias?: string  } 
+  | { name: 'schools_none', alias?: string  } 
+  | { name: 'location', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface LocationWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  number?: number | null
+  number_not?: number | null
+  number_in?: number[]
+  number_not_in?: number[]
+  number_lt?: number | null
+  number_lte?: number | null
+  number_gt?: number | null
+  number_gte?: number | null
+  street?: string | null
+  street_not?: string | null
+  street_in?: string[]
+  street_not_in?: string[]
+  street_lt?: string | null
+  street_lte?: string | null
+  street_gt?: string | null
+  street_gte?: string | null
+  street_contains?: string | null
+  street_not_contains?: string | null
+  street_starts_with?: string | null
+  street_not_starts_with?: string | null
+  street_ends_with?: string | null
+  street_not_ends_with?: string | null
+  other?: string | null
+  other_not?: string | null
+  other_in?: string[]
+  other_not_in?: string[]
+  other_lt?: string | null
+  other_lte?: string | null
+  other_gt?: string | null
+  other_gte?: string | null
+  other_contains?: string | null
+  other_not_contains?: string | null
+  other_starts_with?: string | null
+  other_not_starts_with?: string | null
+  other_ends_with?: string | null
+  other_not_ends_with?: string | null
+  city?: string | null
+  city_not?: string | null
+  city_in?: string[]
+  city_not_in?: string[]
+  city_lt?: string | null
+  city_lte?: string | null
+  city_gt?: string | null
+  city_gte?: string | null
+  city_contains?: string | null
+  city_not_contains?: string | null
+  city_starts_with?: string | null
+  city_not_starts_with?: string | null
+  city_ends_with?: string | null
+  city_not_ends_with?: string | null
+  country?: string | null
+  country_not?: string | null
+  country_in?: string[]
+  country_not_in?: string[]
+  country_lt?: string | null
+  country_lte?: string | null
+  country_gt?: string | null
+  country_gte?: string | null
+  country_contains?: string | null
+  country_not_contains?: string | null
+  country_starts_with?: string | null
+  country_not_starts_with?: string | null
+  country_ends_with?: string | null
+  country_not_ends_with?: string | null
+  postalcode?: string | null
+  postalcode_not?: string | null
+  postalcode_in?: string[]
+  postalcode_not_in?: string[]
+  postalcode_lt?: string | null
+  postalcode_lte?: string | null
+  postalcode_gt?: string | null
+  postalcode_gte?: string | null
+  postalcode_contains?: string | null
+  postalcode_not_contains?: string | null
+  postalcode_starts_with?: string | null
+  postalcode_not_starts_with?: string | null
+  postalcode_ends_with?: string | null
+  postalcode_not_ends_with?: string | null
+  nearestLandmark?: string | null
+  nearestLandmark_not?: string | null
+  nearestLandmark_in?: string[]
+  nearestLandmark_not_in?: string[]
+  nearestLandmark_lt?: string | null
+  nearestLandmark_lte?: string | null
+  nearestLandmark_gt?: string | null
+  nearestLandmark_gte?: string | null
+  nearestLandmark_contains?: string | null
+  nearestLandmark_not_contains?: string | null
+  nearestLandmark_starts_with?: string | null
+  nearestLandmark_not_starts_with?: string | null
+  nearestLandmark_ends_with?: string | null
+  nearestLandmark_not_ends_with?: string | null
+  geocode?: GeocodeWhereInput | null
+  AND?: LocationWhereInput[]
+  OR?: LocationWhereInput[]
+  NOT?: LocationWhereInput[]
+}
+export type LocationWhereInputInputObject =
+  | Extract<keyof LocationWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'number', alias?: string  } 
+  | { name: 'number_not', alias?: string  } 
+  | { name: 'number_in', alias?: string  } 
+  | { name: 'number_not_in', alias?: string  } 
+  | { name: 'number_lt', alias?: string  } 
+  | { name: 'number_lte', alias?: string  } 
+  | { name: 'number_gt', alias?: string  } 
+  | { name: 'number_gte', alias?: string  } 
+  | { name: 'street', alias?: string  } 
+  | { name: 'street_not', alias?: string  } 
+  | { name: 'street_in', alias?: string  } 
+  | { name: 'street_not_in', alias?: string  } 
+  | { name: 'street_lt', alias?: string  } 
+  | { name: 'street_lte', alias?: string  } 
+  | { name: 'street_gt', alias?: string  } 
+  | { name: 'street_gte', alias?: string  } 
+  | { name: 'street_contains', alias?: string  } 
+  | { name: 'street_not_contains', alias?: string  } 
+  | { name: 'street_starts_with', alias?: string  } 
+  | { name: 'street_not_starts_with', alias?: string  } 
+  | { name: 'street_ends_with', alias?: string  } 
+  | { name: 'street_not_ends_with', alias?: string  } 
+  | { name: 'other', alias?: string  } 
+  | { name: 'other_not', alias?: string  } 
+  | { name: 'other_in', alias?: string  } 
+  | { name: 'other_not_in', alias?: string  } 
+  | { name: 'other_lt', alias?: string  } 
+  | { name: 'other_lte', alias?: string  } 
+  | { name: 'other_gt', alias?: string  } 
+  | { name: 'other_gte', alias?: string  } 
+  | { name: 'other_contains', alias?: string  } 
+  | { name: 'other_not_contains', alias?: string  } 
+  | { name: 'other_starts_with', alias?: string  } 
+  | { name: 'other_not_starts_with', alias?: string  } 
+  | { name: 'other_ends_with', alias?: string  } 
+  | { name: 'other_not_ends_with', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'city_not', alias?: string  } 
+  | { name: 'city_in', alias?: string  } 
+  | { name: 'city_not_in', alias?: string  } 
+  | { name: 'city_lt', alias?: string  } 
+  | { name: 'city_lte', alias?: string  } 
+  | { name: 'city_gt', alias?: string  } 
+  | { name: 'city_gte', alias?: string  } 
+  | { name: 'city_contains', alias?: string  } 
+  | { name: 'city_not_contains', alias?: string  } 
+  | { name: 'city_starts_with', alias?: string  } 
+  | { name: 'city_not_starts_with', alias?: string  } 
+  | { name: 'city_ends_with', alias?: string  } 
+  | { name: 'city_not_ends_with', alias?: string  } 
+  | { name: 'country', alias?: string  } 
+  | { name: 'country_not', alias?: string  } 
+  | { name: 'country_in', alias?: string  } 
+  | { name: 'country_not_in', alias?: string  } 
+  | { name: 'country_lt', alias?: string  } 
+  | { name: 'country_lte', alias?: string  } 
+  | { name: 'country_gt', alias?: string  } 
+  | { name: 'country_gte', alias?: string  } 
+  | { name: 'country_contains', alias?: string  } 
+  | { name: 'country_not_contains', alias?: string  } 
+  | { name: 'country_starts_with', alias?: string  } 
+  | { name: 'country_not_starts_with', alias?: string  } 
+  | { name: 'country_ends_with', alias?: string  } 
+  | { name: 'country_not_ends_with', alias?: string  } 
+  | { name: 'postalcode', alias?: string  } 
+  | { name: 'postalcode_not', alias?: string  } 
+  | { name: 'postalcode_in', alias?: string  } 
+  | { name: 'postalcode_not_in', alias?: string  } 
+  | { name: 'postalcode_lt', alias?: string  } 
+  | { name: 'postalcode_lte', alias?: string  } 
+  | { name: 'postalcode_gt', alias?: string  } 
+  | { name: 'postalcode_gte', alias?: string  } 
+  | { name: 'postalcode_contains', alias?: string  } 
+  | { name: 'postalcode_not_contains', alias?: string  } 
+  | { name: 'postalcode_starts_with', alias?: string  } 
+  | { name: 'postalcode_not_starts_with', alias?: string  } 
+  | { name: 'postalcode_ends_with', alias?: string  } 
+  | { name: 'postalcode_not_ends_with', alias?: string  } 
+  | { name: 'nearestLandmark', alias?: string  } 
+  | { name: 'nearestLandmark_not', alias?: string  } 
+  | { name: 'nearestLandmark_in', alias?: string  } 
+  | { name: 'nearestLandmark_not_in', alias?: string  } 
+  | { name: 'nearestLandmark_lt', alias?: string  } 
+  | { name: 'nearestLandmark_lte', alias?: string  } 
+  | { name: 'nearestLandmark_gt', alias?: string  } 
+  | { name: 'nearestLandmark_gte', alias?: string  } 
+  | { name: 'nearestLandmark_contains', alias?: string  } 
+  | { name: 'nearestLandmark_not_contains', alias?: string  } 
+  | { name: 'nearestLandmark_starts_with', alias?: string  } 
+  | { name: 'nearestLandmark_not_starts_with', alias?: string  } 
+  | { name: 'nearestLandmark_ends_with', alias?: string  } 
+  | { name: 'nearestLandmark_not_ends_with', alias?: string  } 
+  | { name: 'geocode', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface GeocodeWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  latitude?: number | null
+  latitude_not?: number | null
+  latitude_in?: number[]
+  latitude_not_in?: number[]
+  latitude_lt?: number | null
+  latitude_lte?: number | null
+  latitude_gt?: number | null
+  latitude_gte?: number | null
+  longitude?: number | null
+  longitude_not?: number | null
+  longitude_in?: number[]
+  longitude_not_in?: number[]
+  longitude_lt?: number | null
+  longitude_lte?: number | null
+  longitude_gt?: number | null
+  longitude_gte?: number | null
+  AND?: GeocodeWhereInput[]
+  OR?: GeocodeWhereInput[]
+  NOT?: GeocodeWhereInput[]
+}
+export type GeocodeWhereInputInputObject =
+  | Extract<keyof GeocodeWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'latitude', alias?: string  } 
+  | { name: 'latitude_not', alias?: string  } 
+  | { name: 'latitude_in', alias?: string  } 
+  | { name: 'latitude_not_in', alias?: string  } 
+  | { name: 'latitude_lt', alias?: string  } 
+  | { name: 'latitude_lte', alias?: string  } 
+  | { name: 'latitude_gt', alias?: string  } 
+  | { name: 'latitude_gte', alias?: string  } 
+  | { name: 'longitude', alias?: string  } 
+  | { name: 'longitude_not', alias?: string  } 
+  | { name: 'longitude_in', alias?: string  } 
+  | { name: 'longitude_not_in', alias?: string  } 
+  | { name: 'longitude_lt', alias?: string  } 
+  | { name: 'longitude_lte', alias?: string  } 
+  | { name: 'longitude_gt', alias?: string  } 
+  | { name: 'longitude_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface SchoolWhereUniqueInput {
+  id?: string | null
+  phone?: string | null
+  uri?: string | null
+  email?: string | null
+}
+export type SchoolWhereUniqueInputInputObject =
+  | Extract<keyof SchoolWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'uri', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  
+export interface LocationWhereUniqueInput {
+  id?: string | null
+}
+export type LocationWhereUniqueInputInputObject =
+  | Extract<keyof LocationWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface GeocodeWhereUniqueInput {
+  id?: string | null
+}
+export type GeocodeWhereUniqueInputInputObject =
+  | Extract<keyof GeocodeWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
 export interface AccountCreateInput {
   id?: string | null
   username?: string | null
   email?: string
   password?: string
   isVerified?: boolean | null
+  role?: prisma.Role | null
   lastLogin?: string | null
 }
 export type AccountCreateInputInputObject =
@@ -1620,6 +4712,7 @@ export type AccountCreateInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'isVerified', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   | { name: 'lastLogin', alias?: string  } 
   
 export interface AccountUpdateInput {
@@ -1627,6 +4720,7 @@ export interface AccountUpdateInput {
   email?: string | null
   password?: string | null
   isVerified?: boolean | null
+  role?: prisma.Role | null
   lastLogin?: string | null
 }
 export type AccountUpdateInputInputObject =
@@ -1635,6 +4729,7 @@ export type AccountUpdateInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'isVerified', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   | { name: 'lastLogin', alias?: string  } 
   
 export interface AccountUpdateManyMutationInput {
@@ -1642,6 +4737,7 @@ export interface AccountUpdateManyMutationInput {
   email?: string | null
   password?: string | null
   isVerified?: boolean | null
+  role?: prisma.Role | null
   lastLogin?: string | null
 }
 export type AccountUpdateManyMutationInputInputObject =
@@ -1650,6 +4746,7 @@ export type AccountUpdateManyMutationInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'password', alias?: string  } 
   | { name: 'isVerified', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   | { name: 'lastLogin', alias?: string  } 
   
 export interface TokenCreateInput {
@@ -1686,6 +4783,951 @@ export type TokenUpdateManyMutationInputInputObject =
   | { name: 'accountId', alias?: string  } 
   | { name: 'token', alias?: string  } 
   | { name: 'type', alias?: string  } 
+  
+export interface OwnerCreateInput {
+  id?: string | null
+  accountId?: string
+  firstName?: string
+  middleName?: string | null
+  lastName?: string
+  schools?: SchoolCreateManyWithoutOwnerInput | null
+  location?: LocationCreateOneInput | null
+}
+export type OwnerCreateInputInputObject =
+  | Extract<keyof OwnerCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'accountId', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'schools', alias?: string  } 
+  | { name: 'location', alias?: string  } 
+  
+export interface SchoolCreateManyWithoutOwnerInput {
+  create?: SchoolCreateWithoutOwnerInput[]
+  connect?: SchoolWhereUniqueInput[]
+}
+export type SchoolCreateManyWithoutOwnerInputInputObject =
+  | Extract<keyof SchoolCreateManyWithoutOwnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface SchoolCreateWithoutOwnerInput {
+  id?: string | null
+  title?: string
+  phone?: string
+  uri?: string
+  email?: string
+  locations?: LocationCreateManyInput | null
+}
+export type SchoolCreateWithoutOwnerInputInputObject =
+  | Extract<keyof SchoolCreateWithoutOwnerInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'uri', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'locations', alias?: string  } 
+  
+export interface LocationCreateManyInput {
+  create?: LocationCreateInput[]
+  connect?: LocationWhereUniqueInput[]
+}
+export type LocationCreateManyInputInputObject =
+  | Extract<keyof LocationCreateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface LocationCreateInput {
+  id?: string | null
+  number?: number
+  street?: string
+  other?: string | null
+  city?: string
+  country?: string
+  postalcode?: string
+  nearestLandmark?: string | null
+  geocode?: GeocodeCreateOneInput | null
+}
+export type LocationCreateInputInputObject =
+  | Extract<keyof LocationCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'number', alias?: string  } 
+  | { name: 'street', alias?: string  } 
+  | { name: 'other', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'country', alias?: string  } 
+  | { name: 'postalcode', alias?: string  } 
+  | { name: 'nearestLandmark', alias?: string  } 
+  | { name: 'geocode', alias?: string  } 
+  
+export interface GeocodeCreateOneInput {
+  create?: GeocodeCreateInput | null
+  connect?: GeocodeWhereUniqueInput | null
+}
+export type GeocodeCreateOneInputInputObject =
+  | Extract<keyof GeocodeCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface GeocodeCreateInput {
+  id?: string | null
+  latitude?: number
+  longitude?: number
+}
+export type GeocodeCreateInputInputObject =
+  | Extract<keyof GeocodeCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'latitude', alias?: string  } 
+  | { name: 'longitude', alias?: string  } 
+  
+export interface LocationCreateOneInput {
+  create?: LocationCreateInput | null
+  connect?: LocationWhereUniqueInput | null
+}
+export type LocationCreateOneInputInputObject =
+  | Extract<keyof LocationCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface OwnerUpdateInput {
+  accountId?: string | null
+  firstName?: string | null
+  middleName?: string | null
+  lastName?: string | null
+  schools?: SchoolUpdateManyWithoutOwnerInput | null
+  location?: LocationUpdateOneInput | null
+}
+export type OwnerUpdateInputInputObject =
+  | Extract<keyof OwnerUpdateInput, string>
+  | { name: 'accountId', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'schools', alias?: string  } 
+  | { name: 'location', alias?: string  } 
+  
+export interface SchoolUpdateManyWithoutOwnerInput {
+  create?: SchoolCreateWithoutOwnerInput[]
+  delete?: SchoolWhereUniqueInput[]
+  connect?: SchoolWhereUniqueInput[]
+  set?: SchoolWhereUniqueInput[]
+  disconnect?: SchoolWhereUniqueInput[]
+  update?: SchoolUpdateWithWhereUniqueWithoutOwnerInput[]
+  upsert?: SchoolUpsertWithWhereUniqueWithoutOwnerInput[]
+  deleteMany?: SchoolScalarWhereInput[]
+  updateMany?: SchoolUpdateManyWithWhereNestedInput[]
+}
+export type SchoolUpdateManyWithoutOwnerInputInputObject =
+  | Extract<keyof SchoolUpdateManyWithoutOwnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface SchoolUpdateWithWhereUniqueWithoutOwnerInput {
+  where?: SchoolWhereUniqueInput
+  data?: SchoolUpdateWithoutOwnerDataInput
+}
+export type SchoolUpdateWithWhereUniqueWithoutOwnerInputInputObject =
+  | Extract<keyof SchoolUpdateWithWhereUniqueWithoutOwnerInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface SchoolUpdateWithoutOwnerDataInput {
+  title?: string | null
+  phone?: string | null
+  uri?: string | null
+  email?: string | null
+  locations?: LocationUpdateManyInput | null
+}
+export type SchoolUpdateWithoutOwnerDataInputInputObject =
+  | Extract<keyof SchoolUpdateWithoutOwnerDataInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'uri', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'locations', alias?: string  } 
+  
+export interface LocationUpdateManyInput {
+  create?: LocationCreateInput[]
+  update?: LocationUpdateWithWhereUniqueNestedInput[]
+  upsert?: LocationUpsertWithWhereUniqueNestedInput[]
+  delete?: LocationWhereUniqueInput[]
+  connect?: LocationWhereUniqueInput[]
+  set?: LocationWhereUniqueInput[]
+  disconnect?: LocationWhereUniqueInput[]
+  deleteMany?: LocationScalarWhereInput[]
+  updateMany?: LocationUpdateManyWithWhereNestedInput[]
+}
+export type LocationUpdateManyInputInputObject =
+  | Extract<keyof LocationUpdateManyInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  | { name: 'set', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'deleteMany', alias?: string  } 
+  | { name: 'updateMany', alias?: string  } 
+  
+export interface LocationUpdateWithWhereUniqueNestedInput {
+  where?: LocationWhereUniqueInput
+  data?: LocationUpdateDataInput
+}
+export type LocationUpdateWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof LocationUpdateWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface LocationUpdateDataInput {
+  number?: number | null
+  street?: string | null
+  other?: string | null
+  city?: string | null
+  country?: string | null
+  postalcode?: string | null
+  nearestLandmark?: string | null
+  geocode?: GeocodeUpdateOneInput | null
+}
+export type LocationUpdateDataInputInputObject =
+  | Extract<keyof LocationUpdateDataInput, string>
+  | { name: 'number', alias?: string  } 
+  | { name: 'street', alias?: string  } 
+  | { name: 'other', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'country', alias?: string  } 
+  | { name: 'postalcode', alias?: string  } 
+  | { name: 'nearestLandmark', alias?: string  } 
+  | { name: 'geocode', alias?: string  } 
+  
+export interface GeocodeUpdateOneInput {
+  create?: GeocodeCreateInput | null
+  update?: GeocodeUpdateDataInput | null
+  upsert?: GeocodeUpsertNestedInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: GeocodeWhereUniqueInput | null
+}
+export type GeocodeUpdateOneInputInputObject =
+  | Extract<keyof GeocodeUpdateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface GeocodeUpdateDataInput {
+  latitude?: number | null
+  longitude?: number | null
+}
+export type GeocodeUpdateDataInputInputObject =
+  | Extract<keyof GeocodeUpdateDataInput, string>
+  | { name: 'latitude', alias?: string  } 
+  | { name: 'longitude', alias?: string  } 
+  
+export interface GeocodeUpsertNestedInput {
+  update?: GeocodeUpdateDataInput
+  create?: GeocodeCreateInput
+}
+export type GeocodeUpsertNestedInputInputObject =
+  | Extract<keyof GeocodeUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface LocationUpsertWithWhereUniqueNestedInput {
+  where?: LocationWhereUniqueInput
+  update?: LocationUpdateDataInput
+  create?: LocationCreateInput
+}
+export type LocationUpsertWithWhereUniqueNestedInputInputObject =
+  | Extract<keyof LocationUpsertWithWhereUniqueNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface LocationScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  number?: number | null
+  number_not?: number | null
+  number_in?: number[]
+  number_not_in?: number[]
+  number_lt?: number | null
+  number_lte?: number | null
+  number_gt?: number | null
+  number_gte?: number | null
+  street?: string | null
+  street_not?: string | null
+  street_in?: string[]
+  street_not_in?: string[]
+  street_lt?: string | null
+  street_lte?: string | null
+  street_gt?: string | null
+  street_gte?: string | null
+  street_contains?: string | null
+  street_not_contains?: string | null
+  street_starts_with?: string | null
+  street_not_starts_with?: string | null
+  street_ends_with?: string | null
+  street_not_ends_with?: string | null
+  other?: string | null
+  other_not?: string | null
+  other_in?: string[]
+  other_not_in?: string[]
+  other_lt?: string | null
+  other_lte?: string | null
+  other_gt?: string | null
+  other_gte?: string | null
+  other_contains?: string | null
+  other_not_contains?: string | null
+  other_starts_with?: string | null
+  other_not_starts_with?: string | null
+  other_ends_with?: string | null
+  other_not_ends_with?: string | null
+  city?: string | null
+  city_not?: string | null
+  city_in?: string[]
+  city_not_in?: string[]
+  city_lt?: string | null
+  city_lte?: string | null
+  city_gt?: string | null
+  city_gte?: string | null
+  city_contains?: string | null
+  city_not_contains?: string | null
+  city_starts_with?: string | null
+  city_not_starts_with?: string | null
+  city_ends_with?: string | null
+  city_not_ends_with?: string | null
+  country?: string | null
+  country_not?: string | null
+  country_in?: string[]
+  country_not_in?: string[]
+  country_lt?: string | null
+  country_lte?: string | null
+  country_gt?: string | null
+  country_gte?: string | null
+  country_contains?: string | null
+  country_not_contains?: string | null
+  country_starts_with?: string | null
+  country_not_starts_with?: string | null
+  country_ends_with?: string | null
+  country_not_ends_with?: string | null
+  postalcode?: string | null
+  postalcode_not?: string | null
+  postalcode_in?: string[]
+  postalcode_not_in?: string[]
+  postalcode_lt?: string | null
+  postalcode_lte?: string | null
+  postalcode_gt?: string | null
+  postalcode_gte?: string | null
+  postalcode_contains?: string | null
+  postalcode_not_contains?: string | null
+  postalcode_starts_with?: string | null
+  postalcode_not_starts_with?: string | null
+  postalcode_ends_with?: string | null
+  postalcode_not_ends_with?: string | null
+  nearestLandmark?: string | null
+  nearestLandmark_not?: string | null
+  nearestLandmark_in?: string[]
+  nearestLandmark_not_in?: string[]
+  nearestLandmark_lt?: string | null
+  nearestLandmark_lte?: string | null
+  nearestLandmark_gt?: string | null
+  nearestLandmark_gte?: string | null
+  nearestLandmark_contains?: string | null
+  nearestLandmark_not_contains?: string | null
+  nearestLandmark_starts_with?: string | null
+  nearestLandmark_not_starts_with?: string | null
+  nearestLandmark_ends_with?: string | null
+  nearestLandmark_not_ends_with?: string | null
+  AND?: LocationScalarWhereInput[]
+  OR?: LocationScalarWhereInput[]
+  NOT?: LocationScalarWhereInput[]
+}
+export type LocationScalarWhereInputInputObject =
+  | Extract<keyof LocationScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'number', alias?: string  } 
+  | { name: 'number_not', alias?: string  } 
+  | { name: 'number_in', alias?: string  } 
+  | { name: 'number_not_in', alias?: string  } 
+  | { name: 'number_lt', alias?: string  } 
+  | { name: 'number_lte', alias?: string  } 
+  | { name: 'number_gt', alias?: string  } 
+  | { name: 'number_gte', alias?: string  } 
+  | { name: 'street', alias?: string  } 
+  | { name: 'street_not', alias?: string  } 
+  | { name: 'street_in', alias?: string  } 
+  | { name: 'street_not_in', alias?: string  } 
+  | { name: 'street_lt', alias?: string  } 
+  | { name: 'street_lte', alias?: string  } 
+  | { name: 'street_gt', alias?: string  } 
+  | { name: 'street_gte', alias?: string  } 
+  | { name: 'street_contains', alias?: string  } 
+  | { name: 'street_not_contains', alias?: string  } 
+  | { name: 'street_starts_with', alias?: string  } 
+  | { name: 'street_not_starts_with', alias?: string  } 
+  | { name: 'street_ends_with', alias?: string  } 
+  | { name: 'street_not_ends_with', alias?: string  } 
+  | { name: 'other', alias?: string  } 
+  | { name: 'other_not', alias?: string  } 
+  | { name: 'other_in', alias?: string  } 
+  | { name: 'other_not_in', alias?: string  } 
+  | { name: 'other_lt', alias?: string  } 
+  | { name: 'other_lte', alias?: string  } 
+  | { name: 'other_gt', alias?: string  } 
+  | { name: 'other_gte', alias?: string  } 
+  | { name: 'other_contains', alias?: string  } 
+  | { name: 'other_not_contains', alias?: string  } 
+  | { name: 'other_starts_with', alias?: string  } 
+  | { name: 'other_not_starts_with', alias?: string  } 
+  | { name: 'other_ends_with', alias?: string  } 
+  | { name: 'other_not_ends_with', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'city_not', alias?: string  } 
+  | { name: 'city_in', alias?: string  } 
+  | { name: 'city_not_in', alias?: string  } 
+  | { name: 'city_lt', alias?: string  } 
+  | { name: 'city_lte', alias?: string  } 
+  | { name: 'city_gt', alias?: string  } 
+  | { name: 'city_gte', alias?: string  } 
+  | { name: 'city_contains', alias?: string  } 
+  | { name: 'city_not_contains', alias?: string  } 
+  | { name: 'city_starts_with', alias?: string  } 
+  | { name: 'city_not_starts_with', alias?: string  } 
+  | { name: 'city_ends_with', alias?: string  } 
+  | { name: 'city_not_ends_with', alias?: string  } 
+  | { name: 'country', alias?: string  } 
+  | { name: 'country_not', alias?: string  } 
+  | { name: 'country_in', alias?: string  } 
+  | { name: 'country_not_in', alias?: string  } 
+  | { name: 'country_lt', alias?: string  } 
+  | { name: 'country_lte', alias?: string  } 
+  | { name: 'country_gt', alias?: string  } 
+  | { name: 'country_gte', alias?: string  } 
+  | { name: 'country_contains', alias?: string  } 
+  | { name: 'country_not_contains', alias?: string  } 
+  | { name: 'country_starts_with', alias?: string  } 
+  | { name: 'country_not_starts_with', alias?: string  } 
+  | { name: 'country_ends_with', alias?: string  } 
+  | { name: 'country_not_ends_with', alias?: string  } 
+  | { name: 'postalcode', alias?: string  } 
+  | { name: 'postalcode_not', alias?: string  } 
+  | { name: 'postalcode_in', alias?: string  } 
+  | { name: 'postalcode_not_in', alias?: string  } 
+  | { name: 'postalcode_lt', alias?: string  } 
+  | { name: 'postalcode_lte', alias?: string  } 
+  | { name: 'postalcode_gt', alias?: string  } 
+  | { name: 'postalcode_gte', alias?: string  } 
+  | { name: 'postalcode_contains', alias?: string  } 
+  | { name: 'postalcode_not_contains', alias?: string  } 
+  | { name: 'postalcode_starts_with', alias?: string  } 
+  | { name: 'postalcode_not_starts_with', alias?: string  } 
+  | { name: 'postalcode_ends_with', alias?: string  } 
+  | { name: 'postalcode_not_ends_with', alias?: string  } 
+  | { name: 'nearestLandmark', alias?: string  } 
+  | { name: 'nearestLandmark_not', alias?: string  } 
+  | { name: 'nearestLandmark_in', alias?: string  } 
+  | { name: 'nearestLandmark_not_in', alias?: string  } 
+  | { name: 'nearestLandmark_lt', alias?: string  } 
+  | { name: 'nearestLandmark_lte', alias?: string  } 
+  | { name: 'nearestLandmark_gt', alias?: string  } 
+  | { name: 'nearestLandmark_gte', alias?: string  } 
+  | { name: 'nearestLandmark_contains', alias?: string  } 
+  | { name: 'nearestLandmark_not_contains', alias?: string  } 
+  | { name: 'nearestLandmark_starts_with', alias?: string  } 
+  | { name: 'nearestLandmark_not_starts_with', alias?: string  } 
+  | { name: 'nearestLandmark_ends_with', alias?: string  } 
+  | { name: 'nearestLandmark_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface LocationUpdateManyWithWhereNestedInput {
+  where?: LocationScalarWhereInput
+  data?: LocationUpdateManyDataInput
+}
+export type LocationUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof LocationUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface LocationUpdateManyDataInput {
+  number?: number | null
+  street?: string | null
+  other?: string | null
+  city?: string | null
+  country?: string | null
+  postalcode?: string | null
+  nearestLandmark?: string | null
+}
+export type LocationUpdateManyDataInputInputObject =
+  | Extract<keyof LocationUpdateManyDataInput, string>
+  | { name: 'number', alias?: string  } 
+  | { name: 'street', alias?: string  } 
+  | { name: 'other', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'country', alias?: string  } 
+  | { name: 'postalcode', alias?: string  } 
+  | { name: 'nearestLandmark', alias?: string  } 
+  
+export interface SchoolUpsertWithWhereUniqueWithoutOwnerInput {
+  where?: SchoolWhereUniqueInput
+  update?: SchoolUpdateWithoutOwnerDataInput
+  create?: SchoolCreateWithoutOwnerInput
+}
+export type SchoolUpsertWithWhereUniqueWithoutOwnerInputInputObject =
+  | Extract<keyof SchoolUpsertWithWhereUniqueWithoutOwnerInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface SchoolScalarWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  title?: string | null
+  title_not?: string | null
+  title_in?: string[]
+  title_not_in?: string[]
+  title_lt?: string | null
+  title_lte?: string | null
+  title_gt?: string | null
+  title_gte?: string | null
+  title_contains?: string | null
+  title_not_contains?: string | null
+  title_starts_with?: string | null
+  title_not_starts_with?: string | null
+  title_ends_with?: string | null
+  title_not_ends_with?: string | null
+  phone?: string | null
+  phone_not?: string | null
+  phone_in?: string[]
+  phone_not_in?: string[]
+  phone_lt?: string | null
+  phone_lte?: string | null
+  phone_gt?: string | null
+  phone_gte?: string | null
+  phone_contains?: string | null
+  phone_not_contains?: string | null
+  phone_starts_with?: string | null
+  phone_not_starts_with?: string | null
+  phone_ends_with?: string | null
+  phone_not_ends_with?: string | null
+  uri?: string | null
+  uri_not?: string | null
+  uri_in?: string[]
+  uri_not_in?: string[]
+  uri_lt?: string | null
+  uri_lte?: string | null
+  uri_gt?: string | null
+  uri_gte?: string | null
+  uri_contains?: string | null
+  uri_not_contains?: string | null
+  uri_starts_with?: string | null
+  uri_not_starts_with?: string | null
+  uri_ends_with?: string | null
+  uri_not_ends_with?: string | null
+  email?: string | null
+  email_not?: string | null
+  email_in?: string[]
+  email_not_in?: string[]
+  email_lt?: string | null
+  email_lte?: string | null
+  email_gt?: string | null
+  email_gte?: string | null
+  email_contains?: string | null
+  email_not_contains?: string | null
+  email_starts_with?: string | null
+  email_not_starts_with?: string | null
+  email_ends_with?: string | null
+  email_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  AND?: SchoolScalarWhereInput[]
+  OR?: SchoolScalarWhereInput[]
+  NOT?: SchoolScalarWhereInput[]
+}
+export type SchoolScalarWhereInputInputObject =
+  | Extract<keyof SchoolScalarWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'title_not', alias?: string  } 
+  | { name: 'title_in', alias?: string  } 
+  | { name: 'title_not_in', alias?: string  } 
+  | { name: 'title_lt', alias?: string  } 
+  | { name: 'title_lte', alias?: string  } 
+  | { name: 'title_gt', alias?: string  } 
+  | { name: 'title_gte', alias?: string  } 
+  | { name: 'title_contains', alias?: string  } 
+  | { name: 'title_not_contains', alias?: string  } 
+  | { name: 'title_starts_with', alias?: string  } 
+  | { name: 'title_not_starts_with', alias?: string  } 
+  | { name: 'title_ends_with', alias?: string  } 
+  | { name: 'title_not_ends_with', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'phone_not', alias?: string  } 
+  | { name: 'phone_in', alias?: string  } 
+  | { name: 'phone_not_in', alias?: string  } 
+  | { name: 'phone_lt', alias?: string  } 
+  | { name: 'phone_lte', alias?: string  } 
+  | { name: 'phone_gt', alias?: string  } 
+  | { name: 'phone_gte', alias?: string  } 
+  | { name: 'phone_contains', alias?: string  } 
+  | { name: 'phone_not_contains', alias?: string  } 
+  | { name: 'phone_starts_with', alias?: string  } 
+  | { name: 'phone_not_starts_with', alias?: string  } 
+  | { name: 'phone_ends_with', alias?: string  } 
+  | { name: 'phone_not_ends_with', alias?: string  } 
+  | { name: 'uri', alias?: string  } 
+  | { name: 'uri_not', alias?: string  } 
+  | { name: 'uri_in', alias?: string  } 
+  | { name: 'uri_not_in', alias?: string  } 
+  | { name: 'uri_lt', alias?: string  } 
+  | { name: 'uri_lte', alias?: string  } 
+  | { name: 'uri_gt', alias?: string  } 
+  | { name: 'uri_gte', alias?: string  } 
+  | { name: 'uri_contains', alias?: string  } 
+  | { name: 'uri_not_contains', alias?: string  } 
+  | { name: 'uri_starts_with', alias?: string  } 
+  | { name: 'uri_not_starts_with', alias?: string  } 
+  | { name: 'uri_ends_with', alias?: string  } 
+  | { name: 'uri_not_ends_with', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'email_not', alias?: string  } 
+  | { name: 'email_in', alias?: string  } 
+  | { name: 'email_not_in', alias?: string  } 
+  | { name: 'email_lt', alias?: string  } 
+  | { name: 'email_lte', alias?: string  } 
+  | { name: 'email_gt', alias?: string  } 
+  | { name: 'email_gte', alias?: string  } 
+  | { name: 'email_contains', alias?: string  } 
+  | { name: 'email_not_contains', alias?: string  } 
+  | { name: 'email_starts_with', alias?: string  } 
+  | { name: 'email_not_starts_with', alias?: string  } 
+  | { name: 'email_ends_with', alias?: string  } 
+  | { name: 'email_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface SchoolUpdateManyWithWhereNestedInput {
+  where?: SchoolScalarWhereInput
+  data?: SchoolUpdateManyDataInput
+}
+export type SchoolUpdateManyWithWhereNestedInputInputObject =
+  | Extract<keyof SchoolUpdateManyWithWhereNestedInput, string>
+  | { name: 'where', alias?: string  } 
+  | { name: 'data', alias?: string  } 
+  
+export interface SchoolUpdateManyDataInput {
+  title?: string | null
+  phone?: string | null
+  uri?: string | null
+  email?: string | null
+}
+export type SchoolUpdateManyDataInputInputObject =
+  | Extract<keyof SchoolUpdateManyDataInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'uri', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  
+export interface LocationUpdateOneInput {
+  create?: LocationCreateInput | null
+  update?: LocationUpdateDataInput | null
+  upsert?: LocationUpsertNestedInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: LocationWhereUniqueInput | null
+}
+export type LocationUpdateOneInputInputObject =
+  | Extract<keyof LocationUpdateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface LocationUpsertNestedInput {
+  update?: LocationUpdateDataInput
+  create?: LocationCreateInput
+}
+export type LocationUpsertNestedInputInputObject =
+  | Extract<keyof LocationUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface OwnerUpdateManyMutationInput {
+  accountId?: string | null
+  firstName?: string | null
+  middleName?: string | null
+  lastName?: string | null
+}
+export type OwnerUpdateManyMutationInputInputObject =
+  | Extract<keyof OwnerUpdateManyMutationInput, string>
+  | { name: 'accountId', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  
+export interface SchoolCreateInput {
+  id?: string | null
+  title?: string
+  phone?: string
+  uri?: string
+  email?: string
+  owner?: OwnerCreateOneWithoutSchoolsInput
+  locations?: LocationCreateManyInput | null
+}
+export type SchoolCreateInputInputObject =
+  | Extract<keyof SchoolCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'uri', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'owner', alias?: string  } 
+  | { name: 'locations', alias?: string  } 
+  
+export interface OwnerCreateOneWithoutSchoolsInput {
+  create?: OwnerCreateWithoutSchoolsInput | null
+  connect?: OwnerWhereUniqueInput | null
+}
+export type OwnerCreateOneWithoutSchoolsInputInputObject =
+  | Extract<keyof OwnerCreateOneWithoutSchoolsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface OwnerCreateWithoutSchoolsInput {
+  id?: string | null
+  accountId?: string
+  firstName?: string
+  middleName?: string | null
+  lastName?: string
+  location?: LocationCreateOneInput | null
+}
+export type OwnerCreateWithoutSchoolsInputInputObject =
+  | Extract<keyof OwnerCreateWithoutSchoolsInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'accountId', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'location', alias?: string  } 
+  
+export interface SchoolUpdateInput {
+  title?: string | null
+  phone?: string | null
+  uri?: string | null
+  email?: string | null
+  owner?: OwnerUpdateOneRequiredWithoutSchoolsInput | null
+  locations?: LocationUpdateManyInput | null
+}
+export type SchoolUpdateInputInputObject =
+  | Extract<keyof SchoolUpdateInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'uri', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'owner', alias?: string  } 
+  | { name: 'locations', alias?: string  } 
+  
+export interface OwnerUpdateOneRequiredWithoutSchoolsInput {
+  create?: OwnerCreateWithoutSchoolsInput | null
+  update?: OwnerUpdateWithoutSchoolsDataInput | null
+  upsert?: OwnerUpsertWithoutSchoolsInput | null
+  connect?: OwnerWhereUniqueInput | null
+}
+export type OwnerUpdateOneRequiredWithoutSchoolsInputInputObject =
+  | Extract<keyof OwnerUpdateOneRequiredWithoutSchoolsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface OwnerUpdateWithoutSchoolsDataInput {
+  accountId?: string | null
+  firstName?: string | null
+  middleName?: string | null
+  lastName?: string | null
+  location?: LocationUpdateOneInput | null
+}
+export type OwnerUpdateWithoutSchoolsDataInputInputObject =
+  | Extract<keyof OwnerUpdateWithoutSchoolsDataInput, string>
+  | { name: 'accountId', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'location', alias?: string  } 
+  
+export interface OwnerUpsertWithoutSchoolsInput {
+  update?: OwnerUpdateWithoutSchoolsDataInput
+  create?: OwnerCreateWithoutSchoolsInput
+}
+export type OwnerUpsertWithoutSchoolsInputInputObject =
+  | Extract<keyof OwnerUpsertWithoutSchoolsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface SchoolUpdateManyMutationInput {
+  title?: string | null
+  phone?: string | null
+  uri?: string | null
+  email?: string | null
+}
+export type SchoolUpdateManyMutationInputInputObject =
+  | Extract<keyof SchoolUpdateManyMutationInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'uri', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  
+export interface LocationUpdateInput {
+  number?: number | null
+  street?: string | null
+  other?: string | null
+  city?: string | null
+  country?: string | null
+  postalcode?: string | null
+  nearestLandmark?: string | null
+  geocode?: GeocodeUpdateOneInput | null
+}
+export type LocationUpdateInputInputObject =
+  | Extract<keyof LocationUpdateInput, string>
+  | { name: 'number', alias?: string  } 
+  | { name: 'street', alias?: string  } 
+  | { name: 'other', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'country', alias?: string  } 
+  | { name: 'postalcode', alias?: string  } 
+  | { name: 'nearestLandmark', alias?: string  } 
+  | { name: 'geocode', alias?: string  } 
+  
+export interface LocationUpdateManyMutationInput {
+  number?: number | null
+  street?: string | null
+  other?: string | null
+  city?: string | null
+  country?: string | null
+  postalcode?: string | null
+  nearestLandmark?: string | null
+}
+export type LocationUpdateManyMutationInputInputObject =
+  | Extract<keyof LocationUpdateManyMutationInput, string>
+  | { name: 'number', alias?: string  } 
+  | { name: 'street', alias?: string  } 
+  | { name: 'other', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'country', alias?: string  } 
+  | { name: 'postalcode', alias?: string  } 
+  | { name: 'nearestLandmark', alias?: string  } 
+  
+export interface GeocodeUpdateInput {
+  latitude?: number | null
+  longitude?: number | null
+}
+export type GeocodeUpdateInputInputObject =
+  | Extract<keyof GeocodeUpdateInput, string>
+  | { name: 'latitude', alias?: string  } 
+  | { name: 'longitude', alias?: string  } 
+  
+export interface GeocodeUpdateManyMutationInput {
+  latitude?: number | null
+  longitude?: number | null
+}
+export type GeocodeUpdateManyMutationInputInputObject =
+  | Extract<keyof GeocodeUpdateManyMutationInput, string>
+  | { name: 'latitude', alias?: string  } 
+  | { name: 'longitude', alias?: string  } 
   
 export interface AccountSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
@@ -1729,7 +5771,97 @@ export type TokenSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface OwnerSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: OwnerWhereInput | null
+  AND?: OwnerSubscriptionWhereInput[]
+  OR?: OwnerSubscriptionWhereInput[]
+  NOT?: OwnerSubscriptionWhereInput[]
+}
+export type OwnerSubscriptionWhereInputInputObject =
+  | Extract<keyof OwnerSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface SchoolSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: SchoolWhereInput | null
+  AND?: SchoolSubscriptionWhereInput[]
+  OR?: SchoolSubscriptionWhereInput[]
+  NOT?: SchoolSubscriptionWhereInput[]
+}
+export type SchoolSubscriptionWhereInputInputObject =
+  | Extract<keyof SchoolSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface LocationSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: LocationWhereInput | null
+  AND?: LocationSubscriptionWhereInput[]
+  OR?: LocationSubscriptionWhereInput[]
+  NOT?: LocationSubscriptionWhereInput[]
+}
+export type LocationSubscriptionWhereInputInputObject =
+  | Extract<keyof LocationSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface GeocodeSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: GeocodeWhereInput | null
+  AND?: GeocodeSubscriptionWhereInput[]
+  OR?: GeocodeSubscriptionWhereInput[]
+  NOT?: GeocodeSubscriptionWhereInput[]
+}
+export type GeocodeSubscriptionWhereInputInputObject =
+  | Extract<keyof GeocodeSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 
+export type RoleValues =
+  | 'OWNER'
+  | 'ADMIN'
+  | 'PARENT'
+  | 'STUDENT'
+  
 export type AccountOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
@@ -1741,6 +5873,8 @@ export type AccountOrderByInputValues =
   | 'password_DESC'
   | 'isVerified_ASC'
   | 'isVerified_DESC'
+  | 'role_ASC'
+  | 'role_DESC'
   | 'lastLogin_ASC'
   | 'lastLogin_DESC'
   | 'createdAt_ASC'
@@ -1761,6 +5895,72 @@ export type TokenOrderByInputValues =
   | 'token_DESC'
   | 'type_ASC'
   | 'type_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type SchoolOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'title_ASC'
+  | 'title_DESC'
+  | 'phone_ASC'
+  | 'phone_DESC'
+  | 'uri_ASC'
+  | 'uri_DESC'
+  | 'email_ASC'
+  | 'email_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type LocationOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'number_ASC'
+  | 'number_DESC'
+  | 'street_ASC'
+  | 'street_DESC'
+  | 'other_ASC'
+  | 'other_DESC'
+  | 'city_ASC'
+  | 'city_DESC'
+  | 'country_ASC'
+  | 'country_DESC'
+  | 'postalcode_ASC'
+  | 'postalcode_DESC'
+  | 'nearestLandmark_ASC'
+  | 'nearestLandmark_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type OwnerOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'accountId_ASC'
+  | 'accountId_DESC'
+  | 'firstName_ASC'
+  | 'firstName_DESC'
+  | 'middleName_ASC'
+  | 'middleName_DESC'
+  | 'lastName_ASC'
+  | 'lastName_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type GeocodeOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'latitude_ASC'
+  | 'latitude_DESC'
+  | 'longitude_ASC'
+  | 'longitude_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

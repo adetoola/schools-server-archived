@@ -8,13 +8,205 @@ type Account {
   id: ID!
   lastLogin: DateTime
   lastSeen: String
+  role: Role!
   updatedAt: DateTime!
   username: String
 }
 
 scalar DateTime
 
+type Geocode {
+  id: ID!
+  latitude: Float!
+  longitude: Float!
+}
+
+input GeocodeWhereInput {
+  AND: [GeocodeWhereInput!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  latitude: Float
+  latitude_gt: Float
+  latitude_gte: Float
+  latitude_in: [Float!]
+  latitude_lt: Float
+  latitude_lte: Float
+  latitude_not: Float
+  latitude_not_in: [Float!]
+  longitude: Float
+  longitude_gt: Float
+  longitude_gte: Float
+  longitude_in: [Float!]
+  longitude_lt: Float
+  longitude_lte: Float
+  longitude_not: Float
+  longitude_not_in: [Float!]
+  NOT: [GeocodeWhereInput!]
+  OR: [GeocodeWhereInput!]
+}
+
+type Location {
+  city: String!
+  country: String!
+  geocode: Geocode
+  id: ID!
+  nearestLandmark: String
+  number: Int!
+  other: String
+  postalcode: String!
+  street: String!
+}
+
+enum LocationOrderByInput {
+  city_ASC
+  city_DESC
+  country_ASC
+  country_DESC
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  nearestLandmark_ASC
+  nearestLandmark_DESC
+  number_ASC
+  number_DESC
+  other_ASC
+  other_DESC
+  postalcode_ASC
+  postalcode_DESC
+  street_ASC
+  street_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input LocationWhereInput {
+  AND: [LocationWhereInput!]
+  city: String
+  city_contains: String
+  city_ends_with: String
+  city_gt: String
+  city_gte: String
+  city_in: [String!]
+  city_lt: String
+  city_lte: String
+  city_not: String
+  city_not_contains: String
+  city_not_ends_with: String
+  city_not_in: [String!]
+  city_not_starts_with: String
+  city_starts_with: String
+  country: String
+  country_contains: String
+  country_ends_with: String
+  country_gt: String
+  country_gte: String
+  country_in: [String!]
+  country_lt: String
+  country_lte: String
+  country_not: String
+  country_not_contains: String
+  country_not_ends_with: String
+  country_not_in: [String!]
+  country_not_starts_with: String
+  country_starts_with: String
+  geocode: GeocodeWhereInput
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  nearestLandmark: String
+  nearestLandmark_contains: String
+  nearestLandmark_ends_with: String
+  nearestLandmark_gt: String
+  nearestLandmark_gte: String
+  nearestLandmark_in: [String!]
+  nearestLandmark_lt: String
+  nearestLandmark_lte: String
+  nearestLandmark_not: String
+  nearestLandmark_not_contains: String
+  nearestLandmark_not_ends_with: String
+  nearestLandmark_not_in: [String!]
+  nearestLandmark_not_starts_with: String
+  nearestLandmark_starts_with: String
+  NOT: [LocationWhereInput!]
+  number: Int
+  number_gt: Int
+  number_gte: Int
+  number_in: [Int!]
+  number_lt: Int
+  number_lte: Int
+  number_not: Int
+  number_not_in: [Int!]
+  OR: [LocationWhereInput!]
+  other: String
+  other_contains: String
+  other_ends_with: String
+  other_gt: String
+  other_gte: String
+  other_in: [String!]
+  other_lt: String
+  other_lte: String
+  other_not: String
+  other_not_contains: String
+  other_not_ends_with: String
+  other_not_in: [String!]
+  other_not_starts_with: String
+  other_starts_with: String
+  postalcode: String
+  postalcode_contains: String
+  postalcode_ends_with: String
+  postalcode_gt: String
+  postalcode_gte: String
+  postalcode_in: [String!]
+  postalcode_lt: String
+  postalcode_lte: String
+  postalcode_not: String
+  postalcode_not_contains: String
+  postalcode_not_ends_with: String
+  postalcode_not_in: [String!]
+  postalcode_not_starts_with: String
+  postalcode_starts_with: String
+  street: String
+  street_contains: String
+  street_ends_with: String
+  street_gt: String
+  street_gte: String
+  street_in: [String!]
+  street_lt: String
+  street_lte: String
+  street_not: String
+  street_not_contains: String
+  street_not_ends_with: String
+  street_not_in: [String!]
+  street_not_starts_with: String
+  street_starts_with: String
+}
+
 type Mutation {
+  createOwner(firstName: String, lastName: String, middleName: String): Owner
   login(email: String, password: String): Account
   passwordReset(password: String, token: String): TriggerAction
   requestPasswordReset(email: String): TriggerAction
@@ -24,8 +216,247 @@ type Mutation {
   verify(token: String): TriggerAction
 }
 
+type Owner {
+  accountId: String!
+  createdAt: DateTime!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  middleName: String
+  schools(after: String, before: String, first: Int, last: Int, orderBy: SchoolOrderByInput, skip: Int, where: SchoolWhereInput): [School!]
+  updatedAt: DateTime!
+}
+
+input OwnerWhereInput {
+  accountId: String
+  accountId_contains: String
+  accountId_ends_with: String
+  accountId_gt: String
+  accountId_gte: String
+  accountId_in: [String!]
+  accountId_lt: String
+  accountId_lte: String
+  accountId_not: String
+  accountId_not_contains: String
+  accountId_not_ends_with: String
+  accountId_not_in: [String!]
+  accountId_not_starts_with: String
+  accountId_starts_with: String
+  AND: [OwnerWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  firstName: String
+  firstName_contains: String
+  firstName_ends_with: String
+  firstName_gt: String
+  firstName_gte: String
+  firstName_in: [String!]
+  firstName_lt: String
+  firstName_lte: String
+  firstName_not: String
+  firstName_not_contains: String
+  firstName_not_ends_with: String
+  firstName_not_in: [String!]
+  firstName_not_starts_with: String
+  firstName_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  lastName: String
+  lastName_contains: String
+  lastName_ends_with: String
+  lastName_gt: String
+  lastName_gte: String
+  lastName_in: [String!]
+  lastName_lt: String
+  lastName_lte: String
+  lastName_not: String
+  lastName_not_contains: String
+  lastName_not_ends_with: String
+  lastName_not_in: [String!]
+  lastName_not_starts_with: String
+  lastName_starts_with: String
+  location: LocationWhereInput
+  middleName: String
+  middleName_contains: String
+  middleName_ends_with: String
+  middleName_gt: String
+  middleName_gte: String
+  middleName_in: [String!]
+  middleName_lt: String
+  middleName_lte: String
+  middleName_not: String
+  middleName_not_contains: String
+  middleName_not_ends_with: String
+  middleName_not_in: [String!]
+  middleName_not_starts_with: String
+  middleName_starts_with: String
+  NOT: [OwnerWhereInput!]
+  OR: [OwnerWhereInput!]
+  schools_every: SchoolWhereInput
+  schools_none: SchoolWhereInput
+  schools_some: SchoolWhereInput
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
 type Query {
   me: Account
+}
+
+enum Role {
+  ADMIN
+  OWNER
+  PARENT
+  STUDENT
+}
+
+type School {
+  createdAt: DateTime!
+  email: String!
+  id: ID!
+  locations(after: String, before: String, first: Int, last: Int, orderBy: LocationOrderByInput, skip: Int, where: LocationWhereInput): [Location!]
+  owner: Owner!
+  phone: String!
+  title: String!
+  updatedAt: DateTime!
+  uri: String!
+}
+
+enum SchoolOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  email_ASC
+  email_DESC
+  id_ASC
+  id_DESC
+  phone_ASC
+  phone_DESC
+  title_ASC
+  title_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  uri_ASC
+  uri_DESC
+}
+
+input SchoolWhereInput {
+  AND: [SchoolWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  email: String
+  email_contains: String
+  email_ends_with: String
+  email_gt: String
+  email_gte: String
+  email_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_not: String
+  email_not_contains: String
+  email_not_ends_with: String
+  email_not_in: [String!]
+  email_not_starts_with: String
+  email_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  locations_every: LocationWhereInput
+  locations_none: LocationWhereInput
+  locations_some: LocationWhereInput
+  NOT: [SchoolWhereInput!]
+  OR: [SchoolWhereInput!]
+  owner: OwnerWhereInput
+  phone: String
+  phone_contains: String
+  phone_ends_with: String
+  phone_gt: String
+  phone_gte: String
+  phone_in: [String!]
+  phone_lt: String
+  phone_lte: String
+  phone_not: String
+  phone_not_contains: String
+  phone_not_ends_with: String
+  phone_not_in: [String!]
+  phone_not_starts_with: String
+  phone_starts_with: String
+  title: String
+  title_contains: String
+  title_ends_with: String
+  title_gt: String
+  title_gte: String
+  title_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_not: String
+  title_not_contains: String
+  title_not_ends_with: String
+  title_not_in: [String!]
+  title_not_starts_with: String
+  title_starts_with: String
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+  uri: String
+  uri_contains: String
+  uri_ends_with: String
+  uri_gt: String
+  uri_gte: String
+  uri_in: [String!]
+  uri_lt: String
+  uri_lte: String
+  uri_not: String
+  uri_not_contains: String
+  uri_not_ends_with: String
+  uri_not_in: [String!]
+  uri_not_starts_with: String
+  uri_starts_with: String
 }
 
 type Token {

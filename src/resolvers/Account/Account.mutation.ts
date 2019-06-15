@@ -2,17 +2,18 @@ import { compare, hash } from 'bcrypt';
 import { randomBytes } from 'crypto';
 import * as parse from 'date-fns/parse';
 import { sign } from 'jsonwebtoken';
-import { mutationType, stringArg } from 'nexus';
+import { extendType, stringArg } from 'nexus';
 import { promisify } from 'util';
 
 import * as Joi from '@hapi/joi';
 
-import { loginSchema, resetPasswordSchema, signupSchema, tokenSchema } from '../../schemas';
 import sendEmail from '../../services/email';
 import formatJoiErrors, { cutOffTime } from '../../utils';
+import { loginSchema, resetPasswordSchema, signupSchema, tokenSchema } from './Account.schemas';
 
-export const Mutation = mutationType({
-  definition(t): void {
+export const Mutation = extendType({
+  type: 'Mutation',
+  definition(t) {
     t.field('signup', {
       type: 'Account',
       args: {

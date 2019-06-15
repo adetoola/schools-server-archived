@@ -8,6 +8,6 @@ export const Account = prismaObjectType({
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       resolve: ({ lastLogin }, _args, _ctx) => distanceInWords(new Date(), new Date(lastLogin), { addSuffix: true }),
     });
-    t.prismaFields(['id', 'username', 'email', 'createdAt', 'updatedAt', 'lastLogin']);
+    t.prismaFields(['id', 'username', 'email', 'role', 'createdAt', 'updatedAt', 'lastLogin']);
   },
 });

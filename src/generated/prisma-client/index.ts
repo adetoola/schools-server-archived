@@ -17,6 +17,10 @@ export type Maybe<T> = T | undefined | null;
 
 export interface Exists {
   account: (where?: AccountWhereInput) => Promise<boolean>;
+  geocode: (where?: GeocodeWhereInput) => Promise<boolean>;
+  location: (where?: LocationWhereInput) => Promise<boolean>;
+  owner: (where?: OwnerWhereInput) => Promise<boolean>;
+  school: (where?: SchoolWhereInput) => Promise<boolean>;
   token: (where?: TokenWhereInput) => Promise<boolean>;
 }
 
@@ -58,6 +62,82 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => AccountConnectionPromise;
+  geocode: (where: GeocodeWhereUniqueInput) => GeocodeNullablePromise;
+  geocodes: (args?: {
+    where?: GeocodeWhereInput;
+    orderBy?: GeocodeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Geocode>;
+  geocodesConnection: (args?: {
+    where?: GeocodeWhereInput;
+    orderBy?: GeocodeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => GeocodeConnectionPromise;
+  location: (where: LocationWhereUniqueInput) => LocationNullablePromise;
+  locations: (args?: {
+    where?: LocationWhereInput;
+    orderBy?: LocationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Location>;
+  locationsConnection: (args?: {
+    where?: LocationWhereInput;
+    orderBy?: LocationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => LocationConnectionPromise;
+  owner: (where: OwnerWhereUniqueInput) => OwnerNullablePromise;
+  owners: (args?: {
+    where?: OwnerWhereInput;
+    orderBy?: OwnerOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Owner>;
+  ownersConnection: (args?: {
+    where?: OwnerWhereInput;
+    orderBy?: OwnerOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => OwnerConnectionPromise;
+  school: (where: SchoolWhereUniqueInput) => SchoolNullablePromise;
+  schools: (args?: {
+    where?: SchoolWhereInput;
+    orderBy?: SchoolOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<School>;
+  schoolsConnection: (args?: {
+    where?: SchoolWhereInput;
+    orderBy?: SchoolOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => SchoolConnectionPromise;
   token: (where: TokenWhereUniqueInput) => TokenNullablePromise;
   tokens: (args?: {
     where?: TokenWhereInput;
@@ -99,6 +179,70 @@ export interface Prisma {
   }) => AccountPromise;
   deleteAccount: (where: AccountWhereUniqueInput) => AccountPromise;
   deleteManyAccounts: (where?: AccountWhereInput) => BatchPayloadPromise;
+  createGeocode: (data: GeocodeCreateInput) => GeocodePromise;
+  updateGeocode: (args: {
+    data: GeocodeUpdateInput;
+    where: GeocodeWhereUniqueInput;
+  }) => GeocodePromise;
+  updateManyGeocodes: (args: {
+    data: GeocodeUpdateManyMutationInput;
+    where?: GeocodeWhereInput;
+  }) => BatchPayloadPromise;
+  upsertGeocode: (args: {
+    where: GeocodeWhereUniqueInput;
+    create: GeocodeCreateInput;
+    update: GeocodeUpdateInput;
+  }) => GeocodePromise;
+  deleteGeocode: (where: GeocodeWhereUniqueInput) => GeocodePromise;
+  deleteManyGeocodes: (where?: GeocodeWhereInput) => BatchPayloadPromise;
+  createLocation: (data: LocationCreateInput) => LocationPromise;
+  updateLocation: (args: {
+    data: LocationUpdateInput;
+    where: LocationWhereUniqueInput;
+  }) => LocationPromise;
+  updateManyLocations: (args: {
+    data: LocationUpdateManyMutationInput;
+    where?: LocationWhereInput;
+  }) => BatchPayloadPromise;
+  upsertLocation: (args: {
+    where: LocationWhereUniqueInput;
+    create: LocationCreateInput;
+    update: LocationUpdateInput;
+  }) => LocationPromise;
+  deleteLocation: (where: LocationWhereUniqueInput) => LocationPromise;
+  deleteManyLocations: (where?: LocationWhereInput) => BatchPayloadPromise;
+  createOwner: (data: OwnerCreateInput) => OwnerPromise;
+  updateOwner: (args: {
+    data: OwnerUpdateInput;
+    where: OwnerWhereUniqueInput;
+  }) => OwnerPromise;
+  updateManyOwners: (args: {
+    data: OwnerUpdateManyMutationInput;
+    where?: OwnerWhereInput;
+  }) => BatchPayloadPromise;
+  upsertOwner: (args: {
+    where: OwnerWhereUniqueInput;
+    create: OwnerCreateInput;
+    update: OwnerUpdateInput;
+  }) => OwnerPromise;
+  deleteOwner: (where: OwnerWhereUniqueInput) => OwnerPromise;
+  deleteManyOwners: (where?: OwnerWhereInput) => BatchPayloadPromise;
+  createSchool: (data: SchoolCreateInput) => SchoolPromise;
+  updateSchool: (args: {
+    data: SchoolUpdateInput;
+    where: SchoolWhereUniqueInput;
+  }) => SchoolPromise;
+  updateManySchools: (args: {
+    data: SchoolUpdateManyMutationInput;
+    where?: SchoolWhereInput;
+  }) => BatchPayloadPromise;
+  upsertSchool: (args: {
+    where: SchoolWhereUniqueInput;
+    create: SchoolCreateInput;
+    update: SchoolUpdateInput;
+  }) => SchoolPromise;
+  deleteSchool: (where: SchoolWhereUniqueInput) => SchoolPromise;
+  deleteManySchools: (where?: SchoolWhereInput) => BatchPayloadPromise;
   createToken: (data: TokenCreateInput) => TokenPromise;
   updateToken: (args: {
     data: TokenUpdateInput;
@@ -127,6 +271,18 @@ export interface Subscription {
   account: (
     where?: AccountSubscriptionWhereInput
   ) => AccountSubscriptionPayloadSubscription;
+  geocode: (
+    where?: GeocodeSubscriptionWhereInput
+  ) => GeocodeSubscriptionPayloadSubscription;
+  location: (
+    where?: LocationSubscriptionWhereInput
+  ) => LocationSubscriptionPayloadSubscription;
+  owner: (
+    where?: OwnerSubscriptionWhereInput
+  ) => OwnerSubscriptionPayloadSubscription;
+  school: (
+    where?: SchoolSubscriptionWhereInput
+  ) => SchoolSubscriptionPayloadSubscription;
   token: (
     where?: TokenSubscriptionWhereInput
   ) => TokenSubscriptionPayloadSubscription;
@@ -140,6 +296,8 @@ export interface ClientConstructor<T> {
  * Types
  */
 
+export type Role = "OWNER" | "ADMIN" | "PARENT" | "STUDENT";
+
 export type AccountOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -151,8 +309,68 @@ export type AccountOrderByInput =
   | "password_DESC"
   | "isVerified_ASC"
   | "isVerified_DESC"
+  | "role_ASC"
+  | "role_DESC"
   | "lastLogin_ASC"
   | "lastLogin_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type GeocodeOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "latitude_ASC"
+  | "latitude_DESC"
+  | "longitude_ASC"
+  | "longitude_DESC";
+
+export type LocationOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "number_ASC"
+  | "number_DESC"
+  | "street_ASC"
+  | "street_DESC"
+  | "other_ASC"
+  | "other_DESC"
+  | "city_ASC"
+  | "city_DESC"
+  | "country_ASC"
+  | "country_DESC"
+  | "postalcode_ASC"
+  | "postalcode_DESC"
+  | "nearestLandmark_ASC"
+  | "nearestLandmark_DESC";
+
+export type SchoolOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "title_ASC"
+  | "title_DESC"
+  | "phone_ASC"
+  | "phone_DESC"
+  | "uri_ASC"
+  | "uri_DESC"
+  | "email_ASC"
+  | "email_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type OwnerOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "accountId_ASC"
+  | "accountId_DESC"
+  | "firstName_ASC"
+  | "firstName_DESC"
+  | "middleName_ASC"
+  | "middleName_DESC"
+  | "lastName_ASC"
+  | "lastName_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -239,6 +457,10 @@ export interface AccountWhereInput {
   password_not_ends_with?: Maybe<String>;
   isVerified?: Maybe<Boolean>;
   isVerified_not?: Maybe<Boolean>;
+  role?: Maybe<Role>;
+  role_not?: Maybe<Role>;
+  role_in?: Maybe<Role[] | Role>;
+  role_not_in?: Maybe<Role[] | Role>;
   lastLogin?: Maybe<DateTimeInput>;
   lastLogin_not?: Maybe<DateTimeInput>;
   lastLogin_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -267,6 +489,367 @@ export interface AccountWhereInput {
   OR?: Maybe<AccountWhereInput[] | AccountWhereInput>;
   NOT?: Maybe<AccountWhereInput[] | AccountWhereInput>;
 }
+
+export type GeocodeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface GeocodeWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  latitude?: Maybe<Float>;
+  latitude_not?: Maybe<Float>;
+  latitude_in?: Maybe<Float[] | Float>;
+  latitude_not_in?: Maybe<Float[] | Float>;
+  latitude_lt?: Maybe<Float>;
+  latitude_lte?: Maybe<Float>;
+  latitude_gt?: Maybe<Float>;
+  latitude_gte?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+  longitude_not?: Maybe<Float>;
+  longitude_in?: Maybe<Float[] | Float>;
+  longitude_not_in?: Maybe<Float[] | Float>;
+  longitude_lt?: Maybe<Float>;
+  longitude_lte?: Maybe<Float>;
+  longitude_gt?: Maybe<Float>;
+  longitude_gte?: Maybe<Float>;
+  AND?: Maybe<GeocodeWhereInput[] | GeocodeWhereInput>;
+  OR?: Maybe<GeocodeWhereInput[] | GeocodeWhereInput>;
+  NOT?: Maybe<GeocodeWhereInput[] | GeocodeWhereInput>;
+}
+
+export type LocationWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface LocationWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  number?: Maybe<Int>;
+  number_not?: Maybe<Int>;
+  number_in?: Maybe<Int[] | Int>;
+  number_not_in?: Maybe<Int[] | Int>;
+  number_lt?: Maybe<Int>;
+  number_lte?: Maybe<Int>;
+  number_gt?: Maybe<Int>;
+  number_gte?: Maybe<Int>;
+  street?: Maybe<String>;
+  street_not?: Maybe<String>;
+  street_in?: Maybe<String[] | String>;
+  street_not_in?: Maybe<String[] | String>;
+  street_lt?: Maybe<String>;
+  street_lte?: Maybe<String>;
+  street_gt?: Maybe<String>;
+  street_gte?: Maybe<String>;
+  street_contains?: Maybe<String>;
+  street_not_contains?: Maybe<String>;
+  street_starts_with?: Maybe<String>;
+  street_not_starts_with?: Maybe<String>;
+  street_ends_with?: Maybe<String>;
+  street_not_ends_with?: Maybe<String>;
+  other?: Maybe<String>;
+  other_not?: Maybe<String>;
+  other_in?: Maybe<String[] | String>;
+  other_not_in?: Maybe<String[] | String>;
+  other_lt?: Maybe<String>;
+  other_lte?: Maybe<String>;
+  other_gt?: Maybe<String>;
+  other_gte?: Maybe<String>;
+  other_contains?: Maybe<String>;
+  other_not_contains?: Maybe<String>;
+  other_starts_with?: Maybe<String>;
+  other_not_starts_with?: Maybe<String>;
+  other_ends_with?: Maybe<String>;
+  other_not_ends_with?: Maybe<String>;
+  city?: Maybe<String>;
+  city_not?: Maybe<String>;
+  city_in?: Maybe<String[] | String>;
+  city_not_in?: Maybe<String[] | String>;
+  city_lt?: Maybe<String>;
+  city_lte?: Maybe<String>;
+  city_gt?: Maybe<String>;
+  city_gte?: Maybe<String>;
+  city_contains?: Maybe<String>;
+  city_not_contains?: Maybe<String>;
+  city_starts_with?: Maybe<String>;
+  city_not_starts_with?: Maybe<String>;
+  city_ends_with?: Maybe<String>;
+  city_not_ends_with?: Maybe<String>;
+  country?: Maybe<String>;
+  country_not?: Maybe<String>;
+  country_in?: Maybe<String[] | String>;
+  country_not_in?: Maybe<String[] | String>;
+  country_lt?: Maybe<String>;
+  country_lte?: Maybe<String>;
+  country_gt?: Maybe<String>;
+  country_gte?: Maybe<String>;
+  country_contains?: Maybe<String>;
+  country_not_contains?: Maybe<String>;
+  country_starts_with?: Maybe<String>;
+  country_not_starts_with?: Maybe<String>;
+  country_ends_with?: Maybe<String>;
+  country_not_ends_with?: Maybe<String>;
+  postalcode?: Maybe<String>;
+  postalcode_not?: Maybe<String>;
+  postalcode_in?: Maybe<String[] | String>;
+  postalcode_not_in?: Maybe<String[] | String>;
+  postalcode_lt?: Maybe<String>;
+  postalcode_lte?: Maybe<String>;
+  postalcode_gt?: Maybe<String>;
+  postalcode_gte?: Maybe<String>;
+  postalcode_contains?: Maybe<String>;
+  postalcode_not_contains?: Maybe<String>;
+  postalcode_starts_with?: Maybe<String>;
+  postalcode_not_starts_with?: Maybe<String>;
+  postalcode_ends_with?: Maybe<String>;
+  postalcode_not_ends_with?: Maybe<String>;
+  nearestLandmark?: Maybe<String>;
+  nearestLandmark_not?: Maybe<String>;
+  nearestLandmark_in?: Maybe<String[] | String>;
+  nearestLandmark_not_in?: Maybe<String[] | String>;
+  nearestLandmark_lt?: Maybe<String>;
+  nearestLandmark_lte?: Maybe<String>;
+  nearestLandmark_gt?: Maybe<String>;
+  nearestLandmark_gte?: Maybe<String>;
+  nearestLandmark_contains?: Maybe<String>;
+  nearestLandmark_not_contains?: Maybe<String>;
+  nearestLandmark_starts_with?: Maybe<String>;
+  nearestLandmark_not_starts_with?: Maybe<String>;
+  nearestLandmark_ends_with?: Maybe<String>;
+  nearestLandmark_not_ends_with?: Maybe<String>;
+  geocode?: Maybe<GeocodeWhereInput>;
+  AND?: Maybe<LocationWhereInput[] | LocationWhereInput>;
+  OR?: Maybe<LocationWhereInput[] | LocationWhereInput>;
+  NOT?: Maybe<LocationWhereInput[] | LocationWhereInput>;
+}
+
+export type OwnerWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  accountId?: Maybe<String>;
+}>;
+
+export interface SchoolWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  phone?: Maybe<String>;
+  phone_not?: Maybe<String>;
+  phone_in?: Maybe<String[] | String>;
+  phone_not_in?: Maybe<String[] | String>;
+  phone_lt?: Maybe<String>;
+  phone_lte?: Maybe<String>;
+  phone_gt?: Maybe<String>;
+  phone_gte?: Maybe<String>;
+  phone_contains?: Maybe<String>;
+  phone_not_contains?: Maybe<String>;
+  phone_starts_with?: Maybe<String>;
+  phone_not_starts_with?: Maybe<String>;
+  phone_ends_with?: Maybe<String>;
+  phone_not_ends_with?: Maybe<String>;
+  uri?: Maybe<String>;
+  uri_not?: Maybe<String>;
+  uri_in?: Maybe<String[] | String>;
+  uri_not_in?: Maybe<String[] | String>;
+  uri_lt?: Maybe<String>;
+  uri_lte?: Maybe<String>;
+  uri_gt?: Maybe<String>;
+  uri_gte?: Maybe<String>;
+  uri_contains?: Maybe<String>;
+  uri_not_contains?: Maybe<String>;
+  uri_starts_with?: Maybe<String>;
+  uri_not_starts_with?: Maybe<String>;
+  uri_ends_with?: Maybe<String>;
+  uri_not_ends_with?: Maybe<String>;
+  email?: Maybe<String>;
+  email_not?: Maybe<String>;
+  email_in?: Maybe<String[] | String>;
+  email_not_in?: Maybe<String[] | String>;
+  email_lt?: Maybe<String>;
+  email_lte?: Maybe<String>;
+  email_gt?: Maybe<String>;
+  email_gte?: Maybe<String>;
+  email_contains?: Maybe<String>;
+  email_not_contains?: Maybe<String>;
+  email_starts_with?: Maybe<String>;
+  email_not_starts_with?: Maybe<String>;
+  email_ends_with?: Maybe<String>;
+  email_not_ends_with?: Maybe<String>;
+  owner?: Maybe<OwnerWhereInput>;
+  locations_every?: Maybe<LocationWhereInput>;
+  locations_some?: Maybe<LocationWhereInput>;
+  locations_none?: Maybe<LocationWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<SchoolWhereInput[] | SchoolWhereInput>;
+  OR?: Maybe<SchoolWhereInput[] | SchoolWhereInput>;
+  NOT?: Maybe<SchoolWhereInput[] | SchoolWhereInput>;
+}
+
+export interface OwnerWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  accountId?: Maybe<String>;
+  accountId_not?: Maybe<String>;
+  accountId_in?: Maybe<String[] | String>;
+  accountId_not_in?: Maybe<String[] | String>;
+  accountId_lt?: Maybe<String>;
+  accountId_lte?: Maybe<String>;
+  accountId_gt?: Maybe<String>;
+  accountId_gte?: Maybe<String>;
+  accountId_contains?: Maybe<String>;
+  accountId_not_contains?: Maybe<String>;
+  accountId_starts_with?: Maybe<String>;
+  accountId_not_starts_with?: Maybe<String>;
+  accountId_ends_with?: Maybe<String>;
+  accountId_not_ends_with?: Maybe<String>;
+  firstName?: Maybe<String>;
+  firstName_not?: Maybe<String>;
+  firstName_in?: Maybe<String[] | String>;
+  firstName_not_in?: Maybe<String[] | String>;
+  firstName_lt?: Maybe<String>;
+  firstName_lte?: Maybe<String>;
+  firstName_gt?: Maybe<String>;
+  firstName_gte?: Maybe<String>;
+  firstName_contains?: Maybe<String>;
+  firstName_not_contains?: Maybe<String>;
+  firstName_starts_with?: Maybe<String>;
+  firstName_not_starts_with?: Maybe<String>;
+  firstName_ends_with?: Maybe<String>;
+  firstName_not_ends_with?: Maybe<String>;
+  middleName?: Maybe<String>;
+  middleName_not?: Maybe<String>;
+  middleName_in?: Maybe<String[] | String>;
+  middleName_not_in?: Maybe<String[] | String>;
+  middleName_lt?: Maybe<String>;
+  middleName_lte?: Maybe<String>;
+  middleName_gt?: Maybe<String>;
+  middleName_gte?: Maybe<String>;
+  middleName_contains?: Maybe<String>;
+  middleName_not_contains?: Maybe<String>;
+  middleName_starts_with?: Maybe<String>;
+  middleName_not_starts_with?: Maybe<String>;
+  middleName_ends_with?: Maybe<String>;
+  middleName_not_ends_with?: Maybe<String>;
+  lastName?: Maybe<String>;
+  lastName_not?: Maybe<String>;
+  lastName_in?: Maybe<String[] | String>;
+  lastName_not_in?: Maybe<String[] | String>;
+  lastName_lt?: Maybe<String>;
+  lastName_lte?: Maybe<String>;
+  lastName_gt?: Maybe<String>;
+  lastName_gte?: Maybe<String>;
+  lastName_contains?: Maybe<String>;
+  lastName_not_contains?: Maybe<String>;
+  lastName_starts_with?: Maybe<String>;
+  lastName_not_starts_with?: Maybe<String>;
+  lastName_ends_with?: Maybe<String>;
+  lastName_not_ends_with?: Maybe<String>;
+  schools_every?: Maybe<SchoolWhereInput>;
+  schools_some?: Maybe<SchoolWhereInput>;
+  schools_none?: Maybe<SchoolWhereInput>;
+  location?: Maybe<LocationWhereInput>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<OwnerWhereInput[] | OwnerWhereInput>;
+  OR?: Maybe<OwnerWhereInput[] | OwnerWhereInput>;
+  NOT?: Maybe<OwnerWhereInput[] | OwnerWhereInput>;
+}
+
+export type SchoolWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  phone?: Maybe<String>;
+  uri?: Maybe<String>;
+  email?: Maybe<String>;
+}>;
 
 export type TokenWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
@@ -339,6 +922,7 @@ export interface AccountCreateInput {
   email: String;
   password: String;
   isVerified?: Maybe<Boolean>;
+  role?: Maybe<Role>;
   lastLogin?: Maybe<DateTimeInput>;
 }
 
@@ -347,6 +931,7 @@ export interface AccountUpdateInput {
   email?: Maybe<String>;
   password?: Maybe<String>;
   isVerified?: Maybe<Boolean>;
+  role?: Maybe<Role>;
   lastLogin?: Maybe<DateTimeInput>;
 }
 
@@ -355,7 +940,523 @@ export interface AccountUpdateManyMutationInput {
   email?: Maybe<String>;
   password?: Maybe<String>;
   isVerified?: Maybe<Boolean>;
+  role?: Maybe<Role>;
   lastLogin?: Maybe<DateTimeInput>;
+}
+
+export interface GeocodeCreateInput {
+  id?: Maybe<ID_Input>;
+  latitude: Float;
+  longitude: Float;
+}
+
+export interface GeocodeUpdateInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+}
+
+export interface GeocodeUpdateManyMutationInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+}
+
+export interface LocationCreateInput {
+  id?: Maybe<ID_Input>;
+  number: Int;
+  street: String;
+  other?: Maybe<String>;
+  city: String;
+  country: String;
+  postalcode: String;
+  nearestLandmark?: Maybe<String>;
+  geocode?: Maybe<GeocodeCreateOneInput>;
+}
+
+export interface GeocodeCreateOneInput {
+  create?: Maybe<GeocodeCreateInput>;
+  connect?: Maybe<GeocodeWhereUniqueInput>;
+}
+
+export interface LocationUpdateInput {
+  number?: Maybe<Int>;
+  street?: Maybe<String>;
+  other?: Maybe<String>;
+  city?: Maybe<String>;
+  country?: Maybe<String>;
+  postalcode?: Maybe<String>;
+  nearestLandmark?: Maybe<String>;
+  geocode?: Maybe<GeocodeUpdateOneInput>;
+}
+
+export interface GeocodeUpdateOneInput {
+  create?: Maybe<GeocodeCreateInput>;
+  update?: Maybe<GeocodeUpdateDataInput>;
+  upsert?: Maybe<GeocodeUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<GeocodeWhereUniqueInput>;
+}
+
+export interface GeocodeUpdateDataInput {
+  latitude?: Maybe<Float>;
+  longitude?: Maybe<Float>;
+}
+
+export interface GeocodeUpsertNestedInput {
+  update: GeocodeUpdateDataInput;
+  create: GeocodeCreateInput;
+}
+
+export interface LocationUpdateManyMutationInput {
+  number?: Maybe<Int>;
+  street?: Maybe<String>;
+  other?: Maybe<String>;
+  city?: Maybe<String>;
+  country?: Maybe<String>;
+  postalcode?: Maybe<String>;
+  nearestLandmark?: Maybe<String>;
+}
+
+export interface OwnerCreateInput {
+  id?: Maybe<ID_Input>;
+  accountId: String;
+  firstName: String;
+  middleName?: Maybe<String>;
+  lastName: String;
+  schools?: Maybe<SchoolCreateManyWithoutOwnerInput>;
+  location?: Maybe<LocationCreateOneInput>;
+}
+
+export interface SchoolCreateManyWithoutOwnerInput {
+  create?: Maybe<
+    SchoolCreateWithoutOwnerInput[] | SchoolCreateWithoutOwnerInput
+  >;
+  connect?: Maybe<SchoolWhereUniqueInput[] | SchoolWhereUniqueInput>;
+}
+
+export interface SchoolCreateWithoutOwnerInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  phone: String;
+  uri: String;
+  email: String;
+  locations?: Maybe<LocationCreateManyInput>;
+}
+
+export interface LocationCreateManyInput {
+  create?: Maybe<LocationCreateInput[] | LocationCreateInput>;
+  connect?: Maybe<LocationWhereUniqueInput[] | LocationWhereUniqueInput>;
+}
+
+export interface LocationCreateOneInput {
+  create?: Maybe<LocationCreateInput>;
+  connect?: Maybe<LocationWhereUniqueInput>;
+}
+
+export interface OwnerUpdateInput {
+  accountId?: Maybe<String>;
+  firstName?: Maybe<String>;
+  middleName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  schools?: Maybe<SchoolUpdateManyWithoutOwnerInput>;
+  location?: Maybe<LocationUpdateOneInput>;
+}
+
+export interface SchoolUpdateManyWithoutOwnerInput {
+  create?: Maybe<
+    SchoolCreateWithoutOwnerInput[] | SchoolCreateWithoutOwnerInput
+  >;
+  delete?: Maybe<SchoolWhereUniqueInput[] | SchoolWhereUniqueInput>;
+  connect?: Maybe<SchoolWhereUniqueInput[] | SchoolWhereUniqueInput>;
+  set?: Maybe<SchoolWhereUniqueInput[] | SchoolWhereUniqueInput>;
+  disconnect?: Maybe<SchoolWhereUniqueInput[] | SchoolWhereUniqueInput>;
+  update?: Maybe<
+    | SchoolUpdateWithWhereUniqueWithoutOwnerInput[]
+    | SchoolUpdateWithWhereUniqueWithoutOwnerInput
+  >;
+  upsert?: Maybe<
+    | SchoolUpsertWithWhereUniqueWithoutOwnerInput[]
+    | SchoolUpsertWithWhereUniqueWithoutOwnerInput
+  >;
+  deleteMany?: Maybe<SchoolScalarWhereInput[] | SchoolScalarWhereInput>;
+  updateMany?: Maybe<
+    | SchoolUpdateManyWithWhereNestedInput[]
+    | SchoolUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface SchoolUpdateWithWhereUniqueWithoutOwnerInput {
+  where: SchoolWhereUniqueInput;
+  data: SchoolUpdateWithoutOwnerDataInput;
+}
+
+export interface SchoolUpdateWithoutOwnerDataInput {
+  title?: Maybe<String>;
+  phone?: Maybe<String>;
+  uri?: Maybe<String>;
+  email?: Maybe<String>;
+  locations?: Maybe<LocationUpdateManyInput>;
+}
+
+export interface LocationUpdateManyInput {
+  create?: Maybe<LocationCreateInput[] | LocationCreateInput>;
+  update?: Maybe<
+    | LocationUpdateWithWhereUniqueNestedInput[]
+    | LocationUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | LocationUpsertWithWhereUniqueNestedInput[]
+    | LocationUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<LocationWhereUniqueInput[] | LocationWhereUniqueInput>;
+  connect?: Maybe<LocationWhereUniqueInput[] | LocationWhereUniqueInput>;
+  set?: Maybe<LocationWhereUniqueInput[] | LocationWhereUniqueInput>;
+  disconnect?: Maybe<LocationWhereUniqueInput[] | LocationWhereUniqueInput>;
+  deleteMany?: Maybe<LocationScalarWhereInput[] | LocationScalarWhereInput>;
+  updateMany?: Maybe<
+    | LocationUpdateManyWithWhereNestedInput[]
+    | LocationUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface LocationUpdateWithWhereUniqueNestedInput {
+  where: LocationWhereUniqueInput;
+  data: LocationUpdateDataInput;
+}
+
+export interface LocationUpdateDataInput {
+  number?: Maybe<Int>;
+  street?: Maybe<String>;
+  other?: Maybe<String>;
+  city?: Maybe<String>;
+  country?: Maybe<String>;
+  postalcode?: Maybe<String>;
+  nearestLandmark?: Maybe<String>;
+  geocode?: Maybe<GeocodeUpdateOneInput>;
+}
+
+export interface LocationUpsertWithWhereUniqueNestedInput {
+  where: LocationWhereUniqueInput;
+  update: LocationUpdateDataInput;
+  create: LocationCreateInput;
+}
+
+export interface LocationScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  number?: Maybe<Int>;
+  number_not?: Maybe<Int>;
+  number_in?: Maybe<Int[] | Int>;
+  number_not_in?: Maybe<Int[] | Int>;
+  number_lt?: Maybe<Int>;
+  number_lte?: Maybe<Int>;
+  number_gt?: Maybe<Int>;
+  number_gte?: Maybe<Int>;
+  street?: Maybe<String>;
+  street_not?: Maybe<String>;
+  street_in?: Maybe<String[] | String>;
+  street_not_in?: Maybe<String[] | String>;
+  street_lt?: Maybe<String>;
+  street_lte?: Maybe<String>;
+  street_gt?: Maybe<String>;
+  street_gte?: Maybe<String>;
+  street_contains?: Maybe<String>;
+  street_not_contains?: Maybe<String>;
+  street_starts_with?: Maybe<String>;
+  street_not_starts_with?: Maybe<String>;
+  street_ends_with?: Maybe<String>;
+  street_not_ends_with?: Maybe<String>;
+  other?: Maybe<String>;
+  other_not?: Maybe<String>;
+  other_in?: Maybe<String[] | String>;
+  other_not_in?: Maybe<String[] | String>;
+  other_lt?: Maybe<String>;
+  other_lte?: Maybe<String>;
+  other_gt?: Maybe<String>;
+  other_gte?: Maybe<String>;
+  other_contains?: Maybe<String>;
+  other_not_contains?: Maybe<String>;
+  other_starts_with?: Maybe<String>;
+  other_not_starts_with?: Maybe<String>;
+  other_ends_with?: Maybe<String>;
+  other_not_ends_with?: Maybe<String>;
+  city?: Maybe<String>;
+  city_not?: Maybe<String>;
+  city_in?: Maybe<String[] | String>;
+  city_not_in?: Maybe<String[] | String>;
+  city_lt?: Maybe<String>;
+  city_lte?: Maybe<String>;
+  city_gt?: Maybe<String>;
+  city_gte?: Maybe<String>;
+  city_contains?: Maybe<String>;
+  city_not_contains?: Maybe<String>;
+  city_starts_with?: Maybe<String>;
+  city_not_starts_with?: Maybe<String>;
+  city_ends_with?: Maybe<String>;
+  city_not_ends_with?: Maybe<String>;
+  country?: Maybe<String>;
+  country_not?: Maybe<String>;
+  country_in?: Maybe<String[] | String>;
+  country_not_in?: Maybe<String[] | String>;
+  country_lt?: Maybe<String>;
+  country_lte?: Maybe<String>;
+  country_gt?: Maybe<String>;
+  country_gte?: Maybe<String>;
+  country_contains?: Maybe<String>;
+  country_not_contains?: Maybe<String>;
+  country_starts_with?: Maybe<String>;
+  country_not_starts_with?: Maybe<String>;
+  country_ends_with?: Maybe<String>;
+  country_not_ends_with?: Maybe<String>;
+  postalcode?: Maybe<String>;
+  postalcode_not?: Maybe<String>;
+  postalcode_in?: Maybe<String[] | String>;
+  postalcode_not_in?: Maybe<String[] | String>;
+  postalcode_lt?: Maybe<String>;
+  postalcode_lte?: Maybe<String>;
+  postalcode_gt?: Maybe<String>;
+  postalcode_gte?: Maybe<String>;
+  postalcode_contains?: Maybe<String>;
+  postalcode_not_contains?: Maybe<String>;
+  postalcode_starts_with?: Maybe<String>;
+  postalcode_not_starts_with?: Maybe<String>;
+  postalcode_ends_with?: Maybe<String>;
+  postalcode_not_ends_with?: Maybe<String>;
+  nearestLandmark?: Maybe<String>;
+  nearestLandmark_not?: Maybe<String>;
+  nearestLandmark_in?: Maybe<String[] | String>;
+  nearestLandmark_not_in?: Maybe<String[] | String>;
+  nearestLandmark_lt?: Maybe<String>;
+  nearestLandmark_lte?: Maybe<String>;
+  nearestLandmark_gt?: Maybe<String>;
+  nearestLandmark_gte?: Maybe<String>;
+  nearestLandmark_contains?: Maybe<String>;
+  nearestLandmark_not_contains?: Maybe<String>;
+  nearestLandmark_starts_with?: Maybe<String>;
+  nearestLandmark_not_starts_with?: Maybe<String>;
+  nearestLandmark_ends_with?: Maybe<String>;
+  nearestLandmark_not_ends_with?: Maybe<String>;
+  AND?: Maybe<LocationScalarWhereInput[] | LocationScalarWhereInput>;
+  OR?: Maybe<LocationScalarWhereInput[] | LocationScalarWhereInput>;
+  NOT?: Maybe<LocationScalarWhereInput[] | LocationScalarWhereInput>;
+}
+
+export interface LocationUpdateManyWithWhereNestedInput {
+  where: LocationScalarWhereInput;
+  data: LocationUpdateManyDataInput;
+}
+
+export interface LocationUpdateManyDataInput {
+  number?: Maybe<Int>;
+  street?: Maybe<String>;
+  other?: Maybe<String>;
+  city?: Maybe<String>;
+  country?: Maybe<String>;
+  postalcode?: Maybe<String>;
+  nearestLandmark?: Maybe<String>;
+}
+
+export interface SchoolUpsertWithWhereUniqueWithoutOwnerInput {
+  where: SchoolWhereUniqueInput;
+  update: SchoolUpdateWithoutOwnerDataInput;
+  create: SchoolCreateWithoutOwnerInput;
+}
+
+export interface SchoolScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  title?: Maybe<String>;
+  title_not?: Maybe<String>;
+  title_in?: Maybe<String[] | String>;
+  title_not_in?: Maybe<String[] | String>;
+  title_lt?: Maybe<String>;
+  title_lte?: Maybe<String>;
+  title_gt?: Maybe<String>;
+  title_gte?: Maybe<String>;
+  title_contains?: Maybe<String>;
+  title_not_contains?: Maybe<String>;
+  title_starts_with?: Maybe<String>;
+  title_not_starts_with?: Maybe<String>;
+  title_ends_with?: Maybe<String>;
+  title_not_ends_with?: Maybe<String>;
+  phone?: Maybe<String>;
+  phone_not?: Maybe<String>;
+  phone_in?: Maybe<String[] | String>;
+  phone_not_in?: Maybe<String[] | String>;
+  phone_lt?: Maybe<String>;
+  phone_lte?: Maybe<String>;
+  phone_gt?: Maybe<String>;
+  phone_gte?: Maybe<String>;
+  phone_contains?: Maybe<String>;
+  phone_not_contains?: Maybe<String>;
+  phone_starts_with?: Maybe<String>;
+  phone_not_starts_with?: Maybe<String>;
+  phone_ends_with?: Maybe<String>;
+  phone_not_ends_with?: Maybe<String>;
+  uri?: Maybe<String>;
+  uri_not?: Maybe<String>;
+  uri_in?: Maybe<String[] | String>;
+  uri_not_in?: Maybe<String[] | String>;
+  uri_lt?: Maybe<String>;
+  uri_lte?: Maybe<String>;
+  uri_gt?: Maybe<String>;
+  uri_gte?: Maybe<String>;
+  uri_contains?: Maybe<String>;
+  uri_not_contains?: Maybe<String>;
+  uri_starts_with?: Maybe<String>;
+  uri_not_starts_with?: Maybe<String>;
+  uri_ends_with?: Maybe<String>;
+  uri_not_ends_with?: Maybe<String>;
+  email?: Maybe<String>;
+  email_not?: Maybe<String>;
+  email_in?: Maybe<String[] | String>;
+  email_not_in?: Maybe<String[] | String>;
+  email_lt?: Maybe<String>;
+  email_lte?: Maybe<String>;
+  email_gt?: Maybe<String>;
+  email_gte?: Maybe<String>;
+  email_contains?: Maybe<String>;
+  email_not_contains?: Maybe<String>;
+  email_starts_with?: Maybe<String>;
+  email_not_starts_with?: Maybe<String>;
+  email_ends_with?: Maybe<String>;
+  email_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<SchoolScalarWhereInput[] | SchoolScalarWhereInput>;
+  OR?: Maybe<SchoolScalarWhereInput[] | SchoolScalarWhereInput>;
+  NOT?: Maybe<SchoolScalarWhereInput[] | SchoolScalarWhereInput>;
+}
+
+export interface SchoolUpdateManyWithWhereNestedInput {
+  where: SchoolScalarWhereInput;
+  data: SchoolUpdateManyDataInput;
+}
+
+export interface SchoolUpdateManyDataInput {
+  title?: Maybe<String>;
+  phone?: Maybe<String>;
+  uri?: Maybe<String>;
+  email?: Maybe<String>;
+}
+
+export interface LocationUpdateOneInput {
+  create?: Maybe<LocationCreateInput>;
+  update?: Maybe<LocationUpdateDataInput>;
+  upsert?: Maybe<LocationUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<LocationWhereUniqueInput>;
+}
+
+export interface LocationUpsertNestedInput {
+  update: LocationUpdateDataInput;
+  create: LocationCreateInput;
+}
+
+export interface OwnerUpdateManyMutationInput {
+  accountId?: Maybe<String>;
+  firstName?: Maybe<String>;
+  middleName?: Maybe<String>;
+  lastName?: Maybe<String>;
+}
+
+export interface SchoolCreateInput {
+  id?: Maybe<ID_Input>;
+  title: String;
+  phone: String;
+  uri: String;
+  email: String;
+  owner: OwnerCreateOneWithoutSchoolsInput;
+  locations?: Maybe<LocationCreateManyInput>;
+}
+
+export interface OwnerCreateOneWithoutSchoolsInput {
+  create?: Maybe<OwnerCreateWithoutSchoolsInput>;
+  connect?: Maybe<OwnerWhereUniqueInput>;
+}
+
+export interface OwnerCreateWithoutSchoolsInput {
+  id?: Maybe<ID_Input>;
+  accountId: String;
+  firstName: String;
+  middleName?: Maybe<String>;
+  lastName: String;
+  location?: Maybe<LocationCreateOneInput>;
+}
+
+export interface SchoolUpdateInput {
+  title?: Maybe<String>;
+  phone?: Maybe<String>;
+  uri?: Maybe<String>;
+  email?: Maybe<String>;
+  owner?: Maybe<OwnerUpdateOneRequiredWithoutSchoolsInput>;
+  locations?: Maybe<LocationUpdateManyInput>;
+}
+
+export interface OwnerUpdateOneRequiredWithoutSchoolsInput {
+  create?: Maybe<OwnerCreateWithoutSchoolsInput>;
+  update?: Maybe<OwnerUpdateWithoutSchoolsDataInput>;
+  upsert?: Maybe<OwnerUpsertWithoutSchoolsInput>;
+  connect?: Maybe<OwnerWhereUniqueInput>;
+}
+
+export interface OwnerUpdateWithoutSchoolsDataInput {
+  accountId?: Maybe<String>;
+  firstName?: Maybe<String>;
+  middleName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  location?: Maybe<LocationUpdateOneInput>;
+}
+
+export interface OwnerUpsertWithoutSchoolsInput {
+  update: OwnerUpdateWithoutSchoolsDataInput;
+  create: OwnerCreateWithoutSchoolsInput;
+}
+
+export interface SchoolUpdateManyMutationInput {
+  title?: Maybe<String>;
+  phone?: Maybe<String>;
+  uri?: Maybe<String>;
+  email?: Maybe<String>;
 }
 
 export interface TokenCreateInput {
@@ -388,6 +1489,54 @@ export interface AccountSubscriptionWhereInput {
   NOT?: Maybe<AccountSubscriptionWhereInput[] | AccountSubscriptionWhereInput>;
 }
 
+export interface GeocodeSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<GeocodeWhereInput>;
+  AND?: Maybe<GeocodeSubscriptionWhereInput[] | GeocodeSubscriptionWhereInput>;
+  OR?: Maybe<GeocodeSubscriptionWhereInput[] | GeocodeSubscriptionWhereInput>;
+  NOT?: Maybe<GeocodeSubscriptionWhereInput[] | GeocodeSubscriptionWhereInput>;
+}
+
+export interface LocationSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<LocationWhereInput>;
+  AND?: Maybe<
+    LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
+  >;
+  OR?: Maybe<LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput>;
+  NOT?: Maybe<
+    LocationSubscriptionWhereInput[] | LocationSubscriptionWhereInput
+  >;
+}
+
+export interface OwnerSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<OwnerWhereInput>;
+  AND?: Maybe<OwnerSubscriptionWhereInput[] | OwnerSubscriptionWhereInput>;
+  OR?: Maybe<OwnerSubscriptionWhereInput[] | OwnerSubscriptionWhereInput>;
+  NOT?: Maybe<OwnerSubscriptionWhereInput[] | OwnerSubscriptionWhereInput>;
+}
+
+export interface SchoolSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<SchoolWhereInput>;
+  AND?: Maybe<SchoolSubscriptionWhereInput[] | SchoolSubscriptionWhereInput>;
+  OR?: Maybe<SchoolSubscriptionWhereInput[] | SchoolSubscriptionWhereInput>;
+  NOT?: Maybe<SchoolSubscriptionWhereInput[] | SchoolSubscriptionWhereInput>;
+}
+
 export interface TokenSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
@@ -409,6 +1558,7 @@ export interface Account {
   email: String;
   password: String;
   isVerified: Boolean;
+  role: Role;
   lastLogin?: DateTimeOutput;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -420,6 +1570,7 @@ export interface AccountPromise extends Promise<Account>, Fragmentable {
   email: () => Promise<String>;
   password: () => Promise<String>;
   isVerified: () => Promise<Boolean>;
+  role: () => Promise<Role>;
   lastLogin: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -433,6 +1584,7 @@ export interface AccountSubscription
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   isVerified: () => Promise<AsyncIterator<Boolean>>;
+  role: () => Promise<AsyncIterator<Role>>;
   lastLogin: () => Promise<AsyncIterator<DateTimeOutput>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -446,6 +1598,7 @@ export interface AccountNullablePromise
   email: () => Promise<String>;
   password: () => Promise<String>;
   isVerified: () => Promise<Boolean>;
+  role: () => Promise<Role>;
   lastLogin: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -528,11 +1681,456 @@ export interface AggregateAccountSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface Geocode {
+  id: ID_Output;
+  latitude: Float;
+  longitude: Float;
+}
+
+export interface GeocodePromise extends Promise<Geocode>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  latitude: () => Promise<Float>;
+  longitude: () => Promise<Float>;
+}
+
+export interface GeocodeSubscription
+  extends Promise<AsyncIterator<Geocode>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  latitude: () => Promise<AsyncIterator<Float>>;
+  longitude: () => Promise<AsyncIterator<Float>>;
+}
+
+export interface GeocodeNullablePromise
+  extends Promise<Geocode | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  latitude: () => Promise<Float>;
+  longitude: () => Promise<Float>;
+}
+
+export interface GeocodeConnection {
+  pageInfo: PageInfo;
+  edges: GeocodeEdge[];
+}
+
+export interface GeocodeConnectionPromise
+  extends Promise<GeocodeConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<GeocodeEdge>>() => T;
+  aggregate: <T = AggregateGeocodePromise>() => T;
+}
+
+export interface GeocodeConnectionSubscription
+  extends Promise<AsyncIterator<GeocodeConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<GeocodeEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateGeocodeSubscription>() => T;
+}
+
+export interface GeocodeEdge {
+  node: Geocode;
+  cursor: String;
+}
+
+export interface GeocodeEdgePromise extends Promise<GeocodeEdge>, Fragmentable {
+  node: <T = GeocodePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface GeocodeEdgeSubscription
+  extends Promise<AsyncIterator<GeocodeEdge>>,
+    Fragmentable {
+  node: <T = GeocodeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateGeocode {
+  count: Int;
+}
+
+export interface AggregateGeocodePromise
+  extends Promise<AggregateGeocode>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateGeocodeSubscription
+  extends Promise<AsyncIterator<AggregateGeocode>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface Location {
+  id: ID_Output;
+  number: Int;
+  street: String;
+  other?: String;
+  city: String;
+  country: String;
+  postalcode: String;
+  nearestLandmark?: String;
+}
+
+export interface LocationPromise extends Promise<Location>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  number: () => Promise<Int>;
+  street: () => Promise<String>;
+  other: () => Promise<String>;
+  city: () => Promise<String>;
+  country: () => Promise<String>;
+  postalcode: () => Promise<String>;
+  nearestLandmark: () => Promise<String>;
+  geocode: <T = GeocodePromise>() => T;
+}
+
+export interface LocationSubscription
+  extends Promise<AsyncIterator<Location>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  number: () => Promise<AsyncIterator<Int>>;
+  street: () => Promise<AsyncIterator<String>>;
+  other: () => Promise<AsyncIterator<String>>;
+  city: () => Promise<AsyncIterator<String>>;
+  country: () => Promise<AsyncIterator<String>>;
+  postalcode: () => Promise<AsyncIterator<String>>;
+  nearestLandmark: () => Promise<AsyncIterator<String>>;
+  geocode: <T = GeocodeSubscription>() => T;
+}
+
+export interface LocationNullablePromise
+  extends Promise<Location | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  number: () => Promise<Int>;
+  street: () => Promise<String>;
+  other: () => Promise<String>;
+  city: () => Promise<String>;
+  country: () => Promise<String>;
+  postalcode: () => Promise<String>;
+  nearestLandmark: () => Promise<String>;
+  geocode: <T = GeocodePromise>() => T;
+}
+
+export interface LocationConnection {
+  pageInfo: PageInfo;
+  edges: LocationEdge[];
+}
+
+export interface LocationConnectionPromise
+  extends Promise<LocationConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<LocationEdge>>() => T;
+  aggregate: <T = AggregateLocationPromise>() => T;
+}
+
+export interface LocationConnectionSubscription
+  extends Promise<AsyncIterator<LocationConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<LocationEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateLocationSubscription>() => T;
+}
+
+export interface LocationEdge {
+  node: Location;
+  cursor: String;
+}
+
+export interface LocationEdgePromise
+  extends Promise<LocationEdge>,
+    Fragmentable {
+  node: <T = LocationPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface LocationEdgeSubscription
+  extends Promise<AsyncIterator<LocationEdge>>,
+    Fragmentable {
+  node: <T = LocationSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateLocation {
+  count: Int;
+}
+
+export interface AggregateLocationPromise
+  extends Promise<AggregateLocation>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateLocationSubscription
+  extends Promise<AsyncIterator<AggregateLocation>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface Owner {
+  id: ID_Output;
+  accountId: String;
+  firstName: String;
+  middleName?: String;
+  lastName: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface OwnerPromise extends Promise<Owner>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  accountId: () => Promise<String>;
+  firstName: () => Promise<String>;
+  middleName: () => Promise<String>;
+  lastName: () => Promise<String>;
+  schools: <T = FragmentableArray<School>>(args?: {
+    where?: SchoolWhereInput;
+    orderBy?: SchoolOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  location: <T = LocationPromise>() => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface OwnerSubscription
+  extends Promise<AsyncIterator<Owner>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  accountId: () => Promise<AsyncIterator<String>>;
+  firstName: () => Promise<AsyncIterator<String>>;
+  middleName: () => Promise<AsyncIterator<String>>;
+  lastName: () => Promise<AsyncIterator<String>>;
+  schools: <T = Promise<AsyncIterator<SchoolSubscription>>>(args?: {
+    where?: SchoolWhereInput;
+    orderBy?: SchoolOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  location: <T = LocationSubscription>() => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface OwnerNullablePromise
+  extends Promise<Owner | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  accountId: () => Promise<String>;
+  firstName: () => Promise<String>;
+  middleName: () => Promise<String>;
+  lastName: () => Promise<String>;
+  schools: <T = FragmentableArray<School>>(args?: {
+    where?: SchoolWhereInput;
+    orderBy?: SchoolOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  location: <T = LocationPromise>() => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface School {
+  id: ID_Output;
+  title: String;
+  phone: String;
+  uri: String;
+  email: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface SchoolPromise extends Promise<School>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  phone: () => Promise<String>;
+  uri: () => Promise<String>;
+  email: () => Promise<String>;
+  owner: <T = OwnerPromise>() => T;
+  locations: <T = FragmentableArray<Location>>(args?: {
+    where?: LocationWhereInput;
+    orderBy?: LocationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface SchoolSubscription
+  extends Promise<AsyncIterator<School>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  phone: () => Promise<AsyncIterator<String>>;
+  uri: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
+  owner: <T = OwnerSubscription>() => T;
+  locations: <T = Promise<AsyncIterator<LocationSubscription>>>(args?: {
+    where?: LocationWhereInput;
+    orderBy?: LocationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface SchoolNullablePromise
+  extends Promise<School | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  phone: () => Promise<String>;
+  uri: () => Promise<String>;
+  email: () => Promise<String>;
+  owner: <T = OwnerPromise>() => T;
+  locations: <T = FragmentableArray<Location>>(args?: {
+    where?: LocationWhereInput;
+    orderBy?: LocationOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface OwnerConnection {
+  pageInfo: PageInfo;
+  edges: OwnerEdge[];
+}
+
+export interface OwnerConnectionPromise
+  extends Promise<OwnerConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<OwnerEdge>>() => T;
+  aggregate: <T = AggregateOwnerPromise>() => T;
+}
+
+export interface OwnerConnectionSubscription
+  extends Promise<AsyncIterator<OwnerConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<OwnerEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateOwnerSubscription>() => T;
+}
+
+export interface OwnerEdge {
+  node: Owner;
+  cursor: String;
+}
+
+export interface OwnerEdgePromise extends Promise<OwnerEdge>, Fragmentable {
+  node: <T = OwnerPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface OwnerEdgeSubscription
+  extends Promise<AsyncIterator<OwnerEdge>>,
+    Fragmentable {
+  node: <T = OwnerSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateOwner {
+  count: Int;
+}
+
+export interface AggregateOwnerPromise
+  extends Promise<AggregateOwner>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateOwnerSubscription
+  extends Promise<AsyncIterator<AggregateOwner>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface SchoolConnection {
+  pageInfo: PageInfo;
+  edges: SchoolEdge[];
+}
+
+export interface SchoolConnectionPromise
+  extends Promise<SchoolConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<SchoolEdge>>() => T;
+  aggregate: <T = AggregateSchoolPromise>() => T;
+}
+
+export interface SchoolConnectionSubscription
+  extends Promise<AsyncIterator<SchoolConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<SchoolEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateSchoolSubscription>() => T;
+}
+
+export interface SchoolEdge {
+  node: School;
+  cursor: String;
+}
+
+export interface SchoolEdgePromise extends Promise<SchoolEdge>, Fragmentable {
+  node: <T = SchoolPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface SchoolEdgeSubscription
+  extends Promise<AsyncIterator<SchoolEdge>>,
+    Fragmentable {
+  node: <T = SchoolSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateSchool {
+  count: Int;
+}
+
+export interface AggregateSchoolPromise
+  extends Promise<AggregateSchool>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateSchoolSubscription
+  extends Promise<AsyncIterator<AggregateSchool>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface Token {
   id: ID_Output;
   accountId: String;
   token: String;
-  type?: TokenType;
+  type: TokenType;
   createdAt: DateTimeOutput;
 }
 
@@ -665,6 +2263,7 @@ export interface AccountPreviousValues {
   email: String;
   password: String;
   isVerified: Boolean;
+  role: Role;
   lastLogin?: DateTimeOutput;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
@@ -678,6 +2277,7 @@ export interface AccountPreviousValuesPromise
   email: () => Promise<String>;
   password: () => Promise<String>;
   isVerified: () => Promise<Boolean>;
+  role: () => Promise<Role>;
   lastLogin: () => Promise<DateTimeOutput>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -691,7 +2291,235 @@ export interface AccountPreviousValuesSubscription
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   isVerified: () => Promise<AsyncIterator<Boolean>>;
+  role: () => Promise<AsyncIterator<Role>>;
   lastLogin: () => Promise<AsyncIterator<DateTimeOutput>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface GeocodeSubscriptionPayload {
+  mutation: MutationType;
+  node: Geocode;
+  updatedFields: String[];
+  previousValues: GeocodePreviousValues;
+}
+
+export interface GeocodeSubscriptionPayloadPromise
+  extends Promise<GeocodeSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = GeocodePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = GeocodePreviousValuesPromise>() => T;
+}
+
+export interface GeocodeSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<GeocodeSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GeocodeSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = GeocodePreviousValuesSubscription>() => T;
+}
+
+export interface GeocodePreviousValues {
+  id: ID_Output;
+  latitude: Float;
+  longitude: Float;
+}
+
+export interface GeocodePreviousValuesPromise
+  extends Promise<GeocodePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  latitude: () => Promise<Float>;
+  longitude: () => Promise<Float>;
+}
+
+export interface GeocodePreviousValuesSubscription
+  extends Promise<AsyncIterator<GeocodePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  latitude: () => Promise<AsyncIterator<Float>>;
+  longitude: () => Promise<AsyncIterator<Float>>;
+}
+
+export interface LocationSubscriptionPayload {
+  mutation: MutationType;
+  node: Location;
+  updatedFields: String[];
+  previousValues: LocationPreviousValues;
+}
+
+export interface LocationSubscriptionPayloadPromise
+  extends Promise<LocationSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = LocationPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = LocationPreviousValuesPromise>() => T;
+}
+
+export interface LocationSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<LocationSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = LocationSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = LocationPreviousValuesSubscription>() => T;
+}
+
+export interface LocationPreviousValues {
+  id: ID_Output;
+  number: Int;
+  street: String;
+  other?: String;
+  city: String;
+  country: String;
+  postalcode: String;
+  nearestLandmark?: String;
+}
+
+export interface LocationPreviousValuesPromise
+  extends Promise<LocationPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  number: () => Promise<Int>;
+  street: () => Promise<String>;
+  other: () => Promise<String>;
+  city: () => Promise<String>;
+  country: () => Promise<String>;
+  postalcode: () => Promise<String>;
+  nearestLandmark: () => Promise<String>;
+}
+
+export interface LocationPreviousValuesSubscription
+  extends Promise<AsyncIterator<LocationPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  number: () => Promise<AsyncIterator<Int>>;
+  street: () => Promise<AsyncIterator<String>>;
+  other: () => Promise<AsyncIterator<String>>;
+  city: () => Promise<AsyncIterator<String>>;
+  country: () => Promise<AsyncIterator<String>>;
+  postalcode: () => Promise<AsyncIterator<String>>;
+  nearestLandmark: () => Promise<AsyncIterator<String>>;
+}
+
+export interface OwnerSubscriptionPayload {
+  mutation: MutationType;
+  node: Owner;
+  updatedFields: String[];
+  previousValues: OwnerPreviousValues;
+}
+
+export interface OwnerSubscriptionPayloadPromise
+  extends Promise<OwnerSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = OwnerPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = OwnerPreviousValuesPromise>() => T;
+}
+
+export interface OwnerSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<OwnerSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = OwnerSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = OwnerPreviousValuesSubscription>() => T;
+}
+
+export interface OwnerPreviousValues {
+  id: ID_Output;
+  accountId: String;
+  firstName: String;
+  middleName?: String;
+  lastName: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface OwnerPreviousValuesPromise
+  extends Promise<OwnerPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  accountId: () => Promise<String>;
+  firstName: () => Promise<String>;
+  middleName: () => Promise<String>;
+  lastName: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface OwnerPreviousValuesSubscription
+  extends Promise<AsyncIterator<OwnerPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  accountId: () => Promise<AsyncIterator<String>>;
+  firstName: () => Promise<AsyncIterator<String>>;
+  middleName: () => Promise<AsyncIterator<String>>;
+  lastName: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface SchoolSubscriptionPayload {
+  mutation: MutationType;
+  node: School;
+  updatedFields: String[];
+  previousValues: SchoolPreviousValues;
+}
+
+export interface SchoolSubscriptionPayloadPromise
+  extends Promise<SchoolSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = SchoolPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = SchoolPreviousValuesPromise>() => T;
+}
+
+export interface SchoolSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SchoolSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = SchoolSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = SchoolPreviousValuesSubscription>() => T;
+}
+
+export interface SchoolPreviousValues {
+  id: ID_Output;
+  title: String;
+  phone: String;
+  uri: String;
+  email: String;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface SchoolPreviousValuesPromise
+  extends Promise<SchoolPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  title: () => Promise<String>;
+  phone: () => Promise<String>;
+  uri: () => Promise<String>;
+  email: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface SchoolPreviousValuesSubscription
+  extends Promise<AsyncIterator<SchoolPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  title: () => Promise<AsyncIterator<String>>;
+  phone: () => Promise<AsyncIterator<String>>;
+  uri: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -725,7 +2553,7 @@ export interface TokenPreviousValues {
   id: ID_Output;
   accountId: String;
   token: String;
-  type?: TokenType;
+  type: TokenType;
   createdAt: DateTimeOutput;
 }
 
@@ -780,6 +2608,11 @@ The `Int` scalar type represents non-fractional signed whole numeric values. Int
 */
 export type Int = number;
 
+/*
+The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point). 
+*/
+export type Float = number;
+
 export type Long = string;
 
 /**
@@ -796,7 +2629,27 @@ export const models: Model[] = [
     embedded: false
   },
   {
+    name: "Owner",
+    embedded: false
+  },
+  {
+    name: "School",
+    embedded: false
+  },
+  {
+    name: "Location",
+    embedded: false
+  },
+  {
+    name: "Geocode",
+    embedded: false
+  },
+  {
     name: "TokenType",
+    embedded: false
+  },
+  {
+    name: "Role",
     embedded: false
   }
 ];

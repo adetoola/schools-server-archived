@@ -11,9 +11,349 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  GeocodeWhereInput: { // input type
+    AND?: NexusGenInputs['GeocodeWhereInput'][] | null; // [GeocodeWhereInput!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    latitude?: number | null; // Float
+    latitude_gt?: number | null; // Float
+    latitude_gte?: number | null; // Float
+    latitude_in?: number[] | null; // [Float!]
+    latitude_lt?: number | null; // Float
+    latitude_lte?: number | null; // Float
+    latitude_not?: number | null; // Float
+    latitude_not_in?: number[] | null; // [Float!]
+    longitude?: number | null; // Float
+    longitude_gt?: number | null; // Float
+    longitude_gte?: number | null; // Float
+    longitude_in?: number[] | null; // [Float!]
+    longitude_lt?: number | null; // Float
+    longitude_lte?: number | null; // Float
+    longitude_not?: number | null; // Float
+    longitude_not_in?: number[] | null; // [Float!]
+    NOT?: NexusGenInputs['GeocodeWhereInput'][] | null; // [GeocodeWhereInput!]
+    OR?: NexusGenInputs['GeocodeWhereInput'][] | null; // [GeocodeWhereInput!]
+  }
+  LocationWhereInput: { // input type
+    AND?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
+    city?: string | null; // String
+    city_contains?: string | null; // String
+    city_ends_with?: string | null; // String
+    city_gt?: string | null; // String
+    city_gte?: string | null; // String
+    city_in?: string[] | null; // [String!]
+    city_lt?: string | null; // String
+    city_lte?: string | null; // String
+    city_not?: string | null; // String
+    city_not_contains?: string | null; // String
+    city_not_ends_with?: string | null; // String
+    city_not_in?: string[] | null; // [String!]
+    city_not_starts_with?: string | null; // String
+    city_starts_with?: string | null; // String
+    country?: string | null; // String
+    country_contains?: string | null; // String
+    country_ends_with?: string | null; // String
+    country_gt?: string | null; // String
+    country_gte?: string | null; // String
+    country_in?: string[] | null; // [String!]
+    country_lt?: string | null; // String
+    country_lte?: string | null; // String
+    country_not?: string | null; // String
+    country_not_contains?: string | null; // String
+    country_not_ends_with?: string | null; // String
+    country_not_in?: string[] | null; // [String!]
+    country_not_starts_with?: string | null; // String
+    country_starts_with?: string | null; // String
+    geocode?: NexusGenInputs['GeocodeWhereInput'] | null; // GeocodeWhereInput
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    nearestLandmark?: string | null; // String
+    nearestLandmark_contains?: string | null; // String
+    nearestLandmark_ends_with?: string | null; // String
+    nearestLandmark_gt?: string | null; // String
+    nearestLandmark_gte?: string | null; // String
+    nearestLandmark_in?: string[] | null; // [String!]
+    nearestLandmark_lt?: string | null; // String
+    nearestLandmark_lte?: string | null; // String
+    nearestLandmark_not?: string | null; // String
+    nearestLandmark_not_contains?: string | null; // String
+    nearestLandmark_not_ends_with?: string | null; // String
+    nearestLandmark_not_in?: string[] | null; // [String!]
+    nearestLandmark_not_starts_with?: string | null; // String
+    nearestLandmark_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
+    number?: number | null; // Int
+    number_gt?: number | null; // Int
+    number_gte?: number | null; // Int
+    number_in?: number[] | null; // [Int!]
+    number_lt?: number | null; // Int
+    number_lte?: number | null; // Int
+    number_not?: number | null; // Int
+    number_not_in?: number[] | null; // [Int!]
+    OR?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
+    other?: string | null; // String
+    other_contains?: string | null; // String
+    other_ends_with?: string | null; // String
+    other_gt?: string | null; // String
+    other_gte?: string | null; // String
+    other_in?: string[] | null; // [String!]
+    other_lt?: string | null; // String
+    other_lte?: string | null; // String
+    other_not?: string | null; // String
+    other_not_contains?: string | null; // String
+    other_not_ends_with?: string | null; // String
+    other_not_in?: string[] | null; // [String!]
+    other_not_starts_with?: string | null; // String
+    other_starts_with?: string | null; // String
+    postalcode?: string | null; // String
+    postalcode_contains?: string | null; // String
+    postalcode_ends_with?: string | null; // String
+    postalcode_gt?: string | null; // String
+    postalcode_gte?: string | null; // String
+    postalcode_in?: string[] | null; // [String!]
+    postalcode_lt?: string | null; // String
+    postalcode_lte?: string | null; // String
+    postalcode_not?: string | null; // String
+    postalcode_not_contains?: string | null; // String
+    postalcode_not_ends_with?: string | null; // String
+    postalcode_not_in?: string[] | null; // [String!]
+    postalcode_not_starts_with?: string | null; // String
+    postalcode_starts_with?: string | null; // String
+    street?: string | null; // String
+    street_contains?: string | null; // String
+    street_ends_with?: string | null; // String
+    street_gt?: string | null; // String
+    street_gte?: string | null; // String
+    street_in?: string[] | null; // [String!]
+    street_lt?: string | null; // String
+    street_lte?: string | null; // String
+    street_not?: string | null; // String
+    street_not_contains?: string | null; // String
+    street_not_ends_with?: string | null; // String
+    street_not_in?: string[] | null; // [String!]
+    street_not_starts_with?: string | null; // String
+    street_starts_with?: string | null; // String
+  }
+  OwnerWhereInput: { // input type
+    accountId?: string | null; // String
+    accountId_contains?: string | null; // String
+    accountId_ends_with?: string | null; // String
+    accountId_gt?: string | null; // String
+    accountId_gte?: string | null; // String
+    accountId_in?: string[] | null; // [String!]
+    accountId_lt?: string | null; // String
+    accountId_lte?: string | null; // String
+    accountId_not?: string | null; // String
+    accountId_not_contains?: string | null; // String
+    accountId_not_ends_with?: string | null; // String
+    accountId_not_in?: string[] | null; // [String!]
+    accountId_not_starts_with?: string | null; // String
+    accountId_starts_with?: string | null; // String
+    AND?: NexusGenInputs['OwnerWhereInput'][] | null; // [OwnerWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
+    firstName?: string | null; // String
+    firstName_contains?: string | null; // String
+    firstName_ends_with?: string | null; // String
+    firstName_gt?: string | null; // String
+    firstName_gte?: string | null; // String
+    firstName_in?: string[] | null; // [String!]
+    firstName_lt?: string | null; // String
+    firstName_lte?: string | null; // String
+    firstName_not?: string | null; // String
+    firstName_not_contains?: string | null; // String
+    firstName_not_ends_with?: string | null; // String
+    firstName_not_in?: string[] | null; // [String!]
+    firstName_not_starts_with?: string | null; // String
+    firstName_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    lastName?: string | null; // String
+    lastName_contains?: string | null; // String
+    lastName_ends_with?: string | null; // String
+    lastName_gt?: string | null; // String
+    lastName_gte?: string | null; // String
+    lastName_in?: string[] | null; // [String!]
+    lastName_lt?: string | null; // String
+    lastName_lte?: string | null; // String
+    lastName_not?: string | null; // String
+    lastName_not_contains?: string | null; // String
+    lastName_not_ends_with?: string | null; // String
+    lastName_not_in?: string[] | null; // [String!]
+    lastName_not_starts_with?: string | null; // String
+    lastName_starts_with?: string | null; // String
+    location?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
+    middleName?: string | null; // String
+    middleName_contains?: string | null; // String
+    middleName_ends_with?: string | null; // String
+    middleName_gt?: string | null; // String
+    middleName_gte?: string | null; // String
+    middleName_in?: string[] | null; // [String!]
+    middleName_lt?: string | null; // String
+    middleName_lte?: string | null; // String
+    middleName_not?: string | null; // String
+    middleName_not_contains?: string | null; // String
+    middleName_not_ends_with?: string | null; // String
+    middleName_not_in?: string[] | null; // [String!]
+    middleName_not_starts_with?: string | null; // String
+    middleName_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['OwnerWhereInput'][] | null; // [OwnerWhereInput!]
+    OR?: NexusGenInputs['OwnerWhereInput'][] | null; // [OwnerWhereInput!]
+    schools_every?: NexusGenInputs['SchoolWhereInput'] | null; // SchoolWhereInput
+    schools_none?: NexusGenInputs['SchoolWhereInput'] | null; // SchoolWhereInput
+    schools_some?: NexusGenInputs['SchoolWhereInput'] | null; // SchoolWhereInput
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
+  }
+  SchoolWhereInput: { // input type
+    AND?: NexusGenInputs['SchoolWhereInput'][] | null; // [SchoolWhereInput!]
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
+    email?: string | null; // String
+    email_contains?: string | null; // String
+    email_ends_with?: string | null; // String
+    email_gt?: string | null; // String
+    email_gte?: string | null; // String
+    email_in?: string[] | null; // [String!]
+    email_lt?: string | null; // String
+    email_lte?: string | null; // String
+    email_not?: string | null; // String
+    email_not_contains?: string | null; // String
+    email_not_ends_with?: string | null; // String
+    email_not_in?: string[] | null; // [String!]
+    email_not_starts_with?: string | null; // String
+    email_starts_with?: string | null; // String
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    locations_every?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
+    locations_none?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
+    locations_some?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
+    NOT?: NexusGenInputs['SchoolWhereInput'][] | null; // [SchoolWhereInput!]
+    OR?: NexusGenInputs['SchoolWhereInput'][] | null; // [SchoolWhereInput!]
+    owner?: NexusGenInputs['OwnerWhereInput'] | null; // OwnerWhereInput
+    phone?: string | null; // String
+    phone_contains?: string | null; // String
+    phone_ends_with?: string | null; // String
+    phone_gt?: string | null; // String
+    phone_gte?: string | null; // String
+    phone_in?: string[] | null; // [String!]
+    phone_lt?: string | null; // String
+    phone_lte?: string | null; // String
+    phone_not?: string | null; // String
+    phone_not_contains?: string | null; // String
+    phone_not_ends_with?: string | null; // String
+    phone_not_in?: string[] | null; // [String!]
+    phone_not_starts_with?: string | null; // String
+    phone_starts_with?: string | null; // String
+    title?: string | null; // String
+    title_contains?: string | null; // String
+    title_ends_with?: string | null; // String
+    title_gt?: string | null; // String
+    title_gte?: string | null; // String
+    title_in?: string[] | null; // [String!]
+    title_lt?: string | null; // String
+    title_lte?: string | null; // String
+    title_not?: string | null; // String
+    title_not_contains?: string | null; // String
+    title_not_ends_with?: string | null; // String
+    title_not_in?: string[] | null; // [String!]
+    title_not_starts_with?: string | null; // String
+    title_starts_with?: string | null; // String
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
+    uri?: string | null; // String
+    uri_contains?: string | null; // String
+    uri_ends_with?: string | null; // String
+    uri_gt?: string | null; // String
+    uri_gte?: string | null; // String
+    uri_in?: string[] | null; // [String!]
+    uri_lt?: string | null; // String
+    uri_lte?: string | null; // String
+    uri_not?: string | null; // String
+    uri_not_contains?: string | null; // String
+    uri_not_ends_with?: string | null; // String
+    uri_not_in?: string[] | null; // [String!]
+    uri_not_starts_with?: string | null; // String
+    uri_starts_with?: string | null; // String
+  }
 }
 
 export interface NexusGenEnums {
+  LocationOrderByInput: "city_ASC" | "city_DESC" | "country_ASC" | "country_DESC" | "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "nearestLandmark_ASC" | "nearestLandmark_DESC" | "number_ASC" | "number_DESC" | "other_ASC" | "other_DESC" | "postalcode_ASC" | "postalcode_DESC" | "street_ASC" | "street_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  Role: "ADMIN" | "OWNER" | "PARENT" | "STUDENT"
+  SchoolOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "phone_ASC" | "phone_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "uri_ASC" | "uri_DESC"
 }
 
 export interface NexusGenRootTypes {
@@ -22,11 +362,45 @@ export interface NexusGenRootTypes {
     email: string; // String!
     id: string; // ID!
     lastLogin?: any | null; // DateTime
+    role: NexusGenEnums['Role']; // Role!
     updatedAt: any; // DateTime!
     username?: string | null; // String
   }
+  Geocode: { // root type
+    id: string; // ID!
+    latitude: number; // Float!
+    longitude: number; // Float!
+  }
+  Location: { // root type
+    city: string; // String!
+    country: string; // String!
+    id: string; // ID!
+    nearestLandmark?: string | null; // String
+    number: number; // Int!
+    other?: string | null; // String
+    postalcode: string; // String!
+    street: string; // String!
+  }
   Mutation: {};
+  Owner: { // root type
+    accountId: string; // String!
+    createdAt: any; // DateTime!
+    firstName: string; // String!
+    id: string; // ID!
+    lastName: string; // String!
+    middleName?: string | null; // String
+    updatedAt: any; // DateTime!
+  }
   Query: {};
+  School: { // root type
+    createdAt: any; // DateTime!
+    email: string; // String!
+    id: string; // ID!
+    phone: string; // String!
+    title: string; // String!
+    updatedAt: any; // DateTime!
+    uri: string; // String!
+  }
   Token: { // root type
     id: string; // ID!
     token: string; // String!
@@ -43,6 +417,13 @@ export interface NexusGenRootTypes {
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
+  GeocodeWhereInput: NexusGenInputs['GeocodeWhereInput'];
+  LocationWhereInput: NexusGenInputs['LocationWhereInput'];
+  OwnerWhereInput: NexusGenInputs['OwnerWhereInput'];
+  SchoolWhereInput: NexusGenInputs['SchoolWhereInput'];
+  LocationOrderByInput: NexusGenEnums['LocationOrderByInput'];
+  Role: NexusGenEnums['Role'];
+  SchoolOrderByInput: NexusGenEnums['SchoolOrderByInput'];
 }
 
 export interface NexusGenFieldTypes {
@@ -52,10 +433,28 @@ export interface NexusGenFieldTypes {
     id: string; // ID!
     lastLogin: any | null; // DateTime
     lastSeen: string | null; // String
+    role: NexusGenEnums['Role']; // Role!
     updatedAt: any; // DateTime!
     username: string | null; // String
   }
+  Geocode: { // field return type
+    id: string; // ID!
+    latitude: number; // Float!
+    longitude: number; // Float!
+  }
+  Location: { // field return type
+    city: string; // String!
+    country: string; // String!
+    geocode: NexusGenRootTypes['Geocode'] | null; // Geocode
+    id: string; // ID!
+    nearestLandmark: string | null; // String
+    number: number; // Int!
+    other: string | null; // String
+    postalcode: string; // String!
+    street: string; // String!
+  }
   Mutation: { // field return type
+    createOwner: NexusGenRootTypes['Owner'] | null; // Owner
     login: NexusGenRootTypes['Account'] | null; // Account
     passwordReset: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
     requestPasswordReset: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
@@ -64,8 +463,29 @@ export interface NexusGenFieldTypes {
     signup: NexusGenRootTypes['Account'] | null; // Account
     verify: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
   }
+  Owner: { // field return type
+    accountId: string; // String!
+    createdAt: any; // DateTime!
+    firstName: string; // String!
+    id: string; // ID!
+    lastName: string; // String!
+    middleName: string | null; // String
+    schools: NexusGenRootTypes['School'][] | null; // [School!]
+    updatedAt: any; // DateTime!
+  }
   Query: { // field return type
     me: NexusGenRootTypes['Account'] | null; // Account
+  }
+  School: { // field return type
+    createdAt: any; // DateTime!
+    email: string; // String!
+    id: string; // ID!
+    locations: NexusGenRootTypes['Location'][] | null; // [Location!]
+    owner: NexusGenRootTypes['Owner']; // Owner!
+    phone: string; // String!
+    title: string; // String!
+    updatedAt: any; // DateTime!
+    uri: string; // String!
   }
   Token: { // field return type
     id: string; // ID!
@@ -78,6 +498,11 @@ export interface NexusGenFieldTypes {
 
 export interface NexusGenArgTypes {
   Mutation: {
+    createOwner: { // args
+      firstName?: string | null; // String
+      lastName?: string | null; // String
+      middleName?: string | null; // String
+    }
     login: { // args
       email?: string | null; // String
       password?: string | null; // String
@@ -101,6 +526,28 @@ export interface NexusGenArgTypes {
       token?: string | null; // String
     }
   }
+  Owner: {
+    schools: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['SchoolOrderByInput'] | null; // SchoolOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['SchoolWhereInput'] | null; // SchoolWhereInput
+    }
+  }
+  School: {
+    locations: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['LocationOrderByInput'] | null; // LocationOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['LocationWhereInput'] | null; // LocationWhereInput
+    }
+  }
 }
 
 export interface NexusGenAbstractResolveReturnTypes {
@@ -108,11 +555,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Account" | "Mutation" | "Query" | "Token" | "TriggerAction";
+export type NexusGenObjectNames = "Account" | "Geocode" | "Location" | "Mutation" | "Owner" | "Query" | "School" | "Token" | "TriggerAction";
 
-export type NexusGenInputNames = never;
+export type NexusGenInputNames = "GeocodeWhereInput" | "LocationWhereInput" | "OwnerWhereInput" | "SchoolWhereInput";
 
-export type NexusGenEnumNames = never;
+export type NexusGenEnumNames = "LocationOrderByInput" | "Role" | "SchoolOrderByInput";
 
 export type NexusGenInterfaceNames = never;
 

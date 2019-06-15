@@ -4,6 +4,7 @@ type Account {
   email: String! @unique
   password: String!
   isVerified: Boolean! @default(value: false)
+  role: Role! @default(value: OWNER)
   lastLogin: DateTime
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
@@ -13,11 +14,60 @@ type Token {
   id: ID! @id
   accountId: String!
   token: String! @unique
-  type: TokenType @efault(value: EMAIL)
+  type: TokenType! @default(value: EMAIL)
   createdAt: DateTime! @createdAt
+}
+
+type Owner {
+  id: ID! @id
+  accountId: String! @unique
+  firstName: String!
+  middleName: String
+  lastName: String!
+  schools: [School!]!
+  location: Location
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type School {
+  id: ID! @id
+  title: String!
+  phone: String! @unique
+  uri: String! @unique
+  email: String! @unique
+  owner: Owner! @relation(link: INLINE)
+  locations: [Location!]!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Location {
+  id: ID! @id
+  number: Int!
+  street: String!
+  other: String
+  city: String!
+  country: String!
+  postalcode: String!
+  nearestLandmark: String
+  geocode: Geocode
+}
+
+type Geocode {
+  id: ID! @id
+  latitude: Float!
+  longitude: Float!
 }
 
 enum TokenType {
   PASSWORD
   EMAIL
+}
+
+enum Role {
+  OWNER
+  ADMIN
+  PARENT
+  STUDENT
 }
