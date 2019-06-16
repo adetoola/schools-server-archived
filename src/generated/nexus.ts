@@ -499,31 +499,31 @@ export interface NexusGenFieldTypes {
 export interface NexusGenArgTypes {
   Mutation: {
     createOwner: { // args
-      firstName?: string | null; // String
-      lastName?: string | null; // String
+      firstName: string; // String!
+      lastName: string; // String!
       middleName?: string | null; // String
     }
     login: { // args
-      email?: string | null; // String
-      password?: string | null; // String
+      email: string; // String!
+      password: string; // String!
     }
     passwordReset: { // args
-      password?: string | null; // String
-      token?: string | null; // String
+      password: string; // String!
+      token: string; // String!
     }
     requestPasswordReset: { // args
-      email?: string | null; // String
+      email: string; // String!
     }
     requestVerificationMail: { // args
-      email?: string | null; // String
+      email: string; // String!
     }
     signup: { // args
-      email?: string | null; // String
-      password?: string | null; // String
+      email: string; // String!
+      password: string; // String!
       username?: string | null; // String
     }
     verify: { // args
-      token?: string | null; // String
+      token: string; // String!
     }
   }
   Owner: {

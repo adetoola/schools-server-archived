@@ -206,14 +206,14 @@ input LocationWhereInput {
 }
 
 type Mutation {
-  createOwner(firstName: String, lastName: String, middleName: String): Owner
-  login(email: String, password: String): Account
-  passwordReset(password: String, token: String): TriggerAction
-  requestPasswordReset(email: String): TriggerAction
-  requestVerificationMail(email: String): TriggerAction
+  createOwner(firstName: String!, lastName: String!, middleName: String): Owner
+  login(email: String!, password: String!): Account
+  passwordReset(password: String!, token: String!): TriggerAction
+  requestPasswordReset(email: String!): TriggerAction
+  requestVerificationMail(email: String!): TriggerAction
   signout: TriggerAction
-  signup(email: String, password: String, username: String): Account
-  verify(token: String): TriggerAction
+  signup(email: String!, password: String!, username: String): Account
+  verify(token: String!): TriggerAction
 }
 
 type Owner {
