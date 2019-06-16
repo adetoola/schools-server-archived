@@ -6,6 +6,7 @@ import * as path from 'path';
 
 import datamodelInfo from './generated/nexus-prisma';
 import { prisma } from './generated/prisma-client';
+import { permissions } from './permissions';
 import * as allTypes from './resolvers';
 
 // Make sure dotenv works across the project
@@ -29,7 +30,7 @@ const schema = makePrismaSchema({
 
   // Configure nullability of input arguments: All arguments are non-nullable by default
   nonNullDefaults: {
-    input: false,
+    input: true,
     output: false,
   },
 
@@ -47,6 +48,7 @@ const schema = makePrismaSchema({
 
 const server = new GraphQLServer({
   schema,
+  middlewares: [permissions],
   context: request => {
     return {
       ...request,
