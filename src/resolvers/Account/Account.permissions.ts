@@ -1,6 +1,6 @@
 import { allow, not } from 'graphql-shield';
 
-import { isAuthenticatedUser } from '../../permissions/rules';
+import { isAuthenticatedUser } from './Account.rules';
 
 export const AccountPermissions = {
   Query: {

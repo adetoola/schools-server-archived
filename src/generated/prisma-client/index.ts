@@ -363,8 +363,6 @@ export type SchoolOrderByInput =
 export type OwnerOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "accountId_ASC"
-  | "accountId_DESC"
   | "firstName_ASC"
   | "firstName_DESC"
   | "middleName_ASC"
@@ -649,7 +647,6 @@ export interface LocationWhereInput {
 
 export type OwnerWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
-  accountId?: Maybe<String>;
 }>;
 
 export interface SchoolWhereInput {
@@ -763,20 +760,7 @@ export interface OwnerWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  accountId?: Maybe<String>;
-  accountId_not?: Maybe<String>;
-  accountId_in?: Maybe<String[] | String>;
-  accountId_not_in?: Maybe<String[] | String>;
-  accountId_lt?: Maybe<String>;
-  accountId_lte?: Maybe<String>;
-  accountId_gt?: Maybe<String>;
-  accountId_gte?: Maybe<String>;
-  accountId_contains?: Maybe<String>;
-  accountId_not_contains?: Maybe<String>;
-  accountId_starts_with?: Maybe<String>;
-  accountId_not_starts_with?: Maybe<String>;
-  accountId_ends_with?: Maybe<String>;
-  accountId_not_ends_with?: Maybe<String>;
+  account?: Maybe<AccountWhereInput>;
   firstName?: Maybe<String>;
   firstName_not?: Maybe<String>;
   firstName_in?: Maybe<String[] | String>;
@@ -1019,12 +1003,17 @@ export interface LocationUpdateManyMutationInput {
 
 export interface OwnerCreateInput {
   id?: Maybe<ID_Input>;
-  accountId: String;
+  account: AccountCreateOneInput;
   firstName: String;
   middleName?: Maybe<String>;
   lastName: String;
   schools?: Maybe<SchoolCreateManyWithoutOwnerInput>;
   location?: Maybe<LocationCreateOneInput>;
+}
+
+export interface AccountCreateOneInput {
+  create?: Maybe<AccountCreateInput>;
+  connect?: Maybe<AccountWhereUniqueInput>;
 }
 
 export interface SchoolCreateManyWithoutOwnerInput {
@@ -1054,12 +1043,33 @@ export interface LocationCreateOneInput {
 }
 
 export interface OwnerUpdateInput {
-  accountId?: Maybe<String>;
+  account?: Maybe<AccountUpdateOneRequiredInput>;
   firstName?: Maybe<String>;
   middleName?: Maybe<String>;
   lastName?: Maybe<String>;
   schools?: Maybe<SchoolUpdateManyWithoutOwnerInput>;
   location?: Maybe<LocationUpdateOneInput>;
+}
+
+export interface AccountUpdateOneRequiredInput {
+  create?: Maybe<AccountCreateInput>;
+  update?: Maybe<AccountUpdateDataInput>;
+  upsert?: Maybe<AccountUpsertNestedInput>;
+  connect?: Maybe<AccountWhereUniqueInput>;
+}
+
+export interface AccountUpdateDataInput {
+  username?: Maybe<String>;
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  isVerified?: Maybe<Boolean>;
+  role?: Maybe<Role>;
+  lastLogin?: Maybe<DateTimeInput>;
+}
+
+export interface AccountUpsertNestedInput {
+  update: AccountUpdateDataInput;
+  create: AccountCreateInput;
 }
 
 export interface SchoolUpdateManyWithoutOwnerInput {
@@ -1393,7 +1403,6 @@ export interface LocationUpsertNestedInput {
 }
 
 export interface OwnerUpdateManyMutationInput {
-  accountId?: Maybe<String>;
   firstName?: Maybe<String>;
   middleName?: Maybe<String>;
   lastName?: Maybe<String>;
@@ -1416,7 +1425,7 @@ export interface OwnerCreateOneWithoutSchoolsInput {
 
 export interface OwnerCreateWithoutSchoolsInput {
   id?: Maybe<ID_Input>;
-  accountId: String;
+  account: AccountCreateOneInput;
   firstName: String;
   middleName?: Maybe<String>;
   lastName: String;
@@ -1440,7 +1449,7 @@ export interface OwnerUpdateOneRequiredWithoutSchoolsInput {
 }
 
 export interface OwnerUpdateWithoutSchoolsDataInput {
-  accountId?: Maybe<String>;
+  account?: Maybe<AccountUpdateOneRequiredInput>;
   firstName?: Maybe<String>;
   middleName?: Maybe<String>;
   lastName?: Maybe<String>;
@@ -1872,7 +1881,6 @@ export interface AggregateLocationSubscription
 
 export interface Owner {
   id: ID_Output;
-  accountId: String;
   firstName: String;
   middleName?: String;
   lastName: String;
@@ -1882,7 +1890,7 @@ export interface Owner {
 
 export interface OwnerPromise extends Promise<Owner>, Fragmentable {
   id: () => Promise<ID_Output>;
-  accountId: () => Promise<String>;
+  account: <T = AccountPromise>() => T;
   firstName: () => Promise<String>;
   middleName: () => Promise<String>;
   lastName: () => Promise<String>;
@@ -1904,7 +1912,7 @@ export interface OwnerSubscription
   extends Promise<AsyncIterator<Owner>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  accountId: () => Promise<AsyncIterator<String>>;
+  account: <T = AccountSubscription>() => T;
   firstName: () => Promise<AsyncIterator<String>>;
   middleName: () => Promise<AsyncIterator<String>>;
   lastName: () => Promise<AsyncIterator<String>>;
@@ -1926,7 +1934,7 @@ export interface OwnerNullablePromise
   extends Promise<Owner | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  accountId: () => Promise<String>;
+  account: <T = AccountPromise>() => T;
   firstName: () => Promise<String>;
   middleName: () => Promise<String>;
   lastName: () => Promise<String>;
@@ -2433,7 +2441,6 @@ export interface OwnerSubscriptionPayloadSubscription
 
 export interface OwnerPreviousValues {
   id: ID_Output;
-  accountId: String;
   firstName: String;
   middleName?: String;
   lastName: String;
@@ -2445,7 +2452,6 @@ export interface OwnerPreviousValuesPromise
   extends Promise<OwnerPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  accountId: () => Promise<String>;
   firstName: () => Promise<String>;
   middleName: () => Promise<String>;
   lastName: () => Promise<String>;
@@ -2457,7 +2463,6 @@ export interface OwnerPreviousValuesSubscription
   extends Promise<AsyncIterator<OwnerPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  accountId: () => Promise<AsyncIterator<String>>;
   firstName: () => Promise<AsyncIterator<String>>;
   middleName: () => Promise<AsyncIterator<String>>;
   lastName: () => Promise<AsyncIterator<String>>;

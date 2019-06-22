@@ -20,7 +20,7 @@ type Token {
 
 type Owner {
   id: ID! @id
-  accountId: String! @unique
+  account: Account!
   firstName: String!
   middleName: String
   lastName: String!

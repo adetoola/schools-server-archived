@@ -121,6 +121,7 @@ export interface NexusPrismaTypes {
       TokenUpdateInput: TokenUpdateInputInputObject
       TokenUpdateManyMutationInput: TokenUpdateManyMutationInputInputObject
       OwnerCreateInput: OwnerCreateInputInputObject
+      AccountCreateOneInput: AccountCreateOneInputInputObject
       SchoolCreateManyWithoutOwnerInput: SchoolCreateManyWithoutOwnerInputInputObject
       SchoolCreateWithoutOwnerInput: SchoolCreateWithoutOwnerInputInputObject
       LocationCreateManyInput: LocationCreateManyInputInputObject
@@ -129,6 +130,9 @@ export interface NexusPrismaTypes {
       GeocodeCreateInput: GeocodeCreateInputInputObject
       LocationCreateOneInput: LocationCreateOneInputInputObject
       OwnerUpdateInput: OwnerUpdateInputInputObject
+      AccountUpdateOneRequiredInput: AccountUpdateOneRequiredInputInputObject
+      AccountUpdateDataInput: AccountUpdateDataInputInputObject
+      AccountUpsertNestedInput: AccountUpsertNestedInputInputObject
       SchoolUpdateManyWithoutOwnerInput: SchoolUpdateManyWithoutOwnerInputInputObject
       SchoolUpdateWithWhereUniqueWithoutOwnerInput: SchoolUpdateWithWhereUniqueWithoutOwnerInputInputObject
       SchoolUpdateWithoutOwnerDataInput: SchoolUpdateWithoutOwnerDataInputInputObject
@@ -1064,7 +1068,7 @@ export interface AggregateTokenFieldDetails {
 type OwnerObject =
   | OwnerFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'accountId', args?: [] | false, alias?: string  } 
+  | { name: 'account', args?: [] | false, alias?: string  } 
   | { name: 'firstName', args?: [] | false, alias?: string  } 
   | { name: 'middleName', args?: [] | false, alias?: string  } 
   | { name: 'lastName', args?: [] | false, alias?: string  } 
@@ -1075,7 +1079,7 @@ type OwnerObject =
 
 type OwnerFields =
   | 'id'
-  | 'accountId'
+  | 'account'
   | 'firstName'
   | 'middleName'
   | 'lastName'
@@ -1104,13 +1108,18 @@ export interface OwnerFieldDetails {
     nullable: false
     resolve: undefined
   }
-  accountId: {
-    type: 'String'
+  account: {
+    type: 'Account'
     args: {}
     description: string
     list: undefined
     nullable: false
-    resolve: undefined
+    resolve: (
+      root: core.RootValue<"Owner">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Account> | prisma.Account
   }
   firstName: {
     type: 'String'
@@ -3144,7 +3153,6 @@ export interface OwnerSubscriptionPayloadFieldDetails {
 type OwnerPreviousValuesObject =
   | OwnerPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'accountId', args?: [] | false, alias?: string  } 
   | { name: 'firstName', args?: [] | false, alias?: string  } 
   | { name: 'middleName', args?: [] | false, alias?: string  } 
   | { name: 'lastName', args?: [] | false, alias?: string  } 
@@ -3153,7 +3161,6 @@ type OwnerPreviousValuesObject =
 
 type OwnerPreviousValuesFields =
   | 'id'
-  | 'accountId'
   | 'firstName'
   | 'middleName'
   | 'lastName'
@@ -3167,14 +3174,6 @@ type OwnerPreviousValuesFields =
 export interface OwnerPreviousValuesFieldDetails {
   id: {
     type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  accountId: {
-    type: 'String'
     args: {}
     description: string
     list: undefined
@@ -3984,12 +3983,10 @@ export type TokenWhereInputInputObject =
   
 export interface OwnerWhereUniqueInput {
   id?: string | null
-  accountId?: string | null
 }
 export type OwnerWhereUniqueInputInputObject =
   | Extract<keyof OwnerWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'accountId', alias?: string  } 
   
 export interface SchoolWhereInput {
   id?: string | null
@@ -4197,20 +4194,7 @@ export interface OwnerWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  accountId?: string | null
-  accountId_not?: string | null
-  accountId_in?: string[]
-  accountId_not_in?: string[]
-  accountId_lt?: string | null
-  accountId_lte?: string | null
-  accountId_gt?: string | null
-  accountId_gte?: string | null
-  accountId_contains?: string | null
-  accountId_not_contains?: string | null
-  accountId_starts_with?: string | null
-  accountId_not_starts_with?: string | null
-  accountId_ends_with?: string | null
-  accountId_not_ends_with?: string | null
+  account?: AccountWhereInput | null
   firstName?: string | null
   firstName_not?: string | null
   firstName_in?: string[]
@@ -4293,20 +4277,7 @@ export type OwnerWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'accountId', alias?: string  } 
-  | { name: 'accountId_not', alias?: string  } 
-  | { name: 'accountId_in', alias?: string  } 
-  | { name: 'accountId_not_in', alias?: string  } 
-  | { name: 'accountId_lt', alias?: string  } 
-  | { name: 'accountId_lte', alias?: string  } 
-  | { name: 'accountId_gt', alias?: string  } 
-  | { name: 'accountId_gte', alias?: string  } 
-  | { name: 'accountId_contains', alias?: string  } 
-  | { name: 'accountId_not_contains', alias?: string  } 
-  | { name: 'accountId_starts_with', alias?: string  } 
-  | { name: 'accountId_not_starts_with', alias?: string  } 
-  | { name: 'accountId_ends_with', alias?: string  } 
-  | { name: 'accountId_not_ends_with', alias?: string  } 
+  | { name: 'account', alias?: string  } 
   | { name: 'firstName', alias?: string  } 
   | { name: 'firstName_not', alias?: string  } 
   | { name: 'firstName_in', alias?: string  } 
@@ -4786,7 +4757,7 @@ export type TokenUpdateManyMutationInputInputObject =
   
 export interface OwnerCreateInput {
   id?: string | null
-  accountId?: string
+  account?: AccountCreateOneInput
   firstName?: string
   middleName?: string | null
   lastName?: string
@@ -4796,12 +4767,21 @@ export interface OwnerCreateInput {
 export type OwnerCreateInputInputObject =
   | Extract<keyof OwnerCreateInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'accountId', alias?: string  } 
+  | { name: 'account', alias?: string  } 
   | { name: 'firstName', alias?: string  } 
   | { name: 'middleName', alias?: string  } 
   | { name: 'lastName', alias?: string  } 
   | { name: 'schools', alias?: string  } 
   | { name: 'location', alias?: string  } 
+  
+export interface AccountCreateOneInput {
+  create?: AccountCreateInput | null
+  connect?: AccountWhereUniqueInput | null
+}
+export type AccountCreateOneInputInputObject =
+  | Extract<keyof AccountCreateOneInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
   
 export interface SchoolCreateManyWithoutOwnerInput {
   create?: SchoolCreateWithoutOwnerInput[]
@@ -4891,7 +4871,7 @@ export type LocationCreateOneInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface OwnerUpdateInput {
-  accountId?: string | null
+  account?: AccountUpdateOneRequiredInput | null
   firstName?: string | null
   middleName?: string | null
   lastName?: string | null
@@ -4900,12 +4880,51 @@ export interface OwnerUpdateInput {
 }
 export type OwnerUpdateInputInputObject =
   | Extract<keyof OwnerUpdateInput, string>
-  | { name: 'accountId', alias?: string  } 
+  | { name: 'account', alias?: string  } 
   | { name: 'firstName', alias?: string  } 
   | { name: 'middleName', alias?: string  } 
   | { name: 'lastName', alias?: string  } 
   | { name: 'schools', alias?: string  } 
   | { name: 'location', alias?: string  } 
+  
+export interface AccountUpdateOneRequiredInput {
+  create?: AccountCreateInput | null
+  update?: AccountUpdateDataInput | null
+  upsert?: AccountUpsertNestedInput | null
+  connect?: AccountWhereUniqueInput | null
+}
+export type AccountUpdateOneRequiredInputInputObject =
+  | Extract<keyof AccountUpdateOneRequiredInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface AccountUpdateDataInput {
+  username?: string | null
+  email?: string | null
+  password?: string | null
+  isVerified?: boolean | null
+  role?: prisma.Role | null
+  lastLogin?: string | null
+}
+export type AccountUpdateDataInputInputObject =
+  | Extract<keyof AccountUpdateDataInput, string>
+  | { name: 'username', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'password', alias?: string  } 
+  | { name: 'isVerified', alias?: string  } 
+  | { name: 'role', alias?: string  } 
+  | { name: 'lastLogin', alias?: string  } 
+  
+export interface AccountUpsertNestedInput {
+  update?: AccountUpdateDataInput
+  create?: AccountCreateInput
+}
+export type AccountUpsertNestedInputInputObject =
+  | Extract<keyof AccountUpsertNestedInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
   
 export interface SchoolUpdateManyWithoutOwnerInput {
   create?: SchoolCreateWithoutOwnerInput[]
@@ -5547,14 +5566,12 @@ export type LocationUpsertNestedInputInputObject =
   | { name: 'create', alias?: string  } 
   
 export interface OwnerUpdateManyMutationInput {
-  accountId?: string | null
   firstName?: string | null
   middleName?: string | null
   lastName?: string | null
 }
 export type OwnerUpdateManyMutationInputInputObject =
   | Extract<keyof OwnerUpdateManyMutationInput, string>
-  | { name: 'accountId', alias?: string  } 
   | { name: 'firstName', alias?: string  } 
   | { name: 'middleName', alias?: string  } 
   | { name: 'lastName', alias?: string  } 
@@ -5589,7 +5606,7 @@ export type OwnerCreateOneWithoutSchoolsInputInputObject =
   
 export interface OwnerCreateWithoutSchoolsInput {
   id?: string | null
-  accountId?: string
+  account?: AccountCreateOneInput
   firstName?: string
   middleName?: string | null
   lastName?: string
@@ -5598,7 +5615,7 @@ export interface OwnerCreateWithoutSchoolsInput {
 export type OwnerCreateWithoutSchoolsInputInputObject =
   | Extract<keyof OwnerCreateWithoutSchoolsInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'accountId', alias?: string  } 
+  | { name: 'account', alias?: string  } 
   | { name: 'firstName', alias?: string  } 
   | { name: 'middleName', alias?: string  } 
   | { name: 'lastName', alias?: string  } 
@@ -5635,7 +5652,7 @@ export type OwnerUpdateOneRequiredWithoutSchoolsInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface OwnerUpdateWithoutSchoolsDataInput {
-  accountId?: string | null
+  account?: AccountUpdateOneRequiredInput | null
   firstName?: string | null
   middleName?: string | null
   lastName?: string | null
@@ -5643,7 +5660,7 @@ export interface OwnerUpdateWithoutSchoolsDataInput {
 }
 export type OwnerUpdateWithoutSchoolsDataInputInputObject =
   | Extract<keyof OwnerUpdateWithoutSchoolsDataInput, string>
-  | { name: 'accountId', alias?: string  } 
+  | { name: 'account', alias?: string  } 
   | { name: 'firstName', alias?: string  } 
   | { name: 'middleName', alias?: string  } 
   | { name: 'lastName', alias?: string  } 
@@ -5941,8 +5958,6 @@ export type LocationOrderByInputValues =
 export type OwnerOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'accountId_ASC'
-  | 'accountId_DESC'
   | 'firstName_ASC'
   | 'firstName_DESC'
   | 'middleName_ASC'

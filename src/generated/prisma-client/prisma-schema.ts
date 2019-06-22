@@ -30,6 +30,11 @@ input AccountCreateInput {
   lastLogin: DateTime
 }
 
+input AccountCreateOneInput {
+  create: AccountCreateInput
+  connect: AccountWhereUniqueInput
+}
+
 type AccountEdge {
   node: Account!
   cursor: String!
@@ -86,6 +91,15 @@ input AccountSubscriptionWhereInput {
   NOT: [AccountSubscriptionWhereInput!]
 }
 
+input AccountUpdateDataInput {
+  username: String
+  email: String
+  password: String
+  isVerified: Boolean
+  role: Role
+  lastLogin: DateTime
+}
+
 input AccountUpdateInput {
   username: String
   email: String
@@ -102,6 +116,18 @@ input AccountUpdateManyMutationInput {
   isVerified: Boolean
   role: Role
   lastLogin: DateTime
+}
+
+input AccountUpdateOneRequiredInput {
+  create: AccountCreateInput
+  update: AccountUpdateDataInput
+  upsert: AccountUpsertNestedInput
+  connect: AccountWhereUniqueInput
+}
+
+input AccountUpsertNestedInput {
+  update: AccountUpdateDataInput!
+  create: AccountCreateInput!
 }
 
 input AccountWhereInput {
@@ -821,7 +847,7 @@ interface Node {
 
 type Owner {
   id: ID!
-  accountId: String!
+  account: Account!
   firstName: String!
   middleName: String
   lastName: String!
@@ -839,7 +865,7 @@ type OwnerConnection {
 
 input OwnerCreateInput {
   id: ID
-  accountId: String!
+  account: AccountCreateOneInput!
   firstName: String!
   middleName: String
   lastName: String!
@@ -854,7 +880,7 @@ input OwnerCreateOneWithoutSchoolsInput {
 
 input OwnerCreateWithoutSchoolsInput {
   id: ID
-  accountId: String!
+  account: AccountCreateOneInput!
   firstName: String!
   middleName: String
   lastName: String!
@@ -869,8 +895,6 @@ type OwnerEdge {
 enum OwnerOrderByInput {
   id_ASC
   id_DESC
-  accountId_ASC
-  accountId_DESC
   firstName_ASC
   firstName_DESC
   middleName_ASC
@@ -885,7 +909,6 @@ enum OwnerOrderByInput {
 
 type OwnerPreviousValues {
   id: ID!
-  accountId: String!
   firstName: String!
   middleName: String
   lastName: String!
@@ -912,7 +935,7 @@ input OwnerSubscriptionWhereInput {
 }
 
 input OwnerUpdateInput {
-  accountId: String
+  account: AccountUpdateOneRequiredInput
   firstName: String
   middleName: String
   lastName: String
@@ -921,7 +944,6 @@ input OwnerUpdateInput {
 }
 
 input OwnerUpdateManyMutationInput {
-  accountId: String
   firstName: String
   middleName: String
   lastName: String
@@ -935,7 +957,7 @@ input OwnerUpdateOneRequiredWithoutSchoolsInput {
 }
 
 input OwnerUpdateWithoutSchoolsDataInput {
-  accountId: String
+  account: AccountUpdateOneRequiredInput
   firstName: String
   middleName: String
   lastName: String
@@ -962,20 +984,7 @@ input OwnerWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  accountId: String
-  accountId_not: String
-  accountId_in: [String!]
-  accountId_not_in: [String!]
-  accountId_lt: String
-  accountId_lte: String
-  accountId_gt: String
-  accountId_gte: String
-  accountId_contains: String
-  accountId_not_contains: String
-  accountId_starts_with: String
-  accountId_not_starts_with: String
-  accountId_ends_with: String
-  accountId_not_ends_with: String
+  account: AccountWhereInput
   firstName: String
   firstName_not: String
   firstName_in: [String!]
@@ -1045,7 +1054,6 @@ input OwnerWhereInput {
 
 input OwnerWhereUniqueInput {
   id: ID
-  accountId: String
 }
 
 type PageInfo {

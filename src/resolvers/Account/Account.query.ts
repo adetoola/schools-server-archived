@@ -1,8 +1,9 @@
-import { queryType } from 'nexus';
+import { prismaExtendType } from 'nexus-prisma';
 
 import { getAccountId } from '../../utils';
 
-export const Query = queryType({
+export const Query = prismaExtendType({
+  type: 'Query',
   definition(t) {
     t.field('me', {
       type: 'Account',

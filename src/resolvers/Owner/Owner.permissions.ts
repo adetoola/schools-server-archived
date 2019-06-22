@@ -1,8 +1,13 @@
-import { isAuthenticatedUser } from '../../permissions/rules';
+import { allow, and } from 'graphql-shield';
+
+import { canCreateNewOwnerDetails, canUpdateOwner, isRoleOwner } from './Owner.rules';
 
 export const OwnerPermissions = {
-  Query: {},
+  Query: {
+    getOwner: allow,
+  },
   Mutation: {
-    createOwner: isAuthenticatedUser,
+    createOwner: and(isRoleOwner, canCreateNewOwnerDetails),
+    updateOwner: and(isRoleOwner, canUpdateOwner),
   },
 };

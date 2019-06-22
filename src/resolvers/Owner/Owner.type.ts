@@ -4,6 +4,6 @@ import { prismaObjectType } from 'nexus-prisma';
 export const Owner = prismaObjectType({
   name: 'Owner',
   definition(t) {
-    t.prismaFields(['id', 'accountId', 'firstName', 'middleName', 'lastName', 'schools', 'createdAt', 'updatedAt']);
+    t.prismaFields(['id', 'firstName', 'middleName', 'lastName', 'account', 'schools', 'createdAt', 'updatedAt']);
   },
 });
