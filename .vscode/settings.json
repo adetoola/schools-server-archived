@@ -1,4 +1,18 @@
 {
     "eslint.autoFixOnSave": true,
-    "eslint.alwaysShowStatus": true
+    "eslint.alwaysShowStatus": true,
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#f07b4e",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#89f5a7",
+        "activityBarBadge.foreground": "#15202b",
+        "titleBar.activeBackground": "#ec581f",
+        "titleBar.inactiveBackground": "#ec581f99",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveForeground": "#e7e7e799",
+        "statusBar.background": "#ec581f",
+        "statusBarItem.hoverBackground": "#f07b4e",
+        "statusBar.foreground": "#e7e7e7"
+    }
 }
