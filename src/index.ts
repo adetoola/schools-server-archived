@@ -1,6 +1,7 @@
 import * as cookieParser from 'cookie-parser';
 import { config } from 'dotenv';
 import { GraphQLServer } from 'graphql-yoga';
+import { AddressInfo } from 'net';
 import { makePrismaSchema } from 'nexus-prisma';
 import * as path from 'path';
 
@@ -62,14 +63,20 @@ server.express.use(cookieParser());
 
 const { FRONTEND_URL, APP_PORT } = process.env;
 
-server.start(
-  {
+server
+  .start({
     cors: {
       credentials: true,
       origin: FRONTEND_URL,
     },
     port: parseInt(APP_PORT, 10),
-  },
-  // eslint-disable-next-line no-console
-  details => console.log(`🚀 Server is running on http://localhost:${details.port}`)
-);
+  })
+  .then(http =>
+    // eslint-disable-next-line no-console
+    console.log(`> 🚀 GraphQL API Gateway is running on http://localhost:${(http.address() as AddressInfo).port}`)
+  )
+  .catch(err => {
+    // eslint-disable-next-line no-console
+    console.error(`Something went wrong:`, err);
+    process.exit(1);
+  });
