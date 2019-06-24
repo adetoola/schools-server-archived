@@ -404,6 +404,7 @@ input LocationWhereUniqueInput {
 
 type Mutation {
   createOwner(firstName: String!, lastName: String!, middleName: String): Owner
+  createSchool(email: String!, phone: String!, title: String!, uri: String!): School
   login(email: String!, password: String!): Account
   passwordReset(password: String!, token: String!): TriggerAction
   requestPasswordReset(email: String!): TriggerAction

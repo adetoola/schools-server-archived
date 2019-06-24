@@ -2,6 +2,7 @@ import { rule } from 'graphql-shield';
 
 import { Context } from '../../types';
 import { getAccountId } from '../../utils';
+import { getOwner } from './Owner.utils';
 
 /**
  * Auth User account is role: "OWNER"
@@ -26,16 +27,9 @@ export const isRoleOwner = rule()(
  */
 export const canCreateNewOwnerDetails = rule()(
   async (_parent, _args, ctx: Context): Promise<boolean> => {
-    const accountId = getAccountId(ctx);
-    const ownerExists = await ctx.prisma.owners({
-      where: {
-        account: {
-          id: accountId,
-        },
-      },
-    });
-
-    return ownerExists.length === 0;
+    // owner should not exist - we can create a new one
+    const ownerExists = getOwner(ctx);
+    return Boolean(!ownerExists);
   }
 );
 
@@ -46,16 +40,8 @@ export const canCreateNewOwnerDetails = rule()(
  */
 export const canUpdateOwner = rule()(
   async (_parent, _args, ctx: Context): Promise<boolean> => {
-    const accountId = await getAccountId(ctx);
-
-    const ownerExists = await ctx.prisma.owners({
-      where: {
-        account: {
-          id: accountId,
-        },
-      },
-    });
-
-    return ownerExists.length === 1;
+    // owner already exists - we can update
+    const ownerExists = getOwner(ctx);
+    return Boolean(ownerExists);
   }
 );

@@ -10,7 +10,7 @@ interface Token {
 }
 
 /**
- *
+ * Picks the authenticated account id from the cookie passed
  *
  * @param ctx
  * @returns string

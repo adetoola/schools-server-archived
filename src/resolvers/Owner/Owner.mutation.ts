@@ -1,6 +1,9 @@
 import { extendType, stringArg } from 'nexus';
 
-import { getAccountId } from '../../utils';
+import * as Joi from '@hapi/joi';
+
+import formatJoiErrors, { getAccountId } from '../../utils';
+import { createOwnerSchema } from './Owner.schema';
 
 export const Mutation = extendType({
   type: 'Mutation',
@@ -12,7 +15,14 @@ export const Mutation = extendType({
         middleName: stringArg({ nullable: true }),
         lastName: stringArg(),
       },
-      resolve: async (_parent, { firstName, middleName, lastName }, ctx) => {
+      resolve: async (_parent, args, ctx) => {
+        const {
+          error,
+          value: { firstName, middleName, lastName },
+        } = Joi.validate(args, createOwnerSchema, { abortEarly: false });
+
+        if (error) throw new Error(formatJoiErrors(error));
+
         const accountId = getAccountId(ctx);
 
         const owner = await ctx.prisma.createOwner({

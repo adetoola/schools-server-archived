@@ -750,6 +750,7 @@ export interface NexusGenFieldTypes {
   }
   Mutation: { // field return type
     createOwner: NexusGenRootTypes['Owner'] | null; // Owner
+    createSchool: NexusGenRootTypes['School'] | null; // School
     login: NexusGenRootTypes['Account'] | null; // Account
     passwordReset: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
     requestPasswordReset: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
@@ -850,6 +851,12 @@ export interface NexusGenArgTypes {
       firstName: string; // String!
       lastName: string; // String!
       middleName?: string | null; // String
+    }
+    createSchool: { // args
+      email: string; // String!
+      phone: string; // String!
+      title: string; // String!
+      uri: string; // String!
     }
     login: { // args
       email: string; // String!
