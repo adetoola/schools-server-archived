@@ -158,7 +158,7 @@ export const Mutation = extendType({
         const {
           error,
           value: { email },
-        } = Joi.validate(args, signupSchema, { abortEarly: false });
+        } = Joi.validate(args, tokenSchema, { abortEarly: false });
 
         if (error) throw new Error(formatJoiErrors(error));
 
@@ -207,7 +207,7 @@ export const Mutation = extendType({
         const {
           error,
           value: { email },
-        } = Joi.validate(args, signupSchema, { abortEarly: false });
+        } = Joi.validate(args, resetPasswordSchema, { abortEarly: false });
 
         if (error) throw new Error(formatJoiErrors(error));
 
