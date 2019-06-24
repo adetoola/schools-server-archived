@@ -9,7 +9,9 @@ import * as Joi from '@hapi/joi';
 
 import sendEmail from '../../services/email';
 import formatJoiErrors, { cutOffTime } from '../../utils';
-import { loginSchema, resetPasswordSchema, signupSchema, tokenSchema } from './Account.schemas';
+import {
+    emailSchema, loginSchema, resetPasswordSchema, signupSchema, tokenSchema
+} from './Account.schemas';
 
 export const Mutation = extendType({
   type: 'Mutation',
@@ -158,7 +160,7 @@ export const Mutation = extendType({
         const {
           error,
           value: { email },
-        } = Joi.validate(args, tokenSchema, { abortEarly: false });
+        } = Joi.validate(args, emailSchema, { abortEarly: false });
 
         if (error) throw new Error(formatJoiErrors(error));
 
