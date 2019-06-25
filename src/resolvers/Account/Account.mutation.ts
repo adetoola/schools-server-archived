@@ -9,9 +9,7 @@ import * as Joi from '@hapi/joi';
 
 import sendEmail from '../../services/email';
 import formatJoiErrors, { cutOffTime } from '../../utils';
-import {
-    emailSchema, loginSchema, resetPasswordSchema, signupSchema, tokenSchema
-} from './Account.schemas';
+import * as ASchema from './Account.schemas';
 
 export const Mutation = extendType({
   type: 'Mutation',
@@ -27,7 +25,7 @@ export const Mutation = extendType({
         const {
           error,
           value: { username, email, password },
-        } = Joi.validate(args, signupSchema, { abortEarly: false });
+        } = Joi.validate(args, ASchema.signupSchema, { abortEarly: false });
 
         if (error) throw new Error(formatJoiErrors(error));
 
@@ -69,7 +67,7 @@ export const Mutation = extendType({
         const {
           error,
           value: { email, password },
-        } = Joi.validate(args, loginSchema, { abortEarly: false });
+        } = Joi.validate(args, ASchema.loginSchema, { abortEarly: false });
 
         if (error) throw new Error(formatJoiErrors(error));
 
@@ -119,7 +117,7 @@ export const Mutation = extendType({
         const {
           error,
           value: { token },
-        } = Joi.validate(args, tokenSchema, { abortEarly: false });
+        } = Joi.validate(args, ASchema.tokenSchema, { abortEarly: false });
 
         if (error) throw new Error(formatJoiErrors(error));
 
@@ -160,7 +158,7 @@ export const Mutation = extendType({
         const {
           error,
           value: { email },
-        } = Joi.validate(args, emailSchema, { abortEarly: false });
+        } = Joi.validate(args, ASchema.emailSchema, { abortEarly: false });
 
         if (error) throw new Error(formatJoiErrors(error));
 
@@ -209,7 +207,7 @@ export const Mutation = extendType({
         const {
           error,
           value: { email },
-        } = Joi.validate(args, resetPasswordSchema, { abortEarly: false });
+        } = Joi.validate(args, ASchema.resetPasswordSchema, { abortEarly: false });
 
         if (error) throw new Error(formatJoiErrors(error));
 
@@ -257,7 +255,7 @@ export const Mutation = extendType({
         const {
           error,
           value: { token, password },
-        } = Joi.validate(args, resetPasswordSchema, { abortEarly: false });
+        } = Joi.validate(args, ASchema.resetPasswordSchema, { abortEarly: false });
 
         if (error) throw new Error(formatJoiErrors(error));
 
