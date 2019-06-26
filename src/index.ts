@@ -1,4 +1,4 @@
-import './config';
+import 'dotenv/config';
 
 import * as cookieParser from 'cookie-parser';
 import { AddressInfo } from 'net';
