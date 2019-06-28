@@ -2,7 +2,11 @@
   "name": "typescript-graphql",
   "scripts": {
     "start": "ts-node-dev --no-notify --respawn --transpileOnly ./src",
-    "build": "tsc -p tsconfig.build.json"
+    "build": "tsc -p tsconfig.build.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
     "@hapi/joi": "^15.0.3",
@@ -32,6 +36,7 @@
     "@types/dotenv": "^6.1.1",
     "@types/graphql": "14.2.0",
     "@types/hapi__joi": "^15.0.1",
+    "@types/jest": "^24.0.15",
     "@types/jsonwebtoken": "^8.3.2",
     "@types/node": "10.14.8",
     "@types/nodemailer": "^6.2.0",
@@ -41,7 +46,11 @@
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-prettier": "^3.1.0",
+    "fetch-cookie": "^0.7.2",
+    "graphql-request": "^1.8.2",
     "graphql-shield": "^5.3.5",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
     "ts-node-dev": "1.0.0-pre.39",
     "typescript": "3.5.1"
   }
