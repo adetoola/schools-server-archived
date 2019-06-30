@@ -14,15 +14,6 @@ const signupMutation = `
   }
 `;
 
-// const inSignupMutation = `
-//   mutation signup($username: String, $email: String!, $password: String!) {
-//     signup(username: $username, email: $email, password: $password) {
-//       ${defaultAccountFragment}
-//       password
-//     }
-//   }
-// `;
-
 describe('AccountMutation (e2e)', () => {
   afterEach(async () => {
     //reset prisma db especially the account table
@@ -36,7 +27,6 @@ describe('AccountMutation (e2e)', () => {
         username: 'adetoola',
         password: 'qwerty1234',
       });
-      console.log(response);
       expect(response).toMatchObject({
         signup: {
           id: expect.any(String),
