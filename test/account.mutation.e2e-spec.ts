@@ -40,6 +40,7 @@ describe('AccountMutation - signup (e2e)', () => {
   // });
 
   it('should create an account when the mutation is valid.', async () => {
+    console.log(process.env.NOD_ENV);
     const response = await client.request(signupMutation, {
       email: 'adetoola@gmail.com',
       username: 'adetoola',
