@@ -27,17 +27,7 @@ describe('AccountMutation - signup (e2e)', () => {
   afterEach(async () => {
     //reset prisma db especially the account table
     await getPrismaTestInstance().deleteManyAccounts();
-    console.log('I was called!');
   });
-
-  // it('calls the API and throws an error', async () => {
-  //   try {
-  //     await login('email', 'password');
-  //   } catch (error) {
-  //     expect(error.name).toEqual('Unauthorized');
-  //     expect(error.status).toEqual(401);
-  //   }
-  // });
 
   it('should create an account when the mutation is valid.', async () => {
     console.log(process.env.NOD_ENV);
@@ -51,6 +41,21 @@ describe('AccountMutation - signup (e2e)', () => {
       signup: {
         id: expect.any(String),
         username: 'adetoola',
+        email: 'adetoola@gmail.com',
+      },
+    });
+  });
+
+  it('should create an account when username is absent.', async () => {
+    const response = await client.request(signupMutation, {
+      email: 'adetoola@gmail.com',
+      password: 'qwerty1234',
+    });
+
+    expect(response).toMatchObject({
+      signup: {
+        id: expect.any(String),
+        username: null,
         email: 'adetoola@gmail.com',
       },
     });
