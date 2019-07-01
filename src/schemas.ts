@@ -33,7 +33,7 @@ export const string = Joi.string().alphanum();
 // phone
 export const phone = Joi.string()
   .length(11)
-  .regex(/^([0]{1})([7-9]{1})([0|1]{1})([d]{1})([d]{7,8})$/);
+  .regex(/^(0{1})([7-9]{1})([0|1]{1})([\d]{1})([\d]{7,8})$/);
 
 // uri
 export const uri = Joi.string().uri();
