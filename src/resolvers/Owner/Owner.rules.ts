@@ -28,7 +28,8 @@ export const isRoleOwner = rule()(
 export const canCreateNewOwnerDetails = rule()(
   async (_parent, _args, ctx: Context): Promise<boolean> => {
     // owner should not exist - we can create a new one
-    const ownerExists = getOwner(ctx);
+    const ownerExists = await getOwner(ctx);
+    console.log('OWNER EXISTS', ownerExists);
     return Boolean(!ownerExists);
   }
 );
@@ -41,7 +42,7 @@ export const canCreateNewOwnerDetails = rule()(
 export const canUpdateOwner = rule()(
   async (_parent, _args, ctx: Context): Promise<boolean> => {
     // owner already exists - we can update
-    const ownerExists = getOwner(ctx);
+    const ownerExists = await getOwner(ctx);
     return Boolean(ownerExists);
   }
 );
