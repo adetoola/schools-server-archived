@@ -49,7 +49,8 @@ export const Mutation = extendType({
         email: stringArg({ nullable: true }),
       },
       resolve: async (_parent, args, ctx) => {
-        const { error, value } = Joi.validate(args, updateSchoolSchema, { abortEarly: false });
+        // remove id from args
+        const { error, value } = Joi.validate(args, updateSchoolSchema, { abortEarly: false, stripUnknown: true });
 
         if (error) throw new Error(formatJoiErrors(error));
 

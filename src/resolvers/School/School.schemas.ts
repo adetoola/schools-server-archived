@@ -14,4 +14,4 @@ export const updateSchoolSchema = Joi.object().keys({
   phone: phone,
   uri: uri,
   email: email,
-}).strip;
+});
