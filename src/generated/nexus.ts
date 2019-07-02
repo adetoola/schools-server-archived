@@ -758,6 +758,7 @@ export interface NexusGenFieldTypes {
     signout: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
     signup: NexusGenRootTypes['Account'] | null; // Account
     updateOwner: NexusGenRootTypes['Owner'] | null; // Owner
+    updateSchool: NexusGenRootTypes['School'] | null; // School
     verify: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
   }
   Owner: { // field return type
@@ -881,6 +882,13 @@ export interface NexusGenArgTypes {
       firstName?: string | null; // String
       lastName?: string | null; // String
       middleName?: string | null; // String
+    }
+    updateSchool: { // args
+      email?: string | null; // String
+      id: string; // ID!
+      phone?: string | null; // String
+      title?: string | null; // String
+      uri?: string | null; // String
     }
     verify: { // args
       token: string; // String!

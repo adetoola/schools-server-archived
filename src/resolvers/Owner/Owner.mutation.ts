@@ -36,6 +36,7 @@ export const Mutation = extendType({
       },
     });
 
+    // TODO: Add validation here
     t.field('updateOwner', {
       type: 'Owner',
       args: {

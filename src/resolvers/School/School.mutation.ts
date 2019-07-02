@@ -1,10 +1,10 @@
-import { extendType, stringArg } from 'nexus';
+import { extendType, idArg, stringArg } from 'nexus';
 
 import * as Joi from '@hapi/joi';
 
 import formatJoiErrors from '../../utils';
 import { getOwner } from '../Owner/Owner.utils';
-import { createSchoolSchema } from './School.schemas';
+import { createSchoolSchema, updateSchoolSchema } from './School.schemas';
 
 export const Mutation = extendType({
   type: 'Mutation',
@@ -35,6 +35,28 @@ export const Mutation = extendType({
           owner: { connect: { id } },
         });
 
+        return school;
+      },
+    });
+
+    t.field('updateSchool', {
+      type: 'School',
+      args: {
+        id: idArg(),
+        title: stringArg({ nullable: true }),
+        phone: stringArg({ nullable: true }),
+        uri: stringArg({ nullable: true }),
+        email: stringArg({ nullable: true }),
+      },
+      resolve: async (_parent, args, ctx) => {
+        const { error, value } = Joi.validate(args, updateSchoolSchema, { abortEarly: false });
+
+        if (error) throw new Error(formatJoiErrors(error));
+
+        const school = await ctx.prisma.updateSchool({
+          data: value,
+          where: { id: args.id },
+        });
         return school;
       },
     });

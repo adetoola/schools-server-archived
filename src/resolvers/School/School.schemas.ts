@@ -8,3 +8,10 @@ export const createSchoolSchema = Joi.object().keys({
   uri: uri.required(),
   email: email.required(),
 });
+
+export const updateSchoolSchema = Joi.object().keys({
+  title: string,
+  phone: phone,
+  uri: uri,
+  email: email,
+}).strip;

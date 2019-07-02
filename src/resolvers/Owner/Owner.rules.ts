@@ -29,7 +29,6 @@ export const canCreateNewOwnerDetails = rule()(
   async (_parent, _args, ctx: Context): Promise<boolean> => {
     // owner should not exist - we can create a new one
     const ownerExists = await getOwner(ctx);
-    console.log('OWNER EXISTS', ownerExists);
     return Boolean(!ownerExists);
   }
 );

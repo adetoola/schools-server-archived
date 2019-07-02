@@ -1,4 +1,6 @@
-import { client, getPrismaTestInstance } from './utils';
+import axios from 'axios';
+
+import { client, EMAIL_CLEAN_URL, getPrismaTestInstance, MAILTRAP_AUTH_HEADER } from '../utils';
 
 const defaultAccountFragment = `
   id
@@ -6,27 +8,35 @@ const defaultAccountFragment = `
   email
 `;
 
-const signupMutation = `
+export const signupMutation = `
   mutation signup($username: String, $email: String!, $password: String!) {
     signup(username: $username, email: $email, password: $password) {
-      ${defaultAccountFragment}
+     ${defaultAccountFragment}
     }
   }
 `;
 
-describe('AccountMutation (e2e)', () => {
-  afterEach(async () => {
-    //reset prisma db especially the account table
+describe('AccountMutation (e2e) - signup', async () => {
+  beforeEach(async () => {
+    // reset prisma db especially the account table
     await getPrismaTestInstance().deleteManyAccounts();
+
+    // reset mailtrap inbox
+    const response = await axios.patch(EMAIL_CLEAN_URL, null, {
+      headers: MAILTRAP_AUTH_HEADER,
+    });
+
+    expect(response.status).toBe(200);
   });
 
-  describe('signup - (valid inputs)', () => {
+  describe('signup - (valid inputs)', async () => {
     it('should create an account when the mutation is valid.', async () => {
       const response = await client.request(signupMutation, {
         email: 'adetoola@gmail.com',
         username: 'adetoola',
         password: 'qwerty1234',
       });
+
       expect(response).toMatchObject({
         signup: {
           id: expect.any(String),
