@@ -28,7 +28,7 @@ export const token = Joi.string()
 export const name = Joi.string().regex(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/);
 
 // short strings : titles, addresses, cities etc
-export const string = Joi.string().alphanum();
+export const string = Joi.string();
 
 // phone
 export const phone = Joi.string()
