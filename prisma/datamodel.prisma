@@ -44,12 +44,12 @@ type School {
 
 type Location {
   id: ID! @id
-  number: Int!
+  number: String!
   street: String!
   other: String
   city: String!
   country: String!
-  postalcode: String!
+  postalCode: String!
   nearestLandmark: String
   geocode: Geocode
 }

@@ -37,3 +37,28 @@ export const phone = Joi.string()
 
 // uri
 export const uri = Joi.string().uri();
+
+// See: https://stackoverflow.com/questions/3518504/regular-expression-for-matching-latitude-longitude-coordinates/31408260#31408260
+
+// latitude (Latitude measurements range from –90° to +90°)
+export const latitude = Joi.number()
+  .min(-90)
+  .max(90)
+  .precision(6);
+// export const latitude = Joi.string().regex(
+//   /^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/
+// );
+
+// longitude (Longitude measurements range from –180° to +180°)
+export const longitude = Joi.number()
+  .min(-180)
+  .max(180)
+  .precision(6);
+// export const longitude = Joi.string().regex(
+//   /^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/
+// );
+
+//latlon
+export const latlon = Joi.string().regex(
+  /^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/
+);

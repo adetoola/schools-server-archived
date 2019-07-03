@@ -6405,7 +6405,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -6415,7 +6415,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -6431,7 +6431,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Int",
+                  "name": "String",
                   "ofType": null
                 }
               }
@@ -6449,7 +6449,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Int",
+                  "name": "String",
                   "ofType": null
                 }
               }
@@ -6461,7 +6461,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -6471,7 +6471,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -6481,7 +6481,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -6491,7 +6491,67 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "number_contains",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "number_not_contains",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "number_starts_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "number_not_starts_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "number_ends_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "number_not_ends_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -7121,7 +7181,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode",
+            "name": "postalCode",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -7131,7 +7191,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_not",
+            "name": "postalCode_not",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -7141,7 +7201,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_in",
+            "name": "postalCode_in",
             "description": null,
             "type": {
               "kind": "LIST",
@@ -7159,7 +7219,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_not_in",
+            "name": "postalCode_not_in",
             "description": null,
             "type": {
               "kind": "LIST",
@@ -7177,7 +7237,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_lt",
+            "name": "postalCode_lt",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -7187,7 +7247,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_lte",
+            "name": "postalCode_lte",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -7197,7 +7257,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_gt",
+            "name": "postalCode_gt",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -7207,7 +7267,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_gte",
+            "name": "postalCode_gte",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -7217,7 +7277,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_contains",
+            "name": "postalCode_contains",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -7227,7 +7287,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_not_contains",
+            "name": "postalCode_not_contains",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -7237,7 +7297,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_starts_with",
+            "name": "postalCode_starts_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -7247,7 +7307,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_not_starts_with",
+            "name": "postalCode_not_starts_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -7257,7 +7317,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_ends_with",
+            "name": "postalCode_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -7267,7 +7327,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_not_ends_with",
+            "name": "postalCode_not_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -8330,13 +8390,13 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "postalcode_ASC",
+            "name": "postalCode_ASC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "postalcode_DESC",
+            "name": "postalCode_DESC",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -8410,7 +8470,7 @@ export default {
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -8478,7 +8538,7 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "postalcode",
+            "name": "postalCode",
             "description": null,
             "args": [],
             "type": {
@@ -11493,7 +11553,7 @@ export default {
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -11552,7 +11612,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode",
+            "name": "postalCode",
             "description": null,
             "type": {
               "kind": "NON_NULL",
@@ -12429,7 +12489,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -12475,7 +12535,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode",
+            "name": "postalCode",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -12870,7 +12930,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -12880,7 +12940,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -12896,7 +12956,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Int",
+                  "name": "String",
                   "ofType": null
                 }
               }
@@ -12914,7 +12974,7 @@ export default {
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Int",
+                  "name": "String",
                   "ofType": null
                 }
               }
@@ -12926,7 +12986,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -12936,7 +12996,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -12946,7 +13006,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -12956,7 +13016,67 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "number_contains",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "number_not_contains",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "number_starts_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "number_not_starts_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "number_ends_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "number_not_ends_with",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -13586,7 +13706,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode",
+            "name": "postalCode",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13596,7 +13716,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_not",
+            "name": "postalCode_not",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13606,7 +13726,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_in",
+            "name": "postalCode_in",
             "description": null,
             "type": {
               "kind": "LIST",
@@ -13624,7 +13744,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_not_in",
+            "name": "postalCode_not_in",
             "description": null,
             "type": {
               "kind": "LIST",
@@ -13642,7 +13762,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_lt",
+            "name": "postalCode_lt",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13652,7 +13772,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_lte",
+            "name": "postalCode_lte",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13662,7 +13782,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_gt",
+            "name": "postalCode_gt",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13672,7 +13792,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_gte",
+            "name": "postalCode_gte",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13682,7 +13802,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_contains",
+            "name": "postalCode_contains",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13692,7 +13812,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_not_contains",
+            "name": "postalCode_not_contains",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13702,7 +13822,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_starts_with",
+            "name": "postalCode_starts_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13712,7 +13832,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_not_starts_with",
+            "name": "postalCode_not_starts_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13722,7 +13842,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_ends_with",
+            "name": "postalCode_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13732,7 +13852,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode_not_ends_with",
+            "name": "postalCode_not_ends_with",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -14006,7 +14126,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -14052,7 +14172,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode",
+            "name": "postalCode",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -15906,7 +16026,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -15952,7 +16072,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode",
+            "name": "postalCode",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -15997,7 +16117,7 @@ export default {
             "description": null,
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null
@@ -16043,7 +16163,7 @@ export default {
             "defaultValue": null
           },
           {
-            "name": "postalcode",
+            "name": "postalCode",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -17851,7 +17971,7 @@ export default {
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -17919,7 +18039,7 @@ export default {
             "deprecationReason": null
           },
           {
-            "name": "postalcode",
+            "name": "postalCode",
             "description": null,
             "args": [],
             "type": {

@@ -1322,7 +1322,7 @@ type LocationObject =
   | { name: 'other', args?: [] | false, alias?: string  } 
   | { name: 'city', args?: [] | false, alias?: string  } 
   | { name: 'country', args?: [] | false, alias?: string  } 
-  | { name: 'postalcode', args?: [] | false, alias?: string  } 
+  | { name: 'postalCode', args?: [] | false, alias?: string  } 
   | { name: 'nearestLandmark', args?: [] | false, alias?: string  } 
   | { name: 'geocode', args?: [] | false, alias?: string  } 
 
@@ -1333,7 +1333,7 @@ type LocationFields =
   | 'other'
   | 'city'
   | 'country'
-  | 'postalcode'
+  | 'postalCode'
   | 'nearestLandmark'
   | 'geocode'
 
@@ -1351,7 +1351,7 @@ export interface LocationFieldDetails {
     resolve: undefined
   }
   number: {
-    type: 'Int'
+    type: 'String'
     args: {}
     description: string
     list: undefined
@@ -1390,7 +1390,7 @@ export interface LocationFieldDetails {
     nullable: false
     resolve: undefined
   }
-  postalcode: {
+  postalCode: {
     type: 'String'
     args: {}
     description: string
@@ -3458,7 +3458,7 @@ type LocationPreviousValuesObject =
   | { name: 'other', args?: [] | false, alias?: string  } 
   | { name: 'city', args?: [] | false, alias?: string  } 
   | { name: 'country', args?: [] | false, alias?: string  } 
-  | { name: 'postalcode', args?: [] | false, alias?: string  } 
+  | { name: 'postalCode', args?: [] | false, alias?: string  } 
   | { name: 'nearestLandmark', args?: [] | false, alias?: string  } 
 
 type LocationPreviousValuesFields =
@@ -3468,7 +3468,7 @@ type LocationPreviousValuesFields =
   | 'other'
   | 'city'
   | 'country'
-  | 'postalcode'
+  | 'postalCode'
   | 'nearestLandmark'
 
 
@@ -3485,7 +3485,7 @@ export interface LocationPreviousValuesFieldDetails {
     resolve: undefined
   }
   number: {
-    type: 'Int'
+    type: 'String'
     args: {}
     description: string
     list: undefined
@@ -3524,7 +3524,7 @@ export interface LocationPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  postalcode: {
+  postalCode: {
     type: 'String'
     args: {}
     description: string
@@ -4359,14 +4359,20 @@ export interface LocationWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  number?: number | null
-  number_not?: number | null
-  number_in?: number[]
-  number_not_in?: number[]
-  number_lt?: number | null
-  number_lte?: number | null
-  number_gt?: number | null
-  number_gte?: number | null
+  number?: string | null
+  number_not?: string | null
+  number_in?: string[]
+  number_not_in?: string[]
+  number_lt?: string | null
+  number_lte?: string | null
+  number_gt?: string | null
+  number_gte?: string | null
+  number_contains?: string | null
+  number_not_contains?: string | null
+  number_starts_with?: string | null
+  number_not_starts_with?: string | null
+  number_ends_with?: string | null
+  number_not_ends_with?: string | null
   street?: string | null
   street_not?: string | null
   street_in?: string[]
@@ -4423,20 +4429,20 @@ export interface LocationWhereInput {
   country_not_starts_with?: string | null
   country_ends_with?: string | null
   country_not_ends_with?: string | null
-  postalcode?: string | null
-  postalcode_not?: string | null
-  postalcode_in?: string[]
-  postalcode_not_in?: string[]
-  postalcode_lt?: string | null
-  postalcode_lte?: string | null
-  postalcode_gt?: string | null
-  postalcode_gte?: string | null
-  postalcode_contains?: string | null
-  postalcode_not_contains?: string | null
-  postalcode_starts_with?: string | null
-  postalcode_not_starts_with?: string | null
-  postalcode_ends_with?: string | null
-  postalcode_not_ends_with?: string | null
+  postalCode?: string | null
+  postalCode_not?: string | null
+  postalCode_in?: string[]
+  postalCode_not_in?: string[]
+  postalCode_lt?: string | null
+  postalCode_lte?: string | null
+  postalCode_gt?: string | null
+  postalCode_gte?: string | null
+  postalCode_contains?: string | null
+  postalCode_not_contains?: string | null
+  postalCode_starts_with?: string | null
+  postalCode_not_starts_with?: string | null
+  postalCode_ends_with?: string | null
+  postalCode_not_ends_with?: string | null
   nearestLandmark?: string | null
   nearestLandmark_not?: string | null
   nearestLandmark_in?: string[]
@@ -4480,6 +4486,12 @@ export type LocationWhereInputInputObject =
   | { name: 'number_lte', alias?: string  } 
   | { name: 'number_gt', alias?: string  } 
   | { name: 'number_gte', alias?: string  } 
+  | { name: 'number_contains', alias?: string  } 
+  | { name: 'number_not_contains', alias?: string  } 
+  | { name: 'number_starts_with', alias?: string  } 
+  | { name: 'number_not_starts_with', alias?: string  } 
+  | { name: 'number_ends_with', alias?: string  } 
+  | { name: 'number_not_ends_with', alias?: string  } 
   | { name: 'street', alias?: string  } 
   | { name: 'street_not', alias?: string  } 
   | { name: 'street_in', alias?: string  } 
@@ -4536,20 +4548,20 @@ export type LocationWhereInputInputObject =
   | { name: 'country_not_starts_with', alias?: string  } 
   | { name: 'country_ends_with', alias?: string  } 
   | { name: 'country_not_ends_with', alias?: string  } 
-  | { name: 'postalcode', alias?: string  } 
-  | { name: 'postalcode_not', alias?: string  } 
-  | { name: 'postalcode_in', alias?: string  } 
-  | { name: 'postalcode_not_in', alias?: string  } 
-  | { name: 'postalcode_lt', alias?: string  } 
-  | { name: 'postalcode_lte', alias?: string  } 
-  | { name: 'postalcode_gt', alias?: string  } 
-  | { name: 'postalcode_gte', alias?: string  } 
-  | { name: 'postalcode_contains', alias?: string  } 
-  | { name: 'postalcode_not_contains', alias?: string  } 
-  | { name: 'postalcode_starts_with', alias?: string  } 
-  | { name: 'postalcode_not_starts_with', alias?: string  } 
-  | { name: 'postalcode_ends_with', alias?: string  } 
-  | { name: 'postalcode_not_ends_with', alias?: string  } 
+  | { name: 'postalCode', alias?: string  } 
+  | { name: 'postalCode_not', alias?: string  } 
+  | { name: 'postalCode_in', alias?: string  } 
+  | { name: 'postalCode_not_in', alias?: string  } 
+  | { name: 'postalCode_lt', alias?: string  } 
+  | { name: 'postalCode_lte', alias?: string  } 
+  | { name: 'postalCode_gt', alias?: string  } 
+  | { name: 'postalCode_gte', alias?: string  } 
+  | { name: 'postalCode_contains', alias?: string  } 
+  | { name: 'postalCode_not_contains', alias?: string  } 
+  | { name: 'postalCode_starts_with', alias?: string  } 
+  | { name: 'postalCode_not_starts_with', alias?: string  } 
+  | { name: 'postalCode_ends_with', alias?: string  } 
+  | { name: 'postalCode_not_ends_with', alias?: string  } 
   | { name: 'nearestLandmark', alias?: string  } 
   | { name: 'nearestLandmark_not', alias?: string  } 
   | { name: 'nearestLandmark_in', alias?: string  } 
@@ -4820,12 +4832,12 @@ export type LocationCreateManyInputInputObject =
   
 export interface LocationCreateInput {
   id?: string | null
-  number?: number
+  number?: string
   street?: string
   other?: string | null
   city?: string
   country?: string
-  postalcode?: string
+  postalCode?: string
   nearestLandmark?: string | null
   geocode?: GeocodeCreateOneInput | null
 }
@@ -4837,7 +4849,7 @@ export type LocationCreateInputInputObject =
   | { name: 'other', alias?: string  } 
   | { name: 'city', alias?: string  } 
   | { name: 'country', alias?: string  } 
-  | { name: 'postalcode', alias?: string  } 
+  | { name: 'postalCode', alias?: string  } 
   | { name: 'nearestLandmark', alias?: string  } 
   | { name: 'geocode', alias?: string  } 
   
@@ -5006,12 +5018,12 @@ export type LocationUpdateWithWhereUniqueNestedInputInputObject =
   | { name: 'data', alias?: string  } 
   
 export interface LocationUpdateDataInput {
-  number?: number | null
+  number?: string | null
   street?: string | null
   other?: string | null
   city?: string | null
   country?: string | null
-  postalcode?: string | null
+  postalCode?: string | null
   nearestLandmark?: string | null
   geocode?: GeocodeUpdateOneInput | null
 }
@@ -5022,7 +5034,7 @@ export type LocationUpdateDataInputInputObject =
   | { name: 'other', alias?: string  } 
   | { name: 'city', alias?: string  } 
   | { name: 'country', alias?: string  } 
-  | { name: 'postalcode', alias?: string  } 
+  | { name: 'postalCode', alias?: string  } 
   | { name: 'nearestLandmark', alias?: string  } 
   | { name: 'geocode', alias?: string  } 
   
@@ -5087,14 +5099,20 @@ export interface LocationScalarWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  number?: number | null
-  number_not?: number | null
-  number_in?: number[]
-  number_not_in?: number[]
-  number_lt?: number | null
-  number_lte?: number | null
-  number_gt?: number | null
-  number_gte?: number | null
+  number?: string | null
+  number_not?: string | null
+  number_in?: string[]
+  number_not_in?: string[]
+  number_lt?: string | null
+  number_lte?: string | null
+  number_gt?: string | null
+  number_gte?: string | null
+  number_contains?: string | null
+  number_not_contains?: string | null
+  number_starts_with?: string | null
+  number_not_starts_with?: string | null
+  number_ends_with?: string | null
+  number_not_ends_with?: string | null
   street?: string | null
   street_not?: string | null
   street_in?: string[]
@@ -5151,20 +5169,20 @@ export interface LocationScalarWhereInput {
   country_not_starts_with?: string | null
   country_ends_with?: string | null
   country_not_ends_with?: string | null
-  postalcode?: string | null
-  postalcode_not?: string | null
-  postalcode_in?: string[]
-  postalcode_not_in?: string[]
-  postalcode_lt?: string | null
-  postalcode_lte?: string | null
-  postalcode_gt?: string | null
-  postalcode_gte?: string | null
-  postalcode_contains?: string | null
-  postalcode_not_contains?: string | null
-  postalcode_starts_with?: string | null
-  postalcode_not_starts_with?: string | null
-  postalcode_ends_with?: string | null
-  postalcode_not_ends_with?: string | null
+  postalCode?: string | null
+  postalCode_not?: string | null
+  postalCode_in?: string[]
+  postalCode_not_in?: string[]
+  postalCode_lt?: string | null
+  postalCode_lte?: string | null
+  postalCode_gt?: string | null
+  postalCode_gte?: string | null
+  postalCode_contains?: string | null
+  postalCode_not_contains?: string | null
+  postalCode_starts_with?: string | null
+  postalCode_not_starts_with?: string | null
+  postalCode_ends_with?: string | null
+  postalCode_not_ends_with?: string | null
   nearestLandmark?: string | null
   nearestLandmark_not?: string | null
   nearestLandmark_in?: string[]
@@ -5207,6 +5225,12 @@ export type LocationScalarWhereInputInputObject =
   | { name: 'number_lte', alias?: string  } 
   | { name: 'number_gt', alias?: string  } 
   | { name: 'number_gte', alias?: string  } 
+  | { name: 'number_contains', alias?: string  } 
+  | { name: 'number_not_contains', alias?: string  } 
+  | { name: 'number_starts_with', alias?: string  } 
+  | { name: 'number_not_starts_with', alias?: string  } 
+  | { name: 'number_ends_with', alias?: string  } 
+  | { name: 'number_not_ends_with', alias?: string  } 
   | { name: 'street', alias?: string  } 
   | { name: 'street_not', alias?: string  } 
   | { name: 'street_in', alias?: string  } 
@@ -5263,20 +5287,20 @@ export type LocationScalarWhereInputInputObject =
   | { name: 'country_not_starts_with', alias?: string  } 
   | { name: 'country_ends_with', alias?: string  } 
   | { name: 'country_not_ends_with', alias?: string  } 
-  | { name: 'postalcode', alias?: string  } 
-  | { name: 'postalcode_not', alias?: string  } 
-  | { name: 'postalcode_in', alias?: string  } 
-  | { name: 'postalcode_not_in', alias?: string  } 
-  | { name: 'postalcode_lt', alias?: string  } 
-  | { name: 'postalcode_lte', alias?: string  } 
-  | { name: 'postalcode_gt', alias?: string  } 
-  | { name: 'postalcode_gte', alias?: string  } 
-  | { name: 'postalcode_contains', alias?: string  } 
-  | { name: 'postalcode_not_contains', alias?: string  } 
-  | { name: 'postalcode_starts_with', alias?: string  } 
-  | { name: 'postalcode_not_starts_with', alias?: string  } 
-  | { name: 'postalcode_ends_with', alias?: string  } 
-  | { name: 'postalcode_not_ends_with', alias?: string  } 
+  | { name: 'postalCode', alias?: string  } 
+  | { name: 'postalCode_not', alias?: string  } 
+  | { name: 'postalCode_in', alias?: string  } 
+  | { name: 'postalCode_not_in', alias?: string  } 
+  | { name: 'postalCode_lt', alias?: string  } 
+  | { name: 'postalCode_lte', alias?: string  } 
+  | { name: 'postalCode_gt', alias?: string  } 
+  | { name: 'postalCode_gte', alias?: string  } 
+  | { name: 'postalCode_contains', alias?: string  } 
+  | { name: 'postalCode_not_contains', alias?: string  } 
+  | { name: 'postalCode_starts_with', alias?: string  } 
+  | { name: 'postalCode_not_starts_with', alias?: string  } 
+  | { name: 'postalCode_ends_with', alias?: string  } 
+  | { name: 'postalCode_not_ends_with', alias?: string  } 
   | { name: 'nearestLandmark', alias?: string  } 
   | { name: 'nearestLandmark_not', alias?: string  } 
   | { name: 'nearestLandmark_in', alias?: string  } 
@@ -5305,12 +5329,12 @@ export type LocationUpdateManyWithWhereNestedInputInputObject =
   | { name: 'data', alias?: string  } 
   
 export interface LocationUpdateManyDataInput {
-  number?: number | null
+  number?: string | null
   street?: string | null
   other?: string | null
   city?: string | null
   country?: string | null
-  postalcode?: string | null
+  postalCode?: string | null
   nearestLandmark?: string | null
 }
 export type LocationUpdateManyDataInputInputObject =
@@ -5320,7 +5344,7 @@ export type LocationUpdateManyDataInputInputObject =
   | { name: 'other', alias?: string  } 
   | { name: 'city', alias?: string  } 
   | { name: 'country', alias?: string  } 
-  | { name: 'postalcode', alias?: string  } 
+  | { name: 'postalCode', alias?: string  } 
   | { name: 'nearestLandmark', alias?: string  } 
   
 export interface SchoolUpsertWithWhereUniqueWithoutOwnerInput {
@@ -5689,12 +5713,12 @@ export type SchoolUpdateManyMutationInputInputObject =
   | { name: 'email', alias?: string  } 
   
 export interface LocationUpdateInput {
-  number?: number | null
+  number?: string | null
   street?: string | null
   other?: string | null
   city?: string | null
   country?: string | null
-  postalcode?: string | null
+  postalCode?: string | null
   nearestLandmark?: string | null
   geocode?: GeocodeUpdateOneInput | null
 }
@@ -5705,17 +5729,17 @@ export type LocationUpdateInputInputObject =
   | { name: 'other', alias?: string  } 
   | { name: 'city', alias?: string  } 
   | { name: 'country', alias?: string  } 
-  | { name: 'postalcode', alias?: string  } 
+  | { name: 'postalCode', alias?: string  } 
   | { name: 'nearestLandmark', alias?: string  } 
   | { name: 'geocode', alias?: string  } 
   
 export interface LocationUpdateManyMutationInput {
-  number?: number | null
+  number?: string | null
   street?: string | null
   other?: string | null
   city?: string | null
   country?: string | null
-  postalcode?: string | null
+  postalCode?: string | null
   nearestLandmark?: string | null
 }
 export type LocationUpdateManyMutationInputInputObject =
@@ -5725,7 +5749,7 @@ export type LocationUpdateManyMutationInputInputObject =
   | { name: 'other', alias?: string  } 
   | { name: 'city', alias?: string  } 
   | { name: 'country', alias?: string  } 
-  | { name: 'postalcode', alias?: string  } 
+  | { name: 'postalCode', alias?: string  } 
   | { name: 'nearestLandmark', alias?: string  } 
   
 export interface GeocodeUpdateInput {
@@ -5946,8 +5970,8 @@ export type LocationOrderByInputValues =
   | 'city_DESC'
   | 'country_ASC'
   | 'country_DESC'
-  | 'postalcode_ASC'
-  | 'postalcode_DESC'
+  | 'postalCode_ASC'
+  | 'postalCode_DESC'
   | 'nearestLandmark_ASC'
   | 'nearestLandmark_DESC'
   | 'createdAt_ASC'

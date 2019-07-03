@@ -181,6 +181,12 @@ type GeocodeConnection {
   pageInfo: PageInfo!
 }
 
+input GeocodeCreateInput {
+  id: ID
+  latitude: Float!
+  longitude: Float!
+}
+
 type GeocodeEdge {
   cursor: String!
   node: Geocode!
@@ -245,9 +251,9 @@ type Location {
   geocode: Geocode
   id: ID!
   nearestLandmark: String
-  number: Int!
+  number: String!
   other: String
-  postalcode: String!
+  postalCode: String!
   street: String!
 }
 
@@ -255,6 +261,17 @@ type LocationConnection {
   aggregate: AggregateLocation!
   edges: [LocationEdge!]!
   pageInfo: PageInfo!
+}
+
+input LocationCreateInput {
+  city: String!
+  country: String!
+  geocode: GeocodeCreateInput!
+  nearestLandmark: String!
+  number: String!
+  other: String
+  postalCode: String!
+  street: String!
 }
 
 type LocationEdge {
@@ -277,8 +294,8 @@ enum LocationOrderByInput {
   number_DESC
   other_ASC
   other_DESC
-  postalcode_ASC
-  postalcode_DESC
+  postalCode_ASC
+  postalCode_DESC
   street_ASC
   street_DESC
   updatedAt_ASC
@@ -345,14 +362,20 @@ input LocationWhereInput {
   nearestLandmark_not_starts_with: String
   nearestLandmark_starts_with: String
   NOT: [LocationWhereInput!]
-  number: Int
-  number_gt: Int
-  number_gte: Int
-  number_in: [Int!]
-  number_lt: Int
-  number_lte: Int
-  number_not: Int
-  number_not_in: [Int!]
+  number: String
+  number_contains: String
+  number_ends_with: String
+  number_gt: String
+  number_gte: String
+  number_in: [String!]
+  number_lt: String
+  number_lte: String
+  number_not: String
+  number_not_contains: String
+  number_not_ends_with: String
+  number_not_in: [String!]
+  number_not_starts_with: String
+  number_starts_with: String
   OR: [LocationWhereInput!]
   other: String
   other_contains: String
@@ -368,20 +391,20 @@ input LocationWhereInput {
   other_not_in: [String!]
   other_not_starts_with: String
   other_starts_with: String
-  postalcode: String
-  postalcode_contains: String
-  postalcode_ends_with: String
-  postalcode_gt: String
-  postalcode_gte: String
-  postalcode_in: [String!]
-  postalcode_lt: String
-  postalcode_lte: String
-  postalcode_not: String
-  postalcode_not_contains: String
-  postalcode_not_ends_with: String
-  postalcode_not_in: [String!]
-  postalcode_not_starts_with: String
-  postalcode_starts_with: String
+  postalCode: String
+  postalCode_contains: String
+  postalCode_ends_with: String
+  postalCode_gt: String
+  postalCode_gte: String
+  postalCode_in: [String!]
+  postalCode_lt: String
+  postalCode_lte: String
+  postalCode_not: String
+  postalCode_not_contains: String
+  postalCode_not_ends_with: String
+  postalCode_not_in: [String!]
+  postalCode_not_starts_with: String
+  postalCode_starts_with: String
   street: String
   street_contains: String
   street_ends_with: String
@@ -404,7 +427,7 @@ input LocationWhereUniqueInput {
 
 type Mutation {
   createOwner(firstName: String!, lastName: String!, middleName: String): Owner
-  createSchool(email: String!, phone: String!, title: String!, uri: String!): School
+  createSchool(email: String!, location: LocationCreateInput, phone: String!, title: String!, uri: String!): School
   login(email: String!, password: String!): Account
   passwordReset(password: String!, token: String!): TriggerAction
   requestPasswordReset(email: String!): TriggerAction
@@ -412,7 +435,7 @@ type Mutation {
   signout: TriggerAction
   signup(email: String!, password: String!, username: String): Account
   updateOwner(firstName: String, lastName: String, middleName: String): Owner
-  updateSchool(email: String, id: ID!, phone: String, title: String, uri: String): School
+  updateSchool(email: String, geocode: GeocodeCreateInput!, id: ID!, phone: String, title: String, uri: String): School
   verify(token: String!): TriggerAction
 }
 
@@ -615,6 +638,13 @@ enum SchoolOrderByInput {
   updatedAt_DESC
   uri_ASC
   uri_DESC
+}
+
+input SchoolUpdateInput {
+  email: String
+  phone: String
+  title: String
+  uri: String
 }
 
 input SchoolWhereInput {

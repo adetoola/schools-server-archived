@@ -107,6 +107,11 @@ export interface NexusGenInputs {
     id?: string | null; // ID
     username?: string | null; // String
   }
+  GeocodeCreateInput: { // input type
+    id?: string | null; // ID
+    latitude: number; // Float!
+    longitude: number; // Float!
+  }
   GeocodeWhereInput: { // input type
     AND?: NexusGenInputs['GeocodeWhereInput'][] | null; // [GeocodeWhereInput!]
     id?: string | null; // ID
@@ -144,6 +149,16 @@ export interface NexusGenInputs {
   }
   GeocodeWhereUniqueInput: { // input type
     id?: string | null; // ID
+  }
+  LocationCreateInput: { // input type
+    city: string; // String!
+    country: string; // String!
+    geocode: NexusGenInputs['GeocodeCreateInput']; // GeocodeCreateInput!
+    nearestLandmark: string; // String!
+    number: string; // String!
+    other?: string | null; // String
+    postalCode: string; // String!
+    street: string; // String!
   }
   LocationWhereInput: { // input type
     AND?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
@@ -205,14 +220,20 @@ export interface NexusGenInputs {
     nearestLandmark_not_starts_with?: string | null; // String
     nearestLandmark_starts_with?: string | null; // String
     NOT?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
-    number?: number | null; // Int
-    number_gt?: number | null; // Int
-    number_gte?: number | null; // Int
-    number_in?: number[] | null; // [Int!]
-    number_lt?: number | null; // Int
-    number_lte?: number | null; // Int
-    number_not?: number | null; // Int
-    number_not_in?: number[] | null; // [Int!]
+    number?: string | null; // String
+    number_contains?: string | null; // String
+    number_ends_with?: string | null; // String
+    number_gt?: string | null; // String
+    number_gte?: string | null; // String
+    number_in?: string[] | null; // [String!]
+    number_lt?: string | null; // String
+    number_lte?: string | null; // String
+    number_not?: string | null; // String
+    number_not_contains?: string | null; // String
+    number_not_ends_with?: string | null; // String
+    number_not_in?: string[] | null; // [String!]
+    number_not_starts_with?: string | null; // String
+    number_starts_with?: string | null; // String
     OR?: NexusGenInputs['LocationWhereInput'][] | null; // [LocationWhereInput!]
     other?: string | null; // String
     other_contains?: string | null; // String
@@ -228,20 +249,20 @@ export interface NexusGenInputs {
     other_not_in?: string[] | null; // [String!]
     other_not_starts_with?: string | null; // String
     other_starts_with?: string | null; // String
-    postalcode?: string | null; // String
-    postalcode_contains?: string | null; // String
-    postalcode_ends_with?: string | null; // String
-    postalcode_gt?: string | null; // String
-    postalcode_gte?: string | null; // String
-    postalcode_in?: string[] | null; // [String!]
-    postalcode_lt?: string | null; // String
-    postalcode_lte?: string | null; // String
-    postalcode_not?: string | null; // String
-    postalcode_not_contains?: string | null; // String
-    postalcode_not_ends_with?: string | null; // String
-    postalcode_not_in?: string[] | null; // [String!]
-    postalcode_not_starts_with?: string | null; // String
-    postalcode_starts_with?: string | null; // String
+    postalCode?: string | null; // String
+    postalCode_contains?: string | null; // String
+    postalCode_ends_with?: string | null; // String
+    postalCode_gt?: string | null; // String
+    postalCode_gte?: string | null; // String
+    postalCode_in?: string[] | null; // [String!]
+    postalCode_lt?: string | null; // String
+    postalCode_lte?: string | null; // String
+    postalCode_not?: string | null; // String
+    postalCode_not_contains?: string | null; // String
+    postalCode_not_ends_with?: string | null; // String
+    postalCode_not_in?: string[] | null; // [String!]
+    postalCode_not_starts_with?: string | null; // String
+    postalCode_starts_with?: string | null; // String
     street?: string | null; // String
     street_contains?: string | null; // String
     street_ends_with?: string | null; // String
@@ -344,6 +365,12 @@ export interface NexusGenInputs {
   }
   OwnerWhereUniqueInput: { // input type
     id?: string | null; // ID
+  }
+  SchoolUpdateInput: { // input type
+    email?: string | null; // String
+    phone?: string | null; // String
+    title?: string | null; // String
+    uri?: string | null; // String
   }
   SchoolWhereInput: { // input type
     AND?: NexusGenInputs['SchoolWhereInput'][] | null; // [SchoolWhereInput!]
@@ -514,7 +541,7 @@ export interface NexusGenInputs {
 export interface NexusGenEnums {
   AccountOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "isVerified_ASC" | "isVerified_DESC" | "lastLogin_ASC" | "lastLogin_DESC" | "password_ASC" | "password_DESC" | "role_ASC" | "role_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC"
   GeocodeOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "latitude_ASC" | "latitude_DESC" | "longitude_ASC" | "longitude_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
-  LocationOrderByInput: "city_ASC" | "city_DESC" | "country_ASC" | "country_DESC" | "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "nearestLandmark_ASC" | "nearestLandmark_DESC" | "number_ASC" | "number_DESC" | "other_ASC" | "other_DESC" | "postalcode_ASC" | "postalcode_DESC" | "street_ASC" | "street_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  LocationOrderByInput: "city_ASC" | "city_DESC" | "country_ASC" | "country_DESC" | "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "nearestLandmark_ASC" | "nearestLandmark_DESC" | "number_ASC" | "number_DESC" | "other_ASC" | "other_DESC" | "postalCode_ASC" | "postalCode_DESC" | "street_ASC" | "street_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   OwnerOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "firstName_ASC" | "firstName_DESC" | "id_ASC" | "id_DESC" | "lastName_ASC" | "lastName_DESC" | "middleName_ASC" | "middleName_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   Role: "ADMIN" | "OWNER" | "PARENT" | "STUDENT"
   SchoolOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "phone_ASC" | "phone_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "uri_ASC" | "uri_DESC"
@@ -576,9 +603,9 @@ export interface NexusGenRootTypes {
     country: string; // String!
     id: string; // ID!
     nearestLandmark?: string | null; // String
-    number: number; // Int!
+    number: string; // String!
     other?: string | null; // String
-    postalcode: string; // String!
+    postalCode: string; // String!
     street: string; // String!
   }
   LocationConnection: { // root type
@@ -656,12 +683,15 @@ export interface NexusGenRootTypes {
 export interface NexusGenAllTypes extends NexusGenRootTypes {
   AccountWhereInput: NexusGenInputs['AccountWhereInput'];
   AccountWhereUniqueInput: NexusGenInputs['AccountWhereUniqueInput'];
+  GeocodeCreateInput: NexusGenInputs['GeocodeCreateInput'];
   GeocodeWhereInput: NexusGenInputs['GeocodeWhereInput'];
   GeocodeWhereUniqueInput: NexusGenInputs['GeocodeWhereUniqueInput'];
+  LocationCreateInput: NexusGenInputs['LocationCreateInput'];
   LocationWhereInput: NexusGenInputs['LocationWhereInput'];
   LocationWhereUniqueInput: NexusGenInputs['LocationWhereUniqueInput'];
   OwnerWhereInput: NexusGenInputs['OwnerWhereInput'];
   OwnerWhereUniqueInput: NexusGenInputs['OwnerWhereUniqueInput'];
+  SchoolUpdateInput: NexusGenInputs['SchoolUpdateInput'];
   SchoolWhereInput: NexusGenInputs['SchoolWhereInput'];
   SchoolWhereUniqueInput: NexusGenInputs['SchoolWhereUniqueInput'];
   TokenWhereInput: NexusGenInputs['TokenWhereInput'];
@@ -734,9 +764,9 @@ export interface NexusGenFieldTypes {
     geocode: NexusGenRootTypes['Geocode'] | null; // Geocode
     id: string; // ID!
     nearestLandmark: string | null; // String
-    number: number; // Int!
+    number: string; // String!
     other: string | null; // String
-    postalcode: string; // String!
+    postalCode: string; // String!
     street: string; // String!
   }
   LocationConnection: { // field return type
@@ -855,6 +885,7 @@ export interface NexusGenArgTypes {
     }
     createSchool: { // args
       email: string; // String!
+      location?: NexusGenInputs['LocationCreateInput'] | null; // LocationCreateInput
       phone: string; // String!
       title: string; // String!
       uri: string; // String!
@@ -885,6 +916,7 @@ export interface NexusGenArgTypes {
     }
     updateSchool: { // args
       email?: string | null; // String
+      geocode: NexusGenInputs['GeocodeCreateInput']; // GeocodeCreateInput!
       id: string; // ID!
       phone?: string | null; // String
       title?: string | null; // String
@@ -1053,7 +1085,7 @@ export interface NexusGenInheritedFields {}
 
 export type NexusGenObjectNames = "Account" | "AccountConnection" | "AccountEdge" | "AggregateAccount" | "AggregateGeocode" | "AggregateLocation" | "AggregateOwner" | "AggregateSchool" | "AggregateToken" | "Geocode" | "GeocodeConnection" | "GeocodeEdge" | "Location" | "LocationConnection" | "LocationEdge" | "Mutation" | "Owner" | "OwnerConnection" | "OwnerEdge" | "PageInfo" | "Query" | "School" | "SchoolConnection" | "SchoolEdge" | "Token" | "TokenConnection" | "TokenEdge" | "TriggerAction";
 
-export type NexusGenInputNames = "AccountWhereInput" | "AccountWhereUniqueInput" | "GeocodeWhereInput" | "GeocodeWhereUniqueInput" | "LocationWhereInput" | "LocationWhereUniqueInput" | "OwnerWhereInput" | "OwnerWhereUniqueInput" | "SchoolWhereInput" | "SchoolWhereUniqueInput" | "TokenWhereInput" | "TokenWhereUniqueInput";
+export type NexusGenInputNames = "AccountWhereInput" | "AccountWhereUniqueInput" | "GeocodeCreateInput" | "GeocodeWhereInput" | "GeocodeWhereUniqueInput" | "LocationCreateInput" | "LocationWhereInput" | "LocationWhereUniqueInput" | "OwnerWhereInput" | "OwnerWhereUniqueInput" | "SchoolUpdateInput" | "SchoolWhereInput" | "SchoolWhereUniqueInput" | "TokenWhereInput" | "TokenWhereUniqueInput";
 
 export type NexusGenEnumNames = "AccountOrderByInput" | "GeocodeOrderByInput" | "LocationOrderByInput" | "OwnerOrderByInput" | "Role" | "SchoolOrderByInput" | "TokenOrderByInput" | "TokenType";
 

@@ -339,8 +339,8 @@ export type LocationOrderByInput =
   | "city_DESC"
   | "country_ASC"
   | "country_DESC"
-  | "postalcode_ASC"
-  | "postalcode_DESC"
+  | "postalCode_ASC"
+  | "postalCode_DESC"
   | "nearestLandmark_ASC"
   | "nearestLandmark_DESC";
 
@@ -547,14 +547,20 @@ export interface LocationWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  number?: Maybe<Int>;
-  number_not?: Maybe<Int>;
-  number_in?: Maybe<Int[] | Int>;
-  number_not_in?: Maybe<Int[] | Int>;
-  number_lt?: Maybe<Int>;
-  number_lte?: Maybe<Int>;
-  number_gt?: Maybe<Int>;
-  number_gte?: Maybe<Int>;
+  number?: Maybe<String>;
+  number_not?: Maybe<String>;
+  number_in?: Maybe<String[] | String>;
+  number_not_in?: Maybe<String[] | String>;
+  number_lt?: Maybe<String>;
+  number_lte?: Maybe<String>;
+  number_gt?: Maybe<String>;
+  number_gte?: Maybe<String>;
+  number_contains?: Maybe<String>;
+  number_not_contains?: Maybe<String>;
+  number_starts_with?: Maybe<String>;
+  number_not_starts_with?: Maybe<String>;
+  number_ends_with?: Maybe<String>;
+  number_not_ends_with?: Maybe<String>;
   street?: Maybe<String>;
   street_not?: Maybe<String>;
   street_in?: Maybe<String[] | String>;
@@ -611,20 +617,20 @@ export interface LocationWhereInput {
   country_not_starts_with?: Maybe<String>;
   country_ends_with?: Maybe<String>;
   country_not_ends_with?: Maybe<String>;
-  postalcode?: Maybe<String>;
-  postalcode_not?: Maybe<String>;
-  postalcode_in?: Maybe<String[] | String>;
-  postalcode_not_in?: Maybe<String[] | String>;
-  postalcode_lt?: Maybe<String>;
-  postalcode_lte?: Maybe<String>;
-  postalcode_gt?: Maybe<String>;
-  postalcode_gte?: Maybe<String>;
-  postalcode_contains?: Maybe<String>;
-  postalcode_not_contains?: Maybe<String>;
-  postalcode_starts_with?: Maybe<String>;
-  postalcode_not_starts_with?: Maybe<String>;
-  postalcode_ends_with?: Maybe<String>;
-  postalcode_not_ends_with?: Maybe<String>;
+  postalCode?: Maybe<String>;
+  postalCode_not?: Maybe<String>;
+  postalCode_in?: Maybe<String[] | String>;
+  postalCode_not_in?: Maybe<String[] | String>;
+  postalCode_lt?: Maybe<String>;
+  postalCode_lte?: Maybe<String>;
+  postalCode_gt?: Maybe<String>;
+  postalCode_gte?: Maybe<String>;
+  postalCode_contains?: Maybe<String>;
+  postalCode_not_contains?: Maybe<String>;
+  postalCode_starts_with?: Maybe<String>;
+  postalCode_not_starts_with?: Maybe<String>;
+  postalCode_ends_with?: Maybe<String>;
+  postalCode_not_ends_with?: Maybe<String>;
   nearestLandmark?: Maybe<String>;
   nearestLandmark_not?: Maybe<String>;
   nearestLandmark_in?: Maybe<String[] | String>;
@@ -946,12 +952,12 @@ export interface GeocodeUpdateManyMutationInput {
 
 export interface LocationCreateInput {
   id?: Maybe<ID_Input>;
-  number: Int;
+  number: String;
   street: String;
   other?: Maybe<String>;
   city: String;
   country: String;
-  postalcode: String;
+  postalCode: String;
   nearestLandmark?: Maybe<String>;
   geocode?: Maybe<GeocodeCreateOneInput>;
 }
@@ -962,12 +968,12 @@ export interface GeocodeCreateOneInput {
 }
 
 export interface LocationUpdateInput {
-  number?: Maybe<Int>;
+  number?: Maybe<String>;
   street?: Maybe<String>;
   other?: Maybe<String>;
   city?: Maybe<String>;
   country?: Maybe<String>;
-  postalcode?: Maybe<String>;
+  postalCode?: Maybe<String>;
   nearestLandmark?: Maybe<String>;
   geocode?: Maybe<GeocodeUpdateOneInput>;
 }
@@ -992,12 +998,12 @@ export interface GeocodeUpsertNestedInput {
 }
 
 export interface LocationUpdateManyMutationInput {
-  number?: Maybe<Int>;
+  number?: Maybe<String>;
   street?: Maybe<String>;
   other?: Maybe<String>;
   city?: Maybe<String>;
   country?: Maybe<String>;
-  postalcode?: Maybe<String>;
+  postalCode?: Maybe<String>;
   nearestLandmark?: Maybe<String>;
 }
 
@@ -1135,12 +1141,12 @@ export interface LocationUpdateWithWhereUniqueNestedInput {
 }
 
 export interface LocationUpdateDataInput {
-  number?: Maybe<Int>;
+  number?: Maybe<String>;
   street?: Maybe<String>;
   other?: Maybe<String>;
   city?: Maybe<String>;
   country?: Maybe<String>;
-  postalcode?: Maybe<String>;
+  postalCode?: Maybe<String>;
   nearestLandmark?: Maybe<String>;
   geocode?: Maybe<GeocodeUpdateOneInput>;
 }
@@ -1166,14 +1172,20 @@ export interface LocationScalarWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  number?: Maybe<Int>;
-  number_not?: Maybe<Int>;
-  number_in?: Maybe<Int[] | Int>;
-  number_not_in?: Maybe<Int[] | Int>;
-  number_lt?: Maybe<Int>;
-  number_lte?: Maybe<Int>;
-  number_gt?: Maybe<Int>;
-  number_gte?: Maybe<Int>;
+  number?: Maybe<String>;
+  number_not?: Maybe<String>;
+  number_in?: Maybe<String[] | String>;
+  number_not_in?: Maybe<String[] | String>;
+  number_lt?: Maybe<String>;
+  number_lte?: Maybe<String>;
+  number_gt?: Maybe<String>;
+  number_gte?: Maybe<String>;
+  number_contains?: Maybe<String>;
+  number_not_contains?: Maybe<String>;
+  number_starts_with?: Maybe<String>;
+  number_not_starts_with?: Maybe<String>;
+  number_ends_with?: Maybe<String>;
+  number_not_ends_with?: Maybe<String>;
   street?: Maybe<String>;
   street_not?: Maybe<String>;
   street_in?: Maybe<String[] | String>;
@@ -1230,20 +1242,20 @@ export interface LocationScalarWhereInput {
   country_not_starts_with?: Maybe<String>;
   country_ends_with?: Maybe<String>;
   country_not_ends_with?: Maybe<String>;
-  postalcode?: Maybe<String>;
-  postalcode_not?: Maybe<String>;
-  postalcode_in?: Maybe<String[] | String>;
-  postalcode_not_in?: Maybe<String[] | String>;
-  postalcode_lt?: Maybe<String>;
-  postalcode_lte?: Maybe<String>;
-  postalcode_gt?: Maybe<String>;
-  postalcode_gte?: Maybe<String>;
-  postalcode_contains?: Maybe<String>;
-  postalcode_not_contains?: Maybe<String>;
-  postalcode_starts_with?: Maybe<String>;
-  postalcode_not_starts_with?: Maybe<String>;
-  postalcode_ends_with?: Maybe<String>;
-  postalcode_not_ends_with?: Maybe<String>;
+  postalCode?: Maybe<String>;
+  postalCode_not?: Maybe<String>;
+  postalCode_in?: Maybe<String[] | String>;
+  postalCode_not_in?: Maybe<String[] | String>;
+  postalCode_lt?: Maybe<String>;
+  postalCode_lte?: Maybe<String>;
+  postalCode_gt?: Maybe<String>;
+  postalCode_gte?: Maybe<String>;
+  postalCode_contains?: Maybe<String>;
+  postalCode_not_contains?: Maybe<String>;
+  postalCode_starts_with?: Maybe<String>;
+  postalCode_not_starts_with?: Maybe<String>;
+  postalCode_ends_with?: Maybe<String>;
+  postalCode_not_ends_with?: Maybe<String>;
   nearestLandmark?: Maybe<String>;
   nearestLandmark_not?: Maybe<String>;
   nearestLandmark_in?: Maybe<String[] | String>;
@@ -1269,12 +1281,12 @@ export interface LocationUpdateManyWithWhereNestedInput {
 }
 
 export interface LocationUpdateManyDataInput {
-  number?: Maybe<Int>;
+  number?: Maybe<String>;
   street?: Maybe<String>;
   other?: Maybe<String>;
   city?: Maybe<String>;
   country?: Maybe<String>;
-  postalcode?: Maybe<String>;
+  postalCode?: Maybe<String>;
   nearestLandmark?: Maybe<String>;
 }
 
@@ -1774,23 +1786,23 @@ export interface AggregateGeocodeSubscription
 
 export interface Location {
   id: ID_Output;
-  number: Int;
+  number: String;
   street: String;
   other?: String;
   city: String;
   country: String;
-  postalcode: String;
+  postalCode: String;
   nearestLandmark?: String;
 }
 
 export interface LocationPromise extends Promise<Location>, Fragmentable {
   id: () => Promise<ID_Output>;
-  number: () => Promise<Int>;
+  number: () => Promise<String>;
   street: () => Promise<String>;
   other: () => Promise<String>;
   city: () => Promise<String>;
   country: () => Promise<String>;
-  postalcode: () => Promise<String>;
+  postalCode: () => Promise<String>;
   nearestLandmark: () => Promise<String>;
   geocode: <T = GeocodePromise>() => T;
 }
@@ -1799,12 +1811,12 @@ export interface LocationSubscription
   extends Promise<AsyncIterator<Location>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  number: () => Promise<AsyncIterator<Int>>;
+  number: () => Promise<AsyncIterator<String>>;
   street: () => Promise<AsyncIterator<String>>;
   other: () => Promise<AsyncIterator<String>>;
   city: () => Promise<AsyncIterator<String>>;
   country: () => Promise<AsyncIterator<String>>;
-  postalcode: () => Promise<AsyncIterator<String>>;
+  postalCode: () => Promise<AsyncIterator<String>>;
   nearestLandmark: () => Promise<AsyncIterator<String>>;
   geocode: <T = GeocodeSubscription>() => T;
 }
@@ -1813,12 +1825,12 @@ export interface LocationNullablePromise
   extends Promise<Location | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  number: () => Promise<Int>;
+  number: () => Promise<String>;
   street: () => Promise<String>;
   other: () => Promise<String>;
   city: () => Promise<String>;
   country: () => Promise<String>;
-  postalcode: () => Promise<String>;
+  postalCode: () => Promise<String>;
   nearestLandmark: () => Promise<String>;
   geocode: <T = GeocodePromise>() => T;
 }
@@ -2379,12 +2391,12 @@ export interface LocationSubscriptionPayloadSubscription
 
 export interface LocationPreviousValues {
   id: ID_Output;
-  number: Int;
+  number: String;
   street: String;
   other?: String;
   city: String;
   country: String;
-  postalcode: String;
+  postalCode: String;
   nearestLandmark?: String;
 }
 
@@ -2392,12 +2404,12 @@ export interface LocationPreviousValuesPromise
   extends Promise<LocationPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  number: () => Promise<Int>;
+  number: () => Promise<String>;
   street: () => Promise<String>;
   other: () => Promise<String>;
   city: () => Promise<String>;
   country: () => Promise<String>;
-  postalcode: () => Promise<String>;
+  postalCode: () => Promise<String>;
   nearestLandmark: () => Promise<String>;
 }
 
@@ -2405,12 +2417,12 @@ export interface LocationPreviousValuesSubscription
   extends Promise<AsyncIterator<LocationPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  number: () => Promise<AsyncIterator<Int>>;
+  number: () => Promise<AsyncIterator<String>>;
   street: () => Promise<AsyncIterator<String>>;
   other: () => Promise<AsyncIterator<String>>;
   city: () => Promise<AsyncIterator<String>>;
   country: () => Promise<AsyncIterator<String>>;
-  postalcode: () => Promise<AsyncIterator<String>>;
+  postalCode: () => Promise<AsyncIterator<String>>;
   nearestLandmark: () => Promise<AsyncIterator<String>>;
 }
 

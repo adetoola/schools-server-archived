@@ -14,5 +14,6 @@
         "statusBar.background": "#ec581f",
         "statusBarItem.hoverBackground": "#f07b4e",
         "statusBar.foreground": "#e7e7e7"
-    }
+    },
+    "typescript.tsdk": "node_modules/typescript/lib"
 }

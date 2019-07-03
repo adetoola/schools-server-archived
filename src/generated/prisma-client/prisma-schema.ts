@@ -390,12 +390,12 @@ input GeocodeWhereUniqueInput {
 
 type Location {
   id: ID!
-  number: Int!
+  number: String!
   street: String!
   other: String
   city: String!
   country: String!
-  postalcode: String!
+  postalCode: String!
   nearestLandmark: String
   geocode: Geocode
 }
@@ -408,12 +408,12 @@ type LocationConnection {
 
 input LocationCreateInput {
   id: ID
-  number: Int!
+  number: String!
   street: String!
   other: String
   city: String!
   country: String!
-  postalcode: String!
+  postalCode: String!
   nearestLandmark: String
   geocode: GeocodeCreateOneInput
 }
@@ -446,20 +446,20 @@ enum LocationOrderByInput {
   city_DESC
   country_ASC
   country_DESC
-  postalcode_ASC
-  postalcode_DESC
+  postalCode_ASC
+  postalCode_DESC
   nearestLandmark_ASC
   nearestLandmark_DESC
 }
 
 type LocationPreviousValues {
   id: ID!
-  number: Int!
+  number: String!
   street: String!
   other: String
   city: String!
   country: String!
-  postalcode: String!
+  postalCode: String!
   nearestLandmark: String
 }
 
@@ -478,14 +478,20 @@ input LocationScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  number: Int
-  number_not: Int
-  number_in: [Int!]
-  number_not_in: [Int!]
-  number_lt: Int
-  number_lte: Int
-  number_gt: Int
-  number_gte: Int
+  number: String
+  number_not: String
+  number_in: [String!]
+  number_not_in: [String!]
+  number_lt: String
+  number_lte: String
+  number_gt: String
+  number_gte: String
+  number_contains: String
+  number_not_contains: String
+  number_starts_with: String
+  number_not_starts_with: String
+  number_ends_with: String
+  number_not_ends_with: String
   street: String
   street_not: String
   street_in: [String!]
@@ -542,20 +548,20 @@ input LocationScalarWhereInput {
   country_not_starts_with: String
   country_ends_with: String
   country_not_ends_with: String
-  postalcode: String
-  postalcode_not: String
-  postalcode_in: [String!]
-  postalcode_not_in: [String!]
-  postalcode_lt: String
-  postalcode_lte: String
-  postalcode_gt: String
-  postalcode_gte: String
-  postalcode_contains: String
-  postalcode_not_contains: String
-  postalcode_starts_with: String
-  postalcode_not_starts_with: String
-  postalcode_ends_with: String
-  postalcode_not_ends_with: String
+  postalCode: String
+  postalCode_not: String
+  postalCode_in: [String!]
+  postalCode_not_in: [String!]
+  postalCode_lt: String
+  postalCode_lte: String
+  postalCode_gt: String
+  postalCode_gte: String
+  postalCode_contains: String
+  postalCode_not_contains: String
+  postalCode_starts_with: String
+  postalCode_not_starts_with: String
+  postalCode_ends_with: String
+  postalCode_not_ends_with: String
   nearestLandmark: String
   nearestLandmark_not: String
   nearestLandmark_in: [String!]
@@ -594,34 +600,34 @@ input LocationSubscriptionWhereInput {
 }
 
 input LocationUpdateDataInput {
-  number: Int
+  number: String
   street: String
   other: String
   city: String
   country: String
-  postalcode: String
+  postalCode: String
   nearestLandmark: String
   geocode: GeocodeUpdateOneInput
 }
 
 input LocationUpdateInput {
-  number: Int
+  number: String
   street: String
   other: String
   city: String
   country: String
-  postalcode: String
+  postalCode: String
   nearestLandmark: String
   geocode: GeocodeUpdateOneInput
 }
 
 input LocationUpdateManyDataInput {
-  number: Int
+  number: String
   street: String
   other: String
   city: String
   country: String
-  postalcode: String
+  postalCode: String
   nearestLandmark: String
 }
 
@@ -638,12 +644,12 @@ input LocationUpdateManyInput {
 }
 
 input LocationUpdateManyMutationInput {
-  number: Int
+  number: String
   street: String
   other: String
   city: String
   country: String
-  postalcode: String
+  postalCode: String
   nearestLandmark: String
 }
 
@@ -692,14 +698,20 @@ input LocationWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  number: Int
-  number_not: Int
-  number_in: [Int!]
-  number_not_in: [Int!]
-  number_lt: Int
-  number_lte: Int
-  number_gt: Int
-  number_gte: Int
+  number: String
+  number_not: String
+  number_in: [String!]
+  number_not_in: [String!]
+  number_lt: String
+  number_lte: String
+  number_gt: String
+  number_gte: String
+  number_contains: String
+  number_not_contains: String
+  number_starts_with: String
+  number_not_starts_with: String
+  number_ends_with: String
+  number_not_ends_with: String
   street: String
   street_not: String
   street_in: [String!]
@@ -756,20 +768,20 @@ input LocationWhereInput {
   country_not_starts_with: String
   country_ends_with: String
   country_not_ends_with: String
-  postalcode: String
-  postalcode_not: String
-  postalcode_in: [String!]
-  postalcode_not_in: [String!]
-  postalcode_lt: String
-  postalcode_lte: String
-  postalcode_gt: String
-  postalcode_gte: String
-  postalcode_contains: String
-  postalcode_not_contains: String
-  postalcode_starts_with: String
-  postalcode_not_starts_with: String
-  postalcode_ends_with: String
-  postalcode_not_ends_with: String
+  postalCode: String
+  postalCode_not: String
+  postalCode_in: [String!]
+  postalCode_not_in: [String!]
+  postalCode_lt: String
+  postalCode_lte: String
+  postalCode_gt: String
+  postalCode_gte: String
+  postalCode_contains: String
+  postalCode_not_contains: String
+  postalCode_starts_with: String
+  postalCode_not_starts_with: String
+  postalCode_ends_with: String
+  postalCode_not_ends_with: String
   nearestLandmark: String
   nearestLandmark_not: String
   nearestLandmark_in: [String!]

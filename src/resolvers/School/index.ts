@@ -1,2 +1,2 @@
 export { Mutation } from './School.mutation';
-export { School } from './School.type';
+export { School, SchoolUpdateInput } from './School.type';
