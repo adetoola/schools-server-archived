@@ -78,14 +78,16 @@ export const Mutation = prismaExtendType({
       type: 'School',
       args: {
         id: idArg(),
-        title: stringArg({ nullable: true }),
-        phone: stringArg({ nullable: true }),
-        uri: stringArg({ nullable: true }),
-        email: stringArg({ nullable: true }),
+        school: arg({
+          type: 'SchoolUpdateInput',
+        }),
       },
       resolve: async (_parent, args, ctx) => {
         // remove id from args
-        const { error, value } = Joi.validate(args, updateSchoolSchema, { abortEarly: false, stripUnknown: true });
+        const { error, value } = Joi.validate(args.school, updateSchoolSchema, {
+          abortEarly: false,
+          stripUnknown: true,
+        });
 
         if (error) throw new Error(formatJoiErrors(error));
 

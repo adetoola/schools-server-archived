@@ -435,7 +435,7 @@ type Mutation {
   signout: TriggerAction
   signup(email: String!, password: String!, username: String): Account
   updateOwner(firstName: String, lastName: String, middleName: String): Owner
-  updateSchool(email: String, geocode: GeocodeCreateInput!, id: ID!, phone: String, title: String, uri: String): School
+  updateSchool(id: ID!, school: SchoolUpdateInput!): School
   verify(token: String!): TriggerAction
 }
 

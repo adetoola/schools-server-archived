@@ -915,12 +915,8 @@ export interface NexusGenArgTypes {
       middleName?: string | null; // String
     }
     updateSchool: { // args
-      email?: string | null; // String
-      geocode: NexusGenInputs['GeocodeCreateInput']; // GeocodeCreateInput!
       id: string; // ID!
-      phone?: string | null; // String
-      title?: string | null; // String
-      uri?: string | null; // String
+      school: NexusGenInputs['SchoolUpdateInput']; // SchoolUpdateInput!
     }
     verify: { // args
       token: string; // String!
