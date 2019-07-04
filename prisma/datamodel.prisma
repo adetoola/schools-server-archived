@@ -1,49 +1,66 @@
 type Account {
   id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
   username: String @unique
   email: String! @unique
   password: String!
   isVerified: Boolean! @default(value: false)
   role: Role! @default(value: OWNER)
   lastLogin: DateTime
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
 }
 
-type Token {
+type Invitation {
   id: ID! @id
-  accountId: String!
-  token: String! @unique
-  type: TokenType! @default(value: EMAIL)
   createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
+  email: String @unique
+  role: Role!
 }
 
 type Owner {
   id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
   account: Account!
   firstName: String!
   middleName: String
   lastName: String!
   schools: [School!]!
   location: Location
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
+
 }
 
 type School {
   id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
   title: String!
   phone: String! @unique
   uri: String! @unique
   email: String! @unique
   owner: Owner! @relation(link: INLINE)
   locations: [Location!]!
+}
+
+type Token {
+  id: ID! @id
   createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
+
+  accountId: String!
+  token: String! @unique
+  type: TokenType! @default(value: EMAIL)
 }
 
 type Location {
   id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
   number: String!
   street: String!
   other: String
@@ -56,6 +73,9 @@ type Location {
 
 type Geocode {
   id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
   latitude: Float!
   longitude: Float!
 }
@@ -68,6 +88,8 @@ enum TokenType {
 enum Role {
   OWNER
   ADMIN
-  PARENT
+  STAFF
+  TEACHER
+  GUARDIAN
   STUDENT
 }

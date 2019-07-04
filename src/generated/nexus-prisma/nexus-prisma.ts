@@ -20,10 +20,10 @@ export interface NexusPrismaTypes {
       PageInfo: PageInfoObject
       AccountEdge: AccountEdgeObject
       AggregateAccount: AggregateAccountObject
-      Token: TokenObject
-      TokenConnection: TokenConnectionObject
-      TokenEdge: TokenEdgeObject
-      AggregateToken: AggregateTokenObject
+      Invitation: InvitationObject
+      InvitationConnection: InvitationConnectionObject
+      InvitationEdge: InvitationEdgeObject
+      AggregateInvitation: AggregateInvitationObject
       Owner: OwnerObject
       School: SchoolObject
       Location: LocationObject
@@ -34,6 +34,10 @@ export interface NexusPrismaTypes {
       SchoolConnection: SchoolConnectionObject
       SchoolEdge: SchoolEdgeObject
       AggregateSchool: AggregateSchoolObject
+      Token: TokenObject
+      TokenConnection: TokenConnectionObject
+      TokenEdge: TokenEdgeObject
+      AggregateToken: AggregateTokenObject
       LocationConnection: LocationConnectionObject
       LocationEdge: LocationEdgeObject
       AggregateLocation: AggregateLocationObject
@@ -45,12 +49,14 @@ export interface NexusPrismaTypes {
       Subscription: SubscriptionObject
       AccountSubscriptionPayload: AccountSubscriptionPayloadObject
       AccountPreviousValues: AccountPreviousValuesObject
-      TokenSubscriptionPayload: TokenSubscriptionPayloadObject
-      TokenPreviousValues: TokenPreviousValuesObject
+      InvitationSubscriptionPayload: InvitationSubscriptionPayloadObject
+      InvitationPreviousValues: InvitationPreviousValuesObject
       OwnerSubscriptionPayload: OwnerSubscriptionPayloadObject
       OwnerPreviousValues: OwnerPreviousValuesObject
       SchoolSubscriptionPayload: SchoolSubscriptionPayloadObject
       SchoolPreviousValues: SchoolPreviousValuesObject
+      TokenSubscriptionPayload: TokenSubscriptionPayloadObject
+      TokenPreviousValues: TokenPreviousValuesObject
       LocationSubscriptionPayload: LocationSubscriptionPayloadObject
       LocationPreviousValues: LocationPreviousValuesObject
       GeocodeSubscriptionPayload: GeocodeSubscriptionPayloadObject
@@ -63,10 +69,10 @@ export interface NexusPrismaTypes {
       PageInfo: PageInfoFieldDetails
       AccountEdge: AccountEdgeFieldDetails
       AggregateAccount: AggregateAccountFieldDetails
-      Token: TokenFieldDetails
-      TokenConnection: TokenConnectionFieldDetails
-      TokenEdge: TokenEdgeFieldDetails
-      AggregateToken: AggregateTokenFieldDetails
+      Invitation: InvitationFieldDetails
+      InvitationConnection: InvitationConnectionFieldDetails
+      InvitationEdge: InvitationEdgeFieldDetails
+      AggregateInvitation: AggregateInvitationFieldDetails
       Owner: OwnerFieldDetails
       School: SchoolFieldDetails
       Location: LocationFieldDetails
@@ -77,6 +83,10 @@ export interface NexusPrismaTypes {
       SchoolConnection: SchoolConnectionFieldDetails
       SchoolEdge: SchoolEdgeFieldDetails
       AggregateSchool: AggregateSchoolFieldDetails
+      Token: TokenFieldDetails
+      TokenConnection: TokenConnectionFieldDetails
+      TokenEdge: TokenEdgeFieldDetails
+      AggregateToken: AggregateTokenFieldDetails
       LocationConnection: LocationConnectionFieldDetails
       LocationEdge: LocationEdgeFieldDetails
       AggregateLocation: AggregateLocationFieldDetails
@@ -88,12 +98,14 @@ export interface NexusPrismaTypes {
       Subscription: SubscriptionFieldDetails
       AccountSubscriptionPayload: AccountSubscriptionPayloadFieldDetails
       AccountPreviousValues: AccountPreviousValuesFieldDetails
-      TokenSubscriptionPayload: TokenSubscriptionPayloadFieldDetails
-      TokenPreviousValues: TokenPreviousValuesFieldDetails
+      InvitationSubscriptionPayload: InvitationSubscriptionPayloadFieldDetails
+      InvitationPreviousValues: InvitationPreviousValuesFieldDetails
       OwnerSubscriptionPayload: OwnerSubscriptionPayloadFieldDetails
       OwnerPreviousValues: OwnerPreviousValuesFieldDetails
       SchoolSubscriptionPayload: SchoolSubscriptionPayloadFieldDetails
       SchoolPreviousValues: SchoolPreviousValuesFieldDetails
+      TokenSubscriptionPayload: TokenSubscriptionPayloadFieldDetails
+      TokenPreviousValues: TokenPreviousValuesFieldDetails
       LocationSubscriptionPayload: LocationSubscriptionPayloadFieldDetails
       LocationPreviousValues: LocationPreviousValuesFieldDetails
       GeocodeSubscriptionPayload: GeocodeSubscriptionPayloadFieldDetails
@@ -104,22 +116,24 @@ export interface NexusPrismaTypes {
     fields: {
       AccountWhereUniqueInput: AccountWhereUniqueInputInputObject
       AccountWhereInput: AccountWhereInputInputObject
-      TokenWhereUniqueInput: TokenWhereUniqueInputInputObject
-      TokenWhereInput: TokenWhereInputInputObject
+      InvitationWhereUniqueInput: InvitationWhereUniqueInputInputObject
+      InvitationWhereInput: InvitationWhereInputInputObject
       OwnerWhereUniqueInput: OwnerWhereUniqueInputInputObject
       SchoolWhereInput: SchoolWhereInputInputObject
       OwnerWhereInput: OwnerWhereInputInputObject
       LocationWhereInput: LocationWhereInputInputObject
       GeocodeWhereInput: GeocodeWhereInputInputObject
       SchoolWhereUniqueInput: SchoolWhereUniqueInputInputObject
+      TokenWhereUniqueInput: TokenWhereUniqueInputInputObject
+      TokenWhereInput: TokenWhereInputInputObject
       LocationWhereUniqueInput: LocationWhereUniqueInputInputObject
       GeocodeWhereUniqueInput: GeocodeWhereUniqueInputInputObject
       AccountCreateInput: AccountCreateInputInputObject
       AccountUpdateInput: AccountUpdateInputInputObject
       AccountUpdateManyMutationInput: AccountUpdateManyMutationInputInputObject
-      TokenCreateInput: TokenCreateInputInputObject
-      TokenUpdateInput: TokenUpdateInputInputObject
-      TokenUpdateManyMutationInput: TokenUpdateManyMutationInputInputObject
+      InvitationCreateInput: InvitationCreateInputInputObject
+      InvitationUpdateInput: InvitationUpdateInputInputObject
+      InvitationUpdateManyMutationInput: InvitationUpdateManyMutationInputInputObject
       OwnerCreateInput: OwnerCreateInputInputObject
       AccountCreateOneInput: AccountCreateOneInputInputObject
       SchoolCreateManyWithoutOwnerInput: SchoolCreateManyWithoutOwnerInputInputObject
@@ -161,14 +175,18 @@ export interface NexusPrismaTypes {
       OwnerUpdateWithoutSchoolsDataInput: OwnerUpdateWithoutSchoolsDataInputInputObject
       OwnerUpsertWithoutSchoolsInput: OwnerUpsertWithoutSchoolsInputInputObject
       SchoolUpdateManyMutationInput: SchoolUpdateManyMutationInputInputObject
+      TokenCreateInput: TokenCreateInputInputObject
+      TokenUpdateInput: TokenUpdateInputInputObject
+      TokenUpdateManyMutationInput: TokenUpdateManyMutationInputInputObject
       LocationUpdateInput: LocationUpdateInputInputObject
       LocationUpdateManyMutationInput: LocationUpdateManyMutationInputInputObject
       GeocodeUpdateInput: GeocodeUpdateInputInputObject
       GeocodeUpdateManyMutationInput: GeocodeUpdateManyMutationInputInputObject
       AccountSubscriptionWhereInput: AccountSubscriptionWhereInputInputObject
-      TokenSubscriptionWhereInput: TokenSubscriptionWhereInputInputObject
+      InvitationSubscriptionWhereInput: InvitationSubscriptionWhereInputInputObject
       OwnerSubscriptionWhereInput: OwnerSubscriptionWhereInputInputObject
       SchoolSubscriptionWhereInput: SchoolSubscriptionWhereInputInputObject
+      TokenSubscriptionWhereInput: TokenSubscriptionWhereInputInputObject
       LocationSubscriptionWhereInput: LocationSubscriptionWhereInputInputObject
       GeocodeSubscriptionWhereInput: GeocodeSubscriptionWhereInputInputObject
     }
@@ -176,11 +194,12 @@ export interface NexusPrismaTypes {
   enumTypes: {
     Role: RoleValues,
     AccountOrderByInput: AccountOrderByInputValues,
-    TokenType: TokenTypeValues,
-    TokenOrderByInput: TokenOrderByInputValues,
+    InvitationOrderByInput: InvitationOrderByInputValues,
     SchoolOrderByInput: SchoolOrderByInputValues,
     LocationOrderByInput: LocationOrderByInputValues,
     OwnerOrderByInput: OwnerOrderByInputValues,
+    TokenType: TokenTypeValues,
+    TokenOrderByInput: TokenOrderByInputValues,
     GeocodeOrderByInput: GeocodeOrderByInputValues,
     MutationType: MutationTypeValues,
   }
@@ -193,15 +212,18 @@ type QueryObject =
   | { name: 'account', args?: QueryAccountArgs[] | false, alias?: string  } 
   | { name: 'accounts', args?: QueryAccountsArgs[] | false, alias?: string  } 
   | { name: 'accountsConnection', args?: QueryAccountsConnectionArgs[] | false, alias?: string  } 
-  | { name: 'token', args?: QueryTokenArgs[] | false, alias?: string  } 
-  | { name: 'tokens', args?: QueryTokensArgs[] | false, alias?: string  } 
-  | { name: 'tokensConnection', args?: QueryTokensConnectionArgs[] | false, alias?: string  } 
+  | { name: 'invitation', args?: QueryInvitationArgs[] | false, alias?: string  } 
+  | { name: 'invitations', args?: QueryInvitationsArgs[] | false, alias?: string  } 
+  | { name: 'invitationsConnection', args?: QueryInvitationsConnectionArgs[] | false, alias?: string  } 
   | { name: 'owner', args?: QueryOwnerArgs[] | false, alias?: string  } 
   | { name: 'owners', args?: QueryOwnersArgs[] | false, alias?: string  } 
   | { name: 'ownersConnection', args?: QueryOwnersConnectionArgs[] | false, alias?: string  } 
   | { name: 'school', args?: QuerySchoolArgs[] | false, alias?: string  } 
   | { name: 'schools', args?: QuerySchoolsArgs[] | false, alias?: string  } 
   | { name: 'schoolsConnection', args?: QuerySchoolsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'token', args?: QueryTokenArgs[] | false, alias?: string  } 
+  | { name: 'tokens', args?: QueryTokensArgs[] | false, alias?: string  } 
+  | { name: 'tokensConnection', args?: QueryTokensConnectionArgs[] | false, alias?: string  } 
   | { name: 'location', args?: QueryLocationArgs[] | false, alias?: string  } 
   | { name: 'locations', args?: QueryLocationsArgs[] | false, alias?: string  } 
   | { name: 'locationsConnection', args?: QueryLocationsConnectionArgs[] | false, alias?: string  } 
@@ -213,15 +235,18 @@ type QueryFields =
   | 'account'
   | 'accounts'
   | 'accountsConnection'
-  | 'token'
-  | 'tokens'
-  | 'tokensConnection'
+  | 'invitation'
+  | 'invitations'
+  | 'invitationsConnection'
   | 'owner'
   | 'owners'
   | 'ownersConnection'
   | 'school'
   | 'schools'
   | 'schoolsConnection'
+  | 'token'
+  | 'tokens'
+  | 'tokensConnection'
   | 'location'
   | 'locations'
   | 'locationsConnection'
@@ -248,9 +273,9 @@ type QueryAccountsConnectionArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryTokenArgs =
+type QueryInvitationArgs =
   | 'where'
-type QueryTokensArgs =
+type QueryInvitationsArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -258,7 +283,7 @@ type QueryTokensArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryTokensConnectionArgs =
+type QueryInvitationsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -295,6 +320,24 @@ type QuerySchoolsArgs =
   | 'first'
   | 'last'
 type QuerySchoolsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryTokenArgs =
+  | 'where'
+type QueryTokensArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryTokensConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -380,44 +423,44 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.AccountConnection> | prisma.AccountConnection
   }
-  token: {
-    type: 'Token'
-    args: Record<QueryTokenArgs, core.NexusArgDef<string>>
+  invitation: {
+    type: 'Invitation'
+    args: Record<QueryInvitationArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where: TokenWhereUniqueInput }  ,
+      args: { where: InvitationWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Token | null> | prisma.Token | null
+    ) => Promise<prisma.Invitation | null> | prisma.Invitation | null
   }
-  tokens: {
-    type: 'Token'
-    args: Record<QueryTokensArgs, core.NexusArgDef<string>>
+  invitations: {
+    type: 'Invitation'
+    args: Record<QueryInvitationsArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: TokenWhereInput | null, orderBy?: prisma.TokenOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: InvitationWhereInput | null, orderBy?: prisma.InvitationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Token[]> | prisma.Token[]
+    ) => Promise<prisma.Invitation[]> | prisma.Invitation[]
   }
-  tokensConnection: {
-    type: 'TokenConnection'
-    args: Record<QueryTokensConnectionArgs, core.NexusArgDef<string>>
+  invitationsConnection: {
+    type: 'InvitationConnection'
+    args: Record<QueryInvitationsConnectionArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: TokenWhereInput | null, orderBy?: prisma.TokenOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: InvitationWhereInput | null, orderBy?: prisma.InvitationOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.TokenConnection> | prisma.TokenConnection
+    ) => Promise<prisma.InvitationConnection> | prisma.InvitationConnection
   }
   owner: {
     type: 'Owner'
@@ -496,6 +539,45 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.SchoolConnection> | prisma.SchoolConnection
+  }
+  token: {
+    type: 'Token'
+    args: Record<QueryTokenArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: TokenWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Token | null> | prisma.Token | null
+  }
+  tokens: {
+    type: 'Token'
+    args: Record<QueryTokensArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: TokenWhereInput | null, orderBy?: prisma.TokenOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Token[]> | prisma.Token[]
+  }
+  tokensConnection: {
+    type: 'TokenConnection'
+    args: Record<QueryTokensConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: TokenWhereInput | null, orderBy?: prisma.TokenOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.TokenConnection> | prisma.TokenConnection
   }
   location: {
     type: 'Location'
@@ -583,25 +665,25 @@ export interface QueryFieldDetails {
 type AccountObject =
   | AccountFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
   | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'isVerified', args?: [] | false, alias?: string  } 
   | { name: 'role', args?: [] | false, alias?: string  } 
   | { name: 'lastLogin', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type AccountFields =
   | 'id'
+  | 'createdAt'
+  | 'updatedAt'
   | 'username'
   | 'email'
   | 'password'
   | 'isVerified'
   | 'role'
   | 'lastLogin'
-  | 'createdAt'
-  | 'updatedAt'
 
 
 
@@ -610,6 +692,22 @@ type AccountFields =
 export interface AccountFieldDetails {
   id: {
     type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -667,22 +765,6 @@ export interface AccountFieldDetails {
     description: string
     list: undefined
     nullable: true
-    resolve: undefined
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
     resolve: undefined
   }
 }
@@ -868,28 +950,28 @@ export interface AggregateAccountFieldDetails {
 }
   
 
-// Types for Token
+// Types for Invitation
 
-type TokenObject =
-  | TokenFields
+type InvitationObject =
+  | InvitationFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'accountId', args?: [] | false, alias?: string  } 
-  | { name: 'token', args?: [] | false, alias?: string  } 
-  | { name: 'type', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'email', args?: [] | false, alias?: string  } 
+  | { name: 'role', args?: [] | false, alias?: string  } 
 
-type TokenFields =
+type InvitationFields =
   | 'id'
-  | 'accountId'
-  | 'token'
-  | 'type'
   | 'createdAt'
+  | 'updatedAt'
+  | 'email'
+  | 'role'
 
 
 
   
 
-export interface TokenFieldDetails {
+export interface InvitationFieldDetails {
   id: {
     type: 'ID'
     args: {}
@@ -897,35 +979,6 @@ export interface TokenFieldDetails {
     list: undefined
     nullable: false
     resolve: undefined
-  }
-  accountId: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  token: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  type: {
-    type: 'TokenType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Token">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TokenType> | prisma.TokenType
   }
   createdAt: {
     type: 'DateTime'
@@ -935,18 +988,47 @@ export interface TokenFieldDetails {
     nullable: false
     resolve: undefined
   }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  email: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  role: {
+    type: 'Role'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Invitation">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Role> | prisma.Role
+  }
 }
   
 
-// Types for TokenConnection
+// Types for InvitationConnection
 
-type TokenConnectionObject =
-  | TokenConnectionFields
+type InvitationConnectionObject =
+  | InvitationConnectionFields
   | { name: 'pageInfo', args?: [] | false, alias?: string  } 
   | { name: 'edges', args?: [] | false, alias?: string  } 
   | { name: 'aggregate', args?: [] | false, alias?: string  } 
 
-type TokenConnectionFields =
+type InvitationConnectionFields =
   | 'pageInfo'
   | 'edges'
   | 'aggregate'
@@ -955,7 +1037,7 @@ type TokenConnectionFields =
 
   
 
-export interface TokenConnectionFieldDetails {
+export interface InvitationConnectionFieldDetails {
   pageInfo: {
     type: 'PageInfo'
     args: {}
@@ -963,49 +1045,49 @@ export interface TokenConnectionFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"TokenConnection">,
+      root: core.RootValue<"InvitationConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PageInfo> | prisma.PageInfo
   }
   edges: {
-    type: 'TokenEdge'
+    type: 'InvitationEdge'
     args: {}
     description: string
     list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"TokenConnection">,
+      root: core.RootValue<"InvitationConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.TokenEdge[]> | prisma.TokenEdge[]
+    ) => Promise<prisma.InvitationEdge[]> | prisma.InvitationEdge[]
   }
   aggregate: {
-    type: 'AggregateToken'
+    type: 'AggregateInvitation'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"TokenConnection">,
+      root: core.RootValue<"InvitationConnection">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateToken> | prisma.AggregateToken
+    ) => Promise<prisma.AggregateInvitation> | prisma.AggregateInvitation
   }
 }
   
 
-// Types for TokenEdge
+// Types for InvitationEdge
 
-type TokenEdgeObject =
-  | TokenEdgeFields
+type InvitationEdgeObject =
+  | InvitationEdgeFields
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'cursor', args?: [] | false, alias?: string  } 
 
-type TokenEdgeFields =
+type InvitationEdgeFields =
   | 'node'
   | 'cursor'
 
@@ -1013,19 +1095,19 @@ type TokenEdgeFields =
 
   
 
-export interface TokenEdgeFieldDetails {
+export interface InvitationEdgeFieldDetails {
   node: {
-    type: 'Token'
+    type: 'Invitation'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"TokenEdge">,
+      root: core.RootValue<"InvitationEdge">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Token> | prisma.Token
+    ) => Promise<prisma.Invitation> | prisma.Invitation
   }
   cursor: {
     type: 'String'
@@ -1038,20 +1120,20 @@ export interface TokenEdgeFieldDetails {
 }
   
 
-// Types for AggregateToken
+// Types for AggregateInvitation
 
-type AggregateTokenObject =
-  | AggregateTokenFields
+type AggregateInvitationObject =
+  | AggregateInvitationFields
   | { name: 'count', args?: [] | false, alias?: string  } 
 
-type AggregateTokenFields =
+type AggregateInvitationFields =
   | 'count'
 
 
 
   
 
-export interface AggregateTokenFieldDetails {
+export interface AggregateInvitationFieldDetails {
   count: {
     type: 'Int'
     args: {}
@@ -1068,25 +1150,25 @@ export interface AggregateTokenFieldDetails {
 type OwnerObject =
   | OwnerFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
   | { name: 'account', args?: [] | false, alias?: string  } 
   | { name: 'firstName', args?: [] | false, alias?: string  } 
   | { name: 'middleName', args?: [] | false, alias?: string  } 
   | { name: 'lastName', args?: [] | false, alias?: string  } 
   | { name: 'schools', args?: OwnerSchoolsArgs[] | false, alias?: string  } 
   | { name: 'location', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type OwnerFields =
   | 'id'
+  | 'createdAt'
+  | 'updatedAt'
   | 'account'
   | 'firstName'
   | 'middleName'
   | 'lastName'
   | 'schools'
   | 'location'
-  | 'createdAt'
-  | 'updatedAt'
 
 
 type OwnerSchoolsArgs =
@@ -1102,6 +1184,22 @@ type OwnerSchoolsArgs =
 export interface OwnerFieldDetails {
   id: {
     type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -1171,22 +1269,6 @@ export interface OwnerFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Location | null> | prisma.Location | null
   }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
 }
   
 
@@ -1195,25 +1277,25 @@ export interface OwnerFieldDetails {
 type SchoolObject =
   | SchoolFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
   | { name: 'title', args?: [] | false, alias?: string  } 
   | { name: 'phone', args?: [] | false, alias?: string  } 
   | { name: 'uri', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'owner', args?: [] | false, alias?: string  } 
   | { name: 'locations', args?: SchoolLocationsArgs[] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type SchoolFields =
   | 'id'
+  | 'createdAt'
+  | 'updatedAt'
   | 'title'
   | 'phone'
   | 'uri'
   | 'email'
   | 'owner'
   | 'locations'
-  | 'createdAt'
-  | 'updatedAt'
 
 
 type SchoolLocationsArgs =
@@ -1229,6 +1311,22 @@ type SchoolLocationsArgs =
 export interface SchoolFieldDetails {
   id: {
     type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -1293,22 +1391,6 @@ export interface SchoolFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Location[]> | prisma.Location[]
   }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
 }
   
 
@@ -1317,6 +1399,8 @@ export interface SchoolFieldDetails {
 type LocationObject =
   | LocationFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
   | { name: 'number', args?: [] | false, alias?: string  } 
   | { name: 'street', args?: [] | false, alias?: string  } 
   | { name: 'other', args?: [] | false, alias?: string  } 
@@ -1328,6 +1412,8 @@ type LocationObject =
 
 type LocationFields =
   | 'id'
+  | 'createdAt'
+  | 'updatedAt'
   | 'number'
   | 'street'
   | 'other'
@@ -1344,6 +1430,22 @@ type LocationFields =
 export interface LocationFieldDetails {
   id: {
     type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -1427,11 +1529,15 @@ export interface LocationFieldDetails {
 type GeocodeObject =
   | GeocodeFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
   | { name: 'latitude', args?: [] | false, alias?: string  } 
   | { name: 'longitude', args?: [] | false, alias?: string  } 
 
 type GeocodeFields =
   | 'id'
+  | 'createdAt'
+  | 'updatedAt'
   | 'latitude'
   | 'longitude'
 
@@ -1442,6 +1548,22 @@ type GeocodeFields =
 export interface GeocodeFieldDetails {
   id: {
     type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -1717,6 +1839,201 @@ export interface AggregateSchoolFieldDetails {
 }
   
 
+// Types for Token
+
+type TokenObject =
+  | TokenFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'accountId', args?: [] | false, alias?: string  } 
+  | { name: 'token', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
+
+type TokenFields =
+  | 'id'
+  | 'createdAt'
+  | 'accountId'
+  | 'token'
+  | 'type'
+
+
+
+  
+
+export interface TokenFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  accountId: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  token: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  type: {
+    type: 'TokenType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Token">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.TokenType> | prisma.TokenType
+  }
+}
+  
+
+// Types for TokenConnection
+
+type TokenConnectionObject =
+  | TokenConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type TokenConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface TokenConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"TokenConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'TokenEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"TokenConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.TokenEdge[]> | prisma.TokenEdge[]
+  }
+  aggregate: {
+    type: 'AggregateToken'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"TokenConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateToken> | prisma.AggregateToken
+  }
+}
+  
+
+// Types for TokenEdge
+
+type TokenEdgeObject =
+  | TokenEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type TokenEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface TokenEdgeFieldDetails {
+  node: {
+    type: 'Token'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"TokenEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Token> | prisma.Token
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateToken
+
+type AggregateTokenObject =
+  | AggregateTokenFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateTokenFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateTokenFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for LocationConnection
 
 type LocationConnectionObject =
@@ -1977,12 +2294,12 @@ type MutationObject =
   | { name: 'upsertAccount', args?: MutationUpsertAccountArgs[] | false, alias?: string  } 
   | { name: 'deleteAccount', args?: MutationDeleteAccountArgs[] | false, alias?: string  } 
   | { name: 'deleteManyAccounts', args?: MutationDeleteManyAccountsArgs[] | false, alias?: string  } 
-  | { name: 'createToken', args?: MutationCreateTokenArgs[] | false, alias?: string  } 
-  | { name: 'updateToken', args?: MutationUpdateTokenArgs[] | false, alias?: string  } 
-  | { name: 'updateManyTokens', args?: MutationUpdateManyTokensArgs[] | false, alias?: string  } 
-  | { name: 'upsertToken', args?: MutationUpsertTokenArgs[] | false, alias?: string  } 
-  | { name: 'deleteToken', args?: MutationDeleteTokenArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyTokens', args?: MutationDeleteManyTokensArgs[] | false, alias?: string  } 
+  | { name: 'createInvitation', args?: MutationCreateInvitationArgs[] | false, alias?: string  } 
+  | { name: 'updateInvitation', args?: MutationUpdateInvitationArgs[] | false, alias?: string  } 
+  | { name: 'updateManyInvitations', args?: MutationUpdateManyInvitationsArgs[] | false, alias?: string  } 
+  | { name: 'upsertInvitation', args?: MutationUpsertInvitationArgs[] | false, alias?: string  } 
+  | { name: 'deleteInvitation', args?: MutationDeleteInvitationArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyInvitations', args?: MutationDeleteManyInvitationsArgs[] | false, alias?: string  } 
   | { name: 'createOwner', args?: MutationCreateOwnerArgs[] | false, alias?: string  } 
   | { name: 'updateOwner', args?: MutationUpdateOwnerArgs[] | false, alias?: string  } 
   | { name: 'updateManyOwners', args?: MutationUpdateManyOwnersArgs[] | false, alias?: string  } 
@@ -1995,6 +2312,12 @@ type MutationObject =
   | { name: 'upsertSchool', args?: MutationUpsertSchoolArgs[] | false, alias?: string  } 
   | { name: 'deleteSchool', args?: MutationDeleteSchoolArgs[] | false, alias?: string  } 
   | { name: 'deleteManySchools', args?: MutationDeleteManySchoolsArgs[] | false, alias?: string  } 
+  | { name: 'createToken', args?: MutationCreateTokenArgs[] | false, alias?: string  } 
+  | { name: 'updateToken', args?: MutationUpdateTokenArgs[] | false, alias?: string  } 
+  | { name: 'updateManyTokens', args?: MutationUpdateManyTokensArgs[] | false, alias?: string  } 
+  | { name: 'upsertToken', args?: MutationUpsertTokenArgs[] | false, alias?: string  } 
+  | { name: 'deleteToken', args?: MutationDeleteTokenArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyTokens', args?: MutationDeleteManyTokensArgs[] | false, alias?: string  } 
   | { name: 'createLocation', args?: MutationCreateLocationArgs[] | false, alias?: string  } 
   | { name: 'updateLocation', args?: MutationUpdateLocationArgs[] | false, alias?: string  } 
   | { name: 'updateManyLocations', args?: MutationUpdateManyLocationsArgs[] | false, alias?: string  } 
@@ -2015,12 +2338,12 @@ type MutationFields =
   | 'upsertAccount'
   | 'deleteAccount'
   | 'deleteManyAccounts'
-  | 'createToken'
-  | 'updateToken'
-  | 'updateManyTokens'
-  | 'upsertToken'
-  | 'deleteToken'
-  | 'deleteManyTokens'
+  | 'createInvitation'
+  | 'updateInvitation'
+  | 'updateManyInvitations'
+  | 'upsertInvitation'
+  | 'deleteInvitation'
+  | 'deleteManyInvitations'
   | 'createOwner'
   | 'updateOwner'
   | 'updateManyOwners'
@@ -2033,6 +2356,12 @@ type MutationFields =
   | 'upsertSchool'
   | 'deleteSchool'
   | 'deleteManySchools'
+  | 'createToken'
+  | 'updateToken'
+  | 'updateManyTokens'
+  | 'upsertToken'
+  | 'deleteToken'
+  | 'deleteManyTokens'
   | 'createLocation'
   | 'updateLocation'
   | 'updateManyLocations'
@@ -2063,21 +2392,21 @@ type MutationDeleteAccountArgs =
   | 'where'
 type MutationDeleteManyAccountsArgs =
   | 'where'
-type MutationCreateTokenArgs =
+type MutationCreateInvitationArgs =
   | 'data'
-type MutationUpdateTokenArgs =
-  | 'data'
-  | 'where'
-type MutationUpdateManyTokensArgs =
+type MutationUpdateInvitationArgs =
   | 'data'
   | 'where'
-type MutationUpsertTokenArgs =
+type MutationUpdateManyInvitationsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertInvitationArgs =
   | 'where'
   | 'create'
   | 'update'
-type MutationDeleteTokenArgs =
+type MutationDeleteInvitationArgs =
   | 'where'
-type MutationDeleteManyTokensArgs =
+type MutationDeleteManyInvitationsArgs =
   | 'where'
 type MutationCreateOwnerArgs =
   | 'data'
@@ -2110,6 +2439,22 @@ type MutationUpsertSchoolArgs =
 type MutationDeleteSchoolArgs =
   | 'where'
 type MutationDeleteManySchoolsArgs =
+  | 'where'
+type MutationCreateTokenArgs =
+  | 'data'
+type MutationUpdateTokenArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyTokensArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertTokenArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteTokenArgs =
+  | 'where'
+type MutationDeleteManyTokensArgs =
   | 'where'
 type MutationCreateLocationArgs =
   | 'data'
@@ -2224,80 +2569,80 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  createToken: {
-    type: 'Token'
-    args: Record<MutationCreateTokenArgs, core.NexusArgDef<string>>
+  createInvitation: {
+    type: 'Invitation'
+    args: Record<MutationCreateInvitationArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: TokenCreateInput }  ,
+      args: { data: InvitationCreateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Token> | prisma.Token
+    ) => Promise<prisma.Invitation> | prisma.Invitation
   }
-  updateToken: {
-    type: 'Token'
-    args: Record<MutationUpdateTokenArgs, core.NexusArgDef<string>>
+  updateInvitation: {
+    type: 'Invitation'
+    args: Record<MutationUpdateInvitationArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: TokenUpdateInput, where: TokenWhereUniqueInput }  ,
+      args: { data: InvitationUpdateInput, where: InvitationWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Token | null> | prisma.Token | null
+    ) => Promise<prisma.Invitation | null> | prisma.Invitation | null
   }
-  updateManyTokens: {
+  updateManyInvitations: {
     type: 'BatchPayload'
-    args: Record<MutationUpdateManyTokensArgs, core.NexusArgDef<string>>
+    args: Record<MutationUpdateManyInvitationsArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: TokenUpdateManyMutationInput, where?: TokenWhereInput | null }  ,
+      args: { data: InvitationUpdateManyMutationInput, where?: InvitationWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  upsertToken: {
-    type: 'Token'
-    args: Record<MutationUpsertTokenArgs, core.NexusArgDef<string>>
+  upsertInvitation: {
+    type: 'Invitation'
+    args: Record<MutationUpsertInvitationArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: TokenWhereUniqueInput, create: TokenCreateInput, update: TokenUpdateInput }  ,
+      args: { where: InvitationWhereUniqueInput, create: InvitationCreateInput, update: InvitationUpdateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Token> | prisma.Token
+    ) => Promise<prisma.Invitation> | prisma.Invitation
   }
-  deleteToken: {
-    type: 'Token'
-    args: Record<MutationDeleteTokenArgs, core.NexusArgDef<string>>
+  deleteInvitation: {
+    type: 'Invitation'
+    args: Record<MutationDeleteInvitationArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: TokenWhereUniqueInput }  ,
+      args: { where: InvitationWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.Token | null> | prisma.Token | null
+    ) => Promise<prisma.Invitation | null> | prisma.Invitation | null
   }
-  deleteManyTokens: {
+  deleteManyInvitations: {
     type: 'BatchPayload'
-    args: Record<MutationDeleteManyTokensArgs, core.NexusArgDef<string>>
+    args: Record<MutationDeleteManyInvitationsArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where?: TokenWhereInput | null }  ,
+      args: { where?: InvitationWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -2454,6 +2799,84 @@ export interface MutationFieldDetails {
     resolve: (
       root: core.RootValue<"Mutation">,
       args: { where?: SchoolWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  createToken: {
+    type: 'Token'
+    args: Record<MutationCreateTokenArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: TokenCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Token> | prisma.Token
+  }
+  updateToken: {
+    type: 'Token'
+    args: Record<MutationUpdateTokenArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: TokenUpdateInput, where: TokenWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Token | null> | prisma.Token | null
+  }
+  updateManyTokens: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyTokensArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: TokenUpdateManyMutationInput, where?: TokenWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertToken: {
+    type: 'Token'
+    args: Record<MutationUpsertTokenArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: TokenWhereUniqueInput, create: TokenCreateInput, update: TokenUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Token> | prisma.Token
+  }
+  deleteToken: {
+    type: 'Token'
+    args: Record<MutationDeleteTokenArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: TokenWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Token | null> | prisma.Token | null
+  }
+  deleteManyTokens: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyTokensArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: TokenWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -2647,28 +3070,32 @@ export interface BatchPayloadFieldDetails {
 type SubscriptionObject =
   | SubscriptionFields
   | { name: 'account', args?: SubscriptionAccountArgs[] | false, alias?: string  } 
-  | { name: 'token', args?: SubscriptionTokenArgs[] | false, alias?: string  } 
+  | { name: 'invitation', args?: SubscriptionInvitationArgs[] | false, alias?: string  } 
   | { name: 'owner', args?: SubscriptionOwnerArgs[] | false, alias?: string  } 
   | { name: 'school', args?: SubscriptionSchoolArgs[] | false, alias?: string  } 
+  | { name: 'token', args?: SubscriptionTokenArgs[] | false, alias?: string  } 
   | { name: 'location', args?: SubscriptionLocationArgs[] | false, alias?: string  } 
   | { name: 'geocode', args?: SubscriptionGeocodeArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'account'
-  | 'token'
+  | 'invitation'
   | 'owner'
   | 'school'
+  | 'token'
   | 'location'
   | 'geocode'
 
 
 type SubscriptionAccountArgs =
   | 'where'
-type SubscriptionTokenArgs =
+type SubscriptionInvitationArgs =
   | 'where'
 type SubscriptionOwnerArgs =
   | 'where'
 type SubscriptionSchoolArgs =
+  | 'where'
+type SubscriptionTokenArgs =
   | 'where'
 type SubscriptionLocationArgs =
   | 'where'
@@ -2690,18 +3117,18 @@ export interface SubscriptionFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.AccountSubscriptionPayload | null> | prisma.AccountSubscriptionPayload | null
   }
-  token: {
-    type: 'TokenSubscriptionPayload'
-    args: Record<SubscriptionTokenArgs, core.NexusArgDef<string>>
+  invitation: {
+    type: 'InvitationSubscriptionPayload'
+    args: Record<SubscriptionInvitationArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Subscription">,
-      args: { where?: TokenSubscriptionWhereInput | null }  ,
+      args: { where?: InvitationSubscriptionWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.TokenSubscriptionPayload | null> | prisma.TokenSubscriptionPayload | null
+    ) => Promise<prisma.InvitationSubscriptionPayload | null> | prisma.InvitationSubscriptionPayload | null
   }
   owner: {
     type: 'OwnerSubscriptionPayload'
@@ -2728,6 +3155,19 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.SchoolSubscriptionPayload | null> | prisma.SchoolSubscriptionPayload | null
+  }
+  token: {
+    type: 'TokenSubscriptionPayload'
+    args: Record<SubscriptionTokenArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: TokenSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.TokenSubscriptionPayload | null> | prisma.TokenSubscriptionPayload | null
   }
   location: {
     type: 'LocationSubscriptionPayload'
@@ -2833,25 +3273,25 @@ export interface AccountSubscriptionPayloadFieldDetails {
 type AccountPreviousValuesObject =
   | AccountPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
   | { name: 'username', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'password', args?: [] | false, alias?: string  } 
   | { name: 'isVerified', args?: [] | false, alias?: string  } 
   | { name: 'role', args?: [] | false, alias?: string  } 
   | { name: 'lastLogin', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type AccountPreviousValuesFields =
   | 'id'
+  | 'createdAt'
+  | 'updatedAt'
   | 'username'
   | 'email'
   | 'password'
   | 'isVerified'
   | 'role'
   | 'lastLogin'
-  | 'createdAt'
-  | 'updatedAt'
 
 
 
@@ -2860,6 +3300,22 @@ type AccountPreviousValuesFields =
 export interface AccountPreviousValuesFieldDetails {
   id: {
     type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -2919,6 +3375,109 @@ export interface AccountPreviousValuesFieldDetails {
     nullable: true
     resolve: undefined
   }
+}
+  
+
+// Types for InvitationSubscriptionPayload
+
+type InvitationSubscriptionPayloadObject =
+  | InvitationSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type InvitationSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface InvitationSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"InvitationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Invitation'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"InvitationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Invitation | null> | prisma.Invitation | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'InvitationPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"InvitationSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.InvitationPreviousValues | null> | prisma.InvitationPreviousValues | null
+  }
+}
+  
+
+// Types for InvitationPreviousValues
+
+type InvitationPreviousValuesObject =
+  | InvitationPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'email', args?: [] | false, alias?: string  } 
+  | { name: 'role', args?: [] | false, alias?: string  } 
+
+type InvitationPreviousValuesFields =
+  | 'id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'email'
+  | 'role'
+
+
+
+  
+
+export interface InvitationPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
   createdAt: {
     type: 'DateTime'
     args: {}
@@ -2935,145 +3494,26 @@ export interface AccountPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-}
-  
-
-// Types for TokenSubscriptionPayload
-
-type TokenSubscriptionPayloadObject =
-  | TokenSubscriptionPayloadFields
-  | { name: 'mutation', args?: [] | false, alias?: string  } 
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
-  | { name: 'previousValues', args?: [] | false, alias?: string  } 
-
-type TokenSubscriptionPayloadFields =
-  | 'mutation'
-  | 'node'
-  | 'updatedFields'
-  | 'previousValues'
-
-
-
-  
-
-export interface TokenSubscriptionPayloadFieldDetails {
-  mutation: {
-    type: 'MutationType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TokenSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MutationType> | prisma.MutationType
-  }
-  node: {
-    type: 'Token'
+  email: {
+    type: 'String'
     args: {}
     description: string
     list: undefined
     nullable: true
-    resolve: (
-      root: core.RootValue<"TokenSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Token | null> | prisma.Token | null
-  }
-  updatedFields: {
-    type: 'String'
-    args: {}
-    description: string
-    list: true
-    nullable: false
     resolve: undefined
   }
-  previousValues: {
-    type: 'TokenPreviousValues'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"TokenSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TokenPreviousValues | null> | prisma.TokenPreviousValues | null
-  }
-}
-  
-
-// Types for TokenPreviousValues
-
-type TokenPreviousValuesObject =
-  | TokenPreviousValuesFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'accountId', args?: [] | false, alias?: string  } 
-  | { name: 'token', args?: [] | false, alias?: string  } 
-  | { name: 'type', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-
-type TokenPreviousValuesFields =
-  | 'id'
-  | 'accountId'
-  | 'token'
-  | 'type'
-  | 'createdAt'
-
-
-
-  
-
-export interface TokenPreviousValuesFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  accountId: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  token: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  type: {
-    type: 'TokenType'
+  role: {
+    type: 'Role'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"TokenPreviousValues">,
+      root: core.RootValue<"InvitationPreviousValues">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.TokenType> | prisma.TokenType
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
+    ) => Promise<prisma.Role> | prisma.Role
   }
 }
   
@@ -3153,19 +3593,19 @@ export interface OwnerSubscriptionPayloadFieldDetails {
 type OwnerPreviousValuesObject =
   | OwnerPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
   | { name: 'firstName', args?: [] | false, alias?: string  } 
   | { name: 'middleName', args?: [] | false, alias?: string  } 
   | { name: 'lastName', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type OwnerPreviousValuesFields =
   | 'id'
+  | 'createdAt'
+  | 'updatedAt'
   | 'firstName'
   | 'middleName'
   | 'lastName'
-  | 'createdAt'
-  | 'updatedAt'
 
 
 
@@ -3174,6 +3614,22 @@ type OwnerPreviousValuesFields =
 export interface OwnerPreviousValuesFieldDetails {
   id: {
     type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -3198,22 +3654,6 @@ export interface OwnerPreviousValuesFieldDetails {
   }
   lastName: {
     type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -3298,21 +3738,21 @@ export interface SchoolSubscriptionPayloadFieldDetails {
 type SchoolPreviousValuesObject =
   | SchoolPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
   | { name: 'title', args?: [] | false, alias?: string  } 
   | { name: 'phone', args?: [] | false, alias?: string  } 
   | { name: 'uri', args?: [] | false, alias?: string  } 
   | { name: 'email', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type SchoolPreviousValuesFields =
   | 'id'
+  | 'createdAt'
+  | 'updatedAt'
   | 'title'
   | 'phone'
   | 'uri'
   | 'email'
-  | 'createdAt'
-  | 'updatedAt'
 
 
 
@@ -3321,6 +3761,22 @@ type SchoolPreviousValuesFields =
 export interface SchoolPreviousValuesFieldDetails {
   id: {
     type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -3359,6 +3815,109 @@ export interface SchoolPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
+}
+  
+
+// Types for TokenSubscriptionPayload
+
+type TokenSubscriptionPayloadObject =
+  | TokenSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type TokenSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface TokenSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"TokenSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Token'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"TokenSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Token | null> | prisma.Token | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'TokenPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"TokenSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.TokenPreviousValues | null> | prisma.TokenPreviousValues | null
+  }
+}
+  
+
+// Types for TokenPreviousValues
+
+type TokenPreviousValuesObject =
+  | TokenPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'accountId', args?: [] | false, alias?: string  } 
+  | { name: 'token', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
+
+type TokenPreviousValuesFields =
+  | 'id'
+  | 'createdAt'
+  | 'accountId'
+  | 'token'
+  | 'type'
+
+
+
+  
+
+export interface TokenPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
   createdAt: {
     type: 'DateTime'
     args: {}
@@ -3367,13 +3926,34 @@ export interface SchoolPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  updatedAt: {
-    type: 'DateTime'
+  accountId: {
+    type: 'String'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: undefined
+  }
+  token: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  type: {
+    type: 'TokenType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"TokenPreviousValues">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.TokenType> | prisma.TokenType
   }
 }
   
@@ -3453,6 +4033,8 @@ export interface LocationSubscriptionPayloadFieldDetails {
 type LocationPreviousValuesObject =
   | LocationPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
   | { name: 'number', args?: [] | false, alias?: string  } 
   | { name: 'street', args?: [] | false, alias?: string  } 
   | { name: 'other', args?: [] | false, alias?: string  } 
@@ -3463,6 +4045,8 @@ type LocationPreviousValuesObject =
 
 type LocationPreviousValuesFields =
   | 'id'
+  | 'createdAt'
+  | 'updatedAt'
   | 'number'
   | 'street'
   | 'other'
@@ -3478,6 +4062,22 @@ type LocationPreviousValuesFields =
 export interface LocationPreviousValuesFieldDetails {
   id: {
     type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -3618,11 +4218,15 @@ export interface GeocodeSubscriptionPayloadFieldDetails {
 type GeocodePreviousValuesObject =
   | GeocodePreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
   | { name: 'latitude', args?: [] | false, alias?: string  } 
   | { name: 'longitude', args?: [] | false, alias?: string  } 
 
 type GeocodePreviousValuesFields =
   | 'id'
+  | 'createdAt'
+  | 'updatedAt'
   | 'latitude'
   | 'longitude'
 
@@ -3633,6 +4237,22 @@ type GeocodePreviousValuesFields =
 export interface GeocodePreviousValuesFieldDetails {
   id: {
     type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -3685,6 +4305,22 @@ export interface AccountWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
   username?: string | null
   username_not?: string | null
   username_in?: string[]
@@ -3741,22 +4377,6 @@ export interface AccountWhereInput {
   lastLogin_lte?: string | null
   lastLogin_gt?: string | null
   lastLogin_gte?: string | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
   AND?: AccountWhereInput[]
   OR?: AccountWhereInput[]
   NOT?: AccountWhereInput[]
@@ -3777,6 +4397,22 @@ export type AccountWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'username', alias?: string  } 
   | { name: 'username_not', alias?: string  } 
   | { name: 'username_in', alias?: string  } 
@@ -3833,6 +4469,88 @@ export type AccountWhereInputInputObject =
   | { name: 'lastLogin_lte', alias?: string  } 
   | { name: 'lastLogin_gt', alias?: string  } 
   | { name: 'lastLogin_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface InvitationWhereUniqueInput {
+  id?: string | null
+  email?: string | null
+}
+export type InvitationWhereUniqueInputInputObject =
+  | Extract<keyof InvitationWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  
+export interface InvitationWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  email?: string | null
+  email_not?: string | null
+  email_in?: string[]
+  email_not_in?: string[]
+  email_lt?: string | null
+  email_lte?: string | null
+  email_gt?: string | null
+  email_gte?: string | null
+  email_contains?: string | null
+  email_not_contains?: string | null
+  email_starts_with?: string | null
+  email_not_starts_with?: string | null
+  email_ends_with?: string | null
+  email_not_ends_with?: string | null
+  role?: prisma.Role | null
+  role_not?: prisma.Role | null
+  role_in?: prisma.Role[]
+  role_not_in?: prisma.Role[]
+  AND?: InvitationWhereInput[]
+  OR?: InvitationWhereInput[]
+  NOT?: InvitationWhereInput[]
+}
+export type InvitationWhereInputInputObject =
+  | Extract<keyof InvitationWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
   | { name: 'createdAt', alias?: string  } 
   | { name: 'createdAt_not', alias?: string  } 
   | { name: 'createdAt_in', alias?: string  } 
@@ -3849,134 +4567,24 @@ export type AccountWhereInputInputObject =
   | { name: 'updatedAt_lte', alias?: string  } 
   | { name: 'updatedAt_gt', alias?: string  } 
   | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface TokenWhereUniqueInput {
-  id?: string | null
-  token?: string | null
-}
-export type TokenWhereUniqueInputInputObject =
-  | Extract<keyof TokenWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'token', alias?: string  } 
-  
-export interface TokenWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  accountId?: string | null
-  accountId_not?: string | null
-  accountId_in?: string[]
-  accountId_not_in?: string[]
-  accountId_lt?: string | null
-  accountId_lte?: string | null
-  accountId_gt?: string | null
-  accountId_gte?: string | null
-  accountId_contains?: string | null
-  accountId_not_contains?: string | null
-  accountId_starts_with?: string | null
-  accountId_not_starts_with?: string | null
-  accountId_ends_with?: string | null
-  accountId_not_ends_with?: string | null
-  token?: string | null
-  token_not?: string | null
-  token_in?: string[]
-  token_not_in?: string[]
-  token_lt?: string | null
-  token_lte?: string | null
-  token_gt?: string | null
-  token_gte?: string | null
-  token_contains?: string | null
-  token_not_contains?: string | null
-  token_starts_with?: string | null
-  token_not_starts_with?: string | null
-  token_ends_with?: string | null
-  token_not_ends_with?: string | null
-  type?: prisma.TokenType | null
-  type_not?: prisma.TokenType | null
-  type_in?: prisma.TokenType[]
-  type_not_in?: prisma.TokenType[]
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  AND?: TokenWhereInput[]
-  OR?: TokenWhereInput[]
-  NOT?: TokenWhereInput[]
-}
-export type TokenWhereInputInputObject =
-  | Extract<keyof TokenWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'accountId', alias?: string  } 
-  | { name: 'accountId_not', alias?: string  } 
-  | { name: 'accountId_in', alias?: string  } 
-  | { name: 'accountId_not_in', alias?: string  } 
-  | { name: 'accountId_lt', alias?: string  } 
-  | { name: 'accountId_lte', alias?: string  } 
-  | { name: 'accountId_gt', alias?: string  } 
-  | { name: 'accountId_gte', alias?: string  } 
-  | { name: 'accountId_contains', alias?: string  } 
-  | { name: 'accountId_not_contains', alias?: string  } 
-  | { name: 'accountId_starts_with', alias?: string  } 
-  | { name: 'accountId_not_starts_with', alias?: string  } 
-  | { name: 'accountId_ends_with', alias?: string  } 
-  | { name: 'accountId_not_ends_with', alias?: string  } 
-  | { name: 'token', alias?: string  } 
-  | { name: 'token_not', alias?: string  } 
-  | { name: 'token_in', alias?: string  } 
-  | { name: 'token_not_in', alias?: string  } 
-  | { name: 'token_lt', alias?: string  } 
-  | { name: 'token_lte', alias?: string  } 
-  | { name: 'token_gt', alias?: string  } 
-  | { name: 'token_gte', alias?: string  } 
-  | { name: 'token_contains', alias?: string  } 
-  | { name: 'token_not_contains', alias?: string  } 
-  | { name: 'token_starts_with', alias?: string  } 
-  | { name: 'token_not_starts_with', alias?: string  } 
-  | { name: 'token_ends_with', alias?: string  } 
-  | { name: 'token_not_ends_with', alias?: string  } 
-  | { name: 'type', alias?: string  } 
-  | { name: 'type_not', alias?: string  } 
-  | { name: 'type_in', alias?: string  } 
-  | { name: 'type_not_in', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'email_not', alias?: string  } 
+  | { name: 'email_in', alias?: string  } 
+  | { name: 'email_not_in', alias?: string  } 
+  | { name: 'email_lt', alias?: string  } 
+  | { name: 'email_lte', alias?: string  } 
+  | { name: 'email_gt', alias?: string  } 
+  | { name: 'email_gte', alias?: string  } 
+  | { name: 'email_contains', alias?: string  } 
+  | { name: 'email_not_contains', alias?: string  } 
+  | { name: 'email_starts_with', alias?: string  } 
+  | { name: 'email_not_starts_with', alias?: string  } 
+  | { name: 'email_ends_with', alias?: string  } 
+  | { name: 'email_not_ends_with', alias?: string  } 
+  | { name: 'role', alias?: string  } 
+  | { name: 'role_not', alias?: string  } 
+  | { name: 'role_in', alias?: string  } 
+  | { name: 'role_not_in', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -4003,6 +4611,22 @@ export interface SchoolWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
   title?: string | null
   title_not?: string | null
   title_in?: string[]
@@ -4063,22 +4687,6 @@ export interface SchoolWhereInput {
   locations_every?: LocationWhereInput | null
   locations_some?: LocationWhereInput | null
   locations_none?: LocationWhereInput | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
   AND?: SchoolWhereInput[]
   OR?: SchoolWhereInput[]
   NOT?: SchoolWhereInput[]
@@ -4099,6 +4707,22 @@ export type SchoolWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'title_not', alias?: string  } 
   | { name: 'title_in', alias?: string  } 
@@ -4159,22 +4783,6 @@ export type SchoolWhereInputInputObject =
   | { name: 'locations_every', alias?: string  } 
   | { name: 'locations_some', alias?: string  } 
   | { name: 'locations_none', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -4194,6 +4802,22 @@ export interface OwnerWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
   account?: AccountWhereInput | null
   firstName?: string | null
   firstName_not?: string | null
@@ -4241,22 +4865,6 @@ export interface OwnerWhereInput {
   schools_some?: SchoolWhereInput | null
   schools_none?: SchoolWhereInput | null
   location?: LocationWhereInput | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
   AND?: OwnerWhereInput[]
   OR?: OwnerWhereInput[]
   NOT?: OwnerWhereInput[]
@@ -4277,6 +4885,22 @@ export type OwnerWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'account', alias?: string  } 
   | { name: 'firstName', alias?: string  } 
   | { name: 'firstName_not', alias?: string  } 
@@ -4324,22 +4948,6 @@ export type OwnerWhereInputInputObject =
   | { name: 'schools_some', alias?: string  } 
   | { name: 'schools_none', alias?: string  } 
   | { name: 'location', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -4359,6 +4967,22 @@ export interface LocationWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
   number?: string | null
   number_not?: string | null
   number_in?: string[]
@@ -4478,6 +5102,22 @@ export type LocationWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'number', alias?: string  } 
   | { name: 'number_not', alias?: string  } 
   | { name: 'number_in', alias?: string  } 
@@ -4596,6 +5236,22 @@ export interface GeocodeWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
   latitude?: number | null
   latitude_not?: number | null
   latitude_in?: number[]
@@ -4632,6 +5288,22 @@ export type GeocodeWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'latitude', alias?: string  } 
   | { name: 'latitude_not', alias?: string  } 
   | { name: 'latitude_in', alias?: string  } 
@@ -4664,6 +5336,134 @@ export type SchoolWhereUniqueInputInputObject =
   | { name: 'phone', alias?: string  } 
   | { name: 'uri', alias?: string  } 
   | { name: 'email', alias?: string  } 
+  
+export interface TokenWhereUniqueInput {
+  id?: string | null
+  token?: string | null
+}
+export type TokenWhereUniqueInputInputObject =
+  | Extract<keyof TokenWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'token', alias?: string  } 
+  
+export interface TokenWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  accountId?: string | null
+  accountId_not?: string | null
+  accountId_in?: string[]
+  accountId_not_in?: string[]
+  accountId_lt?: string | null
+  accountId_lte?: string | null
+  accountId_gt?: string | null
+  accountId_gte?: string | null
+  accountId_contains?: string | null
+  accountId_not_contains?: string | null
+  accountId_starts_with?: string | null
+  accountId_not_starts_with?: string | null
+  accountId_ends_with?: string | null
+  accountId_not_ends_with?: string | null
+  token?: string | null
+  token_not?: string | null
+  token_in?: string[]
+  token_not_in?: string[]
+  token_lt?: string | null
+  token_lte?: string | null
+  token_gt?: string | null
+  token_gte?: string | null
+  token_contains?: string | null
+  token_not_contains?: string | null
+  token_starts_with?: string | null
+  token_not_starts_with?: string | null
+  token_ends_with?: string | null
+  token_not_ends_with?: string | null
+  type?: prisma.TokenType | null
+  type_not?: prisma.TokenType | null
+  type_in?: prisma.TokenType[]
+  type_not_in?: prisma.TokenType[]
+  AND?: TokenWhereInput[]
+  OR?: TokenWhereInput[]
+  NOT?: TokenWhereInput[]
+}
+export type TokenWhereInputInputObject =
+  | Extract<keyof TokenWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'accountId', alias?: string  } 
+  | { name: 'accountId_not', alias?: string  } 
+  | { name: 'accountId_in', alias?: string  } 
+  | { name: 'accountId_not_in', alias?: string  } 
+  | { name: 'accountId_lt', alias?: string  } 
+  | { name: 'accountId_lte', alias?: string  } 
+  | { name: 'accountId_gt', alias?: string  } 
+  | { name: 'accountId_gte', alias?: string  } 
+  | { name: 'accountId_contains', alias?: string  } 
+  | { name: 'accountId_not_contains', alias?: string  } 
+  | { name: 'accountId_starts_with', alias?: string  } 
+  | { name: 'accountId_not_starts_with', alias?: string  } 
+  | { name: 'accountId_ends_with', alias?: string  } 
+  | { name: 'accountId_not_ends_with', alias?: string  } 
+  | { name: 'token', alias?: string  } 
+  | { name: 'token_not', alias?: string  } 
+  | { name: 'token_in', alias?: string  } 
+  | { name: 'token_not_in', alias?: string  } 
+  | { name: 'token_lt', alias?: string  } 
+  | { name: 'token_lte', alias?: string  } 
+  | { name: 'token_gt', alias?: string  } 
+  | { name: 'token_gte', alias?: string  } 
+  | { name: 'token_contains', alias?: string  } 
+  | { name: 'token_not_contains', alias?: string  } 
+  | { name: 'token_starts_with', alias?: string  } 
+  | { name: 'token_not_starts_with', alias?: string  } 
+  | { name: 'token_ends_with', alias?: string  } 
+  | { name: 'token_not_ends_with', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'type_not', alias?: string  } 
+  | { name: 'type_in', alias?: string  } 
+  | { name: 'type_not_in', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
   
 export interface LocationWhereUniqueInput {
   id?: string | null
@@ -4732,40 +5532,34 @@ export type AccountUpdateManyMutationInputInputObject =
   | { name: 'role', alias?: string  } 
   | { name: 'lastLogin', alias?: string  } 
   
-export interface TokenCreateInput {
+export interface InvitationCreateInput {
   id?: string | null
-  accountId?: string
-  token?: string
-  type?: prisma.TokenType | null
+  email?: string | null
+  role?: prisma.Role
 }
-export type TokenCreateInputInputObject =
-  | Extract<keyof TokenCreateInput, string>
+export type InvitationCreateInputInputObject =
+  | Extract<keyof InvitationCreateInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'accountId', alias?: string  } 
-  | { name: 'token', alias?: string  } 
-  | { name: 'type', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   
-export interface TokenUpdateInput {
-  accountId?: string | null
-  token?: string | null
-  type?: prisma.TokenType | null
+export interface InvitationUpdateInput {
+  email?: string | null
+  role?: prisma.Role | null
 }
-export type TokenUpdateInputInputObject =
-  | Extract<keyof TokenUpdateInput, string>
-  | { name: 'accountId', alias?: string  } 
-  | { name: 'token', alias?: string  } 
-  | { name: 'type', alias?: string  } 
+export type InvitationUpdateInputInputObject =
+  | Extract<keyof InvitationUpdateInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   
-export interface TokenUpdateManyMutationInput {
-  accountId?: string | null
-  token?: string | null
-  type?: prisma.TokenType | null
+export interface InvitationUpdateManyMutationInput {
+  email?: string | null
+  role?: prisma.Role | null
 }
-export type TokenUpdateManyMutationInputInputObject =
-  | Extract<keyof TokenUpdateManyMutationInput, string>
-  | { name: 'accountId', alias?: string  } 
-  | { name: 'token', alias?: string  } 
-  | { name: 'type', alias?: string  } 
+export type InvitationUpdateManyMutationInputInputObject =
+  | Extract<keyof InvitationUpdateManyMutationInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'role', alias?: string  } 
   
 export interface OwnerCreateInput {
   id?: string | null
@@ -5099,6 +5893,22 @@ export interface LocationScalarWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
   number?: string | null
   number_not?: string | null
   number_in?: string[]
@@ -5217,6 +6027,22 @@ export type LocationScalarWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'number', alias?: string  } 
   | { name: 'number_not', alias?: string  } 
   | { name: 'number_in', alias?: string  } 
@@ -5373,6 +6199,22 @@ export interface SchoolScalarWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
   title?: string | null
   title_not?: string | null
   title_in?: string[]
@@ -5429,22 +6271,6 @@ export interface SchoolScalarWhereInput {
   email_not_starts_with?: string | null
   email_ends_with?: string | null
   email_not_ends_with?: string | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
   AND?: SchoolScalarWhereInput[]
   OR?: SchoolScalarWhereInput[]
   NOT?: SchoolScalarWhereInput[]
@@ -5465,6 +6291,22 @@ export type SchoolScalarWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'title', alias?: string  } 
   | { name: 'title_not', alias?: string  } 
   | { name: 'title_in', alias?: string  } 
@@ -5521,22 +6363,6 @@ export type SchoolScalarWhereInputInputObject =
   | { name: 'email_not_starts_with', alias?: string  } 
   | { name: 'email_ends_with', alias?: string  } 
   | { name: 'email_not_ends_with', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -5712,6 +6538,41 @@ export type SchoolUpdateManyMutationInputInputObject =
   | { name: 'uri', alias?: string  } 
   | { name: 'email', alias?: string  } 
   
+export interface TokenCreateInput {
+  id?: string | null
+  accountId?: string
+  token?: string
+  type?: prisma.TokenType | null
+}
+export type TokenCreateInputInputObject =
+  | Extract<keyof TokenCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'accountId', alias?: string  } 
+  | { name: 'token', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  
+export interface TokenUpdateInput {
+  accountId?: string | null
+  token?: string | null
+  type?: prisma.TokenType | null
+}
+export type TokenUpdateInputInputObject =
+  | Extract<keyof TokenUpdateInput, string>
+  | { name: 'accountId', alias?: string  } 
+  | { name: 'token', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  
+export interface TokenUpdateManyMutationInput {
+  accountId?: string | null
+  token?: string | null
+  type?: prisma.TokenType | null
+}
+export type TokenUpdateManyMutationInputInputObject =
+  | Extract<keyof TokenUpdateManyMutationInput, string>
+  | { name: 'accountId', alias?: string  } 
+  | { name: 'token', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  
 export interface LocationUpdateInput {
   number?: string | null
   street?: string | null
@@ -5791,18 +6652,18 @@ export type AccountSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface TokenSubscriptionWhereInput {
+export interface InvitationSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
   updatedFields_contains_every?: string[]
   updatedFields_contains_some?: string[]
-  node?: TokenWhereInput | null
-  AND?: TokenSubscriptionWhereInput[]
-  OR?: TokenSubscriptionWhereInput[]
-  NOT?: TokenSubscriptionWhereInput[]
+  node?: InvitationWhereInput | null
+  AND?: InvitationSubscriptionWhereInput[]
+  OR?: InvitationSubscriptionWhereInput[]
+  NOT?: InvitationSubscriptionWhereInput[]
 }
-export type TokenSubscriptionWhereInputInputObject =
-  | Extract<keyof TokenSubscriptionWhereInput, string>
+export type InvitationSubscriptionWhereInputInputObject =
+  | Extract<keyof InvitationSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -5845,6 +6706,27 @@ export interface SchoolSubscriptionWhereInput {
 }
 export type SchoolSubscriptionWhereInputInputObject =
   | Extract<keyof SchoolSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface TokenSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: TokenWhereInput | null
+  AND?: TokenSubscriptionWhereInput[]
+  OR?: TokenSubscriptionWhereInput[]
+  NOT?: TokenSubscriptionWhereInput[]
+}
+export type TokenSubscriptionWhereInputInputObject =
+  | Extract<keyof TokenSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -5900,12 +6782,18 @@ export type GeocodeSubscriptionWhereInputInputObject =
 export type RoleValues =
   | 'OWNER'
   | 'ADMIN'
-  | 'PARENT'
+  | 'STAFF'
+  | 'TEACHER'
+  | 'GUARDIAN'
   | 'STUDENT'
   
 export type AccountOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
   | 'username_ASC'
   | 'username_DESC'
   | 'email_ASC'
@@ -5918,32 +6806,26 @@ export type AccountOrderByInputValues =
   | 'role_DESC'
   | 'lastLogin_ASC'
   | 'lastLogin_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
   
-export type TokenTypeValues =
-  | 'PASSWORD'
-  | 'EMAIL'
-  
-export type TokenOrderByInputValues =
+export type InvitationOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'accountId_ASC'
-  | 'accountId_DESC'
-  | 'token_ASC'
-  | 'token_DESC'
-  | 'type_ASC'
-  | 'type_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
+  | 'email_ASC'
+  | 'email_DESC'
+  | 'role_ASC'
+  | 'role_DESC'
   
 export type SchoolOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
   | 'title_ASC'
   | 'title_DESC'
   | 'phone_ASC'
@@ -5952,14 +6834,14 @@ export type SchoolOrderByInputValues =
   | 'uri_DESC'
   | 'email_ASC'
   | 'email_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
   
 export type LocationOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
   | 'number_ASC'
   | 'number_DESC'
   | 'street_ASC'
@@ -5974,36 +6856,50 @@ export type LocationOrderByInputValues =
   | 'postalCode_DESC'
   | 'nearestLandmark_ASC'
   | 'nearestLandmark_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
   
 export type OwnerOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
   | 'firstName_ASC'
   | 'firstName_DESC'
   | 'middleName_ASC'
   | 'middleName_DESC'
   | 'lastName_ASC'
   | 'lastName_DESC'
+  
+export type TokenTypeValues =
+  | 'PASSWORD'
+  | 'EMAIL'
+  
+export type TokenOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
+  | 'accountId_ASC'
+  | 'accountId_DESC'
+  | 'token_ASC'
+  | 'token_DESC'
+  | 'type_ASC'
+  | 'type_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
 export type GeocodeOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'latitude_ASC'
-  | 'latitude_DESC'
-  | 'longitude_ASC'
-  | 'longitude_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
+  | 'latitude_ASC'
+  | 'latitude_DESC'
+  | 'longitude_ASC'
+  | 'longitude_DESC'
   
 export type MutationTypeValues =
   | 'CREATED'

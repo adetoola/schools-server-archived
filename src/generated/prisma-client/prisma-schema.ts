@@ -4,14 +4,14 @@
 
 export const typeDefs = /* GraphQL */ `type Account {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   username: String
   email: String!
   password: String!
   isVerified: Boolean!
   role: Role!
   lastLogin: DateTime
-  createdAt: DateTime!
-  updatedAt: DateTime!
 }
 
 type AccountConnection {
@@ -43,6 +43,10 @@ type AccountEdge {
 enum AccountOrderByInput {
   id_ASC
   id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
   username_ASC
   username_DESC
   email_ASC
@@ -55,22 +59,18 @@ enum AccountOrderByInput {
   role_DESC
   lastLogin_ASC
   lastLogin_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type AccountPreviousValues {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   username: String
   email: String!
   password: String!
   isVerified: Boolean!
   role: Role!
   lastLogin: DateTime
-  createdAt: DateTime!
-  updatedAt: DateTime!
 }
 
 type AccountSubscriptionPayload {
@@ -145,6 +145,22 @@ input AccountWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   username: String
   username_not: String
   username_in: [String!]
@@ -201,22 +217,6 @@ input AccountWhereInput {
   lastLogin_lte: DateTime
   lastLogin_gt: DateTime
   lastLogin_gte: DateTime
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
   AND: [AccountWhereInput!]
   OR: [AccountWhereInput!]
   NOT: [AccountWhereInput!]
@@ -233,6 +233,10 @@ type AggregateAccount {
 }
 
 type AggregateGeocode {
+  count: Int!
+}
+
+type AggregateInvitation {
   count: Int!
 }
 
@@ -260,6 +264,8 @@ scalar DateTime
 
 type Geocode {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   latitude: Float!
   longitude: Float!
 }
@@ -289,6 +295,10 @@ type GeocodeEdge {
 enum GeocodeOrderByInput {
   id_ASC
   id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
   latitude_ASC
   latitude_DESC
   longitude_ASC
@@ -297,6 +307,8 @@ enum GeocodeOrderByInput {
 
 type GeocodePreviousValues {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   latitude: Float!
   longitude: Float!
 }
@@ -363,6 +375,22 @@ input GeocodeWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   latitude: Float
   latitude_not: Float
   latitude_in: [Float!]
@@ -388,8 +416,143 @@ input GeocodeWhereUniqueInput {
   id: ID
 }
 
+type Invitation {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: String
+  role: Role!
+}
+
+type InvitationConnection {
+  pageInfo: PageInfo!
+  edges: [InvitationEdge]!
+  aggregate: AggregateInvitation!
+}
+
+input InvitationCreateInput {
+  id: ID
+  email: String
+  role: Role!
+}
+
+type InvitationEdge {
+  node: Invitation!
+  cursor: String!
+}
+
+enum InvitationOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  email_ASC
+  email_DESC
+  role_ASC
+  role_DESC
+}
+
+type InvitationPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: String
+  role: Role!
+}
+
+type InvitationSubscriptionPayload {
+  mutation: MutationType!
+  node: Invitation
+  updatedFields: [String!]
+  previousValues: InvitationPreviousValues
+}
+
+input InvitationSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: InvitationWhereInput
+  AND: [InvitationSubscriptionWhereInput!]
+  OR: [InvitationSubscriptionWhereInput!]
+  NOT: [InvitationSubscriptionWhereInput!]
+}
+
+input InvitationUpdateInput {
+  email: String
+  role: Role
+}
+
+input InvitationUpdateManyMutationInput {
+  email: String
+  role: Role
+}
+
+input InvitationWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  role: Role
+  role_not: Role
+  role_in: [Role!]
+  role_not_in: [Role!]
+  AND: [InvitationWhereInput!]
+  OR: [InvitationWhereInput!]
+  NOT: [InvitationWhereInput!]
+}
+
+input InvitationWhereUniqueInput {
+  id: ID
+  email: String
+}
+
 type Location {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   number: String!
   street: String!
   other: String
@@ -436,6 +599,10 @@ type LocationEdge {
 enum LocationOrderByInput {
   id_ASC
   id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
   number_ASC
   number_DESC
   street_ASC
@@ -454,6 +621,8 @@ enum LocationOrderByInput {
 
 type LocationPreviousValues {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   number: String!
   street: String!
   other: String
@@ -478,6 +647,22 @@ input LocationScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   number: String
   number_not: String
   number_in: [String!]
@@ -698,6 +883,22 @@ input LocationWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   number: String
   number_not: String
   number_in: [String!]
@@ -821,6 +1022,12 @@ type Mutation {
   upsertGeocode(where: GeocodeWhereUniqueInput!, create: GeocodeCreateInput!, update: GeocodeUpdateInput!): Geocode!
   deleteGeocode(where: GeocodeWhereUniqueInput!): Geocode
   deleteManyGeocodes(where: GeocodeWhereInput): BatchPayload!
+  createInvitation(data: InvitationCreateInput!): Invitation!
+  updateInvitation(data: InvitationUpdateInput!, where: InvitationWhereUniqueInput!): Invitation
+  updateManyInvitations(data: InvitationUpdateManyMutationInput!, where: InvitationWhereInput): BatchPayload!
+  upsertInvitation(where: InvitationWhereUniqueInput!, create: InvitationCreateInput!, update: InvitationUpdateInput!): Invitation!
+  deleteInvitation(where: InvitationWhereUniqueInput!): Invitation
+  deleteManyInvitations(where: InvitationWhereInput): BatchPayload!
   createLocation(data: LocationCreateInput!): Location!
   updateLocation(data: LocationUpdateInput!, where: LocationWhereUniqueInput!): Location
   updateManyLocations(data: LocationUpdateManyMutationInput!, where: LocationWhereInput): BatchPayload!
@@ -859,14 +1066,14 @@ interface Node {
 
 type Owner {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   account: Account!
   firstName: String!
   middleName: String
   lastName: String!
   schools(where: SchoolWhereInput, orderBy: SchoolOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [School!]
   location: Location
-  createdAt: DateTime!
-  updatedAt: DateTime!
 }
 
 type OwnerConnection {
@@ -907,25 +1114,25 @@ type OwnerEdge {
 enum OwnerOrderByInput {
   id_ASC
   id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
   firstName_ASC
   firstName_DESC
   middleName_ASC
   middleName_DESC
   lastName_ASC
   lastName_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type OwnerPreviousValues {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   firstName: String!
   middleName: String
   lastName: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
 }
 
 type OwnerSubscriptionPayload {
@@ -996,6 +1203,22 @@ input OwnerWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   account: AccountWhereInput
   firstName: String
   firstName_not: String
@@ -1043,22 +1266,6 @@ input OwnerWhereInput {
   schools_some: SchoolWhereInput
   schools_none: SchoolWhereInput
   location: LocationWhereInput
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
   AND: [OwnerWhereInput!]
   OR: [OwnerWhereInput!]
   NOT: [OwnerWhereInput!]
@@ -1082,6 +1289,9 @@ type Query {
   geocode(where: GeocodeWhereUniqueInput!): Geocode
   geocodes(where: GeocodeWhereInput, orderBy: GeocodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Geocode]!
   geocodesConnection(where: GeocodeWhereInput, orderBy: GeocodeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): GeocodeConnection!
+  invitation(where: InvitationWhereUniqueInput!): Invitation
+  invitations(where: InvitationWhereInput, orderBy: InvitationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Invitation]!
+  invitationsConnection(where: InvitationWhereInput, orderBy: InvitationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): InvitationConnection!
   location(where: LocationWhereUniqueInput!): Location
   locations(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Location]!
   locationsConnection(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): LocationConnection!
@@ -1100,20 +1310,22 @@ type Query {
 enum Role {
   OWNER
   ADMIN
-  PARENT
+  STAFF
+  TEACHER
+  GUARDIAN
   STUDENT
 }
 
 type School {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   title: String!
   phone: String!
   uri: String!
   email: String!
   owner: Owner!
   locations(where: LocationWhereInput, orderBy: LocationOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Location!]
-  createdAt: DateTime!
-  updatedAt: DateTime!
 }
 
 type SchoolConnection {
@@ -1154,6 +1366,10 @@ type SchoolEdge {
 enum SchoolOrderByInput {
   id_ASC
   id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
   title_ASC
   title_DESC
   phone_ASC
@@ -1162,20 +1378,16 @@ enum SchoolOrderByInput {
   uri_DESC
   email_ASC
   email_DESC
-  createdAt_ASC
-  createdAt_DESC
-  updatedAt_ASC
-  updatedAt_DESC
 }
 
 type SchoolPreviousValues {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   title: String!
   phone: String!
   uri: String!
   email: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
 }
 
 input SchoolScalarWhereInput {
@@ -1193,6 +1405,22 @@ input SchoolScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   title: String
   title_not: String
   title_in: [String!]
@@ -1249,22 +1477,6 @@ input SchoolScalarWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
   AND: [SchoolScalarWhereInput!]
   OR: [SchoolScalarWhereInput!]
   NOT: [SchoolScalarWhereInput!]
@@ -1362,6 +1574,22 @@ input SchoolWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   title: String
   title_not: String
   title_in: [String!]
@@ -1422,22 +1650,6 @@ input SchoolWhereInput {
   locations_every: LocationWhereInput
   locations_some: LocationWhereInput
   locations_none: LocationWhereInput
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
   AND: [SchoolWhereInput!]
   OR: [SchoolWhereInput!]
   NOT: [SchoolWhereInput!]
@@ -1453,6 +1665,7 @@ input SchoolWhereUniqueInput {
 type Subscription {
   account(where: AccountSubscriptionWhereInput): AccountSubscriptionPayload
   geocode(where: GeocodeSubscriptionWhereInput): GeocodeSubscriptionPayload
+  invitation(where: InvitationSubscriptionWhereInput): InvitationSubscriptionPayload
   location(where: LocationSubscriptionWhereInput): LocationSubscriptionPayload
   owner(where: OwnerSubscriptionWhereInput): OwnerSubscriptionPayload
   school(where: SchoolSubscriptionWhereInput): SchoolSubscriptionPayload
@@ -1461,10 +1674,10 @@ type Subscription {
 
 type Token {
   id: ID!
+  createdAt: DateTime!
   accountId: String!
   token: String!
   type: TokenType!
-  createdAt: DateTime!
 }
 
 type TokenConnection {
@@ -1488,22 +1701,22 @@ type TokenEdge {
 enum TokenOrderByInput {
   id_ASC
   id_DESC
+  createdAt_ASC
+  createdAt_DESC
   accountId_ASC
   accountId_DESC
   token_ASC
   token_DESC
   type_ASC
   type_DESC
-  createdAt_ASC
-  createdAt_DESC
 }
 
 type TokenPreviousValues {
   id: ID!
+  createdAt: DateTime!
   accountId: String!
   token: String!
   type: TokenType!
-  createdAt: DateTime!
 }
 
 type TokenSubscriptionPayload {
@@ -1556,6 +1769,14 @@ input TokenWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   accountId: String
   accountId_not: String
   accountId_in: [String!]
@@ -1588,14 +1809,6 @@ input TokenWhereInput {
   type_not: TokenType
   type_in: [TokenType!]
   type_not_in: [TokenType!]
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
   AND: [TokenWhereInput!]
   OR: [TokenWhereInput!]
   NOT: [TokenWhereInput!]

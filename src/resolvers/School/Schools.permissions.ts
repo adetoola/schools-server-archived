@@ -3,7 +3,7 @@ import { and } from 'graphql-shield';
 import { isRoleOwner } from '../Owner/Owner.rules';
 import { canCreateSchool, canUpdateSchool } from './School.rules';
 
-export const schoolPermissions = {
+export const SchoolPermissions = {
   Query: {},
   Mutation: {
     createSchool: and(isRoleOwner, canCreateSchool),
