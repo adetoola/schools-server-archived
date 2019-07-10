@@ -1,6 +1,8 @@
 {
   // "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "*": ["types/*"] },
     "target": "esnext",
     "module": "commonjs",
     "sourceMap": true,

@@ -47,6 +47,27 @@ type School {
   locations: [Location!]!
 }
 
+type Student {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
+  firstName: String!
+  lastName: String!
+  middleName: String
+  nameSuffix: Suffix
+  gender: Gender! @default(value: OTHER)
+  ethnicity: Ethnicity! @default(value: UNKNOWN)
+  nickname: String
+  nin: String
+  birthdate: String!
+  language: Language! @default(value: ENGLISH)
+  estimatedGradDate: DateTime
+  email: String! @unique
+  phone: String
+  isDisable: Boolean! @default(value: false)
+}
+
 type Token {
   id: ID! @id
   createdAt: DateTime! @createdAt
@@ -92,4 +113,44 @@ enum Role {
   TEACHER
   GUARDIAN
   STUDENT
+}
+
+enum Suffix {
+  JUNIOR
+  I
+  II
+  III
+  IV
+  SENIOR
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+  UNKNOWN
+}
+
+enum Ethnicity {
+  AFRICAN
+  ASIAN
+  HISPANIC
+  PACIFIC_ISLANDER
+  INDIAN
+  MIDDLE_EASTERN
+  MIXED_RACE
+  WHITE
+  INDIGENOUS
+  AMERICAN_INDIAN_OR_NATIVE_ALASKAN
+  UNKNOWN
+  OTHER
+}
+
+enum Language {
+  ENGLISH
+  IGBO
+  HAUSA
+  YORUBA
+  FRENCH
+  SPANISH
 }

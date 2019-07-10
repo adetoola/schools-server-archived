@@ -8,7 +8,7 @@ export const Invitation = prismaObjectType({
   },
 });
 
-export const InvitationRole = enumType({
-  name: 'InvitationRole',
+export const InvitationEnum = enumType({
+  name: 'InvitationEnum',
   members: ['ADMIN', 'STAFF', 'TEACHER', 'GUARDIAN', 'STUDENT'],
 });

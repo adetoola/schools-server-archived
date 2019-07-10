@@ -7,7 +7,15 @@ import * as Owner from './Owner';
 import { OwnerPermissions } from './Owner/Owner.permissions';
 import * as School from './School';
 import { SchoolPermissions } from './School/Schools.permissions';
+import * as Student from './Student';
+import { StudentPermissions } from './Student/Student.permission';
 
-export const resolvers = { Account, Owner, School, Location, Invitation };
+export const resolvers = { Account, Invitation, Location, Owner, School, Student };
 
-export const permissions = [AccountPermissions, OwnerPermissions, SchoolPermissions, InvitationPermissions];
+export const permissions = [
+  AccountPermissions,
+  InvitationPermissions,
+  OwnerPermissions,
+  SchoolPermissions,
+  StudentPermissions,
+];

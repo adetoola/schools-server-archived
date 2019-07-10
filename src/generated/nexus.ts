@@ -562,6 +562,183 @@ export interface NexusGenInputs {
     phone?: string | null; // String
     uri?: string | null; // String
   }
+  StudentWhereInput: { // input type
+    AND?: NexusGenInputs['StudentWhereInput'][] | null; // [StudentWhereInput!]
+    birthdate?: string | null; // String
+    birthdate_contains?: string | null; // String
+    birthdate_ends_with?: string | null; // String
+    birthdate_gt?: string | null; // String
+    birthdate_gte?: string | null; // String
+    birthdate_in?: string[] | null; // [String!]
+    birthdate_lt?: string | null; // String
+    birthdate_lte?: string | null; // String
+    birthdate_not?: string | null; // String
+    birthdate_not_contains?: string | null; // String
+    birthdate_not_ends_with?: string | null; // String
+    birthdate_not_in?: string[] | null; // [String!]
+    birthdate_not_starts_with?: string | null; // String
+    birthdate_starts_with?: string | null; // String
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
+    email?: string | null; // String
+    email_contains?: string | null; // String
+    email_ends_with?: string | null; // String
+    email_gt?: string | null; // String
+    email_gte?: string | null; // String
+    email_in?: string[] | null; // [String!]
+    email_lt?: string | null; // String
+    email_lte?: string | null; // String
+    email_not?: string | null; // String
+    email_not_contains?: string | null; // String
+    email_not_ends_with?: string | null; // String
+    email_not_in?: string[] | null; // [String!]
+    email_not_starts_with?: string | null; // String
+    email_starts_with?: string | null; // String
+    estimatedGradDate?: any | null; // DateTime
+    estimatedGradDate_gt?: any | null; // DateTime
+    estimatedGradDate_gte?: any | null; // DateTime
+    estimatedGradDate_in?: any[] | null; // [DateTime!]
+    estimatedGradDate_lt?: any | null; // DateTime
+    estimatedGradDate_lte?: any | null; // DateTime
+    estimatedGradDate_not?: any | null; // DateTime
+    estimatedGradDate_not_in?: any[] | null; // [DateTime!]
+    ethnicity?: NexusGenEnums['Ethnicity'] | null; // Ethnicity
+    ethnicity_in?: NexusGenEnums['Ethnicity'][] | null; // [Ethnicity!]
+    ethnicity_not?: NexusGenEnums['Ethnicity'] | null; // Ethnicity
+    ethnicity_not_in?: NexusGenEnums['Ethnicity'][] | null; // [Ethnicity!]
+    firstName?: string | null; // String
+    firstName_contains?: string | null; // String
+    firstName_ends_with?: string | null; // String
+    firstName_gt?: string | null; // String
+    firstName_gte?: string | null; // String
+    firstName_in?: string[] | null; // [String!]
+    firstName_lt?: string | null; // String
+    firstName_lte?: string | null; // String
+    firstName_not?: string | null; // String
+    firstName_not_contains?: string | null; // String
+    firstName_not_ends_with?: string | null; // String
+    firstName_not_in?: string[] | null; // [String!]
+    firstName_not_starts_with?: string | null; // String
+    firstName_starts_with?: string | null; // String
+    gender?: NexusGenEnums['Gender'] | null; // Gender
+    gender_in?: NexusGenEnums['Gender'][] | null; // [Gender!]
+    gender_not?: NexusGenEnums['Gender'] | null; // Gender
+    gender_not_in?: NexusGenEnums['Gender'][] | null; // [Gender!]
+    id?: string | null; // ID
+    id_contains?: string | null; // ID
+    id_ends_with?: string | null; // ID
+    id_gt?: string | null; // ID
+    id_gte?: string | null; // ID
+    id_in?: string[] | null; // [ID!]
+    id_lt?: string | null; // ID
+    id_lte?: string | null; // ID
+    id_not?: string | null; // ID
+    id_not_contains?: string | null; // ID
+    id_not_ends_with?: string | null; // ID
+    id_not_in?: string[] | null; // [ID!]
+    id_not_starts_with?: string | null; // ID
+    id_starts_with?: string | null; // ID
+    isDisable?: boolean | null; // Boolean
+    isDisable_not?: boolean | null; // Boolean
+    language?: NexusGenEnums['Language'] | null; // Language
+    language_in?: NexusGenEnums['Language'][] | null; // [Language!]
+    language_not?: NexusGenEnums['Language'] | null; // Language
+    language_not_in?: NexusGenEnums['Language'][] | null; // [Language!]
+    lastName?: string | null; // String
+    lastName_contains?: string | null; // String
+    lastName_ends_with?: string | null; // String
+    lastName_gt?: string | null; // String
+    lastName_gte?: string | null; // String
+    lastName_in?: string[] | null; // [String!]
+    lastName_lt?: string | null; // String
+    lastName_lte?: string | null; // String
+    lastName_not?: string | null; // String
+    lastName_not_contains?: string | null; // String
+    lastName_not_ends_with?: string | null; // String
+    lastName_not_in?: string[] | null; // [String!]
+    lastName_not_starts_with?: string | null; // String
+    lastName_starts_with?: string | null; // String
+    middleName?: string | null; // String
+    middleName_contains?: string | null; // String
+    middleName_ends_with?: string | null; // String
+    middleName_gt?: string | null; // String
+    middleName_gte?: string | null; // String
+    middleName_in?: string[] | null; // [String!]
+    middleName_lt?: string | null; // String
+    middleName_lte?: string | null; // String
+    middleName_not?: string | null; // String
+    middleName_not_contains?: string | null; // String
+    middleName_not_ends_with?: string | null; // String
+    middleName_not_in?: string[] | null; // [String!]
+    middleName_not_starts_with?: string | null; // String
+    middleName_starts_with?: string | null; // String
+    nameSuffix?: NexusGenEnums['Suffix'] | null; // Suffix
+    nameSuffix_in?: NexusGenEnums['Suffix'][] | null; // [Suffix!]
+    nameSuffix_not?: NexusGenEnums['Suffix'] | null; // Suffix
+    nameSuffix_not_in?: NexusGenEnums['Suffix'][] | null; // [Suffix!]
+    nickname?: string | null; // String
+    nickname_contains?: string | null; // String
+    nickname_ends_with?: string | null; // String
+    nickname_gt?: string | null; // String
+    nickname_gte?: string | null; // String
+    nickname_in?: string[] | null; // [String!]
+    nickname_lt?: string | null; // String
+    nickname_lte?: string | null; // String
+    nickname_not?: string | null; // String
+    nickname_not_contains?: string | null; // String
+    nickname_not_ends_with?: string | null; // String
+    nickname_not_in?: string[] | null; // [String!]
+    nickname_not_starts_with?: string | null; // String
+    nickname_starts_with?: string | null; // String
+    nin?: string | null; // String
+    nin_contains?: string | null; // String
+    nin_ends_with?: string | null; // String
+    nin_gt?: string | null; // String
+    nin_gte?: string | null; // String
+    nin_in?: string[] | null; // [String!]
+    nin_lt?: string | null; // String
+    nin_lte?: string | null; // String
+    nin_not?: string | null; // String
+    nin_not_contains?: string | null; // String
+    nin_not_ends_with?: string | null; // String
+    nin_not_in?: string[] | null; // [String!]
+    nin_not_starts_with?: string | null; // String
+    nin_starts_with?: string | null; // String
+    NOT?: NexusGenInputs['StudentWhereInput'][] | null; // [StudentWhereInput!]
+    OR?: NexusGenInputs['StudentWhereInput'][] | null; // [StudentWhereInput!]
+    phone?: string | null; // String
+    phone_contains?: string | null; // String
+    phone_ends_with?: string | null; // String
+    phone_gt?: string | null; // String
+    phone_gte?: string | null; // String
+    phone_in?: string[] | null; // [String!]
+    phone_lt?: string | null; // String
+    phone_lte?: string | null; // String
+    phone_not?: string | null; // String
+    phone_not_contains?: string | null; // String
+    phone_not_ends_with?: string | null; // String
+    phone_not_in?: string[] | null; // [String!]
+    phone_not_starts_with?: string | null; // String
+    phone_starts_with?: string | null; // String
+    updatedAt?: any | null; // DateTime
+    updatedAt_gt?: any | null; // DateTime
+    updatedAt_gte?: any | null; // DateTime
+    updatedAt_in?: any[] | null; // [DateTime!]
+    updatedAt_lt?: any | null; // DateTime
+    updatedAt_lte?: any | null; // DateTime
+    updatedAt_not?: any | null; // DateTime
+    updatedAt_not_in?: any[] | null; // [DateTime!]
+  }
+  StudentWhereUniqueInput: { // input type
+    email?: string | null; // String
+    id?: string | null; // ID
+  }
   TokenWhereInput: { // input type
     accountId?: string | null; // String
     accountId_contains?: string | null; // String
@@ -629,13 +806,22 @@ export interface NexusGenInputs {
 
 export interface NexusGenEnums {
   AccountOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "isVerified_ASC" | "isVerified_DESC" | "lastLogin_ASC" | "lastLogin_DESC" | "password_ASC" | "password_DESC" | "role_ASC" | "role_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "username_ASC" | "username_DESC"
+  Ethnicity: "AFRICAN" | "AMERICAN_INDIAN_OR_NATIVE_ALASKAN" | "ASIAN" | "HISPANIC" | "INDIAN" | "INDIGENOUS" | "MIDDLE_EASTERN" | "MIXED_RACE" | "OTHER" | "PACIFIC_ISLANDER" | "UNKNOWN" | "WHITE"
+  EthnicityEnum: "AFRICAN" | "AMERICAN_INDIAN_OR_NATIVE_ALASKAN" | "ASIAN" | "HISPANIC" | "INDIAN" | "INDIGENOUS" | "MIDDLE_EASTERN" | "MIXED_RACE" | "OTHER" | "PACIFIC_ISLANDER" | "UNKNOWN" | "WHITE"
+  Gender: "FEMALE" | "MALE" | "OTHER" | "UNKNOWN"
+  GenderEnum: "FEMALE" | "MALE" | "OTHER" | "UNKNOWN"
   GeocodeOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "latitude_ASC" | "latitude_DESC" | "longitude_ASC" | "longitude_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  InvitationEnum: "ADMIN" | "GUARDIAN" | "STAFF" | "STUDENT" | "TEACHER"
   InvitationOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "role_ASC" | "role_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
-  InvitationRole: "ADMIN" | "GUARDIAN" | "STAFF" | "STUDENT" | "TEACHER"
+  Language: "ENGLISH" | "FRENCH" | "HAUSA" | "IGBO" | "SPANISH" | "YORUBA"
+  LanguageEnum: "ENGLISH" | "FRENCH" | "HAUSA" | "IGBO" | "SPANISH" | "YORUBA"
   LocationOrderByInput: "city_ASC" | "city_DESC" | "country_ASC" | "country_DESC" | "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "nearestLandmark_ASC" | "nearestLandmark_DESC" | "number_ASC" | "number_DESC" | "other_ASC" | "other_DESC" | "postalCode_ASC" | "postalCode_DESC" | "street_ASC" | "street_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   OwnerOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "firstName_ASC" | "firstName_DESC" | "id_ASC" | "id_DESC" | "lastName_ASC" | "lastName_DESC" | "middleName_ASC" | "middleName_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   Role: "ADMIN" | "GUARDIAN" | "OWNER" | "STAFF" | "STUDENT" | "TEACHER"
   SchoolOrderByInput: "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "id_ASC" | "id_DESC" | "phone_ASC" | "phone_DESC" | "title_ASC" | "title_DESC" | "updatedAt_ASC" | "updatedAt_DESC" | "uri_ASC" | "uri_DESC"
+  StudentOrderByInput: "birthdate_ASC" | "birthdate_DESC" | "createdAt_ASC" | "createdAt_DESC" | "email_ASC" | "email_DESC" | "estimatedGradDate_ASC" | "estimatedGradDate_DESC" | "ethnicity_ASC" | "ethnicity_DESC" | "firstName_ASC" | "firstName_DESC" | "gender_ASC" | "gender_DESC" | "id_ASC" | "id_DESC" | "isDisable_ASC" | "isDisable_DESC" | "language_ASC" | "language_DESC" | "lastName_ASC" | "lastName_DESC" | "middleName_ASC" | "middleName_DESC" | "nameSuffix_ASC" | "nameSuffix_DESC" | "nickname_ASC" | "nickname_DESC" | "nin_ASC" | "nin_DESC" | "phone_ASC" | "phone_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
+  Suffix: "I" | "II" | "III" | "IV" | "JUNIOR" | "SENIOR"
+  SuffixEnum: "I" | "II" | "III" | "IV" | "JUNIOR" | "SENIOR"
   TokenOrderByInput: "accountId_ASC" | "accountId_DESC" | "createdAt_ASC" | "createdAt_DESC" | "id_ASC" | "id_DESC" | "token_ASC" | "token_DESC" | "type_ASC" | "type_DESC" | "updatedAt_ASC" | "updatedAt_DESC"
   TokenType: "EMAIL" | "PASSWORD"
 }
@@ -674,6 +860,9 @@ export interface NexusGenRootTypes {
     count: number; // Int!
   }
   AggregateSchool: { // root type
+    count: number; // Int!
+  }
+  AggregateStudent: { // root type
     count: number; // Int!
   }
   AggregateToken: { // root type
@@ -769,6 +958,31 @@ export interface NexusGenRootTypes {
     cursor: string; // String!
     node: NexusGenRootTypes['School']; // School!
   }
+  Student: { // root type
+    birthdate: string; // String!
+    createdAt: any; // DateTime!
+    email: string; // String!
+    estimatedGradDate?: any | null; // DateTime
+    ethnicity: NexusGenEnums['Ethnicity']; // Ethnicity!
+    firstName: string; // String!
+    gender: NexusGenEnums['Gender']; // Gender!
+    id: string; // ID!
+    language: NexusGenEnums['Language']; // Language!
+    lastName: string; // String!
+    middleName?: string | null; // String
+    nameSuffix?: NexusGenEnums['Suffix'] | null; // Suffix
+    nickname?: string | null; // String
+    nin?: string | null; // String
+    phone?: string | null; // String
+  }
+  StudentConnection: { // root type
+    edges: NexusGenRootTypes['StudentEdge'][]; // [StudentEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  StudentEdge: { // root type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Student']; // Student!
+  }
   Token: { // root type
     id: string; // ID!
     token: string; // String!
@@ -808,16 +1022,27 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
   SchoolUpdateInput: NexusGenInputs['SchoolUpdateInput'];
   SchoolWhereInput: NexusGenInputs['SchoolWhereInput'];
   SchoolWhereUniqueInput: NexusGenInputs['SchoolWhereUniqueInput'];
+  StudentWhereInput: NexusGenInputs['StudentWhereInput'];
+  StudentWhereUniqueInput: NexusGenInputs['StudentWhereUniqueInput'];
   TokenWhereInput: NexusGenInputs['TokenWhereInput'];
   TokenWhereUniqueInput: NexusGenInputs['TokenWhereUniqueInput'];
   AccountOrderByInput: NexusGenEnums['AccountOrderByInput'];
+  Ethnicity: NexusGenEnums['Ethnicity'];
+  EthnicityEnum: NexusGenEnums['EthnicityEnum'];
+  Gender: NexusGenEnums['Gender'];
+  GenderEnum: NexusGenEnums['GenderEnum'];
   GeocodeOrderByInput: NexusGenEnums['GeocodeOrderByInput'];
+  InvitationEnum: NexusGenEnums['InvitationEnum'];
   InvitationOrderByInput: NexusGenEnums['InvitationOrderByInput'];
-  InvitationRole: NexusGenEnums['InvitationRole'];
+  Language: NexusGenEnums['Language'];
+  LanguageEnum: NexusGenEnums['LanguageEnum'];
   LocationOrderByInput: NexusGenEnums['LocationOrderByInput'];
   OwnerOrderByInput: NexusGenEnums['OwnerOrderByInput'];
   Role: NexusGenEnums['Role'];
   SchoolOrderByInput: NexusGenEnums['SchoolOrderByInput'];
+  StudentOrderByInput: NexusGenEnums['StudentOrderByInput'];
+  Suffix: NexusGenEnums['Suffix'];
+  SuffixEnum: NexusGenEnums['SuffixEnum'];
   TokenOrderByInput: NexusGenEnums['TokenOrderByInput'];
   TokenType: NexusGenEnums['TokenType'];
 }
@@ -858,6 +1083,9 @@ export interface NexusGenFieldTypes {
     count: number; // Int!
   }
   AggregateSchool: { // field return type
+    count: number; // Int!
+  }
+  AggregateStudent: { // field return type
     count: number; // Int!
   }
   AggregateToken: { // field return type
@@ -920,6 +1148,7 @@ export interface NexusGenFieldTypes {
     createInvitation: NexusGenRootTypes['Invitation'] | null; // Invitation
     createOwner: NexusGenRootTypes['Owner'] | null; // Owner
     createSchool: NexusGenRootTypes['School'] | null; // School
+    createStudent: NexusGenRootTypes['Student'] | null; // Student
     login: NexusGenRootTypes['Account'] | null; // Account
     passwordReset: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
     requestPasswordReset: NexusGenRootTypes['TriggerAction'] | null; // TriggerAction
@@ -976,6 +1205,9 @@ export interface NexusGenFieldTypes {
     school: NexusGenRootTypes['School'] | null; // School
     schools: NexusGenRootTypes['School'][]; // [School!]!
     schoolsConnection: NexusGenRootTypes['SchoolConnection']; // SchoolConnection!
+    student: NexusGenRootTypes['Student'] | null; // Student
+    students: NexusGenRootTypes['Student'][]; // [Student!]!
+    studentsConnection: NexusGenRootTypes['StudentConnection']; // StudentConnection!
     token: NexusGenRootTypes['Token'] | null; // Token
     tokens: NexusGenRootTypes['Token'][]; // [Token!]!
     tokensConnection: NexusGenRootTypes['TokenConnection']; // TokenConnection!
@@ -1000,6 +1232,32 @@ export interface NexusGenFieldTypes {
     cursor: string; // String!
     node: NexusGenRootTypes['School']; // School!
   }
+  Student: { // field return type
+    birthdate: string; // String!
+    createdAt: any; // DateTime!
+    email: string; // String!
+    estimatedGradDate: any | null; // DateTime
+    ethnicity: NexusGenEnums['Ethnicity']; // Ethnicity!
+    firstName: string; // String!
+    gender: NexusGenEnums['Gender']; // Gender!
+    id: string; // ID!
+    language: NexusGenEnums['Language']; // Language!
+    lastName: string; // String!
+    middleName: string | null; // String
+    nameSuffix: NexusGenEnums['Suffix'] | null; // Suffix
+    nickname: string | null; // String
+    nin: string | null; // String
+    phone: string | null; // String
+  }
+  StudentConnection: { // field return type
+    aggregate: NexusGenRootTypes['AggregateStudent']; // AggregateStudent!
+    edges: NexusGenRootTypes['StudentEdge'][]; // [StudentEdge!]!
+    pageInfo: NexusGenRootTypes['PageInfo']; // PageInfo!
+  }
+  StudentEdge: { // field return type
+    cursor: string; // String!
+    node: NexusGenRootTypes['Student']; // Student!
+  }
   Token: { // field return type
     id: string; // ID!
     token: string; // String!
@@ -1022,7 +1280,7 @@ export interface NexusGenArgTypes {
   Mutation: {
     createInvitation: { // args
       email: string; // String!
-      role: NexusGenEnums['InvitationRole']; // InvitationRole!
+      role: NexusGenEnums['InvitationEnum']; // InvitationEnum!
     }
     createOwner: { // args
       firstName: string; // String!
@@ -1035,6 +1293,21 @@ export interface NexusGenArgTypes {
       phone: string; // String!
       title: string; // String!
       uri: string; // String!
+    }
+    createStudent: { // args
+      birthdate: string; // String!
+      email: string; // String!
+      estimatedGradDate?: string | null; // String
+      ethnicity?: NexusGenEnums['EthnicityEnum'] | null; // EthnicityEnum
+      firstName: string; // String!
+      gender?: NexusGenEnums['GenderEnum'] | null; // GenderEnum
+      language?: NexusGenEnums['LanguageEnum'] | null; // LanguageEnum
+      lastName: string; // String!
+      middleName?: string | null; // String
+      nameSuffix?: NexusGenEnums['SuffixEnum'] | null; // SuffixEnum
+      nickname?: string | null; // String
+      nin?: string | null; // String
+      phone?: string | null; // String
     }
     login: { // args
       email: string; // String!
@@ -1206,6 +1479,27 @@ export interface NexusGenArgTypes {
       skip?: number | null; // Int
       where?: NexusGenInputs['SchoolWhereInput'] | null; // SchoolWhereInput
     }
+    student: { // args
+      where: NexusGenInputs['StudentWhereUniqueInput']; // StudentWhereUniqueInput!
+    }
+    students: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['StudentOrderByInput'] | null; // StudentOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['StudentWhereInput'] | null; // StudentWhereInput
+    }
+    studentsConnection: { // args
+      after?: string | null; // String
+      before?: string | null; // String
+      first?: number | null; // Int
+      last?: number | null; // Int
+      orderBy?: NexusGenEnums['StudentOrderByInput'] | null; // StudentOrderByInput
+      skip?: number | null; // Int
+      where?: NexusGenInputs['StudentWhereInput'] | null; // StudentWhereInput
+    }
     token: { // args
       where: NexusGenInputs['TokenWhereUniqueInput']; // TokenWhereUniqueInput!
     }
@@ -1246,11 +1540,11 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Account" | "AccountConnection" | "AccountEdge" | "AggregateAccount" | "AggregateGeocode" | "AggregateInvitation" | "AggregateLocation" | "AggregateOwner" | "AggregateSchool" | "AggregateToken" | "Geocode" | "GeocodeConnection" | "GeocodeEdge" | "Invitation" | "InvitationConnection" | "InvitationEdge" | "Location" | "LocationConnection" | "LocationEdge" | "Mutation" | "Owner" | "OwnerConnection" | "OwnerEdge" | "PageInfo" | "Query" | "School" | "SchoolConnection" | "SchoolEdge" | "Token" | "TokenConnection" | "TokenEdge" | "TriggerAction";
+export type NexusGenObjectNames = "Account" | "AccountConnection" | "AccountEdge" | "AggregateAccount" | "AggregateGeocode" | "AggregateInvitation" | "AggregateLocation" | "AggregateOwner" | "AggregateSchool" | "AggregateStudent" | "AggregateToken" | "Geocode" | "GeocodeConnection" | "GeocodeEdge" | "Invitation" | "InvitationConnection" | "InvitationEdge" | "Location" | "LocationConnection" | "LocationEdge" | "Mutation" | "Owner" | "OwnerConnection" | "OwnerEdge" | "PageInfo" | "Query" | "School" | "SchoolConnection" | "SchoolEdge" | "Student" | "StudentConnection" | "StudentEdge" | "Token" | "TokenConnection" | "TokenEdge" | "TriggerAction";
 
-export type NexusGenInputNames = "AccountWhereInput" | "AccountWhereUniqueInput" | "GeocodeCreateInput" | "GeocodeWhereInput" | "GeocodeWhereUniqueInput" | "InvitationWhereInput" | "InvitationWhereUniqueInput" | "LocationCreateInput" | "LocationWhereInput" | "LocationWhereUniqueInput" | "OwnerWhereInput" | "OwnerWhereUniqueInput" | "SchoolUpdateInput" | "SchoolWhereInput" | "SchoolWhereUniqueInput" | "TokenWhereInput" | "TokenWhereUniqueInput";
+export type NexusGenInputNames = "AccountWhereInput" | "AccountWhereUniqueInput" | "GeocodeCreateInput" | "GeocodeWhereInput" | "GeocodeWhereUniqueInput" | "InvitationWhereInput" | "InvitationWhereUniqueInput" | "LocationCreateInput" | "LocationWhereInput" | "LocationWhereUniqueInput" | "OwnerWhereInput" | "OwnerWhereUniqueInput" | "SchoolUpdateInput" | "SchoolWhereInput" | "SchoolWhereUniqueInput" | "StudentWhereInput" | "StudentWhereUniqueInput" | "TokenWhereInput" | "TokenWhereUniqueInput";
 
-export type NexusGenEnumNames = "AccountOrderByInput" | "GeocodeOrderByInput" | "InvitationOrderByInput" | "InvitationRole" | "LocationOrderByInput" | "OwnerOrderByInput" | "Role" | "SchoolOrderByInput" | "TokenOrderByInput" | "TokenType";
+export type NexusGenEnumNames = "AccountOrderByInput" | "Ethnicity" | "EthnicityEnum" | "Gender" | "GenderEnum" | "GeocodeOrderByInput" | "InvitationEnum" | "InvitationOrderByInput" | "Language" | "LanguageEnum" | "LocationOrderByInput" | "OwnerOrderByInput" | "Role" | "SchoolOrderByInput" | "StudentOrderByInput" | "Suffix" | "SuffixEnum" | "TokenOrderByInput" | "TokenType";
 
 export type NexusGenInterfaceNames = never;
 

@@ -34,6 +34,10 @@ export interface NexusPrismaTypes {
       SchoolConnection: SchoolConnectionObject
       SchoolEdge: SchoolEdgeObject
       AggregateSchool: AggregateSchoolObject
+      Student: StudentObject
+      StudentConnection: StudentConnectionObject
+      StudentEdge: StudentEdgeObject
+      AggregateStudent: AggregateStudentObject
       Token: TokenObject
       TokenConnection: TokenConnectionObject
       TokenEdge: TokenEdgeObject
@@ -55,6 +59,8 @@ export interface NexusPrismaTypes {
       OwnerPreviousValues: OwnerPreviousValuesObject
       SchoolSubscriptionPayload: SchoolSubscriptionPayloadObject
       SchoolPreviousValues: SchoolPreviousValuesObject
+      StudentSubscriptionPayload: StudentSubscriptionPayloadObject
+      StudentPreviousValues: StudentPreviousValuesObject
       TokenSubscriptionPayload: TokenSubscriptionPayloadObject
       TokenPreviousValues: TokenPreviousValuesObject
       LocationSubscriptionPayload: LocationSubscriptionPayloadObject
@@ -83,6 +89,10 @@ export interface NexusPrismaTypes {
       SchoolConnection: SchoolConnectionFieldDetails
       SchoolEdge: SchoolEdgeFieldDetails
       AggregateSchool: AggregateSchoolFieldDetails
+      Student: StudentFieldDetails
+      StudentConnection: StudentConnectionFieldDetails
+      StudentEdge: StudentEdgeFieldDetails
+      AggregateStudent: AggregateStudentFieldDetails
       Token: TokenFieldDetails
       TokenConnection: TokenConnectionFieldDetails
       TokenEdge: TokenEdgeFieldDetails
@@ -104,6 +114,8 @@ export interface NexusPrismaTypes {
       OwnerPreviousValues: OwnerPreviousValuesFieldDetails
       SchoolSubscriptionPayload: SchoolSubscriptionPayloadFieldDetails
       SchoolPreviousValues: SchoolPreviousValuesFieldDetails
+      StudentSubscriptionPayload: StudentSubscriptionPayloadFieldDetails
+      StudentPreviousValues: StudentPreviousValuesFieldDetails
       TokenSubscriptionPayload: TokenSubscriptionPayloadFieldDetails
       TokenPreviousValues: TokenPreviousValuesFieldDetails
       LocationSubscriptionPayload: LocationSubscriptionPayloadFieldDetails
@@ -124,6 +136,8 @@ export interface NexusPrismaTypes {
       LocationWhereInput: LocationWhereInputInputObject
       GeocodeWhereInput: GeocodeWhereInputInputObject
       SchoolWhereUniqueInput: SchoolWhereUniqueInputInputObject
+      StudentWhereUniqueInput: StudentWhereUniqueInputInputObject
+      StudentWhereInput: StudentWhereInputInputObject
       TokenWhereUniqueInput: TokenWhereUniqueInputInputObject
       TokenWhereInput: TokenWhereInputInputObject
       LocationWhereUniqueInput: LocationWhereUniqueInputInputObject
@@ -175,6 +189,9 @@ export interface NexusPrismaTypes {
       OwnerUpdateWithoutSchoolsDataInput: OwnerUpdateWithoutSchoolsDataInputInputObject
       OwnerUpsertWithoutSchoolsInput: OwnerUpsertWithoutSchoolsInputInputObject
       SchoolUpdateManyMutationInput: SchoolUpdateManyMutationInputInputObject
+      StudentCreateInput: StudentCreateInputInputObject
+      StudentUpdateInput: StudentUpdateInputInputObject
+      StudentUpdateManyMutationInput: StudentUpdateManyMutationInputInputObject
       TokenCreateInput: TokenCreateInputInputObject
       TokenUpdateInput: TokenUpdateInputInputObject
       TokenUpdateManyMutationInput: TokenUpdateManyMutationInputInputObject
@@ -186,6 +203,7 @@ export interface NexusPrismaTypes {
       InvitationSubscriptionWhereInput: InvitationSubscriptionWhereInputInputObject
       OwnerSubscriptionWhereInput: OwnerSubscriptionWhereInputInputObject
       SchoolSubscriptionWhereInput: SchoolSubscriptionWhereInputInputObject
+      StudentSubscriptionWhereInput: StudentSubscriptionWhereInputInputObject
       TokenSubscriptionWhereInput: TokenSubscriptionWhereInputInputObject
       LocationSubscriptionWhereInput: LocationSubscriptionWhereInputInputObject
       GeocodeSubscriptionWhereInput: GeocodeSubscriptionWhereInputInputObject
@@ -198,6 +216,11 @@ export interface NexusPrismaTypes {
     SchoolOrderByInput: SchoolOrderByInputValues,
     LocationOrderByInput: LocationOrderByInputValues,
     OwnerOrderByInput: OwnerOrderByInputValues,
+    Suffix: SuffixValues,
+    Gender: GenderValues,
+    Ethnicity: EthnicityValues,
+    Language: LanguageValues,
+    StudentOrderByInput: StudentOrderByInputValues,
     TokenType: TokenTypeValues,
     TokenOrderByInput: TokenOrderByInputValues,
     GeocodeOrderByInput: GeocodeOrderByInputValues,
@@ -221,6 +244,9 @@ type QueryObject =
   | { name: 'school', args?: QuerySchoolArgs[] | false, alias?: string  } 
   | { name: 'schools', args?: QuerySchoolsArgs[] | false, alias?: string  } 
   | { name: 'schoolsConnection', args?: QuerySchoolsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'student', args?: QueryStudentArgs[] | false, alias?: string  } 
+  | { name: 'students', args?: QueryStudentsArgs[] | false, alias?: string  } 
+  | { name: 'studentsConnection', args?: QueryStudentsConnectionArgs[] | false, alias?: string  } 
   | { name: 'token', args?: QueryTokenArgs[] | false, alias?: string  } 
   | { name: 'tokens', args?: QueryTokensArgs[] | false, alias?: string  } 
   | { name: 'tokensConnection', args?: QueryTokensConnectionArgs[] | false, alias?: string  } 
@@ -244,6 +270,9 @@ type QueryFields =
   | 'school'
   | 'schools'
   | 'schoolsConnection'
+  | 'student'
+  | 'students'
+  | 'studentsConnection'
   | 'token'
   | 'tokens'
   | 'tokensConnection'
@@ -320,6 +349,24 @@ type QuerySchoolsArgs =
   | 'first'
   | 'last'
 type QuerySchoolsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryStudentArgs =
+  | 'where'
+type QueryStudentsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryStudentsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -539,6 +586,45 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.SchoolConnection> | prisma.SchoolConnection
+  }
+  student: {
+    type: 'Student'
+    args: Record<QueryStudentArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: StudentWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Student | null> | prisma.Student | null
+  }
+  students: {
+    type: 'Student'
+    args: Record<QueryStudentsArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: StudentWhereInput | null, orderBy?: prisma.StudentOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Student[]> | prisma.Student[]
+  }
+  studentsConnection: {
+    type: 'StudentConnection'
+    args: Record<QueryStudentsConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: StudentWhereInput | null, orderBy?: prisma.StudentOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.StudentConnection> | prisma.StudentConnection
   }
   token: {
     type: 'Token'
@@ -1839,6 +1925,336 @@ export interface AggregateSchoolFieldDetails {
 }
   
 
+// Types for Student
+
+type StudentObject =
+  | StudentFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'firstName', args?: [] | false, alias?: string  } 
+  | { name: 'lastName', args?: [] | false, alias?: string  } 
+  | { name: 'middleName', args?: [] | false, alias?: string  } 
+  | { name: 'nameSuffix', args?: [] | false, alias?: string  } 
+  | { name: 'gender', args?: [] | false, alias?: string  } 
+  | { name: 'ethnicity', args?: [] | false, alias?: string  } 
+  | { name: 'nickname', args?: [] | false, alias?: string  } 
+  | { name: 'nin', args?: [] | false, alias?: string  } 
+  | { name: 'birthdate', args?: [] | false, alias?: string  } 
+  | { name: 'language', args?: [] | false, alias?: string  } 
+  | { name: 'estimatedGradDate', args?: [] | false, alias?: string  } 
+  | { name: 'email', args?: [] | false, alias?: string  } 
+  | { name: 'phone', args?: [] | false, alias?: string  } 
+  | { name: 'isDisable', args?: [] | false, alias?: string  } 
+
+type StudentFields =
+  | 'id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'firstName'
+  | 'lastName'
+  | 'middleName'
+  | 'nameSuffix'
+  | 'gender'
+  | 'ethnicity'
+  | 'nickname'
+  | 'nin'
+  | 'birthdate'
+  | 'language'
+  | 'estimatedGradDate'
+  | 'email'
+  | 'phone'
+  | 'isDisable'
+
+
+
+  
+
+export interface StudentFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  firstName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  lastName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  middleName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  nameSuffix: {
+    type: 'Suffix'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Student">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Suffix | null> | prisma.Suffix | null
+  }
+  gender: {
+    type: 'Gender'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Student">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Gender> | prisma.Gender
+  }
+  ethnicity: {
+    type: 'Ethnicity'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Student">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Ethnicity> | prisma.Ethnicity
+  }
+  nickname: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  nin: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  birthdate: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  language: {
+    type: 'Language'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Student">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Language> | prisma.Language
+  }
+  estimatedGradDate: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  email: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  phone: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  isDisable: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for StudentConnection
+
+type StudentConnectionObject =
+  | StudentConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type StudentConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface StudentConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StudentConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'StudentEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StudentConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.StudentEdge[]> | prisma.StudentEdge[]
+  }
+  aggregate: {
+    type: 'AggregateStudent'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StudentConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateStudent> | prisma.AggregateStudent
+  }
+}
+  
+
+// Types for StudentEdge
+
+type StudentEdgeObject =
+  | StudentEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type StudentEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface StudentEdgeFieldDetails {
+  node: {
+    type: 'Student'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StudentEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Student> | prisma.Student
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateStudent
+
+type AggregateStudentObject =
+  | AggregateStudentFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateStudentFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateStudentFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for Token
 
 type TokenObject =
@@ -2312,6 +2728,12 @@ type MutationObject =
   | { name: 'upsertSchool', args?: MutationUpsertSchoolArgs[] | false, alias?: string  } 
   | { name: 'deleteSchool', args?: MutationDeleteSchoolArgs[] | false, alias?: string  } 
   | { name: 'deleteManySchools', args?: MutationDeleteManySchoolsArgs[] | false, alias?: string  } 
+  | { name: 'createStudent', args?: MutationCreateStudentArgs[] | false, alias?: string  } 
+  | { name: 'updateStudent', args?: MutationUpdateStudentArgs[] | false, alias?: string  } 
+  | { name: 'updateManyStudents', args?: MutationUpdateManyStudentsArgs[] | false, alias?: string  } 
+  | { name: 'upsertStudent', args?: MutationUpsertStudentArgs[] | false, alias?: string  } 
+  | { name: 'deleteStudent', args?: MutationDeleteStudentArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyStudents', args?: MutationDeleteManyStudentsArgs[] | false, alias?: string  } 
   | { name: 'createToken', args?: MutationCreateTokenArgs[] | false, alias?: string  } 
   | { name: 'updateToken', args?: MutationUpdateTokenArgs[] | false, alias?: string  } 
   | { name: 'updateManyTokens', args?: MutationUpdateManyTokensArgs[] | false, alias?: string  } 
@@ -2356,6 +2778,12 @@ type MutationFields =
   | 'upsertSchool'
   | 'deleteSchool'
   | 'deleteManySchools'
+  | 'createStudent'
+  | 'updateStudent'
+  | 'updateManyStudents'
+  | 'upsertStudent'
+  | 'deleteStudent'
+  | 'deleteManyStudents'
   | 'createToken'
   | 'updateToken'
   | 'updateManyTokens'
@@ -2439,6 +2867,22 @@ type MutationUpsertSchoolArgs =
 type MutationDeleteSchoolArgs =
   | 'where'
 type MutationDeleteManySchoolsArgs =
+  | 'where'
+type MutationCreateStudentArgs =
+  | 'data'
+type MutationUpdateStudentArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyStudentsArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertStudentArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteStudentArgs =
+  | 'where'
+type MutationDeleteManyStudentsArgs =
   | 'where'
 type MutationCreateTokenArgs =
   | 'data'
@@ -2803,6 +3247,84 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createStudent: {
+    type: 'Student'
+    args: Record<MutationCreateStudentArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: StudentCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Student> | prisma.Student
+  }
+  updateStudent: {
+    type: 'Student'
+    args: Record<MutationUpdateStudentArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: StudentUpdateInput, where: StudentWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Student | null> | prisma.Student | null
+  }
+  updateManyStudents: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyStudentsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: StudentUpdateManyMutationInput, where?: StudentWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertStudent: {
+    type: 'Student'
+    args: Record<MutationUpsertStudentArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: StudentWhereUniqueInput, create: StudentCreateInput, update: StudentUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Student> | prisma.Student
+  }
+  deleteStudent: {
+    type: 'Student'
+    args: Record<MutationDeleteStudentArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: StudentWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Student | null> | prisma.Student | null
+  }
+  deleteManyStudents: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyStudentsArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: StudentWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
   createToken: {
     type: 'Token'
     args: Record<MutationCreateTokenArgs, core.NexusArgDef<string>>
@@ -3073,6 +3595,7 @@ type SubscriptionObject =
   | { name: 'invitation', args?: SubscriptionInvitationArgs[] | false, alias?: string  } 
   | { name: 'owner', args?: SubscriptionOwnerArgs[] | false, alias?: string  } 
   | { name: 'school', args?: SubscriptionSchoolArgs[] | false, alias?: string  } 
+  | { name: 'student', args?: SubscriptionStudentArgs[] | false, alias?: string  } 
   | { name: 'token', args?: SubscriptionTokenArgs[] | false, alias?: string  } 
   | { name: 'location', args?: SubscriptionLocationArgs[] | false, alias?: string  } 
   | { name: 'geocode', args?: SubscriptionGeocodeArgs[] | false, alias?: string  } 
@@ -3082,6 +3605,7 @@ type SubscriptionFields =
   | 'invitation'
   | 'owner'
   | 'school'
+  | 'student'
   | 'token'
   | 'location'
   | 'geocode'
@@ -3094,6 +3618,8 @@ type SubscriptionInvitationArgs =
 type SubscriptionOwnerArgs =
   | 'where'
 type SubscriptionSchoolArgs =
+  | 'where'
+type SubscriptionStudentArgs =
   | 'where'
 type SubscriptionTokenArgs =
   | 'where'
@@ -3155,6 +3681,19 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.SchoolSubscriptionPayload | null> | prisma.SchoolSubscriptionPayload | null
+  }
+  student: {
+    type: 'StudentSubscriptionPayload'
+    args: Record<SubscriptionStudentArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: StudentSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.StudentSubscriptionPayload | null> | prisma.StudentSubscriptionPayload | null
   }
   token: {
     type: 'TokenSubscriptionPayload'
@@ -3809,6 +4348,281 @@ export interface SchoolPreviousValuesFieldDetails {
   }
   email: {
     type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for StudentSubscriptionPayload
+
+type StudentSubscriptionPayloadObject =
+  | StudentSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type StudentSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface StudentSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StudentSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'Student'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"StudentSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Student | null> | prisma.Student | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'StudentPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"StudentSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.StudentPreviousValues | null> | prisma.StudentPreviousValues | null
+  }
+}
+  
+
+// Types for StudentPreviousValues
+
+type StudentPreviousValuesObject =
+  | StudentPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
+  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
+  | { name: 'firstName', args?: [] | false, alias?: string  } 
+  | { name: 'lastName', args?: [] | false, alias?: string  } 
+  | { name: 'middleName', args?: [] | false, alias?: string  } 
+  | { name: 'nameSuffix', args?: [] | false, alias?: string  } 
+  | { name: 'gender', args?: [] | false, alias?: string  } 
+  | { name: 'ethnicity', args?: [] | false, alias?: string  } 
+  | { name: 'nickname', args?: [] | false, alias?: string  } 
+  | { name: 'nin', args?: [] | false, alias?: string  } 
+  | { name: 'birthdate', args?: [] | false, alias?: string  } 
+  | { name: 'language', args?: [] | false, alias?: string  } 
+  | { name: 'estimatedGradDate', args?: [] | false, alias?: string  } 
+  | { name: 'email', args?: [] | false, alias?: string  } 
+  | { name: 'phone', args?: [] | false, alias?: string  } 
+  | { name: 'isDisable', args?: [] | false, alias?: string  } 
+
+type StudentPreviousValuesFields =
+  | 'id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'firstName'
+  | 'lastName'
+  | 'middleName'
+  | 'nameSuffix'
+  | 'gender'
+  | 'ethnicity'
+  | 'nickname'
+  | 'nin'
+  | 'birthdate'
+  | 'language'
+  | 'estimatedGradDate'
+  | 'email'
+  | 'phone'
+  | 'isDisable'
+
+
+
+  
+
+export interface StudentPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  updatedAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  firstName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  lastName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  middleName: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  nameSuffix: {
+    type: 'Suffix'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"StudentPreviousValues">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Suffix | null> | prisma.Suffix | null
+  }
+  gender: {
+    type: 'Gender'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StudentPreviousValues">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Gender> | prisma.Gender
+  }
+  ethnicity: {
+    type: 'Ethnicity'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StudentPreviousValues">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Ethnicity> | prisma.Ethnicity
+  }
+  nickname: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  nin: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  birthdate: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  language: {
+    type: 'Language'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"StudentPreviousValues">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Language> | prisma.Language
+  }
+  estimatedGradDate: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  email: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  phone: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  isDisable: {
+    type: 'Boolean'
     args: {}
     description: string
     list: undefined
@@ -5337,6 +6151,362 @@ export type SchoolWhereUniqueInputInputObject =
   | { name: 'uri', alias?: string  } 
   | { name: 'email', alias?: string  } 
   
+export interface StudentWhereUniqueInput {
+  id?: string | null
+  email?: string | null
+}
+export type StudentWhereUniqueInputInputObject =
+  | Extract<keyof StudentWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  
+export interface StudentWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
+  updatedAt?: string | null
+  updatedAt_not?: string | null
+  updatedAt_in?: string[]
+  updatedAt_not_in?: string[]
+  updatedAt_lt?: string | null
+  updatedAt_lte?: string | null
+  updatedAt_gt?: string | null
+  updatedAt_gte?: string | null
+  firstName?: string | null
+  firstName_not?: string | null
+  firstName_in?: string[]
+  firstName_not_in?: string[]
+  firstName_lt?: string | null
+  firstName_lte?: string | null
+  firstName_gt?: string | null
+  firstName_gte?: string | null
+  firstName_contains?: string | null
+  firstName_not_contains?: string | null
+  firstName_starts_with?: string | null
+  firstName_not_starts_with?: string | null
+  firstName_ends_with?: string | null
+  firstName_not_ends_with?: string | null
+  lastName?: string | null
+  lastName_not?: string | null
+  lastName_in?: string[]
+  lastName_not_in?: string[]
+  lastName_lt?: string | null
+  lastName_lte?: string | null
+  lastName_gt?: string | null
+  lastName_gte?: string | null
+  lastName_contains?: string | null
+  lastName_not_contains?: string | null
+  lastName_starts_with?: string | null
+  lastName_not_starts_with?: string | null
+  lastName_ends_with?: string | null
+  lastName_not_ends_with?: string | null
+  middleName?: string | null
+  middleName_not?: string | null
+  middleName_in?: string[]
+  middleName_not_in?: string[]
+  middleName_lt?: string | null
+  middleName_lte?: string | null
+  middleName_gt?: string | null
+  middleName_gte?: string | null
+  middleName_contains?: string | null
+  middleName_not_contains?: string | null
+  middleName_starts_with?: string | null
+  middleName_not_starts_with?: string | null
+  middleName_ends_with?: string | null
+  middleName_not_ends_with?: string | null
+  nameSuffix?: prisma.Suffix | null
+  nameSuffix_not?: prisma.Suffix | null
+  nameSuffix_in?: prisma.Suffix[]
+  nameSuffix_not_in?: prisma.Suffix[]
+  gender?: prisma.Gender | null
+  gender_not?: prisma.Gender | null
+  gender_in?: prisma.Gender[]
+  gender_not_in?: prisma.Gender[]
+  ethnicity?: prisma.Ethnicity | null
+  ethnicity_not?: prisma.Ethnicity | null
+  ethnicity_in?: prisma.Ethnicity[]
+  ethnicity_not_in?: prisma.Ethnicity[]
+  nickname?: string | null
+  nickname_not?: string | null
+  nickname_in?: string[]
+  nickname_not_in?: string[]
+  nickname_lt?: string | null
+  nickname_lte?: string | null
+  nickname_gt?: string | null
+  nickname_gte?: string | null
+  nickname_contains?: string | null
+  nickname_not_contains?: string | null
+  nickname_starts_with?: string | null
+  nickname_not_starts_with?: string | null
+  nickname_ends_with?: string | null
+  nickname_not_ends_with?: string | null
+  nin?: string | null
+  nin_not?: string | null
+  nin_in?: string[]
+  nin_not_in?: string[]
+  nin_lt?: string | null
+  nin_lte?: string | null
+  nin_gt?: string | null
+  nin_gte?: string | null
+  nin_contains?: string | null
+  nin_not_contains?: string | null
+  nin_starts_with?: string | null
+  nin_not_starts_with?: string | null
+  nin_ends_with?: string | null
+  nin_not_ends_with?: string | null
+  birthdate?: string | null
+  birthdate_not?: string | null
+  birthdate_in?: string[]
+  birthdate_not_in?: string[]
+  birthdate_lt?: string | null
+  birthdate_lte?: string | null
+  birthdate_gt?: string | null
+  birthdate_gte?: string | null
+  birthdate_contains?: string | null
+  birthdate_not_contains?: string | null
+  birthdate_starts_with?: string | null
+  birthdate_not_starts_with?: string | null
+  birthdate_ends_with?: string | null
+  birthdate_not_ends_with?: string | null
+  language?: prisma.Language | null
+  language_not?: prisma.Language | null
+  language_in?: prisma.Language[]
+  language_not_in?: prisma.Language[]
+  estimatedGradDate?: string | null
+  estimatedGradDate_not?: string | null
+  estimatedGradDate_in?: string[]
+  estimatedGradDate_not_in?: string[]
+  estimatedGradDate_lt?: string | null
+  estimatedGradDate_lte?: string | null
+  estimatedGradDate_gt?: string | null
+  estimatedGradDate_gte?: string | null
+  email?: string | null
+  email_not?: string | null
+  email_in?: string[]
+  email_not_in?: string[]
+  email_lt?: string | null
+  email_lte?: string | null
+  email_gt?: string | null
+  email_gte?: string | null
+  email_contains?: string | null
+  email_not_contains?: string | null
+  email_starts_with?: string | null
+  email_not_starts_with?: string | null
+  email_ends_with?: string | null
+  email_not_ends_with?: string | null
+  phone?: string | null
+  phone_not?: string | null
+  phone_in?: string[]
+  phone_not_in?: string[]
+  phone_lt?: string | null
+  phone_lte?: string | null
+  phone_gt?: string | null
+  phone_gte?: string | null
+  phone_contains?: string | null
+  phone_not_contains?: string | null
+  phone_starts_with?: string | null
+  phone_not_starts_with?: string | null
+  phone_ends_with?: string | null
+  phone_not_ends_with?: string | null
+  isDisable?: boolean | null
+  isDisable_not?: boolean | null
+  AND?: StudentWhereInput[]
+  OR?: StudentWhereInput[]
+  NOT?: StudentWhereInput[]
+}
+export type StudentWhereInputInputObject =
+  | Extract<keyof StudentWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
+  | { name: 'updatedAt', alias?: string  } 
+  | { name: 'updatedAt_not', alias?: string  } 
+  | { name: 'updatedAt_in', alias?: string  } 
+  | { name: 'updatedAt_not_in', alias?: string  } 
+  | { name: 'updatedAt_lt', alias?: string  } 
+  | { name: 'updatedAt_lte', alias?: string  } 
+  | { name: 'updatedAt_gt', alias?: string  } 
+  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'firstName_not', alias?: string  } 
+  | { name: 'firstName_in', alias?: string  } 
+  | { name: 'firstName_not_in', alias?: string  } 
+  | { name: 'firstName_lt', alias?: string  } 
+  | { name: 'firstName_lte', alias?: string  } 
+  | { name: 'firstName_gt', alias?: string  } 
+  | { name: 'firstName_gte', alias?: string  } 
+  | { name: 'firstName_contains', alias?: string  } 
+  | { name: 'firstName_not_contains', alias?: string  } 
+  | { name: 'firstName_starts_with', alias?: string  } 
+  | { name: 'firstName_not_starts_with', alias?: string  } 
+  | { name: 'firstName_ends_with', alias?: string  } 
+  | { name: 'firstName_not_ends_with', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'lastName_not', alias?: string  } 
+  | { name: 'lastName_in', alias?: string  } 
+  | { name: 'lastName_not_in', alias?: string  } 
+  | { name: 'lastName_lt', alias?: string  } 
+  | { name: 'lastName_lte', alias?: string  } 
+  | { name: 'lastName_gt', alias?: string  } 
+  | { name: 'lastName_gte', alias?: string  } 
+  | { name: 'lastName_contains', alias?: string  } 
+  | { name: 'lastName_not_contains', alias?: string  } 
+  | { name: 'lastName_starts_with', alias?: string  } 
+  | { name: 'lastName_not_starts_with', alias?: string  } 
+  | { name: 'lastName_ends_with', alias?: string  } 
+  | { name: 'lastName_not_ends_with', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'middleName_not', alias?: string  } 
+  | { name: 'middleName_in', alias?: string  } 
+  | { name: 'middleName_not_in', alias?: string  } 
+  | { name: 'middleName_lt', alias?: string  } 
+  | { name: 'middleName_lte', alias?: string  } 
+  | { name: 'middleName_gt', alias?: string  } 
+  | { name: 'middleName_gte', alias?: string  } 
+  | { name: 'middleName_contains', alias?: string  } 
+  | { name: 'middleName_not_contains', alias?: string  } 
+  | { name: 'middleName_starts_with', alias?: string  } 
+  | { name: 'middleName_not_starts_with', alias?: string  } 
+  | { name: 'middleName_ends_with', alias?: string  } 
+  | { name: 'middleName_not_ends_with', alias?: string  } 
+  | { name: 'nameSuffix', alias?: string  } 
+  | { name: 'nameSuffix_not', alias?: string  } 
+  | { name: 'nameSuffix_in', alias?: string  } 
+  | { name: 'nameSuffix_not_in', alias?: string  } 
+  | { name: 'gender', alias?: string  } 
+  | { name: 'gender_not', alias?: string  } 
+  | { name: 'gender_in', alias?: string  } 
+  | { name: 'gender_not_in', alias?: string  } 
+  | { name: 'ethnicity', alias?: string  } 
+  | { name: 'ethnicity_not', alias?: string  } 
+  | { name: 'ethnicity_in', alias?: string  } 
+  | { name: 'ethnicity_not_in', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'nickname_not', alias?: string  } 
+  | { name: 'nickname_in', alias?: string  } 
+  | { name: 'nickname_not_in', alias?: string  } 
+  | { name: 'nickname_lt', alias?: string  } 
+  | { name: 'nickname_lte', alias?: string  } 
+  | { name: 'nickname_gt', alias?: string  } 
+  | { name: 'nickname_gte', alias?: string  } 
+  | { name: 'nickname_contains', alias?: string  } 
+  | { name: 'nickname_not_contains', alias?: string  } 
+  | { name: 'nickname_starts_with', alias?: string  } 
+  | { name: 'nickname_not_starts_with', alias?: string  } 
+  | { name: 'nickname_ends_with', alias?: string  } 
+  | { name: 'nickname_not_ends_with', alias?: string  } 
+  | { name: 'nin', alias?: string  } 
+  | { name: 'nin_not', alias?: string  } 
+  | { name: 'nin_in', alias?: string  } 
+  | { name: 'nin_not_in', alias?: string  } 
+  | { name: 'nin_lt', alias?: string  } 
+  | { name: 'nin_lte', alias?: string  } 
+  | { name: 'nin_gt', alias?: string  } 
+  | { name: 'nin_gte', alias?: string  } 
+  | { name: 'nin_contains', alias?: string  } 
+  | { name: 'nin_not_contains', alias?: string  } 
+  | { name: 'nin_starts_with', alias?: string  } 
+  | { name: 'nin_not_starts_with', alias?: string  } 
+  | { name: 'nin_ends_with', alias?: string  } 
+  | { name: 'nin_not_ends_with', alias?: string  } 
+  | { name: 'birthdate', alias?: string  } 
+  | { name: 'birthdate_not', alias?: string  } 
+  | { name: 'birthdate_in', alias?: string  } 
+  | { name: 'birthdate_not_in', alias?: string  } 
+  | { name: 'birthdate_lt', alias?: string  } 
+  | { name: 'birthdate_lte', alias?: string  } 
+  | { name: 'birthdate_gt', alias?: string  } 
+  | { name: 'birthdate_gte', alias?: string  } 
+  | { name: 'birthdate_contains', alias?: string  } 
+  | { name: 'birthdate_not_contains', alias?: string  } 
+  | { name: 'birthdate_starts_with', alias?: string  } 
+  | { name: 'birthdate_not_starts_with', alias?: string  } 
+  | { name: 'birthdate_ends_with', alias?: string  } 
+  | { name: 'birthdate_not_ends_with', alias?: string  } 
+  | { name: 'language', alias?: string  } 
+  | { name: 'language_not', alias?: string  } 
+  | { name: 'language_in', alias?: string  } 
+  | { name: 'language_not_in', alias?: string  } 
+  | { name: 'estimatedGradDate', alias?: string  } 
+  | { name: 'estimatedGradDate_not', alias?: string  } 
+  | { name: 'estimatedGradDate_in', alias?: string  } 
+  | { name: 'estimatedGradDate_not_in', alias?: string  } 
+  | { name: 'estimatedGradDate_lt', alias?: string  } 
+  | { name: 'estimatedGradDate_lte', alias?: string  } 
+  | { name: 'estimatedGradDate_gt', alias?: string  } 
+  | { name: 'estimatedGradDate_gte', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'email_not', alias?: string  } 
+  | { name: 'email_in', alias?: string  } 
+  | { name: 'email_not_in', alias?: string  } 
+  | { name: 'email_lt', alias?: string  } 
+  | { name: 'email_lte', alias?: string  } 
+  | { name: 'email_gt', alias?: string  } 
+  | { name: 'email_gte', alias?: string  } 
+  | { name: 'email_contains', alias?: string  } 
+  | { name: 'email_not_contains', alias?: string  } 
+  | { name: 'email_starts_with', alias?: string  } 
+  | { name: 'email_not_starts_with', alias?: string  } 
+  | { name: 'email_ends_with', alias?: string  } 
+  | { name: 'email_not_ends_with', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'phone_not', alias?: string  } 
+  | { name: 'phone_in', alias?: string  } 
+  | { name: 'phone_not_in', alias?: string  } 
+  | { name: 'phone_lt', alias?: string  } 
+  | { name: 'phone_lte', alias?: string  } 
+  | { name: 'phone_gt', alias?: string  } 
+  | { name: 'phone_gte', alias?: string  } 
+  | { name: 'phone_contains', alias?: string  } 
+  | { name: 'phone_not_contains', alias?: string  } 
+  | { name: 'phone_starts_with', alias?: string  } 
+  | { name: 'phone_not_starts_with', alias?: string  } 
+  | { name: 'phone_ends_with', alias?: string  } 
+  | { name: 'phone_not_ends_with', alias?: string  } 
+  | { name: 'isDisable', alias?: string  } 
+  | { name: 'isDisable_not', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface TokenWhereUniqueInput {
   id?: string | null
   token?: string | null
@@ -6538,6 +7708,107 @@ export type SchoolUpdateManyMutationInputInputObject =
   | { name: 'uri', alias?: string  } 
   | { name: 'email', alias?: string  } 
   
+export interface StudentCreateInput {
+  id?: string | null
+  firstName?: string
+  lastName?: string
+  middleName?: string | null
+  nameSuffix?: prisma.Suffix | null
+  gender?: prisma.Gender | null
+  ethnicity?: prisma.Ethnicity | null
+  nickname?: string | null
+  nin?: string | null
+  birthdate?: string
+  language?: prisma.Language | null
+  estimatedGradDate?: string | null
+  email?: string
+  phone?: string | null
+  isDisable?: boolean | null
+}
+export type StudentCreateInputInputObject =
+  | Extract<keyof StudentCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'nameSuffix', alias?: string  } 
+  | { name: 'gender', alias?: string  } 
+  | { name: 'ethnicity', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'nin', alias?: string  } 
+  | { name: 'birthdate', alias?: string  } 
+  | { name: 'language', alias?: string  } 
+  | { name: 'estimatedGradDate', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'isDisable', alias?: string  } 
+  
+export interface StudentUpdateInput {
+  firstName?: string | null
+  lastName?: string | null
+  middleName?: string | null
+  nameSuffix?: prisma.Suffix | null
+  gender?: prisma.Gender | null
+  ethnicity?: prisma.Ethnicity | null
+  nickname?: string | null
+  nin?: string | null
+  birthdate?: string | null
+  language?: prisma.Language | null
+  estimatedGradDate?: string | null
+  email?: string | null
+  phone?: string | null
+  isDisable?: boolean | null
+}
+export type StudentUpdateInputInputObject =
+  | Extract<keyof StudentUpdateInput, string>
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'nameSuffix', alias?: string  } 
+  | { name: 'gender', alias?: string  } 
+  | { name: 'ethnicity', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'nin', alias?: string  } 
+  | { name: 'birthdate', alias?: string  } 
+  | { name: 'language', alias?: string  } 
+  | { name: 'estimatedGradDate', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'isDisable', alias?: string  } 
+  
+export interface StudentUpdateManyMutationInput {
+  firstName?: string | null
+  lastName?: string | null
+  middleName?: string | null
+  nameSuffix?: prisma.Suffix | null
+  gender?: prisma.Gender | null
+  ethnicity?: prisma.Ethnicity | null
+  nickname?: string | null
+  nin?: string | null
+  birthdate?: string | null
+  language?: prisma.Language | null
+  estimatedGradDate?: string | null
+  email?: string | null
+  phone?: string | null
+  isDisable?: boolean | null
+}
+export type StudentUpdateManyMutationInputInputObject =
+  | Extract<keyof StudentUpdateManyMutationInput, string>
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'nameSuffix', alias?: string  } 
+  | { name: 'gender', alias?: string  } 
+  | { name: 'ethnicity', alias?: string  } 
+  | { name: 'nickname', alias?: string  } 
+  | { name: 'nin', alias?: string  } 
+  | { name: 'birthdate', alias?: string  } 
+  | { name: 'language', alias?: string  } 
+  | { name: 'estimatedGradDate', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'phone', alias?: string  } 
+  | { name: 'isDisable', alias?: string  } 
+  
 export interface TokenCreateInput {
   id?: string | null
   accountId?: string
@@ -6715,6 +7986,27 @@ export type SchoolSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface StudentSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: StudentWhereInput | null
+  AND?: StudentSubscriptionWhereInput[]
+  OR?: StudentSubscriptionWhereInput[]
+  NOT?: StudentSubscriptionWhereInput[]
+}
+export type StudentSubscriptionWhereInputInputObject =
+  | Extract<keyof StudentSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface TokenSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
@@ -6870,6 +8162,78 @@ export type OwnerOrderByInputValues =
   | 'middleName_DESC'
   | 'lastName_ASC'
   | 'lastName_DESC'
+  
+export type SuffixValues =
+  | 'JUNIOR'
+  | 'I'
+  | 'II'
+  | 'III'
+  | 'IV'
+  | 'SENIOR'
+  
+export type GenderValues =
+  | 'MALE'
+  | 'FEMALE'
+  | 'OTHER'
+  | 'UNKNOWN'
+  
+export type EthnicityValues =
+  | 'AFRICAN'
+  | 'ASIAN'
+  | 'HISPANIC'
+  | 'PACIFIC_ISLANDER'
+  | 'INDIAN'
+  | 'MIDDLE_EASTERN'
+  | 'MIXED_RACE'
+  | 'WHITE'
+  | 'INDIGENOUS'
+  | 'AMERICAN_INDIAN_OR_NATIVE_ALASKAN'
+  | 'UNKNOWN'
+  | 'OTHER'
+  
+export type LanguageValues =
+  | 'ENGLISH'
+  | 'IGBO'
+  | 'HAUSA'
+  | 'YORUBA'
+  | 'FRENCH'
+  | 'SPANISH'
+  
+export type StudentOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'firstName_ASC'
+  | 'firstName_DESC'
+  | 'lastName_ASC'
+  | 'lastName_DESC'
+  | 'middleName_ASC'
+  | 'middleName_DESC'
+  | 'nameSuffix_ASC'
+  | 'nameSuffix_DESC'
+  | 'gender_ASC'
+  | 'gender_DESC'
+  | 'ethnicity_ASC'
+  | 'ethnicity_DESC'
+  | 'nickname_ASC'
+  | 'nickname_DESC'
+  | 'nin_ASC'
+  | 'nin_DESC'
+  | 'birthdate_ASC'
+  | 'birthdate_DESC'
+  | 'language_ASC'
+  | 'language_DESC'
+  | 'estimatedGradDate_ASC'
+  | 'estimatedGradDate_DESC'
+  | 'email_ASC'
+  | 'email_DESC'
+  | 'phone_ASC'
+  | 'phone_DESC'
+  | 'isDisable_ASC'
+  | 'isDisable_DESC'
   
 export type TokenTypeValues =
   | 'PASSWORD'

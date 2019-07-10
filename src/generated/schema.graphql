@@ -167,11 +167,59 @@ type AggregateSchool {
   count: Int!
 }
 
+type AggregateStudent {
+  count: Int!
+}
+
 type AggregateToken {
   count: Int!
 }
 
 scalar DateTime
+
+enum Ethnicity {
+  AFRICAN
+  AMERICAN_INDIAN_OR_NATIVE_ALASKAN
+  ASIAN
+  HISPANIC
+  INDIAN
+  INDIGENOUS
+  MIDDLE_EASTERN
+  MIXED_RACE
+  OTHER
+  PACIFIC_ISLANDER
+  UNKNOWN
+  WHITE
+}
+
+enum EthnicityEnum {
+  AFRICAN
+  AMERICAN_INDIAN_OR_NATIVE_ALASKAN
+  ASIAN
+  HISPANIC
+  INDIAN
+  INDIGENOUS
+  MIDDLE_EASTERN
+  MIXED_RACE
+  OTHER
+  PACIFIC_ISLANDER
+  UNKNOWN
+  WHITE
+}
+
+enum Gender {
+  FEMALE
+  MALE
+  OTHER
+  UNKNOWN
+}
+
+enum GenderEnum {
+  FEMALE
+  MALE
+  OTHER
+  UNKNOWN
+}
 
 type Geocode {
   createdAt: DateTime!
@@ -285,6 +333,14 @@ type InvitationEdge {
   node: Invitation!
 }
 
+enum InvitationEnum {
+  ADMIN
+  GUARDIAN
+  STAFF
+  STUDENT
+  TEACHER
+}
+
 enum InvitationOrderByInput {
   createdAt_ASC
   createdAt_DESC
@@ -296,14 +352,6 @@ enum InvitationOrderByInput {
   role_DESC
   updatedAt_ASC
   updatedAt_DESC
-}
-
-enum InvitationRole {
-  ADMIN
-  GUARDIAN
-  STAFF
-  STUDENT
-  TEACHER
 }
 
 input InvitationWhereInput {
@@ -363,6 +411,24 @@ input InvitationWhereInput {
 input InvitationWhereUniqueInput {
   email: String
   id: ID
+}
+
+enum Language {
+  ENGLISH
+  FRENCH
+  HAUSA
+  IGBO
+  SPANISH
+  YORUBA
+}
+
+enum LanguageEnum {
+  ENGLISH
+  FRENCH
+  HAUSA
+  IGBO
+  SPANISH
+  YORUBA
 }
 
 type Location {
@@ -564,9 +630,10 @@ input LocationWhereUniqueInput {
 }
 
 type Mutation {
-  createInvitation(email: String!, role: InvitationRole!): Invitation
+  createInvitation(email: String!, role: InvitationEnum!): Invitation
   createOwner(firstName: String!, lastName: String!, middleName: String): Owner
   createSchool(email: String!, location: LocationCreateInput, phone: String!, title: String!, uri: String!): School
+  createStudent(birthdate: String!, email: String!, estimatedGradDate: String, ethnicity: EthnicityEnum, firstName: String!, gender: GenderEnum, language: LanguageEnum, lastName: String!, middleName: String, nameSuffix: SuffixEnum, nickname: String, nin: String, phone: String): Student
   login(email: String!, password: String!): Account
   passwordReset(password: String!, token: String!): TriggerAction
   requestPasswordReset(email: String!): TriggerAction
@@ -730,6 +797,9 @@ type Query {
   school(where: SchoolWhereUniqueInput!): School
   schools(after: String, before: String, first: Int, last: Int, orderBy: SchoolOrderByInput, skip: Int, where: SchoolWhereInput): [School!]!
   schoolsConnection(after: String, before: String, first: Int, last: Int, orderBy: SchoolOrderByInput, skip: Int, where: SchoolWhereInput): SchoolConnection!
+  student(where: StudentWhereUniqueInput!): Student
+  students(after: String, before: String, first: Int, last: Int, orderBy: StudentOrderByInput, skip: Int, where: StudentWhereInput): [Student!]!
+  studentsConnection(after: String, before: String, first: Int, last: Int, orderBy: StudentOrderByInput, skip: Int, where: StudentWhereInput): StudentConnection!
   token(where: TokenWhereUniqueInput!): Token
   tokens(after: String, before: String, first: Int, last: Int, orderBy: TokenOrderByInput, skip: Int, where: TokenWhereInput): [Token!]!
   tokensConnection(after: String, before: String, first: Int, last: Int, orderBy: TokenOrderByInput, skip: Int, where: TokenWhereInput): TokenConnection!
@@ -892,6 +962,269 @@ input SchoolWhereUniqueInput {
   id: ID
   phone: String
   uri: String
+}
+
+type Student {
+  birthdate: String!
+  createdAt: DateTime!
+  email: String!
+  estimatedGradDate: DateTime
+  ethnicity: Ethnicity!
+  firstName: String!
+  gender: Gender!
+  id: ID!
+  language: Language!
+  lastName: String!
+  middleName: String
+  nameSuffix: Suffix
+  nickname: String
+  nin: String
+  phone: String
+}
+
+type StudentConnection {
+  aggregate: AggregateStudent!
+  edges: [StudentEdge!]!
+  pageInfo: PageInfo!
+}
+
+type StudentEdge {
+  cursor: String!
+  node: Student!
+}
+
+enum StudentOrderByInput {
+  birthdate_ASC
+  birthdate_DESC
+  createdAt_ASC
+  createdAt_DESC
+  email_ASC
+  email_DESC
+  estimatedGradDate_ASC
+  estimatedGradDate_DESC
+  ethnicity_ASC
+  ethnicity_DESC
+  firstName_ASC
+  firstName_DESC
+  gender_ASC
+  gender_DESC
+  id_ASC
+  id_DESC
+  isDisable_ASC
+  isDisable_DESC
+  language_ASC
+  language_DESC
+  lastName_ASC
+  lastName_DESC
+  middleName_ASC
+  middleName_DESC
+  nameSuffix_ASC
+  nameSuffix_DESC
+  nickname_ASC
+  nickname_DESC
+  nin_ASC
+  nin_DESC
+  phone_ASC
+  phone_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input StudentWhereInput {
+  AND: [StudentWhereInput!]
+  birthdate: String
+  birthdate_contains: String
+  birthdate_ends_with: String
+  birthdate_gt: String
+  birthdate_gte: String
+  birthdate_in: [String!]
+  birthdate_lt: String
+  birthdate_lte: String
+  birthdate_not: String
+  birthdate_not_contains: String
+  birthdate_not_ends_with: String
+  birthdate_not_in: [String!]
+  birthdate_not_starts_with: String
+  birthdate_starts_with: String
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  email: String
+  email_contains: String
+  email_ends_with: String
+  email_gt: String
+  email_gte: String
+  email_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_not: String
+  email_not_contains: String
+  email_not_ends_with: String
+  email_not_in: [String!]
+  email_not_starts_with: String
+  email_starts_with: String
+  estimatedGradDate: DateTime
+  estimatedGradDate_gt: DateTime
+  estimatedGradDate_gte: DateTime
+  estimatedGradDate_in: [DateTime!]
+  estimatedGradDate_lt: DateTime
+  estimatedGradDate_lte: DateTime
+  estimatedGradDate_not: DateTime
+  estimatedGradDate_not_in: [DateTime!]
+  ethnicity: Ethnicity
+  ethnicity_in: [Ethnicity!]
+  ethnicity_not: Ethnicity
+  ethnicity_not_in: [Ethnicity!]
+  firstName: String
+  firstName_contains: String
+  firstName_ends_with: String
+  firstName_gt: String
+  firstName_gte: String
+  firstName_in: [String!]
+  firstName_lt: String
+  firstName_lte: String
+  firstName_not: String
+  firstName_not_contains: String
+  firstName_not_ends_with: String
+  firstName_not_in: [String!]
+  firstName_not_starts_with: String
+  firstName_starts_with: String
+  gender: Gender
+  gender_in: [Gender!]
+  gender_not: Gender
+  gender_not_in: [Gender!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  isDisable: Boolean
+  isDisable_not: Boolean
+  language: Language
+  language_in: [Language!]
+  language_not: Language
+  language_not_in: [Language!]
+  lastName: String
+  lastName_contains: String
+  lastName_ends_with: String
+  lastName_gt: String
+  lastName_gte: String
+  lastName_in: [String!]
+  lastName_lt: String
+  lastName_lte: String
+  lastName_not: String
+  lastName_not_contains: String
+  lastName_not_ends_with: String
+  lastName_not_in: [String!]
+  lastName_not_starts_with: String
+  lastName_starts_with: String
+  middleName: String
+  middleName_contains: String
+  middleName_ends_with: String
+  middleName_gt: String
+  middleName_gte: String
+  middleName_in: [String!]
+  middleName_lt: String
+  middleName_lte: String
+  middleName_not: String
+  middleName_not_contains: String
+  middleName_not_ends_with: String
+  middleName_not_in: [String!]
+  middleName_not_starts_with: String
+  middleName_starts_with: String
+  nameSuffix: Suffix
+  nameSuffix_in: [Suffix!]
+  nameSuffix_not: Suffix
+  nameSuffix_not_in: [Suffix!]
+  nickname: String
+  nickname_contains: String
+  nickname_ends_with: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_not: String
+  nickname_not_contains: String
+  nickname_not_ends_with: String
+  nickname_not_in: [String!]
+  nickname_not_starts_with: String
+  nickname_starts_with: String
+  nin: String
+  nin_contains: String
+  nin_ends_with: String
+  nin_gt: String
+  nin_gte: String
+  nin_in: [String!]
+  nin_lt: String
+  nin_lte: String
+  nin_not: String
+  nin_not_contains: String
+  nin_not_ends_with: String
+  nin_not_in: [String!]
+  nin_not_starts_with: String
+  nin_starts_with: String
+  NOT: [StudentWhereInput!]
+  OR: [StudentWhereInput!]
+  phone: String
+  phone_contains: String
+  phone_ends_with: String
+  phone_gt: String
+  phone_gte: String
+  phone_in: [String!]
+  phone_lt: String
+  phone_lte: String
+  phone_not: String
+  phone_not_contains: String
+  phone_not_ends_with: String
+  phone_not_in: [String!]
+  phone_not_starts_with: String
+  phone_starts_with: String
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input StudentWhereUniqueInput {
+  email: String
+  id: ID
+}
+
+enum Suffix {
+  I
+  II
+  III
+  IV
+  JUNIOR
+  SENIOR
+}
+
+enum SuffixEnum {
+  I
+  II
+  III
+  IV
+  JUNIOR
+  SENIOR
 }
 
 type Token {

@@ -14,7 +14,7 @@ export const Mutation = extendType({
       args: {
         email: stringArg(),
         role: arg({
-          type: 'InvitationRole',
+          type: 'InvitationEnum',
           required: true,
         }),
       },
